@@ -1,0 +1,136 @@
+{
+  "ui": {
+    "boardTitle": "Durum panosu",
+    "boardIntro": "BT'nin izlediği her şey tek bakışta. Ağı, arıza simülatörünün şu an gördüğü haliyle gösterir.",
+    "allGood": "Alarm yok.",
+    "alerts": "Kritik: {bad} · Uyarı: {warn}",
+    "openSim": "Arıza simülatörünü aç",
+    "col": {
+      "site": "Lokasyon",
+      "wan": "İnternet",
+      "vpn": "VPN",
+      "wifi": "Wi-Fi",
+      "key": "Önemli cihazlar"
+    },
+    "wan": {
+      "primary": "Ana hat",
+      "backup": "LTE yedeği",
+      "offline": "Kesik"
+    },
+    "vpn": {
+      "primary": "Açık",
+      "backup": "Yedek yol",
+      "down": "Kopuk"
+    },
+    "wifiValue": "{total} erişim noktasından {up}",
+    "keyOk": "Hepsi çalışıyor",
+    "keyDown": "{count} arızalı",
+    "keyDegraded": "{count} yavaş",
+    "hqTitle": "Merkez",
+    "hosts": "ESXi host'ları",
+    "hostsValue": "{total} host'tan {up} çalışıyor",
+    "vms": "Sanal sunucular",
+    "vmsValue": "{total} sunucudan {running} çalışıyor",
+    "storage": "Storage controller'ları",
+    "backup": "Yedekleme",
+    "backupOk": "Son çalışma 02:00, dış kopya tamam (örnek)",
+    "backupBad": "Yedekleme veya dış kopya başarısız",
+    "certs": "Sertifikalar",
+    "certDays": "{days} gün kaldı",
+    "certExpired": "Süresi doldu",
+    "alertsTitle": "Alarmlar",
+    "health": {
+      "ok": "Normal",
+      "warn": "Uyarı",
+      "bad": "Kritik"
+    },
+    "oncallTitle": "Nöbet örneği",
+    "oncallIntro": "Tipik bir sabah alarmı, ilk bildirimden olay sonrası notuna kadar nasıl ele alınır?",
+    "simulate": "Bu olayı simüle et",
+    "warningsTitle": "Erken uyarılar",
+    "warningsIntro": "Henüz kesinti olmayan sorunlar. Zamanında çözülürse hiç kesintiye dönüşmez.",
+    "releaseTitle": "Yazılım ekibiyle çalışma",
+    "releaseIntro": "Klinik yazılımının veya bir klinik uygulamasının yeni sürümü kliniklere nasıl ulaşır?",
+    "checksTitle": "Bir sürüm kliniklere ulaşmadan önce BT neyi kontrol eder",
+    "illustrative": "Süreler ve değerler örnek amaçlıdır."
+  },
+  "alert": {
+    "wan": {
+      "backup": "{site} LTE yedeğiyle çalışıyor.",
+      "offline": "{site} lokasyonunda internet yok."
+    },
+    "vpn": {
+      "backup": "{site}: tünel yedek yol üzerinden.",
+      "down": "{site}: VPN tüneli kopuk."
+    },
+    "wifi": "{site}: {total} erişim noktasından {up} tanesi açık.",
+    "down": "{device} arızalı.",
+    "hosts": "{total} ESXi host'undan yalnızca {up} tanesi çalışıyor.",
+    "vms": "{count} sanal sunucu çalışmıyor.",
+    "restarted": "{count} sanal sunucu HA tarafından yeniden başlatıldı.",
+    "storage": "{total} storage controller'ından {up} tanesi çalışıyor.",
+    "backup": "Yedekleme veya dış kopya başarısız oldu.",
+    "certExpired": "{service} sertifikasının süresi doldu.",
+    "certSoon": "{service} sertifikasının süresi {days} gün içinde doluyor."
+  },
+  "warn": {
+    "disk": "{device}: disk %{value} dolu (eşik %{limit}).",
+    "ups": "{device}: akü süresi {value} dk, beklenen {limit} dk'nın altında. Akü yaşlanıyor.",
+    "cert": "{device}: sertifikanın süresi {value} gün içinde doluyor (uyarı {limit} günden itibaren).",
+    "firmware": "{device}: firmware desteği {value} ay içinde sona eriyor.",
+    "lte": "{device}: aylık LTE veri kotasının %{value}'i kullanıldı."
+  },
+  "oncall": {
+    "alert": {
+      "title": "Alarm",
+      "text": "İzleme: Hamburg'un ana hattı kesildi, klinik LTE ile çalışıyor. Nöbetçiye bildirim gidiyor."
+    },
+    "triage": {
+      "title": "Önceliklendirme",
+      "text": "Ödemeler ve klinik yazılımı LTE üzerinden çalışıyor; röntgen yüklemeleri yavaş. Öncelik yüksek, kritik değil."
+    },
+    "runbook": {
+      "title": "Runbook",
+      "text": "Firewall panosu: WAN1'de senkron yok. Sağlayıcının durum sayfası bir şey göstermiyor. Sağlayıcıda kayıt açıldı."
+    },
+    "communicate": {
+      "title": "İletişim",
+      "text": "Klinik yöneticisine mesaj: LTE ile çalışıyorsunuz, büyük yüklemelerden kaçının, sonraki bilgi 09:00'da."
+    },
+    "resolve": {
+      "title": "Çözüm",
+      "text": "Sağlayıcı sokaktaki hasarlı fiberi onarıyor. WAN1 geri geldi, tünel ona dönüyor."
+    },
+    "review": {
+      "title": "Olay sonrası notu",
+      "text": "Neden: inşaat çalışması. Önleme: LTE veri kullanımı için alarm, sağlayıcının eskalasyon kişileri runbook'ta."
+    }
+  },
+  "release": {
+    "step": {
+      "staging": {
+        "title": "Staging",
+        "text": "Yeni sürüm, gerçek konfigürasyonların kopyalarıyla bir test ortamında çalışır."
+      },
+      "pilot": {
+        "title": "Pilot klinik",
+        "text": "Önce bir klinik alır, BT hazırda bekler; diğerleri eski sürümde kalır."
+      },
+      "all": {
+        "title": "Tüm klinikler",
+        "text": "Sorunsuz bir pilot haftasından sonra mesai dışında klinik klinik devam eder."
+      },
+      "rollback": {
+        "title": "Geri dönüş planı",
+        "text": "Önceki sürüm hazır tutulur; böylece bir klinik bir saat içinde geri dönebilir (örnek)."
+      }
+    },
+    "check": {
+      "compat": "MDM'in şu an dağıttığı macOS ve tarayıcı sürümlerinde çalışıyor.",
+      "network": "Yeni firewall kuralı gerektirmiyor ya da kurallar talep edilip staging'de test edildi.",
+      "devices": "Yazıcılar, kart terminalleri ve laboratuvar arayüzleri onunla çalışmaya devam ediyor.",
+      "window": "Sürüm mesai dışında çıkar, asla pazartesi sabahı değil.",
+      "comms": "Klinik yöneticileri neyin değiştiğini ve kimi arayacaklarını biliyor."
+    }
+  }
+}

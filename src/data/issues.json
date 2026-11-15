@@ -1,0 +1,23 @@
+{
+  "categories": ["printing", "payment", "network", "files", "medical", "accounts", "devices"],
+  "issues": [
+    { "id": "label-printer", "category": "printing", "kind": "incident", "causes": 3, "checks": 4, "show": { "site": "hh", "roles": ["label-printer", "reception-mac"] }, "simulate": [{ "action": "power-off", "target": "hh-label1" }] },
+    { "id": "scan-folder", "category": "printing", "kind": "incident", "causes": 3, "checks": 4, "show": { "site": "hh", "roles": ["document-printer", "vm-files"] } },
+    { "id": "card-terminal", "category": "payment", "kind": "incident", "causes": 3, "checks": 4, "show": { "site": "hh", "roles": ["card-terminal", "access-switch", "clinic-firewall"] }, "simulate": [{ "action": "cut-link", "target": "hh-l-pos1" }] },
+    { "id": "wifi-treatment", "category": "network", "kind": "incident", "causes": 3, "checks": 4, "show": { "site": "hh", "roles": ["access-point", "treatment-mac"] }, "simulate": [{ "action": "slow-device", "target": "hh-ap2" }] },
+    { "id": "file-share", "category": "files", "kind": "incident", "causes": 3, "checks": 4, "show": { "site": "hh", "roles": ["reception-mac", "office-mac", "clinic-firewall", "vm-files"] }, "simulate": [{ "action": "power-off", "target": "hq-files" }] },
+    { "id": "xray-archive", "category": "medical", "kind": "incident", "causes": 3, "checks": 4, "show": { "site": "hh", "roles": ["xray-pc", "clinic-firewall", "vm-pacs"] }, "simulate": [{ "action": "power-off", "target": "hq-pacs" }] },
+    { "id": "lab-results", "category": "medical", "kind": "incident", "causes": 3, "checks": 4, "show": { "site": "hh", "roles": ["lab-analyzer", "vm-lab"] }, "simulate": [{ "action": "power-off", "target": "hq-lab" }] },
+    { "id": "vpn-down", "category": "network", "kind": "incident", "causes": 3, "checks": 4, "show": { "site": "hh", "roles": ["clinic-firewall", "isp"] }, "simulate": [{ "action": "tunnels-down", "target": "hh-fw" }] },
+    { "id": "internet-slow", "category": "network", "kind": "incident", "causes": 3, "checks": 4, "show": { "site": "hh", "roles": ["clinic-firewall", "isp", "mobile-network"] }, "simulate": [{ "action": "slow-link", "target": "hh-wan1" }] },
+    { "id": "voip-quality", "category": "network", "kind": "incident", "causes": 3, "checks": 4, "show": { "site": "hh", "roles": ["voip-phone", "access-switch", "clinic-firewall"] }, "simulate": [{ "action": "slow-link", "target": "hh-l-phone1" }] },
+    { "id": "guest-wifi", "category": "network", "kind": "incident", "causes": 3, "checks": 3, "show": { "site": "ber", "roles": ["guest-client", "access-point", "clinic-firewall"] }, "simulate": [{ "action": "dhcp-guest-full", "target": "ber-fw" }] },
+    { "id": "locked-out", "category": "accounts", "kind": "incident", "causes": 3, "checks": 3, "show": { "site": "hq", "roles": ["vm-identity"] } },
+    { "id": "onboarding", "category": "accounts", "kind": "request", "causes": 3, "checks": 4, "show": { "site": "hq", "roles": ["vm-identity", "vm-files"] } },
+    { "id": "offboarding", "category": "accounts", "kind": "request", "causes": 3, "checks": 4, "show": { "site": "hq", "roles": ["vm-identity", "vm-files"] } },
+    { "id": "update-broke", "category": "devices", "kind": "incident", "causes": 3, "checks": 4, "show": { "site": "hh", "roles": ["reception-mac", "office-mac", "treatment-mac"] } },
+    { "id": "disk-full", "category": "devices", "kind": "incident", "causes": 3, "checks": 3, "show": { "site": "hh", "roles": ["reception-mac", "office-mac", "treatment-mac"] } },
+    { "id": "cert-expired", "category": "devices", "kind": "incident", "causes": 3, "checks": 3, "show": { "site": "hh", "roles": ["treatment-mac", "vm-pacs"] }, "simulate": [{ "action": "cert-expired", "target": "hq-pacs" }] },
+    { "id": "mdm-not-enrolled", "category": "devices", "kind": "incident", "causes": 3, "checks": 3, "show": { "site": "hh", "roles": ["reception-mac", "office-mac", "treatment-mac"] } }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "ui": {
+    "status": {
+      "planned": "München: planlandı",
+      "live": "München: devrede"
+    },
+    "statusText": {
+      "planned": "Go-live'a kadar her adım işaretlenince München haritada devreye girer.",
+      "live": "Go-live'a kadar tüm adımlar tamam. München haritada ve arıza simülatöründe devrede."
+    },
+    "progress": "{total} adımdan {done} tanesi",
+    "showMap": "München'i haritada göster",
+    "reset": "Playbook'u sıfırla",
+    "timeline": "Zaman çizelgesi",
+    "weekMinus": "T−{n}",
+    "weekZero": "Go-live",
+    "weekPlus": "+{n}",
+    "weeksAxis": "Go-live'dan önceki ve sonraki haftalar",
+    "duration": "{from} – {to}, {n} hafta",
+    "durationOne": "{from}, 1 hafta",
+    "people": "Kimler dahil",
+    "checklist": "Kontrol listesi",
+    "pitfalls": "Tipik tuzaklar",
+    "example": "Örnek",
+    "complete": "Hepsini işaretle",
+    "completed": "Aşama tamam",
+    "open": "Aç: {phase}",
+    "illustrative": "Süreler ve teslim süreleri örnek amaçlı yer tutuculardır."
+  },
+  "people": {
+    "it": "BT",
+    "manager": "Klinik yöneticisi",
+    "electrician": "Elektrikçi",
+    "isp": "İnternet sağlayıcı",
+    "supplier": "Tedarikçi",
+    "vendor": "Tıbbi cihaz üreticisi",
+    "staff": "Klinik ekibi"
+  },
+  "phase": {
+    "survey": {
+      "title": "Yerinde keşif",
+      "goal": "Herhangi bir şey sipariş etmeden önce binayı tanımak.",
+      "check": {
+        "walk": "Klinik yöneticisiyle her odayı gezin.",
+        "cabinet": "Ağ kabini için oda seçin: kilitlenebilir, havalandırmalı, röntgen odası değil.",
+        "power": "Kabin için ayrı bir elektrik hattı planlayın.",
+        "outlets": "Oda başına ağ prizlerini sayın ve kablo yollarını planlayın.",
+        "wifi": "Her odada Wi-Fi kapsamasını ölçün.",
+        "shielding": "Röntgen odasının kurşun kaplamasını ve Wi-Fi'a etkisini not edin."
+      },
+      "pitfall": {
+        "1": "Kabin için en iyi yer sonradan depo olarak ayrılmış.",
+        "2": "Kurşun kaplama ancak Wi-Fi zayıf kalınca fark ediliyor."
+      }
+    },
+    "isp": {
+      "title": "İnternet siparişi",
+      "goal": "En uzun teslim süresi hattın, bu yüzden ilk o sipariş edilir.",
+      "check": {
+        "availability": "Tam adreste altyapı uygunluğunu kontrol edin.",
+        "order": "SLA'lı kurumsal hat sipariş edin.",
+        "static-ip": "Sabit IP adresi talep edin.",
+        "lte": "LTE/5G yedek SIM kartını sipariş edin.",
+        "date": "Kurulum tarihini kararlaştırın.",
+        "access": "Teknisyenin binaya girişini ayarlayın."
+      },
+      "pitfall": {
+        "1": "Adreste altyapı var, ama binanın bağlantısı yok.",
+        "2": "Teknisyen geliyor ve kimsede anahtar yok."
+      }
+    },
+    "hardware": {
+      "title": "Donanım siparişi",
+      "goal": "Kliniğin büyüklüğüne göre standart seti sipariş etmek.",
+      "check": {
+        "bom": "Kliniğin büyüklüğünden malzeme listesini oluşturun.",
+        "channel": "Mac'leri otomatik MDM kaydını sağlayan kanaldan sipariş edin.",
+        "licences": "Firewall, switch ve MDM lisanslarını ekleyin.",
+        "spares": "Yedek parça sipariş edin: bir erişim noktası, bir kart terminali.",
+        "leadtime": "En uzun teslim süresini açılış tarihiyle karşılaştırın."
+      },
+      "pitfall": {
+        "1": "Standart dışı daha ucuz bir switch: rafta yedeği yok, ayrı konfigürasyon.",
+        "2": "Kendiliğinden kaydolmayan, perakendeden alınmış Mac'ler."
+      }
+    },
+    "staging": {
+      "title": "Merkezde ön hazırlık",
+      "goal": "Her şey yola çıkmadan önce masada yapılandırılır ve test edilir.",
+      "check": {
+        "template": "Bulut panosunda lokasyon şablonunu 3 numarasıyla uygulayın.",
+        "firmware": "Firmware'i onaylı sürüme güncelleyin.",
+        "mdm": "Mac'leri MDM'de atayın ve kaydı test edin.",
+        "labels": "Her cihazı odası ve portuyla etiketleyin.",
+        "bench": "Tüm seti masada çalıştırın ve VPN'i test edin."
+      },
+      "pitfall": {
+        "1": "Firmware açılış haftasında sahada güncelleniyor.",
+        "2": "Etiketsiz kutular: hangi erişim noktasının nereye gideceğini kimse bilmiyor."
+      }
+    },
+    "install": {
+      "title": "Yerinde kurulum",
+      "goal": "Kabin, kablolama ve cihazlar yerinde; hat teslim alınmış.",
+      "check": {
+        "cabinet": "Kabini UPS, firewall ve switch ile monte edin.",
+        "patch": "Her portu port planına göre bağlayın.",
+        "aps": "Erişim noktalarını keşifte belirlenen yerlere monte edin.",
+        "line": "İnternet hattını teslim alın ve test edin.",
+        "devices": "Her odadaki cihazları yerleştirip bağlayın."
+      },
+      "pitfall": {
+        "1": "Elektrikçi ve ISP teknisyeni aynı sabaha çağrılmış.",
+        "2": "Etiketsiz patch kablolar."
+      }
+    },
+    "validation": {
+      "title": "Doğrulama",
+      "goal": "İlk hasta gelmeden önce her işlevi test etmek.",
+      "check": {
+        "workstations": "Her Mac oturum açıyor ve klinik yazılımını açıyor.",
+        "payment": "Her kart terminalinde test ödemesi.",
+        "print": "Her yazıcıda test baskısı.",
+        "xray": "Bir röntgen test görüntüsü arşive ulaşıyor.",
+        "lab": "Bir laboratuvar test sonucu klinik yazılımına geliyor.",
+        "failover": "VPN failover testi: ana hattı çekin, tünel LTE üzerinden geri gelsin.",
+        "guest": "Misafir Wi-Fi yalıtım testi: misafir telefonu içeride hiçbir şeye ulaşamıyor.",
+        "backup": "Lokasyon için yedekleme ve izleme aktif."
+      },
+      "pitfall": {
+        "1": "Cihazların uçtan uca çalıştığı değil, yalnızca açık olduğu test ediliyor.",
+        "2": "Failover testi yapılmıyor, ilk gerçek kesinti test oluyor."
+      }
+    },
+    "golive": {
+      "title": "Go-live",
+      "goal": "Hastalarla ilk gün, BT sahada.",
+      "check": {
+        "onsite": "BT açılış saatinden itibaren sahada.",
+        "logins": "Her çalışan bir kez oturum açtı.",
+        "alerts": "Lokasyonun izleme alarmları nöbetçiye gidiyor.",
+        "known": "Bilinen küçük sorunların listesi klinik yöneticisinde.",
+        "support": "Günlük desteğe devir."
+      },
+      "pitfall": {
+        "1": "Go-live, klinik yazılımının yeni sürümüyle aynı güne denk geliyor.",
+        "2": "Kimi arayacağını kimse bilmiyor."
+      }
+    },
+    "hypercare": {
+      "title": "Hypercare haftası",
+      "goal": "İlk sorunları hızla çözmek ve şablonu iyileştirmek.",
+      "check": {
+        "daily": "Klinik yöneticisiyle günlük görüşme.",
+        "tickets": "Yeni klinikten gelen her ticket'ı gözden geçirin.",
+        "fixes": "İlk dönem sorunlarını giderin.",
+        "feedback": "Öğrenilen dersleri şablona işleyin.",
+        "close": "Projeyi kapatın."
+      },
+      "pitfall": {
+        "1": "Düzeltmeler şablonda değil, yalnızca München'de yapılıyor.",
+        "2": "Hypercare devir yapılmadan bitiyor."
+      }
+    }
+  },
+  "artefact": {
+    "survey-sheet": {
+      "title": "Keşif formu (örnek girişler)",
+      "item": {
+        "1": "Kabin: zemin kattaki depo odası, kilitlenebilir, havalandırmalı.",
+        "2": "Güç: kabin için ayrı 16 A hat planlandı.",
+        "3": "Prizler: resepsiyon 6, her muayene odası 2, ofis 3, röntgen 2, laboratuvar 2.",
+        "4": "Kablo yolu: koridorda asma tavan, en uzak odaya en fazla 45 m.",
+        "5": "Wi-Fi: 3 numaralı muayene odasında zayıf (−74 dBm), ek erişim noktası gerekli.",
+        "6": "Röntgen odası: kurşun kaplı duvarlar, kendi kablolu prizi, içeride Wi-Fi beklenmiyor."
+      }
+    },
+    "isp-call": {
+      "title": "İnternet sağlayıcıyla görüşme soruları",
+      "item": {
+        "1": "Tam bu adreste fiber veya kablo altyapısı var mı?",
+        "2": "Hangi kurumsal tarife, hangi bant genişliğiyle?",
+        "3": "Sabit IP adresi dahil mi?",
+        "4": "SLA: arıza giderme süresi ve destek saatleri?",
+        "5": "Router'ı veya modemi kim veriyor, bridge modunda çalışabiliyor mu?",
+        "6": "Kurulum tarihi ve saat aralığı?",
+        "7": "Teknisyenin binaya girmesi gerekiyor mu, onu kim içeri alacak?",
+        "8": "Siparişi kim imzalıyor, faturayı kim alıyor?"
+      }
+    },
+    "failover-test": {
+      "title": "Failover test protokolü",
+      "item": {
+        "1": "Merkeze sürekli ping başlatın (ping 10.0.10.1) ve bir test ödemesi açın.",
+        "2": "Firewall'daki fiber kablosunu çekin.",
+        "3": "Beklenen: LTE devralır, tünel yaklaşık bir dakikada geri gelir (örnek).",
+        "4": "Ödeme ve klinik yazılımı çalışmaya devam eder; çalışmayanları not edin.",
+        "5": "Fiberi geri takın ve firewall'un ona döndüğünü kontrol edin."
+      }
+    },
+    "golive-day": {
+      "title": "Go-live günü planı",
+      "item": {
+        "1": "07:00 BT sahada, tüm cihazlar açık, pano yeşil.",
+        "2": "07:30 Ekiple kısa brifing: kimi aramalı, neyi bildirmeli.",
+        "3": "08:00 İlk hastalar; BT ilk saat resepsiyonda.",
+        "4": "12:00 Ticket'ları ve açık soruları gözden geçirme.",
+        "5": "18:00 Klinik yöneticisiyle kısa değerlendirme."
+      }
+    },
+    "lessons": {
+      "title": "Öğrenilen dersler (örnek)",
+      "item": {
+        "1": "3 numaralı muayene odası kendi erişim noktasını istedi: keşif formuna eklendi.",
+        "2": "Etiket yazıcısı sürücüsü MDM profilinde eksikti: şablonda düzeltildi.",
+        "3": "Hat iki hafta geç geldi: 8 değil 12 hafta önceden sipariş verin.",
+        "4": "Ekip tek sayfalık bir giriş ve Wi-Fi kılavuzu istedi: işe başlangıç sürecine eklendi."
+      }
+    }
+  },
+  "bom": {
+    "title": "Standart setten malzeme listesi",
+    "rooms": "Muayene odaları",
+    "desks": "Resepsiyon masaları",
+    "xray": "Röntgen",
+    "lab": "Kendi laboratuvarı",
+    "less": "Azalt: {what}",
+    "more": "Artır: {what}",
+    "item": "Kalem",
+    "qty": "Adet",
+    "rule": "Kural",
+    "ports": "{count} kablolu port",
+    "switches": "{count} switch",
+    "poe": "PoE {budget} W'ın {used} W'ı",
+    "vendor": "Cihaz üreticisinden gelir; BT port ve VLAN 30 sağlar.",
+    "example": "Örnek: 4 muayene odası ve 1 masa → 3 erişim noktası, 6 Mac ve 2 kart terminali."
+  },
+  "rule": {
+    "fixed": "{n} temel",
+    "perRoom": "muayene odası başına {n}",
+    "perDesk": "masa başına {n}",
+    "perFeature": "{feature} varsa {n}",
+    "perPorts": "{n} kablolu port başına 1",
+    "minPerArea": "her {n} m² için en az 1",
+    "per": "şunların her biri için 1: {items}"
+  },
+  "plan": {
+    "ipTitle": "München için IP ve VLAN planı",
+    "vlan": "VLAN",
+    "subnet": "Alt ağ",
+    "gateway": "Gateway",
+    "dhcp": "DHCP havuzu",
+    "static": "Yalnızca sabit adresler",
+    "staticTitle": "Sabit adresler",
+    "device": "Cihaz",
+    "address": "Adres",
+    "portTitle": "München switch'inin port planı",
+    "switch": "Switch",
+    "port": "Port",
+    "poe": "PoE",
+    "trunk": "Trunk",
+    "yes": "Evet",
+    "no": "–"
+  },
+  "sku": {
+    "cabinet": "Ağ kabini, kilitlenebilir"
+  },
+  "nowLive": {
+    "simple": "Go-live'dan beri açık, diğer kliniklerle birebir aynı kuruldu.",
+    "technical": "Aynı şablondan devrede. Alt ağlar 10.3.x.0/24."
+  }
+}

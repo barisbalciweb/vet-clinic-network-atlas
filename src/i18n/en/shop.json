@@ -1,0 +1,139 @@
+{
+  "ui": {
+    "title": "Procurement simulation",
+    "intro": "Order the kit for München like from an internal shop and follow it until the devices are online.",
+    "play": "Play automatically",
+    "pause": "Pause",
+    "restart": "Start over",
+    "steps": "Steps",
+    "step": {
+      "size": "Size",
+      "shop": "Shop",
+      "checks": "Checks",
+      "delivery": "Delivery",
+      "result": "Result"
+    },
+    "next": "Next",
+    "back": "Back",
+    "area": "Floor area (m²)",
+    "fill": "Put the standard kit in the cart",
+    "cart": "Cart: {count} units",
+    "lead": "{days} days",
+    "stock": "HQ stock: {n}",
+    "noStock": "Not in HQ stock",
+    "nonStandard": "Not standard",
+    "remove": "Fewer: {item}",
+    "add": "More: {item}",
+    "orderWeek": "Order in week",
+    "order": "Place the order",
+    "fix": "Fix",
+    "allGood": "All checks passed.",
+    "attention": "{count} checks need attention. You can still order.",
+    "illustrative": "Lead times, stock and delivery days are illustrative.",
+    "nextStep": "Next step",
+    "skip": "Skip to the end",
+    "day": "Day {n}",
+    "parcel": "Parcel on its way from HQ to München",
+    "devicesTitle": "Devices in München",
+    "installed": "Installed",
+    "online": "Online and validated",
+    "inventoryTitle": "Inventory München",
+    "col": {
+      "device": "Device",
+      "model": "Model",
+      "serial": "Serial",
+      "asset": "Asset tag",
+      "room": "Room",
+      "vlan": "VLAN",
+      "ip": "IP",
+      "warranty": "Warranty"
+    },
+    "dhcp": "DHCP",
+    "spare": "Spare at HQ",
+    "extra": "Additional",
+    "months": "{n} months",
+    "onTime": "Everything is ready on site in time for the installation.",
+    "lateAfter": "{item} is ready {days} days after go-live.",
+    "lateBefore": "{item} is ready {days} days too late for the installation.",
+    "workaroundStock": "Workaround: take it from HQ stock now and reorder the spare.",
+    "workaroundNone": "Workaround: install it later, or move go-live.",
+    "ticked": "The hardware phase is ticked off in the timeline.",
+    "timelineLate": "Late delivery: {item}, {days} days after the planned installation.",
+    "below": "The simulation below sizes the clinic, fills the cart, checks the order and follows the delivery."
+  },
+  "category": {
+    "network": "Network and power",
+    "workstations": "Workstations",
+    "reception": "Reception and phones",
+    "licences": "Licences and subscriptions"
+  },
+  "item": {
+    "lic-net": "Cloud network licence (3 years)",
+    "lic-mdm": "MDM seat (1 year)",
+    "consumer-router": "Consumer Wi-Fi router",
+    "switch-other": "Switch from another vendor",
+    "mac-retail": "MacBook from a retail shop"
+  },
+  "warn": {
+    "consumer-router": "No VLANs, no VPN template, no spare: a separate setup that only this clinic has.",
+    "switch-other": "Different firmware and configuration, no spare on the shelf, fewer PoE watts.",
+    "mac-retail": "Not registered for automatic enrolment: has to be set up by hand."
+  },
+  "check": {
+    "coverage": {
+      "title": "Complete kit",
+      "ok": "The cart covers the whole kit.",
+      "bad": "Missing from the kit: {items}."
+    },
+    "ports": {
+      "title": "Switch ports",
+      "ok": "{used} of {total} switch ports used.",
+      "bad": "{used} ports needed, only {total} available."
+    },
+    "poe": {
+      "title": "PoE budget",
+      "ok": "PoE {used} W of {budget} W.",
+      "bad": "PoE {used} W needed, only {budget} W available."
+    },
+    "ups": {
+      "title": "UPS size",
+      "ok": "UPS carries {load} W of {capacity} W.",
+      "bad": "Cabinet draws {load} W, the UPS carries only {capacity} W."
+    },
+    "licences": {
+      "title": "Licences and subscriptions",
+      "ok": "Licences for {net} network devices and {mdm} Macs.",
+      "bad": "Licences missing: needed for {net} network devices and {mdm} Macs."
+    },
+    "mdm": {
+      "title": "Purchase channel for Macs",
+      "ok": "Every Mac comes through the business channel and enrols by itself.",
+      "bad": "{count} Macs from retail will not enrol by themselves."
+    },
+    "spares": {
+      "title": "Spare parts",
+      "ok": "Spares included: {items}.",
+      "bad": "No spare for: {items}."
+    },
+    "leadtime": {
+      "title": "Lead times",
+      "ok": "Longest lead time {days} days: everything is on site in time.",
+      "bad": "Too late for the installation: {items} (up to {days} days)."
+    },
+    "standard": {
+      "title": "Standard models",
+      "ok": "Only standard models.",
+      "bad": "Not standard: {items}."
+    }
+  },
+  "step": {
+    "ordered": "Order placed",
+    "hq": "Delivered to HQ",
+    "tagged": "Asset tags and inventory entries",
+    "staged": "Pre-staged: firmware, template, Macs enrolled",
+    "packed": "Labelled and packed per room",
+    "shipped": "Shipped to München",
+    "racked": "Racked and cabled",
+    "online": "Devices online and validated"
+  }
+}

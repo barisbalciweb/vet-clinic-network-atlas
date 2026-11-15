@@ -1,0 +1,111 @@
+{
+  "tabs": {
+    "label": "Map views",
+    "map": "Map",
+    "rules": "Networks & rules"
+  },
+  "crumb": {
+    "label": "Location",
+    "all": "All sites"
+  },
+  "search": {
+    "label": "Search device, room or IP",
+    "placeholder": "Find a device, room or IP…",
+    "noResults": "Nothing found. Try another name, room or IP.",
+    "clear": "Clear search"
+  },
+  "site": {
+    "planned": "Planned",
+    "devices": "{count} devices",
+    "open": "Open {site}",
+    "plannedBanner": "This clinic is planned and not yet live. Its opening is shown in “Clinic opening”."
+  },
+  "portal": {
+    "goto": "Go to {site}"
+  },
+  "canvas": {
+    "overview": "Overview of all sites",
+    "site": "Network map of {site}",
+    "germany": "Schematic map of Germany"
+  },
+  "legend": {
+    "title": "Lines",
+    "lan": "Network cable",
+    "wifi": "Wi-Fi",
+    "wan": "Internet line",
+    "vpn": "VPN tunnel",
+    "storage": "Storage path",
+    "virtual": "Virtual (software)",
+    "backup": "Lighter line = backup path or not live yet",
+    "degraded": "Amber with !: degraded or failover path in use",
+    "down": "Red, dashed: link down"
+  },
+  "panel": {
+    "label": "Device details",
+    "close": "Close details",
+    "hostname": "Hostname",
+    "site": "Site",
+    "room": "Location",
+    "address": "IP address",
+    "dhcp": "Automatic (DHCP) from {subnet}",
+    "vlan": "Network",
+    "model": "Model",
+    "power": "Power from",
+    "battery": "Own battery",
+    "group": "Redundancy",
+    "activePassive": "Active/passive pair with {peers}",
+    "activeActive": "Active/active with {peers}",
+    "runsOn": "Starts on",
+    "needs": "Needs to work",
+    "provides": "Provides",
+    "providedBy": "from {devices}",
+    "dependents": "What depends on it",
+    "noDependents": "Nothing else depends on this device.",
+    "more": "+{count} more",
+    "connections": "Connections",
+    "port": "port {port}",
+    "primary": "primary",
+    "backup": "backup",
+    "note": "Good to know"
+  },
+  "rules": {
+    "intro": {
+      "simple": "Every clinic is split into separate networks. A device only reaches what it needs for its job.",
+      "technical": "Same VLAN plan in every site, addresses 10.<site>.<vlan>.0/24, gateway .1. Rules are enforced on the site firewall, default deny."
+    },
+    "vlansTitle": "Networks (VLANs)",
+    "matrixTitle": "Who may reach whom",
+    "col": {
+      "network": "Network",
+      "subnet": "Subnet",
+      "dhcp": "DHCP",
+      "internet": "Internet",
+      "purpose": "Purpose"
+    },
+    "yes": "Yes",
+    "no": "No",
+    "hqOnly": "HQ only",
+    "sitePlaceholder": "site",
+    "internet": {
+      "full": "Yes",
+      "restricted": "Limited",
+      "none": "No"
+    },
+    "corner": "From ↓ · To →",
+    "target": {
+      "internet": "Internet",
+      "hq": "HQ servers"
+    },
+    "status": {
+      "allowed": "Allowed",
+      "limited": "Limited",
+      "denied": "Blocked",
+      "same": "Same network"
+    },
+    "pick": "Select a cell to see the rule behind it.",
+    "detail": "{from} → {to}",
+    "onlyServices": "Only:",
+    "defaultDeny": "No rule allows this, so it is blocked (default deny).",
+    "sameNote": "Inside one network the firewall is not involved."
+  }
+}

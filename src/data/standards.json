@@ -1,0 +1,26 @@
+{
+  "illustrative": true,
+  "kitReasons": ["spares", "behaviour", "config", "support"],
+  "config": {
+    "hqPeers": ["203.0.113.10", "198.51.100.20"],
+    "snmp": "10.0.70.30",
+    "syslog": "10.0.70.30",
+    "ntp": ["10.0.70.11", "10.0.70.12"]
+  },
+  "firmware": { "current": "7.4.2", "target": "7.4.5", "observeHours": 48 },
+  "rollout": [
+    { "id": "pilot", "sites": ["hh"] },
+    { "id": "rest", "sites": ["ber", "muc"] }
+  ],
+  "ansible": {
+    "outcomes": { "ber-sw1": "changed", "ber-sw2": "ok", "hh-sw1": "failed", "muc-sw1": "changed" },
+    "failure": "auth"
+  },
+  "zeroTouch": ["order", "assign", "unbox", "profiles", "login"],
+  "comparison": [
+    { "id": "steps", "without": 60, "with": 15 },
+    { "id": "hours", "without": 80, "with": 20 },
+    { "id": "weeks", "without": 16, "with": 12 },
+    { "id": "tickets", "without": 25, "with": 6 }
+  ]
+}

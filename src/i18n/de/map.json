@@ -1,0 +1,111 @@
+{
+  "tabs": {
+    "label": "Kartenansichten",
+    "map": "Karte",
+    "rules": "Netze & Regeln"
+  },
+  "crumb": {
+    "label": "Standort",
+    "all": "Alle Standorte"
+  },
+  "search": {
+    "label": "Gerät, Raum oder IP suchen",
+    "placeholder": "Gerät, Raum oder IP finden…",
+    "noResults": "Nichts gefunden. Versuchen Sie einen anderen Namen, Raum oder eine andere IP.",
+    "clear": "Suche leeren"
+  },
+  "site": {
+    "planned": "Geplant",
+    "devices": "{count} Geräte",
+    "open": "{site} öffnen",
+    "plannedBanner": "Diese Praxis ist geplant und noch nicht in Betrieb. Die Eröffnung zeigt das Modul „Praxiseröffnung“."
+  },
+  "portal": {
+    "goto": "Zu {site} wechseln"
+  },
+  "canvas": {
+    "overview": "Übersicht aller Standorte",
+    "site": "Netzwerkkarte von {site}",
+    "germany": "Schematische Deutschlandkarte"
+  },
+  "legend": {
+    "title": "Linien",
+    "lan": "Netzwerkkabel",
+    "wifi": "WLAN",
+    "wan": "Internetleitung",
+    "vpn": "VPN-Tunnel",
+    "storage": "Storage-Pfad",
+    "virtual": "Virtuell (Software)",
+    "backup": "Hellere Linie = Backup-Weg oder noch nicht in Betrieb",
+    "degraded": "Gelb mit !: eingeschränkt oder Ersatzweg aktiv",
+    "down": "Rot, gestrichelt: Verbindung unterbrochen"
+  },
+  "panel": {
+    "label": "Gerätedetails",
+    "close": "Details schließen",
+    "hostname": "Hostname",
+    "site": "Standort",
+    "room": "Ort",
+    "address": "IP-Adresse",
+    "dhcp": "Automatisch (DHCP) aus {subnet}",
+    "vlan": "Netz",
+    "model": "Modell",
+    "power": "Strom von",
+    "battery": "Eigener Akku",
+    "group": "Redundanz",
+    "activePassive": "Aktiv/Passiv-Paar mit {peers}",
+    "activeActive": "Aktiv/Aktiv mit {peers}",
+    "runsOn": "Startet auf",
+    "needs": "Braucht zum Arbeiten",
+    "provides": "Stellt bereit",
+    "providedBy": "von {devices}",
+    "dependents": "Was davon abhängt",
+    "noDependents": "Von diesem Gerät hängt sonst nichts ab.",
+    "more": "+{count} weitere",
+    "connections": "Verbindungen",
+    "port": "Port {port}",
+    "primary": "primär",
+    "backup": "Backup",
+    "note": "Gut zu wissen"
+  },
+  "rules": {
+    "intro": {
+      "simple": "Jede Praxis ist in getrennte Netze aufgeteilt. Ein Gerät erreicht nur, was es für seine Aufgabe braucht.",
+      "technical": "Gleicher VLAN-Plan an jedem Standort, Adressen 10.<Standort>.<VLAN>.0/24, Gateway .1. Die Regeln setzt die Standort-Firewall durch, Default Deny."
+    },
+    "vlansTitle": "Netze (VLANs)",
+    "matrixTitle": "Wer darf wen erreichen",
+    "col": {
+      "network": "Netz",
+      "subnet": "Subnetz",
+      "dhcp": "DHCP",
+      "internet": "Internet",
+      "purpose": "Zweck"
+    },
+    "yes": "Ja",
+    "no": "Nein",
+    "hqOnly": "Nur Zentrale",
+    "sitePlaceholder": "Standort",
+    "internet": {
+      "full": "Ja",
+      "restricted": "Eingeschränkt",
+      "none": "Nein"
+    },
+    "corner": "Von ↓ · Nach →",
+    "target": {
+      "internet": "Internet",
+      "hq": "Server der Zentrale"
+    },
+    "status": {
+      "allowed": "Erlaubt",
+      "limited": "Eingeschränkt",
+      "denied": "Gesperrt",
+      "same": "Gleiches Netz"
+    },
+    "pick": "Wählen Sie eine Zelle, um die Regel dahinter zu sehen.",
+    "detail": "{from} → {to}",
+    "onlyServices": "Nur:",
+    "defaultDeny": "Keine Regel erlaubt das, also ist es gesperrt (Default Deny).",
+    "sameNote": "Innerhalb eines Netzes ist die Firewall nicht beteiligt."
+  }
+}

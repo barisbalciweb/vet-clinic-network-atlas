@@ -1,0 +1,77 @@
+{
+  "ui": {
+    "disclaimer": "Ein technischer Überblick, keine Rechtsberatung. Aufbewahrungsfristen sind Platzhalter und werden mit dem Datenschutzbeauftragten festgelegt.",
+    "layer": "Datenschutz-Ebene",
+    "layerOn": "Datenschutz-Ebene ist an. Ausschalten",
+    "layerOff": "Zeigen, wo personenbezogene Daten sind",
+    "layerBanner": "Datenschutz-Ebene: Hervorgehobene Geräte speichern, verarbeiten oder übertragen personenbezogene Daten. Ein Gerät wählen, um seine Maßnahmen zu sehen.",
+    "showMap": "Auf der Karte zeigen",
+    "categoriesTitle": "Personenbezogene Daten in den Praxen",
+    "measuresTitle": "Maßnahmen nach Ort",
+    "example": "Beispiel",
+    "onMap": "Auf der Karte",
+    "day1Title": "Datenschutz am ersten Tag einer neuen Praxis",
+    "day1Link": "Diese Prüfungen gehören zum Eröffnungs-Playbook.",
+    "openPlaybook": "Eröffnungs-Playbook öffnen",
+    "retentionTitle": "Aufbewahrungsfristen",
+    "placeholder": "Platzhalter: mit dem Datenschutzbeauftragten festzulegen",
+    "panelTitle": "Datenschutz an diesem Gerät",
+    "incident": "Vorfall: Meldung an die Aufsichtsbehörde binnen 72 Stunden, nachdem die Verletzung bekannt wurde."
+  },
+  "category": {
+    "owner": "Daten der Tierhalter",
+    "staff": "Daten der Mitarbeitenden",
+    "payment": "Zahlungsdaten"
+  },
+  "location": {
+    "clinic": "In der Praxis",
+    "transit": "Bei der Übertragung",
+    "hq": "In der Zentrale",
+    "cloud": "In der Cloud",
+    "organization": "Organisation"
+  },
+  "activity": { "stored": "gespeichert", "processed": "verarbeitet", "transmitted": "übertragen" },
+  "measure": {
+    "screen-lock": { "title": "Bildschirmsperre und -ausrichtung", "example": "Bildschirme am Empfang zeigen vom Wartezimmer weg und sperren nach 5 Minuten." },
+    "cabinet": { "title": "Abgeschlossener Netzwerkschrank", "example": "Nur Praxisleitung und IT haben den Schlüssel; Zugriffe werden notiert." },
+    "guest": { "title": "Isoliertes Gäste-WLAN", "example": "Ein Gästehandy erreicht nur das Internet, nicht das Praxisnetz und keine anderen Gäste." },
+    "vlans": { "title": "Trennung per VLAN", "example": "Medizingeräte und Kartenterminals liegen in eigenen Netzen, vom Rest getrennt." },
+    "encryption": { "title": "Verschlüsselte Festplatten", "example": "FileVault wird vom MDM erzwungen; der Wiederherstellungsschlüssel liegt dort." },
+    "no-local": { "title": "Keine Patientendaten lokal", "example": "Akten liegen in der Praxissoftware und auf dem Fileserver, nie auf dem Mac." },
+    "disposal": { "title": "Sichere Entsorgung", "example": "Platten von Drucker und Röntgen-PC werden mit Nachweis gelöscht oder geschreddert; Papier kommt in verschlossene Tonnen." },
+    "vpn": { "title": "VPN-Verschlüsselung", "example": "Jedes Byte zwischen Praxis und Zentrale läuft durch einen IPsec-Tunnel." },
+    "tls": { "title": "TLS zu Cloud-Diensten", "example": "Praxissoftware und Zahlungsanbieter sind nur über HTTPS erreichbar." },
+    "no-mail": { "title": "Keine Patientendaten per unverschlüsselter E-Mail", "example": "Befunde gehen über das Portal der Praxissoftware, nicht als Anhang." },
+    "rbac": { "title": "Rollenbasierte Rechte", "example": "Der Empfang sieht Termine und Rechnungen; nur Tierärzte öffnen Röntgenbilder." },
+    "admin-accounts": { "title": "Getrennte Admin-Konten", "example": "Die IT arbeitet mit einem normalen Konto und nutzt das Admin-Konto nur auf dem Jump-Host." },
+    "mfa": { "title": "Mehrfaktor-Anmeldung", "example": "Admin- und Fernzugriff brauchen einen zweiten Faktor." },
+    "audit": { "title": "Protokollierung und Audit-Trail", "example": "Anmeldungen und Admin-Aktionen werden zentral protokolliert und für eine festgelegte Zeit aufbewahrt." },
+    "backups": { "title": "Verschlüsselte, unveränderbare Backups", "example": "Nächtliches, verschlüsseltes Backup mit einer externen Kopie, die niemand ändern kann." },
+    "patching": { "title": "Patchen", "example": "Hosts und Server werden monatlich in einem festen Wartungsfenster aktualisiert." },
+    "iam": { "title": "IAM nach Least Privilege", "example": "Jede Person und jeder Dienst bekommt nur die Cloud-Rollen, die nötig sind." },
+    "no-shared": { "title": "Keine geteilten Zugangsdaten", "example": "Jeder Admin hat ein persönliches Konto; gemeinsame Passwörter liegen nur im Tresor." },
+    "rotation": { "title": "Rotation von Schlüsseln und Secrets", "example": "API-Schlüssel und Zertifikate werden planmäßig und bei Personalwechseln erneuert." },
+    "eu": { "title": "Datenstandort EU", "example": "Praxissoftware und Backups liegen ausschließlich in EU-Regionen." },
+    "dpa": { "title": "Auftragsverarbeitungsverträge", "example": "Mit jedem Anbieter, der personenbezogene Daten verarbeitet, ein unterschriebener AVV." },
+    "ropa": { "title": "Verzeichnis von Verarbeitungstätigkeiten", "example": "Jedes System mit personenbezogenen Daten steht dort mit Zweck, Daten und Frist." },
+    "retention": { "title": "Lösch- und Aufbewahrungskonzept", "example": "Was wie lange aufbewahrt wird und wer es nach Fristende löscht." },
+    "lifecycle": { "title": "On- und Offboarding", "example": "Konten entstehen aus Rollen und werden am letzten Arbeitstag deaktiviert." },
+    "incident": { "title": "Vorfallprozess", "example": "Bewerten, eindämmen, dokumentieren und binnen 72 Stunden an die Behörde melden." },
+    "vendor": { "title": "Regeln für Hersteller-Fernwartung", "example": "Gerätehersteller verbinden sich nur über den Jump-Host, auf Anforderung und befristet." }
+  },
+  "day1": {
+    "cabinet": "Netzwerkschrank abgeschlossen, Schlüssel nur bei der Praxisleitung.",
+    "screens": "Empfangsbildschirme vom Wartezimmer weggedreht, Bildschirmsperre getestet.",
+    "guest": "Isolation des Gäste-WLANs mit einem Handy getestet.",
+    "macs": "Jeder Mac verschlüsselt und registriert, im MDM-Bericht geprüft.",
+    "rules": "Team eingewiesen: keine Patientendaten per E-Mail, keine USB-Sticks.",
+    "ropa": "Neue Praxis ins Verzeichnis der Verarbeitungstätigkeiten aufgenommen."
+  },
+  "retention": {
+    "records": "Patientenakten",
+    "images": "Röntgen- und Ultraschallbilder",
+    "invoices": "Rechnungen",
+    "staff": "Personalakten",
+    "logs": "Zugriffsprotokolle"
+  }
+}

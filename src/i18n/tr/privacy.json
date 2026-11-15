@@ -1,0 +1,77 @@
+{
+  "ui": {
+    "disclaimer": "Teknik bir genel bakıştır, hukuki tavsiye değildir. Saklama süreleri, veri koruma sorumlusuyla belirlenecek yer tutuculardır.",
+    "layer": "Veri koruma katmanı",
+    "layerOn": "Veri koruma katmanı açık. Kapat",
+    "layerOff": "Kişisel verilerin nerede olduğunu göster",
+    "layerBanner": "Veri koruma katmanı: vurgulanan cihazlar kişisel veri saklıyor, işliyor veya aktarıyor. Önlemlerini görmek için birini seçin.",
+    "showMap": "Haritada göster",
+    "categoriesTitle": "Kliniklerdeki kişisel veriler",
+    "measuresTitle": "Konuma göre önlemler",
+    "example": "Örnek",
+    "onMap": "Haritada",
+    "day1Title": "Yeni bir klinikte ilk gün veri koruma",
+    "day1Link": "Bu kontroller açılış playbook'unun parçasıdır.",
+    "openPlaybook": "Açılış playbook'unu aç",
+    "retentionTitle": "Saklama süreleri",
+    "placeholder": "Yer tutucu: veri koruma sorumlusuyla belirlenecek",
+    "panelTitle": "Bu cihazda veri koruma",
+    "incident": "Olay: ihlal öğrenildikten sonra 72 saat içinde denetim makamına bildirim."
+  },
+  "category": {
+    "owner": "Hayvan sahibi verileri",
+    "staff": "Çalışan verileri",
+    "payment": "Ödeme verileri"
+  },
+  "location": {
+    "clinic": "Klinikte",
+    "transit": "Aktarımda",
+    "hq": "Merkezde",
+    "cloud": "Bulutta",
+    "organization": "Organizasyon"
+  },
+  "activity": { "stored": "saklanır", "processed": "işlenir", "transmitted": "aktarılır" },
+  "measure": {
+    "screen-lock": { "title": "Ekran kilidi ve ekran yönü", "example": "Resepsiyon ekranları bekleme salonuna dönük değil ve 5 dakikada kilitleniyor." },
+    "cabinet": { "title": "Kilitli ağ kabini", "example": "Anahtar yalnızca klinik yöneticisinde ve BT'de; erişimler not ediliyor." },
+    "guest": { "title": "Misafir Wi-Fi yalıtımı", "example": "Misafir telefonu yalnızca internete çıkar; klinik ağına ve diğer misafirlere ulaşamaz." },
+    "vlans": { "title": "VLAN ile ayırma", "example": "Tıbbi cihazlar ve kart terminalleri kendi ağlarında, diğerlerinden ayrı." },
+    "encryption": { "title": "Şifreli diskler", "example": "FileVault MDM ile zorunlu; kurtarma anahtarı orada saklanıyor." },
+    "no-local": { "title": "Yerelde hasta verisi yok", "example": "Kayıtlar Mac'te değil, klinik yazılımında ve dosya sunucusunda duruyor." },
+    "disposal": { "title": "Güvenli imha", "example": "Yazıcı ve röntgen PC'si diskleri belgeli olarak silinir veya parçalanır; kâğıtlar kilitli kutulara gider." },
+    "vpn": { "title": "VPN şifrelemesi", "example": "Klinik ile merkez arasındaki her bayt bir IPsec tünelinden geçer." },
+    "tls": { "title": "Bulut servislerine TLS", "example": "Klinik yazılımına ve ödeme sağlayıcıya yalnızca HTTPS ile erişilir." },
+    "no-mail": { "title": "Şifresiz e-postayla hasta verisi yok", "example": "Bulgular ek olarak değil, klinik yazılımının portalı üzerinden gider." },
+    "rbac": { "title": "Rol tabanlı erişim", "example": "Resepsiyon randevuları ve faturaları görür; röntgen görüntülerini yalnızca hekimler açar." },
+    "admin-accounts": { "title": "Ayrı yönetici hesapları", "example": "BT normal bir hesapla çalışır, yönetici hesabını yalnızca jump host'ta kullanır." },
+    "mfa": { "title": "Çok faktörlü giriş", "example": "Yönetici ve uzaktan erişim ikinci bir faktör ister." },
+    "audit": { "title": "Kayıt ve denetim izi", "example": "Girişler ve yönetici işlemleri merkezi olarak kaydedilir ve belirli bir süre saklanır." },
+    "backups": { "title": "Şifreli, değiştirilemez yedekler", "example": "Gece alınan şifreli yedek ve kimsenin değiştiremediği bir dış kopya." },
+    "patching": { "title": "Yama yönetimi", "example": "Host'lar ve sunucular her ay sabit bir bakım penceresinde güncellenir." },
+    "iam": { "title": "En az yetki ilkesiyle IAM", "example": "Her kişi ve servis yalnızca ihtiyaç duyduğu bulut rollerini alır." },
+    "no-shared": { "title": "Ortak kimlik bilgisi yok", "example": "Her yöneticinin kişisel hesabı var; ortak parolalar yalnızca kasada." },
+    "rotation": { "title": "Anahtar ve sır rotasyonu", "example": "API anahtarları ve sertifikalar plana göre ve personel değişikliklerinde yenilenir." },
+    "eu": { "title": "Verinin AB'de tutulması", "example": "Klinik yazılımı ve yedekler yalnızca AB bölgelerinde barındırılır." },
+    "dpa": { "title": "Veri işleme sözleşmeleri", "example": "Kişisel veri işleyen her sağlayıcıyla imzalı bir sözleşme." },
+    "ropa": { "title": "İşleme faaliyetleri kaydı", "example": "Kişisel veri içeren her sistem amacı, verisi ve süresiyle listelenir." },
+    "retention": { "title": "Silme ve saklama konsepti", "example": "Neyin ne kadar saklanacağı ve süre dolunca kimin sileceği." },
+    "lifecycle": { "title": "İşe giriş ve çıkış", "example": "Hesaplar rollerden oluşturulur ve son iş gününde kapatılır." },
+    "incident": { "title": "Olay süreci", "example": "Değerlendirin, sınırlayın, belgeleyin ve 72 saat içinde makama bildirin." },
+    "vendor": { "title": "Üretici uzaktan destek kuralları", "example": "Cihaz üreticileri yalnızca jump host üzerinden, talep üzerine ve süreli bağlanır." }
+  },
+  "day1": {
+    "cabinet": "Ağ kabini kilitli, anahtar yalnızca klinik yöneticisinde.",
+    "screens": "Resepsiyon ekranları bekleme salonundan çevrildi, ekran kilidi test edildi.",
+    "guest": "Misafir Wi-Fi yalıtımı bir telefonla test edildi.",
+    "macs": "Her Mac şifreli ve kayıtlı; MDM raporunda kontrol edildi.",
+    "rules": "Ekip bilgilendirildi: e-postayla hasta verisi yok, USB bellek yok.",
+    "ropa": "Yeni klinik işleme faaliyetleri kaydına eklendi."
+  },
+  "retention": {
+    "records": "Hasta dosyaları",
+    "images": "Röntgen ve ultrason görüntüleri",
+    "invoices": "Faturalar",
+    "staff": "Personel dosyaları",
+    "logs": "Erişim kayıtları"
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "restartNote": "HA heißt Neustart mit kurzer Unterbrechung, nicht null Ausfallzeit. Nur vMotion verschiebt laufende Server ohne Unterbrechung.",
+  "illustrative": "Größen und Zeiten sind beispielhaft.",
+  "reset": "Labor zurücksetzen",
+  "infra": {
+    "title": "Netzwerk, Speicher und Strom",
+    "internet": "Internet",
+    "firewall": "Firewall-Paar",
+    "core": "Core-Switches",
+    "storage": "Speichersystem",
+    "paths": "Controller-Ports",
+    "power": "Strom",
+    "storageNote": "Gemeinsames Speichersystem mit zwei Controllern, von jedem Host über zwei Pfade erreichbar. Alternative: vSAN auf den drei Hosts (FTT=1). Es übersteht einen Hostausfall, kann seine Kopien aber erst wieder aufbauen, wenn der Host zurück ist."
+  },
+  "status": {
+    "ok": "Läuft",
+    "failed": "Ausgefallen",
+    "maintenance": "Wartung",
+    "isolated": "Isoliert",
+    "no-network": "Kein Netz",
+    "no-storage": "Kein Speicher"
+  },
+  "toggle": {
+    "fail": "{name} ausfallen lassen",
+    "restore": "{name} wiederherstellen"
+  },
+  "host": {
+    "fail": "Host fällt aus",
+    "restore": "Wiederherstellen",
+    "maintenance": "Wartungsmodus",
+    "exitMaintenance": "Wartung beenden",
+    "isolate": "Management-Netz verlieren",
+    "reconnect": "Wieder verbinden",
+    "memory": "Arbeitsspeicher",
+    "memoryValue": "{used} / {total} GB",
+    "paths": "Speicherpfade",
+    "pathsValue": "{count} von {total}",
+    "uplinks": "Uplinks",
+    "uplink": "{port} zu {core}",
+    "empty": "Keine VMs auf diesem Host."
+  },
+  "vm": {
+    "priority": "Neustartpriorität {n}",
+    "gb": "{gb} GB",
+    "down": "Aus, HA startet sie neu",
+    "migrating": "vMotion",
+    "restarted": "Nach einer Unterbrechung neu gestartet"
+  },
+  "off": {
+    "title": "Läuft nicht",
+    "reason": "Kein Host hat {gb} GB frei"
+  },
+  "load": {
+    "title": "Cluster-Last und Admission Control",
+    "label": "Von den VMs belegter Arbeitsspeicher",
+    "value": "{pct} % von {total} GB",
+    "limit": "N+1-Grenze {pct} %",
+    "ok": "N+1 eingehalten: Ein beliebiger Host darf ausfallen.",
+    "over": "Über der N+1-Grenze: Nach einem Hostausfall kann nicht jede VM neu starten.",
+    "ac": "Im Betrieb würde Admission Control oberhalb von {pct} % keine weiteren VMs starten lassen. Hier ist sie aus, damit die Wirkung sichtbar wird.",
+    "ifFails": "Wenn jetzt ein Host ausfällt",
+    "allRestart": "{host}: Alle VMs starten neu.",
+    "lost": "{host}: {vms} können nicht neu starten."
+  },
+  "drs": {
+    "title": "DRS (Lastverteilung)",
+    "balanced": "Die Hosts sind ausgeglichen. Keine Empfehlung.",
+    "recommend": "Die Speicherauslastung unterscheidet sich um {pct} Punkte. DRS empfiehlt:",
+    "move": "{vm}: {from} → {to}",
+    "apply": "Mit vMotion umsetzen",
+    "noVcenter": "vCenter läuft nicht: DRS und vMotion pausieren. HA-Neustarts funktionieren auch ohne."
+  },
+  "rule": {
+    "title": "Anti-Affinity",
+    "ok": "{a} und {b} laufen auf verschiedenen Hosts.",
+    "violated": "{a} und {b} teilen sich einen Host. Nur ein Host war übrig, und HA zieht Laufen dem Trennen vor.",
+    "not-running": "{a} oder {b} läuft nicht."
+  },
+  "isolation": {
+    "title": "Host-Isolation",
+    "text": "Ein Host verliert sein Management-Netz, läuft aber weiter. Über den gemeinsamen Speicher (Datastore-Heartbeat) sehen die anderen, dass er lebt.",
+    "response": "Reaktion auf Isolation",
+    "keep": "VMs weiterlaufen lassen",
+    "poweroff": "Ausschalten, woanders neu starten"
+  },
+  "log": {
+    "title": "Was passiert",
+    "empty": "Noch ist nichts passiert. Lassen Sie einen Host oder eine Komponente ausfallen.",
+    "time": "+{sec} s",
+    "componentFailed": "{name} fällt aus.",
+    "componentRestored": "{name} ist zurück.",
+    "hostFailed": "{host} fällt aus. Seine VMs stoppen.",
+    "hostNoNetwork": "{host} verliert beide Uplinks. Seine VMs stoppen.",
+    "hostNoStorage": "{host} verliert alle Speicherpfade. Seine VMs stoppen.",
+    "detect": "HA bemerkt den Ausfall.",
+    "restarted": "{vm} auf {host} neu gestartet.",
+    "noCapacity": "{vm} kann nicht neu starten: Kein Host hat {gb} GB frei.",
+    "maintenance": "{host} geht in den Wartungsmodus.",
+    "maintenanceDone": "{host} ist leer und kann gewartet werden.",
+    "migrated": "{vm} mit vMotion auf {host} verschoben, ohne Unterbrechung.",
+    "stuck": "{vm} bleibt auf {host}: vMotion braucht vCenter und freien Speicher anderswo.",
+    "exitMaintenance": "{host} verlässt den Wartungsmodus. Er bleibt leer, bis DRS VMs darauf verschiebt.",
+    "restored": "{host} ist zurück. Er bleibt leer, bis DRS VMs darauf verschiebt.",
+    "isolated": "{host} verliert sein Management-Netz.",
+    "isolatedKeep": "Seine VMs laufen weiter: Der Speicher-Heartbeat zeigt, dass der Host lebt.",
+    "reconnected": "{host} ist wieder erreichbar.",
+    "drs": "DRS setzt {count} Verschiebungen mit vMotion um.",
+    "responseChanged": "Reaktion auf Isolation geändert.",
+    "noImpact": "Keine VM ist betroffen."
+  },
+  "effects": {
+    "title": "Auswirkung auf die Standorte",
+    "hqWan": {
+      "primary": "Internet der Zentrale: Hauptprovider",
+      "backup": "Internet der Zentrale: zweiter Provider (Failover)",
+      "offline": "Internet der Zentrale: offline"
+    },
+    "tunnel": {
+      "up": "{site}: VPN-Tunnel aktiv",
+      "backup": "{site}: Tunnel über den Ersatzweg wieder aufgebaut",
+      "down": "{site}: VPN-Tunnel getrennt"
+    }
+  },
+  "warnings": {
+    "title": "Verlorene Sicherheitsreserven",
+    "none": "Alle Redundanzen intakt."
+  },
+  "warn": {
+    "uplink": "{host}: nur noch ein Uplink.",
+    "paths": "{host}: noch {count} von {total} Speicherpfaden.",
+    "maintenance": "{host} ist in Wartung: Solange sie dauert, ist die N+1-Reserve belegt.",
+    "antiAffinity": "Anti-Affinity verletzt, bis ein zweiter Host zurück ist."
+  },
+  "spof": {
+    "title": "Prüfung auf Single Points of Failure",
+    "col": {
+      "component": "Komponente",
+      "how": "Wie redundant",
+      "fails": "Wenn sie ausfällt"
+    },
+    "try": "Ausprobieren",
+    "internet": {
+      "component": "Internetzugang",
+      "how": "Zwei Provider auf verschiedenen Medien; die Firewall schaltet selbst um.",
+      "fails": "Kurze Unterbrechung, dann trägt die zweite Leitung alles; die Tunnel der Praxen bauen sich neu auf."
+    },
+    "firewall": {
+      "component": "Firewall",
+      "how": "Aktiv/Passiv-Paar mit gemeinsamer Adresse.",
+      "fails": "Der zweite Knoten übernimmt in Sekunden; die Tunnel bauen sich neu auf."
+    },
+    "core": {
+      "component": "Core-Switching",
+      "how": "Zwei Switches (MLAG); jeder Host und jede Firewall hängt an beiden.",
+      "fails": "Keine Unterbrechung; halbe Bandbreite bis zum Austausch."
+    },
+    "uplinks": {
+      "component": "Host-Uplinks",
+      "how": "Zwei Uplinks je Host, zu jedem Core-Switch einer.",
+      "fails": "Keine Unterbrechung; der Verkehr wechselt auf den verbleibenden Uplink."
+    },
+    "hosts": {
+      "component": "Server-Hardware",
+      "how": "Drei Hosts, die Kapazität eines Hosts als Reserve (N+1), HA aktiv.",
+      "fails": "Die VMs starten auf den anderen Hosts neu: wenige Minuten Unterbrechung."
+    },
+    "storage-ctl": {
+      "component": "Speicher-Controller",
+      "how": "Zwei Controller, jeder Host mit Pfaden zu beiden.",
+      "fails": "Keine Unterbrechung; der andere Controller übernimmt die Pfade."
+    },
+    "power": {
+      "component": "Strom",
+      "how": "Zwei USV; Server haben zwei Netzteile, eines an jeder.",
+      "fails": "Server laufen weiter; Geräte mit einem Netzteil übergeben an ihren Partner."
+    },
+    "identity": {
+      "component": "Anmeldung und DNS",
+      "how": "Zwei Server, nie auf demselben Host (Anti-Affinity).",
+      "fails": "Keine Unterbrechung; ein Server antwortet allein."
+    },
+    "vcenter": {
+      "component": "vCenter",
+      "how": "Eine einzelne VM, von HA neu gestartet wie jede andere.",
+      "fails": "Laufende VMs und HA arbeiten weiter; DRS, vMotion und Änderungen pausieren."
+    },
+    "array": {
+      "component": "Speichergehäuse",
+      "how": "Ein Gehäuse, innen redundant; nächtliches Backup und eine externe Kopie.",
+      "fails": "Verbleibender Single Point: Wiederherstellung aus dem Backup. Bei dieser Größe akzeptiert."
+    },
+    "room": {
+      "component": "Serverraum",
+      "how": "Ein Standort; eine unveränderbare externe Backup-Kopie.",
+      "fails": "Katastrophenfall: Neuaufbau aus der externen Kopie. Ein zweiter Standort würde dieses Risiko beseitigen."
+    }
+  },
+  "before": {
+    "title": "Vorher: ein Server pro Dienst",
+    "text": "Jeder Dienst auf eigener Hardware. Fällt eine Kiste aus, ist ihr Dienst weg, bis die Hardware repariert ist.",
+    "fail": "Server für {service} ausfallen lassen",
+    "down": "Aus bis zur Reparatur",
+    "up": "Läuft",
+    "now": "Im Cluster ist derselbe Ausfall ein Neustart von wenigen Minuten."
+  }
+}

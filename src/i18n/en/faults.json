@@ -1,0 +1,334 @@
+{
+  "action": {
+    "power-off": {
+      "label": "Switch off",
+      "done": "{device} is switched off."
+    },
+    "slow-device": {
+      "label": "Make it slow (overloaded or faulty)",
+      "done": "{device} becomes slow and drops packets."
+    },
+    "tunnels-down": {
+      "label": "Stop the VPN tunnels",
+      "done": "The VPN tunnels of {site} go down while the internet still works."
+    },
+    "dhcp-staff-full": {
+      "label": "Use up the staff address pool",
+      "done": "The DHCP pool of the staff network in {site} is full."
+    },
+    "dhcp-guest-full": {
+      "label": "Use up the guest address pool",
+      "done": "The DHCP pool of the guest Wi-Fi in {site} is full."
+    },
+    "dns-stopped": {
+      "label": "Stop the DNS service",
+      "done": "The DNS service on {device} stops."
+    },
+    "cert-expired": {
+      "label": "Let the certificate expire",
+      "done": "The certificate of {service} expires."
+    },
+    "cut-link": {
+      "label": "Cut",
+      "done": "{link} is cut."
+    },
+    "slow-link": {
+      "label": "Make slow",
+      "done": "{link} becomes slow and drops packets."
+    },
+    "tunnel-cut": {
+      "label": "Tunnel down",
+      "done": "{link} goes down."
+    }
+  },
+  "layer": {
+    "power": "Power",
+    "link": "Cable / Wi-Fi",
+    "ip": "IP address",
+    "dns": "DNS",
+    "gateway": "Gateway",
+    "wan": "Internet line",
+    "vpn": "VPN",
+    "service": "Service"
+  },
+  "test": {
+    "power-led": "Is the power LED on? Check plug and power strip.",
+    "ups-status": "UPS display: on battery, overload or alarm?",
+    "mains-room": "Do the lights and other sockets in the room work?",
+    "breaker": "Fuse box: has a breaker tripped?",
+    "bypass": "If the UPS itself is faulty: switch it to bypass or plug devices into the wall.",
+    "poe-port": "Does the switch port still deliver PoE power?",
+    "link-led": "Link LED lit on both ends of the cable?",
+    "cable-swap": "Swap the patch cable or try another port.",
+    "port-status": "Is the port up on the switch, in the right VLAN?",
+    "port-errors": "Are the error counters on the port rising (CRC, drops)?",
+    "ap-led": "Access point LED: on, blinking or dark?",
+    "wifi-client": "Which access point is the device on, and how strong is the signal?",
+    "modem-led": "Modem or fibre box: is the sync LED on?",
+    "ip-address": "Does the device have an address from its network, not 169.254.x.x?",
+    "dhcp-leases": "Firewall dashboard: how many addresses are left in the pool?",
+    "rogue-devices": "Any unknown devices in the lease list, such as a private router?",
+    "dns-internal": "Does the first internal DNS server answer?",
+    "dns-second": "Does the second internal DNS server answer?",
+    "ping-gw": "Does the gateway answer?",
+    "ping-device": "Does the device answer a ping?",
+    "ping-loss": "Packet loss or high latency over 50 pings?",
+    "wan-status": "Firewall dashboard: which internet line is active?",
+    "ping-provider": "Does a public address answer from the firewall?",
+    "speed-test": "Speed test against the bandwidth in the contract.",
+    "isp-hotline": "Check the provider's outage page, then call the business hotline with the contract number.",
+    "status-page": "Check the provider's status page.",
+    "second-site": "Does it work from another site? Then the problem is local.",
+    "tunnel-status": "Tunnel status in the firewall dashboard: up or down, over which line?",
+    "ping-hq": "Does the HQ firewall answer through the tunnel?",
+    "hq-reachable": "Do other clinics lose their tunnel too? Then look at HQ.",
+    "dashboard-device": "Is the device shown as online in the cloud dashboard?",
+    "firmware-version": "Is the firmware current? Known bug in this version?",
+    "reboot-window": "If needed, restart it after opening hours.",
+    "terminal-selftest": "Run the connection test on the terminal.",
+    "print-queue": "Print queue on the Mac: stopped or stuck jobs?",
+    "mdm-lastseen": "MDM: when did the Mac last check in?",
+    "phone-registered": "Phone display: registered with the telephone system?",
+    "vendor-contact": "If the device itself is faulty: call the vendor service with serial number and error code.",
+    "vcenter-events": "vCenter: events and alarms of the host or VM.",
+    "host-console": "Out-of-band console of the host: power state, hardware errors?",
+    "vm-console": "VM console: does the system boot, does the service start?",
+    "mlag-status": "MLAG status on the remaining core switch: peer down, ports up?",
+    "ha-status": "HA status of the firewall pair: which node is active?",
+    "storage-paths": "Multipathing on the hosts: how many paths are active?",
+    "array-console": "Storage array console: controller state and alarms?",
+    "service-port": "Does the service answer on its port?",
+    "service-status": "Service status on the server: since when are there errors in the log?",
+    "cert-date": "Expiry date of the certificate.",
+    "browser-warning": "Does the browser show a certificate warning?",
+    "monitoring-cert": "Why did certificate monitoring not warn in time?"
+  },
+  "guide": {
+    "switch-off": {
+      "workaround": "Plug the most important devices (reception Mac, card terminal) into the second switch or the spare switch.",
+      "fix": "Find out why it went off: power supply, UPS or defect. Replace it with the spare; the cloud template configures it.",
+      "prevention": "Switch on the UPS, a spare switch at HQ, and a monitoring alarm when a switch goes offline."
+    },
+    "ap-off": {
+      "workaround": "Laptops roam to the next access point by themselves; where coverage is weak, move closer or use a cable.",
+      "fix": "Check the PoE port and cable. Replace the access point with the spare; it adopts the template.",
+      "prevention": "Overlapping coverage so one access point may fail, a spare in stock, and an offline alarm."
+    },
+    "firewall-off": {
+      "workaround": "Nothing leaves the clinic: take card payments offline if the terminal allows it, otherwise cash; work locally.",
+      "fix": "Check power and UPS. If it is defective, swap in the pre-configured spare from HQ.",
+      "prevention": "Firewall on the UPS, a spare unit at HQ, and an HA pair for large clinics."
+    },
+    "terminal-off": {
+      "workaround": "Use the second terminal, or cash or invoice.",
+      "fix": "Check power and cable. If it is defective, the payment provider sends a replacement.",
+      "prevention": "A spare terminal per region and a fixed port for each terminal."
+    },
+    "printer-off": {
+      "workaround": "Print on another printer or hand the document over digitally.",
+      "fix": "Check power, cable, paper and labels; clear the print queue on the Mac.",
+      "prevention": "The same printer models everywhere, spare rolls in stock, fixed addresses."
+    },
+    "mac-off": {
+      "workaround": "Work on another Mac: the data is in the cloud and on the file server, not on the Mac.",
+      "fix": "Check power and cable. If it is defective, MDM sets up a spare Mac in minutes.",
+      "prevention": "No local data, a spare Mac in stock, zero-touch enrolment."
+    },
+    "phone-off": {
+      "workaround": "Forward calls to another phone or a mobile in the telephone system.",
+      "fix": "Check the PoE port and cable; replace the phone, it provisions itself.",
+      "prevention": "Phones on PoE behind the UPS, forwarding rules prepared."
+    },
+    "medical-off": {
+      "workaround": "Use the device in another room or clinic; postpone or refer X-rays.",
+      "fix": "Check power and cable; call the vendor service with serial number and error code.",
+      "prevention": "A service contract with response time; vendor access only through the jump host."
+    },
+    "mains-off": {
+      "workaround": "The network runs on the UPS for a while. Save work; payments may have to be cash.",
+      "fix": "Find the cause with the landlord or an electrician and reset the breakers.",
+      "prevention": "A UPS sized for the cabinet, monitored battery, and a plan for long outages."
+    },
+    "ups-off": {
+      "workaround": "Put the devices straight on mains power (bypass).",
+      "fix": "Read the UPS display and log; replace the battery or the unit.",
+      "prevention": "Regular battery tests and replacement, UPS in monitoring."
+    },
+    "host-off": {
+      "workaround": "Nothing to do: HA restarts the virtual servers on the other hosts within minutes.",
+      "fix": "Check the hardware on the console, replace parts, bring the host back and let DRS rebalance.",
+      "prevention": "Keep one host of reserve (N+1), test HA regularly, hardware support contract."
+    },
+    "core-off": {
+      "workaround": "Nothing to do: every host and firewall is connected to both core switches.",
+      "fix": "Check power and logs, replace the switch, restore the configuration from backup.",
+      "prevention": "Keep the pair, test failover after changes, automate configuration backups."
+    },
+    "hqfw-off": {
+      "workaround": "Nothing to do: the second node takes over the shared address.",
+      "fix": "Find the cause, repair or replace the node, and let the pair sync again.",
+      "prevention": "Test the HA failover twice a year; separate power feeds for both nodes."
+    },
+    "storage-off": {
+      "workaround": "Nothing to do while the other half runs. Avoid changes until it is back.",
+      "fix": "Open a case with the vendor and replace the part.",
+      "prevention": "Support contract with fast parts delivery; path monitoring on every host."
+    },
+    "isp-out": {
+      "workaround": "The backup line takes over automatically. Tell the team that things are slower.",
+      "fix": "Report the outage to the provider with the contract number and follow the ticket.",
+      "prevention": "Two providers on different media, both lines monitored, SLA document at hand."
+    },
+    "vm-off": {
+      "workaround": "Start the virtual server again from vCenter.",
+      "fix": "Read the logs and find out why it stopped: update, full disk or crash.",
+      "prevention": "Monitoring of the service itself, not just a ping."
+    },
+    "external-out": {
+      "workaround": "Use the documented fallback (paper form, cash) until the provider is back.",
+      "fix": "Nothing to fix on our side; follow the provider's status page.",
+      "prevention": "A fallback procedure for every external service in the clinic handbook."
+    },
+    "device-off": {
+      "workaround": "Use another device of the same kind.",
+      "fix": "Check power and cable; replace it if it is defective.",
+      "prevention": "Standard models and spare parts in stock."
+    },
+    "slow-device": {
+      "workaround": "Restart the device outside opening hours.",
+      "fix": "Check firmware and error counters; update or replace it.",
+      "prevention": "Monitor latency and errors; roll out firmware in stages."
+    },
+    "tunnels-down": {
+      "workaround": "Everything in the cloud keeps working. Keep X-ray images on the device until the tunnel is back.",
+      "fix": "Check the tunnel in the dashboard (keys, addresses, firmware) and restart it.",
+      "prevention": "Alarm on tunnel state, a tested template, no manual changes."
+    },
+    "dhcp-full": {
+      "workaround": "Give one important Mac a temporary fixed address.",
+      "fix": "Find what used up the pool (unknown devices?), then enlarge the pool or shorten the lease time.",
+      "prevention": "Alarm at 80 % pool use; unknown devices are not allowed on the staff network."
+    },
+    "dhcp-guest-full": {
+      "workaround": "Tell guests the Wi-Fi is full for a moment; the team is not affected.",
+      "fix": "Shorten the lease time on the guest network, for example to one hour.",
+      "prevention": "Short leases and a pool large enough for a full waiting room."
+    },
+    "dns-stopped": {
+      "workaround": "As long as one server answers, nothing to do. If both fail, restart the service on one of them.",
+      "fix": "Read the logs, repair the service and check the zone data.",
+      "prevention": "Two servers on different hosts (anti-affinity) and DNS monitoring per server."
+    },
+    "cert-expired": {
+      "workaround": "Do not click through warnings on medical systems; issue a new certificate right away.",
+      "fix": "Renew the certificate and install it on the server.",
+      "prevention": "Automatic renewal and an expiry alarm 30 and 14 days ahead."
+    },
+    "wan-cut": {
+      "workaround": "The backup line takes over. Avoid large uploads until the main line is back.",
+      "fix": "Report it to the provider and check the cable inside the building.",
+      "prevention": "LTE backup in every clinic and monitoring of both lines."
+    },
+    "wifi-cut": {
+      "workaround": "Move closer to an access point or use a cable.",
+      "fix": "Check the device's Wi-Fi settings; push the Wi-Fi profile again via MDM.",
+      "prevention": "Wi-Fi profiles from MDM and a coverage measurement in every room."
+    },
+    "storage-cut": {
+      "workaround": "Nothing to do: the second path takes over.",
+      "fix": "Replace the cable or transceiver and check the port.",
+      "prevention": "Two paths per host and path monitoring."
+    },
+    "lan-cut": {
+      "workaround": "Use another port or another cable.",
+      "fix": "Replace the cable; check the wall socket and the patch panel.",
+      "prevention": "Labelled cabling and spare patch cables in the cabinet."
+    },
+    "slow-wan": {
+      "workaround": "Postpone large uploads; switch to the backup line by hand if needed.",
+      "fix": "Measure, then report to the provider with the measurements.",
+      "prevention": "Monitor latency and loss; an SLA with defined quality."
+    },
+    "slow-link": {
+      "workaround": "Use another port.",
+      "fix": "Replace the cable and check the speed and duplex settings.",
+      "prevention": "Monitor the error counters of the ports."
+    },
+    "tunnel-cut": {
+      "workaround": "The second tunnel takes over if its line works.",
+      "fix": "Check the tunnel in the dashboard and restart it.",
+      "prevention": "Two tunnels over two lines and an alarm on tunnel state."
+    }
+  },
+  "scenario": {
+    "monday-switch": "Monday 8:00: the Hamburg switch dies",
+    "digger": "Construction work cuts Hamburg's fibre",
+    "offline": "Hamburg: fibre and LTE both gone",
+    "tunnel": "Hamburg: VPN down, internet up",
+    "guest-pool": "Full waiting room in Berlin: guest Wi-Fi out of addresses",
+    "access-point": "Berlin: Wi-Fi in treatment room 1 gone",
+    "card-terminal": "Hamburg: card terminal dead",
+    "dns-both": "Both DNS servers at HQ stop",
+    "host": "HQ: one ESXi host fails",
+    "hq-isp": "HQ: main internet provider down",
+    "hq-blackout": "HQ: total power loss"
+  },
+  "event": {
+    "powerLost": "{count} devices lose power with {source}: {devices}.",
+    "powerLostOne": "{device} loses power with {source}.",
+    "onBattery": "{device} switches to battery.",
+    "vmRestarted": "HA restarts {count} virtual servers on the other hosts: {devices}. Short interruption.",
+    "vmDownCapacity": "Not enough memory left in the cluster: {devices} stay off.",
+    "vmDownStorage": "No host reaches the storage: {devices} stop.",
+    "vmDownHost": "No host is left to run {devices}.",
+    "wanFailover": "{sites} switch to the backup internet line.",
+    "siteOffline": "{sites} lose all internet access.",
+    "vpnFailover": "The VPN tunnel of {sites} comes back over the backup line.",
+    "vpnDown": "{sites} lose the VPN tunnel to headquarters.",
+    "roaming": "{devices} roam to another access point.",
+    "serviceDown": "For {site}, these stop working: {services}.",
+    "serviceDegraded": "For {site}, these are slow or briefly interrupted: {services}."
+  },
+  "warning": {
+    "redundancyLost": "Redundancy lost: {devices} is out, its partner now carries everything alone.",
+    "capacityReserveUsed": "The cluster reserve is used up ({devices} out). Another host failure would not be absorbed.",
+    "onBattery": "{device} runs on battery. Plan for the moment it runs empty.",
+    "serviceRedundancyLost": "{service} has only one server left ({devices} out)."
+  },
+  "outcome": {
+    "healthy": "Everything works. Pick a scenario, or choose a device on the map and break something.",
+    "absorbed": "Nobody notices: redundancy takes over. A safety margin is gone, though.",
+    "degraded": "Everything still works, but slower or after a short interruption.",
+    "outage": "Something has stopped working."
+  },
+  "cap": {
+    "managed": "Remote management",
+    "records": "Patient records and appointments",
+    "files": "Shared folders",
+    "print-receipt": "Printing receipts",
+    "print-label": "Printing labels",
+    "mac-managed": "Mac management",
+    "view-images": "Viewing X-ray images",
+    "print-document": "Printing documents",
+    "admin-access": "Admin access",
+    "pay": "Card payments",
+    "scan-to-share": "Scanning to a folder",
+    "calls": "Phone calls",
+    "take-xray": "Taking X-rays",
+    "archive-images": "Sending images to the archive",
+    "run-analysis": "Lab analysis",
+    "send-results": "Sending lab results",
+    "scan": "Ultrasound",
+    "guest-internet": "Guest Wi-Fi",
+    "authenticate-users": "User login on the file server",
+    "forward-results": "Lab results to the practice software",
+    "offsite-copy": "Offsite backup copy"
+  },
+  "audience": {
+    "reception": "Reception",
+    "vets": "Vets and nurses",
+    "backoffice": "Back office",
+    "owners": "Pet owners",
+    "it": "IT"
+  }
+}

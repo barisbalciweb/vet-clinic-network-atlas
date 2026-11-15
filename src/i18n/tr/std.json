@@ -1,0 +1,80 @@
+{
+  "ui": {
+    "kitTitle": "Standart donanım seti",
+    "kitIntro": "Her klinik aynı modelleri alır. Açılışları hızlandıran ve desteği kolaylaştıran budur.",
+    "colDevice": "Cihaz",
+    "colModel": "Model",
+    "reasonsTitle": "Neden her cihaz için tek model",
+    "templateTitle": "Tek şablon, birkaç değişken",
+    "templateIntro": {
+      "simple": "Her kliniğin ağı aynı şablondan oluşturulur. Yalnızca lokasyon numarası değişir.",
+      "technical": "Firewall konfigürasyonu tek bir şablondan üretilir; tek değişkenler lokasyon kimliği, kodu ve numarasıdır."
+    },
+    "variables": "Değişkenler",
+    "compareA": "Klinik A",
+    "compareB": "Klinik B",
+    "diffSummary": "{total} satırdan {count} tanesi farklı; hepsi lokasyon değişkenleri yüzünden.",
+    "differs": "Fark",
+    "dashTitle": "Bulut firewall panosu",
+    "simulation": "Simülasyon",
+    "dashIntro": "Buluttan yönetilen bir firewall filosunun genel görünümü. Ağı, arıza simülatörünün şu an gördüğü haliyle gösterir.",
+    "col": { "site": "Lokasyon", "wan": "İnternet", "vpn": "VPN", "clients": "İstemciler", "firmware": "Firmware" },
+    "wan": { "primary": "Ana hat", "backup": "LTE yedeği", "offline": "Kesik" },
+    "vpn": { "primary": "Açık", "backup": "Açık (yedek)", "down": "Kopuk" },
+    "notApplied": "München henüz panoda değil.",
+    "apply": "Şablonu München'e uygula",
+    "applied": "Şablon uygulandı: München 3 numarasıyla hazırlandı.",
+    "waiting": "Go-live bekleniyor",
+    "firmwareTitle": "Kademeli firmware dağıtımı {from} → {to}",
+    "updating": "Güncelleniyor…",
+    "start": "Başlat: {stage}",
+    "observe": "Pilot sağlıklı. Diğer kliniklerden önce {hours} saat izleyin (örnek).",
+    "done": "Tüm klinikler {version} sürümünde.",
+    "rollback": "Pilotu geri al",
+    "rolledBack": "Pilot {version} sürümüne geri alındı.",
+    "ansibleTitle": "Ansible ile otomasyon",
+    "ansibleIntro": "Tek bir playbook VLAN, SNMP, NTP ve syslog ayarlarını her klinik switch'ine gönderir. İki kez çalıştırılırsa ikincisinde hiçbir şey değişmez.",
+    "inventory": "Envanter",
+    "playbook": "Playbook",
+    "run": "Playbook'u çalıştır",
+    "running": "Çalışıyor…",
+    "output": "Çıktı",
+    "outcome": { "ok": "ok", "changed": "değişti", "failed": "başarısız", "unreachable": "erişilemiyor" },
+    "unreachable": "{host} erişilemiyor: arıza simülatöründe kapalı veya bağlantısı kopuk. Önce bunu giderin, sonra --limit {host} ile yeniden çalıştırın.",
+    "zeroTitle": "macOS zero-touch",
+    "compareTitle": "Standartsız ve standartlı klinik açılışı",
+    "without": "Standart olmadan",
+    "with": "Standartla",
+    "illustrative": "Sayılar ve sürümler örnek amaçlıdır."
+  },
+  "kit": {
+    "reason": {
+      "spares": "Merkezde her modelden bir yedek, her klinikteki arızalı cihazın yerini tutar.",
+      "behaviour": "Bilinen davranış: bir hata veya tuhaflık her klinikte değil, bir kez bulunur.",
+      "config": "Her klinik için özel kurulum yerine tek bir konfigürasyon şablonu.",
+      "support": "Destek, dokümantasyon ve eğitim her yerde aynıdır."
+    }
+  },
+  "dash": { "stage": { "pilot": "Pilot klinik", "rest": "Kalan klinikler" } },
+  "ansible": {
+    "failure": {
+      "auth": {
+        "reason": "{host} başarısız: kimlik doğrulama reddedildi, yerel yönetici parolası elle değiştirilmiş.",
+        "fix": "Yönetilen kimlik bilgisini kasadan geri yükleyin, --limit {host} ile yeniden çalıştırın ve şablon dışında kimin değiştirdiğini bulun."
+      }
+    }
+  },
+  "zero": {
+    "order": { "title": "Sipariş", "text": "Kurumsal kanaldan alınır; seri numarası şirkete kayıtlı olur." },
+    "assign": { "title": "Atama", "text": "Seri numarası otomatik olarak MDM'e atanır." },
+    "unbox": { "title": "Kutudan çıkarma", "text": "Çalışan cihazı açar, Wi-Fi'a veya kabloya bağlanır." },
+    "profiles": { "title": "Yapılandırma", "text": "MDM Wi-Fi, uygulamalar, disk şifreleme ve güvenlik ayarlarını gönderir." },
+    "login": { "title": "Giriş", "text": "Çalışan oturum açar ve işe başlar. BT ziyareti gerekmez." }
+  },
+  "compare": {
+    "steps": "Açılış kontrol listesindeki adımlar",
+    "hours": "Açılış başına BT saati",
+    "weeks": "Sözleşmeden go-live'a hafta",
+    "tickets": "İlk aydaki ticket sayısı"
+  }
+}

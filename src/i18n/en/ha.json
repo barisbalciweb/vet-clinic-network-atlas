@@ -1,0 +1,206 @@
+{
+  "restartNote": "HA means a restart with a short outage, not zero downtime. Only vMotion moves running servers without interruption.",
+  "illustrative": "Sizes and times are illustrative.",
+  "reset": "Reset lab",
+  "infra": {
+    "title": "Network, storage and power",
+    "internet": "Internet",
+    "firewall": "Firewall pair",
+    "core": "Core switches",
+    "storage": "Storage array",
+    "paths": "Controller ports",
+    "power": "Power",
+    "storageNote": "Shared array with two controllers, reached by every host over two paths. Alternative: vSAN on the three hosts (FTT=1). It survives one host failure but cannot rebuild its copies until the host is back."
+  },
+  "status": {
+    "ok": "Running",
+    "failed": "Failed",
+    "maintenance": "Maintenance",
+    "isolated": "Isolated",
+    "no-network": "No network",
+    "no-storage": "No storage"
+  },
+  "toggle": {
+    "fail": "Fail {name}",
+    "restore": "Restore {name}"
+  },
+  "host": {
+    "fail": "Fail host",
+    "restore": "Restore",
+    "maintenance": "Maintenance mode",
+    "exitMaintenance": "Exit maintenance",
+    "isolate": "Lose management network",
+    "reconnect": "Reconnect",
+    "memory": "Memory",
+    "memoryValue": "{used} / {total} GB",
+    "paths": "Storage paths",
+    "pathsValue": "{count} of {total}",
+    "uplinks": "Uplinks",
+    "uplink": "{port} to {core}",
+    "empty": "No VMs on this host."
+  },
+  "vm": {
+    "priority": "Restart priority {n}",
+    "gb": "{gb} GB",
+    "down": "Down, HA restarts it",
+    "migrating": "vMotion",
+    "restarted": "Restarted after an outage"
+  },
+  "off": {
+    "title": "Not running",
+    "reason": "No host has {gb} GB free"
+  },
+  "load": {
+    "title": "Cluster load and admission control",
+    "label": "Memory used by the VMs",
+    "value": "{pct} % of {total} GB",
+    "limit": "N+1 limit {pct} %",
+    "ok": "N+1 is kept: any one host may fail.",
+    "over": "Above the N+1 limit: after a host failure not every VM can restart.",
+    "ac": "In production, admission control would refuse to start more VMs above {pct} %. It is off here so you can see the effect.",
+    "ifFails": "If a host fails now",
+    "allRestart": "{host}: every VM restarts.",
+    "lost": "{host}: {vms} cannot restart."
+  },
+  "drs": {
+    "title": "DRS (load balancing)",
+    "balanced": "The hosts are balanced. No recommendation.",
+    "recommend": "Memory use differs by {pct} points. DRS recommends:",
+    "move": "{vm}: {from} → {to}",
+    "apply": "Apply with vMotion",
+    "noVcenter": "vCenter is not running: DRS and vMotion pause. HA restarts still work without it."
+  },
+  "rule": {
+    "title": "Anti-affinity",
+    "ok": "{a} and {b} run on different hosts.",
+    "violated": "{a} and {b} share a host. Only one host was left, and HA prefers running over separating.",
+    "not-running": "{a} or {b} is not running."
+  },
+  "isolation": {
+    "title": "Host isolation",
+    "text": "A host loses its management network but keeps running. Through the shared storage (datastore heartbeat) the others see that it is alive.",
+    "response": "Isolation response",
+    "keep": "Leave VMs running",
+    "poweroff": "Power off, restart elsewhere"
+  },
+  "log": {
+    "title": "What happens",
+    "empty": "Nothing has happened yet. Fail a host or a component.",
+    "time": "+{sec} s",
+    "componentFailed": "{name} fails.",
+    "componentRestored": "{name} is back.",
+    "hostFailed": "{host} fails. Its VMs stop.",
+    "hostNoNetwork": "{host} loses both uplinks. Its VMs stop.",
+    "hostNoStorage": "{host} loses every storage path. Its VMs stop.",
+    "detect": "HA notices the failure.",
+    "restarted": "{vm} restarted on {host}.",
+    "noCapacity": "{vm} cannot restart: no host has {gb} GB free.",
+    "maintenance": "{host} enters maintenance mode.",
+    "maintenanceDone": "{host} is empty and can be serviced.",
+    "migrated": "{vm} moved to {host} with vMotion, without interruption.",
+    "stuck": "{vm} stays on {host}: vMotion needs vCenter and free memory elsewhere.",
+    "exitMaintenance": "{host} leaves maintenance mode. It stays empty until DRS moves VMs to it.",
+    "restored": "{host} is back. It stays empty until DRS moves VMs to it.",
+    "isolated": "{host} loses its management network.",
+    "isolatedKeep": "Its VMs keep running: the storage heartbeat shows the host is alive.",
+    "reconnected": "{host} is reachable again.",
+    "drs": "DRS applies {count} moves with vMotion.",
+    "responseChanged": "Isolation response changed.",
+    "noImpact": "No VM is affected."
+  },
+  "effects": {
+    "title": "Effect on the sites",
+    "hqWan": {
+      "primary": "HQ internet: main provider",
+      "backup": "HQ internet: second provider (failover)",
+      "offline": "HQ internet: offline"
+    },
+    "tunnel": {
+      "up": "{site}: VPN tunnel up",
+      "backup": "{site}: tunnel re-established over the failover path",
+      "down": "{site}: VPN tunnel down"
+    }
+  },
+  "warnings": {
+    "title": "Safety margins lost",
+    "none": "All redundancy intact."
+  },
+  "warn": {
+    "uplink": "{host}: only one uplink left.",
+    "paths": "{host}: {count} of {total} storage paths left.",
+    "maintenance": "{host} is in maintenance: the N+1 reserve is in use while it lasts.",
+    "antiAffinity": "Anti-affinity broken until a second host is back."
+  },
+  "spof": {
+    "title": "Single point of failure check",
+    "col": {
+      "component": "Component",
+      "how": "Redundant how",
+      "fails": "If it fails"
+    },
+    "try": "Try it",
+    "internet": {
+      "component": "Internet access",
+      "how": "Two providers on different media; the firewall switches over by itself.",
+      "fails": "Short interruption, then the second line carries everything; clinic tunnels re-establish."
+    },
+    "firewall": {
+      "component": "Firewall",
+      "how": "Active/passive pair with a shared address.",
+      "fails": "The second node takes over within seconds; tunnels re-establish."
+    },
+    "core": {
+      "component": "Core switching",
+      "how": "Two switches (MLAG); every host and firewall is connected to both.",
+      "fails": "No outage; half the bandwidth until it is replaced."
+    },
+    "uplinks": {
+      "component": "Host uplinks",
+      "how": "Two uplinks per host, one to each core switch.",
+      "fails": "No outage; traffic moves to the remaining uplink."
+    },
+    "hosts": {
+      "component": "Server hardware",
+      "how": "Three hosts, one host of capacity in reserve (N+1), HA enabled.",
+      "fails": "VMs restart on the other hosts: a few minutes of outage."
+    },
+    "storage-ctl": {
+      "component": "Storage controllers",
+      "how": "Two controllers, every host with paths to both.",
+      "fails": "No outage; the other controller takes over the paths."
+    },
+    "power": {
+      "component": "Power",
+      "how": "Two UPS; servers have two power supplies, one on each.",
+      "fails": "Servers keep running; single-feed devices hand over to their partner."
+    },
+    "identity": {
+      "component": "Login and DNS",
+      "how": "Two servers, never on the same host (anti-affinity).",
+      "fails": "No outage; one server answers alone."
+    },
+    "vcenter": {
+      "component": "vCenter",
+      "how": "A single VM, restarted by HA like any other.",
+      "fails": "Running VMs and HA keep working; DRS, vMotion and changes pause."
+    },
+    "array": {
+      "component": "Storage enclosure",
+      "how": "One chassis, redundant inside; nightly backup and an offsite copy.",
+      "fails": "Remaining single point: restore from backup. Accepted at this size."
+    },
+    "room": {
+      "component": "Server room",
+      "how": "One location; an immutable offsite backup copy.",
+      "fails": "Disaster case: rebuild from the offsite copy. A second site would remove this risk."
+    }
+  },
+  "before": {
+    "title": "Before: one server per service",
+    "text": "Each service on its own physical box. If a box fails, its service is gone until the hardware is repaired.",
+    "fail": "Fail the server for {service}",
+    "down": "Down until repaired",
+    "up": "Running",
+    "now": "In the cluster, the same failure is a restart of a few minutes."
+  }
+}

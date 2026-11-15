@@ -1,0 +1,139 @@
+{
+  "ui": {
+    "title": "Satın alma simülasyonu (IT-Beschaffung)",
+    "intro": "München için seti bir iç mağazadan sipariş eder gibi alın ve cihazlar çevrimiçi olana kadar takip edin.",
+    "play": "Otomatik oynat",
+    "pause": "Duraklat",
+    "restart": "Baştan başla",
+    "steps": "Adımlar",
+    "step": {
+      "size": "Boyut",
+      "shop": "Mağaza",
+      "checks": "Kontroller",
+      "delivery": "Teslimat",
+      "result": "Sonuç"
+    },
+    "next": "İleri",
+    "back": "Geri",
+    "area": "Alan (m²)",
+    "fill": "Standart seti sepete koy",
+    "cart": "Sepet: {count} adet",
+    "lead": "{days} gün",
+    "stock": "Merkez stoku: {n}",
+    "noStock": "Merkez stokunda yok",
+    "nonStandard": "Standart dışı",
+    "remove": "Azalt: {item}",
+    "add": "Artır: {item}",
+    "orderWeek": "Sipariş haftası",
+    "order": "Siparişi ver",
+    "fix": "Düzelt",
+    "allGood": "Tüm kontroller geçti.",
+    "attention": "{count} kontrol dikkat istiyor. Yine de sipariş verebilirsiniz.",
+    "illustrative": "Teslim süreleri, stok ve teslimat günleri örnek amaçlıdır.",
+    "nextStep": "Sonraki adım",
+    "skip": "Sona atla",
+    "day": "{n}. gün",
+    "parcel": "Koli merkezden München'e yolda",
+    "devicesTitle": "München'deki cihazlar",
+    "installed": "Kuruldu",
+    "online": "Çevrimiçi ve doğrulandı",
+    "inventoryTitle": "München envanteri",
+    "col": {
+      "device": "Cihaz",
+      "model": "Model",
+      "serial": "Seri no",
+      "asset": "Demirbaş no",
+      "room": "Oda",
+      "vlan": "VLAN",
+      "ip": "IP",
+      "warranty": "Garanti"
+    },
+    "dhcp": "DHCP",
+    "spare": "Merkezde yedek",
+    "extra": "Ek",
+    "months": "{n} ay",
+    "onTime": "Her şey kurulum için zamanında sahada.",
+    "lateAfter": "{item}, go-live'dan {days} gün sonra hazır oluyor.",
+    "lateBefore": "{item}, kurulum için {days} gün geç hazır oluyor.",
+    "workaroundStock": "Geçici çözüm: şimdi merkez stokundan alın ve yedeği yeniden sipariş edin.",
+    "workaroundNone": "Geçici çözüm: sonra kurun veya go-live'ı erteleyin.",
+    "ticked": "Donanım aşaması zaman çizelgesinde işaretlendi.",
+    "timelineLate": "Geciken teslimat: {item}, planlanan kurulumdan {days} gün sonra.",
+    "below": "Aşağıdaki simülasyon kliniği boyutlandırır, sepeti doldurur, siparişi kontrol eder ve teslimatı izler."
+  },
+  "category": {
+    "network": "Ağ ve güç",
+    "workstations": "İş istasyonları",
+    "reception": "Resepsiyon ve telefonlar",
+    "licences": "Lisanslar ve abonelikler"
+  },
+  "item": {
+    "lic-net": "Bulut ağ lisansı (3 yıl)",
+    "lic-mdm": "MDM lisansı (1 yıl)",
+    "consumer-router": "Ev tipi Wi-Fi router",
+    "switch-other": "Başka üreticinin switch'i",
+    "mac-retail": "Perakendeden alınmış MacBook"
+  },
+  "warn": {
+    "consumer-router": "VLAN yok, VPN şablonu yok, yedeği yok: yalnızca bu klinikte olan ayrı bir kurulum.",
+    "switch-other": "Farklı firmware ve konfigürasyon, rafta yedeği yok, daha az PoE gücü.",
+    "mac-retail": "Otomatik kayıt için bildirilmemiş: elle kurulması gerekir."
+  },
+  "check": {
+    "coverage": {
+      "title": "Eksiksiz set",
+      "ok": "Sepet setin tamamını karşılıyor.",
+      "bad": "Sette eksik: {items}."
+    },
+    "ports": {
+      "title": "Switch portları",
+      "ok": "{total} switch portundan {used} tanesi kullanılıyor.",
+      "bad": "{used} port gerekli, yalnızca {total} var."
+    },
+    "poe": {
+      "title": "PoE bütçesi",
+      "ok": "PoE {budget} W'ın {used} W'ı.",
+      "bad": "{used} W PoE gerekli, yalnızca {budget} W var."
+    },
+    "ups": {
+      "title": "UPS boyutu",
+      "ok": "UPS {capacity} W'ın {load} W'ını taşıyor.",
+      "bad": "Kabin {load} W çekiyor, UPS yalnızca {capacity} W taşıyor."
+    },
+    "licences": {
+      "title": "Lisanslar ve abonelikler",
+      "ok": "{net} ağ cihazı ve {mdm} Mac için lisans var.",
+      "bad": "Lisans eksik: {net} ağ cihazı ve {mdm} Mac için gerekli."
+    },
+    "mdm": {
+      "title": "Mac'lerin satın alma kanalı",
+      "ok": "Her Mac kurumsal kanaldan geliyor ve kendiliğinden kaydoluyor.",
+      "bad": "Perakendeden gelen {count} Mac kendiliğinden kaydolmaz."
+    },
+    "spares": {
+      "title": "Yedek parçalar",
+      "ok": "Yedekler dahil: {items}.",
+      "bad": "Yedeği yok: {items}."
+    },
+    "leadtime": {
+      "title": "Teslim süreleri",
+      "ok": "En uzun teslim süresi {days} gün: her şey zamanında sahada.",
+      "bad": "Kurulum için geç: {items} ({days} güne kadar)."
+    },
+    "standard": {
+      "title": "Standart modeller",
+      "ok": "Yalnızca standart modeller.",
+      "bad": "Standart dışı: {items}."
+    }
+  },
+  "step": {
+    "ordered": "Sipariş verildi",
+    "hq": "Merkeze teslim edildi",
+    "tagged": "Demirbaş etiketleri ve envanter kayıtları",
+    "staged": "Ön hazırlık: firmware, şablon, Mac'ler kayıtlı",
+    "packed": "Oda oda etiketlendi ve paketlendi",
+    "shipped": "München'e gönderildi",
+    "racked": "Kabine takıldı ve kablolandı",
+    "online": "Cihazlar çevrimiçi ve doğrulandı"
+  }
+}

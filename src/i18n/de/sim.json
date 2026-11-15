@@ -1,0 +1,45 @@
+{
+  "intro": {
+    "simple": "Legen Sie etwas lahm und sehen Sie, was passiert. Wählen Sie ein Szenario oder öffnen Sie einen Standort und wählen ein Gerät.",
+    "technical": "Fehler an Geräten, Verbindungen und Diensten auslösen. Die Ergebnisse berücksichtigen Redundanz und kombinieren mehrere Fehler."
+  },
+  "scenarios": "Fertige Szenarien",
+  "active": "Aktive Fehler",
+  "remove": "Entfernen: {fault}",
+  "reset": "Alles zurücksetzen",
+  "break": "Lahmlegen",
+  "breakLinks": "Seine Verbindungen",
+  "undo": "Aktiv. Erneut wählen zum Rückgängigmachen",
+  "plannedSite": "Diese Praxis ist noch nicht in Betrieb, hier kann nichts ausfallen.",
+  "section": {
+    "now": "Was jetzt passiert",
+    "who": "Wer betroffen ist",
+    "tests": "Prüfreihenfolge",
+    "fix": "Lösung und Vorbeugung",
+    "todo": "Was jetzt zu tun ist",
+    "warnings": "Verlorene Sicherheitsreserven"
+  },
+  "stillWorks": "Funktioniert weiter",
+  "nobody": "Niemand ist betroffen.",
+  "workaround": "Sofortmaßnahme",
+  "fix": "Lösung",
+  "prevention": "Vorbeugung",
+  "state": {
+    "up": "Funktioniert",
+    "down": "Funktioniert nicht",
+    "degraded": "Langsam oder unterbrochen"
+  },
+  "faulted": "Absichtlich lahmgelegt",
+  "result": "Ergebnis",
+  "showResult": "Ergebnis zeigen",
+  "hideResult": "Ergebnis ausblenden",
+  "backToResult": "Zurück zum Ergebnis",
+  "more": "+{count} weitere",
+  "times": "{count} × {name}",
+  "linkName": "{kind} {a} – {b}",
+  "banner": "Simulation aktiv: {count} Fehler.",
+  "bannerOpen": "Simulator öffnen",
+  "legendDown": "Gerät funktioniert nicht",
+  "legendDegraded": "Gerät langsam oder unterbrochen",
+  "legendFault": "Absichtlich lahmgelegt"
+}

@@ -1,0 +1,43 @@
+{
+  "illustrative": true,
+  "categories": ["network", "workstations", "reception", "licences"],
+  "items": [
+    { "sku": "fw", "category": "network", "model": "FW-60C", "role": "clinic-firewall", "loadW": 25, "leadDays": 10, "hqStock": 1, "warrantyMonths": 36, "rule": { "fixed": 1 } },
+    { "sku": "switch", "category": "network", "model": "SW-24P", "role": "access-switch", "ports": 22, "poeBudgetW": 370, "loadW": 45, "leadDays": 14, "hqStock": 1, "warrantyMonths": 60, "rule": { "perPorts": 22 } },
+    { "sku": "ap", "category": "network", "model": "AP-W6", "role": "access-point", "port": true, "poeW": 15, "leadDays": 10, "hqStock": 2, "warrantyMonths": 60, "rule": { "fixed": 1, "perRoom": 0.5, "minPerAreaM2": 150 } },
+    { "sku": "ups", "category": "network", "model": "UPS-1000", "role": "ups", "port": true, "capacityW": 600, "leadDays": 7, "hqStock": 0, "warrantyMonths": 24, "rule": { "fixed": 1 } },
+    { "sku": "cabinet", "category": "network", "model": "NC-12U", "labelKey": "opening.sku.cabinet", "leadDays": 21, "hqStock": 0, "warrantyMonths": 24, "rule": { "fixed": 1 } },
+    { "sku": "lte", "category": "network", "model": "LTE/5G SIM", "role": "mobile-network", "leadDays": 5, "hqStock": 2, "rule": { "fixed": 1 } },
+    { "sku": "mac-desk", "category": "workstations", "model": "Mac mini", "role": "reception-mac", "port": true, "channel": "business", "leadDays": 7, "hqStock": 1, "warrantyMonths": 36, "rule": { "fixed": 1, "perDesk": 1 } },
+    { "sku": "mac-room", "category": "workstations", "model": "MacBook Air", "role": "treatment-mac", "channel": "business", "leadDays": 7, "hqStock": 1, "warrantyMonths": 36, "rule": { "perRoom": 1 } },
+    { "sku": "terminal", "category": "reception", "model": "CT-200", "role": "card-terminal", "port": true, "leadDays": 21, "hqStock": 1, "warrantyMonths": 24, "rule": { "fixed": 1, "perDesk": 1 } },
+    { "sku": "receipt", "category": "reception", "model": "RP-80", "role": "receipt-printer", "port": true, "leadDays": 7, "hqStock": 1, "warrantyMonths": 24, "rule": { "perDesk": 1 } },
+    { "sku": "label", "category": "reception", "model": "LP-4", "role": "label-printer", "port": true, "leadDays": 7, "hqStock": 1, "warrantyMonths": 24, "rule": { "perDesk": 1 } },
+    { "sku": "mfp", "category": "reception", "model": "MFP-C30", "role": "document-printer", "port": true, "leadDays": 14, "hqStock": 0, "warrantyMonths": 36, "rule": { "fixed": 1 } },
+    { "sku": "phone", "category": "reception", "model": "IP-PH-2", "role": "voip-phone", "port": true, "poeW": 6, "leadDays": 10, "hqStock": 2, "warrantyMonths": 24, "rule": { "fixed": 1, "perDesk": 1 } },
+    { "sku": "lic-net", "category": "licences", "model": "NET-CLOUD-3Y", "labelKey": "shop.item.lic-net", "licence": "network", "leadDays": 1, "rule": { "per": ["fw", "switch", "ap"] } },
+    { "sku": "lic-mdm", "category": "licences", "model": "MDM-SEAT-1Y", "labelKey": "shop.item.lic-mdm", "licence": "mdm", "leadDays": 1, "rule": { "per": ["mac-desk", "mac-room"] } },
+    { "sku": "xray-port", "role": "xray-pc", "port": true, "vendor": true, "rule": { "perFeature": { "xray": 1 } } },
+    { "sku": "lab-port", "role": "lab-analyzer", "port": true, "vendor": true, "rule": { "perFeature": { "lab": 1 } } },
+    { "sku": "us-port", "role": "ultrasound", "port": true, "vendor": true, "rule": { "fixed": 1 } },
+    { "sku": "consumer-router", "category": "network", "model": "HomeBox 7", "labelKey": "shop.item.consumer-router", "standard": false, "replaces": "fw", "loadW": 15, "leadDays": 2, "hqStock": 0, "warrantyMonths": 12, "rule": {} },
+    { "sku": "switch-other", "category": "network", "model": "SW-X16", "labelKey": "shop.item.switch-other", "standard": false, "replaces": "switch", "ports": 14, "poeBudgetW": 120, "loadW": 30, "leadDays": 3, "hqStock": 0, "warrantyMonths": 12, "rule": {} },
+    { "sku": "mac-retail", "category": "workstations", "model": "MacBook Air", "labelKey": "shop.item.mac-retail", "standard": false, "replaces": "mac-room", "channel": "retail", "leadDays": 1, "hqStock": 0, "warrantyMonths": 12, "rule": {} }
+  ],
+  "spares": [
+    { "sku": "ap", "count": 1 },
+    { "sku": "terminal", "count": 1 }
+  ],
+  "delivery": [
+    { "id": "ordered", "day": 0 },
+    { "id": "hq", "day": 0 },
+    { "id": "tagged", "day": 1 },
+    { "id": "staged", "day": 8 },
+    { "id": "packed", "day": 10 },
+    { "id": "shipped", "day": 12 },
+    { "id": "racked", "day": 14 },
+    { "id": "online", "day": 15 }
+  ],
+  "timing": { "readyAfterArrivalDays": 12, "neededBeforeGoLiveDays": 14 },
+  "defaults": { "rooms": 2, "desks": 1, "areaM2": 400, "xray": true, "lab": true, "orderWeek": -8 }
+}

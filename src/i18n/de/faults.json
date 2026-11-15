@@ -1,0 +1,334 @@
+{
+  "action": {
+    "power-off": {
+      "label": "Ausschalten",
+      "done": "{device} wird ausgeschaltet."
+    },
+    "slow-device": {
+      "label": "Verlangsamen (überlastet oder defekt)",
+      "done": "{device} wird langsam und verliert Pakete."
+    },
+    "tunnels-down": {
+      "label": "VPN-Tunnel stoppen",
+      "done": "Die VPN-Tunnel von {site} fallen aus, das Internet funktioniert weiter."
+    },
+    "dhcp-staff-full": {
+      "label": "Adresspool des Team-Netzes erschöpfen",
+      "done": "Der DHCP-Pool des Team-Netzes in {site} ist voll."
+    },
+    "dhcp-guest-full": {
+      "label": "Adresspool des Gäste-WLANs erschöpfen",
+      "done": "Der DHCP-Pool des Gäste-WLANs in {site} ist voll."
+    },
+    "dns-stopped": {
+      "label": "DNS-Dienst stoppen",
+      "done": "Der DNS-Dienst auf {device} stoppt."
+    },
+    "cert-expired": {
+      "label": "Zertifikat ablaufen lassen",
+      "done": "Das Zertifikat von {service} läuft ab."
+    },
+    "cut-link": {
+      "label": "Trennen",
+      "done": "{link} wird getrennt."
+    },
+    "slow-link": {
+      "label": "Verlangsamen",
+      "done": "{link} wird langsam und verliert Pakete."
+    },
+    "tunnel-cut": {
+      "label": "Tunnel trennen",
+      "done": "{link} fällt aus."
+    }
+  },
+  "layer": {
+    "power": "Strom",
+    "link": "Kabel / WLAN",
+    "ip": "IP-Adresse",
+    "dns": "DNS",
+    "gateway": "Gateway",
+    "wan": "Internetleitung",
+    "vpn": "VPN",
+    "service": "Dienst"
+  },
+  "test": {
+    "power-led": "Leuchtet die Power-LED? Stecker und Steckdosenleiste prüfen.",
+    "ups-status": "USV-Anzeige: Batteriebetrieb, Überlast oder Alarm?",
+    "mains-room": "Funktionieren Licht und andere Steckdosen im Raum?",
+    "breaker": "Sicherungskasten: Ist eine Sicherung rausgeflogen?",
+    "bypass": "Ist die USV selbst defekt: auf Bypass schalten oder Geräte direkt an die Wand stecken.",
+    "poe-port": "Liefert der Switch-Port noch PoE-Strom?",
+    "link-led": "Leuchtet die Link-LED an beiden Kabelenden?",
+    "cable-swap": "Patchkabel tauschen oder einen anderen Port testen.",
+    "port-status": "Ist der Port am Switch aktiv und im richtigen VLAN?",
+    "port-errors": "Steigen die Fehlerzähler am Port (CRC, Drops)?",
+    "ap-led": "LED am Access Point: an, blinkend oder dunkel?",
+    "wifi-client": "Mit welchem Access Point ist das Gerät verbunden, wie stark ist das Signal?",
+    "modem-led": "Modem oder Glasfaserbox: leuchtet die Sync-LED?",
+    "ip-address": "Hat das Gerät eine Adresse aus seinem Netz, nicht 169.254.x.x?",
+    "dhcp-leases": "Firewall-Dashboard: Wie viele Adressen sind im Pool noch frei?",
+    "rogue-devices": "Unbekannte Geräte in der Lease-Liste, etwa ein privater Router?",
+    "dns-internal": "Antwortet der erste interne DNS-Server?",
+    "dns-second": "Antwortet der zweite interne DNS-Server?",
+    "ping-gw": "Antwortet das Gateway?",
+    "ping-device": "Antwortet das Gerät auf einen Ping?",
+    "ping-loss": "Paketverlust oder hohe Latenz bei 50 Pings?",
+    "wan-status": "Firewall-Dashboard: Welche Internetleitung ist aktiv?",
+    "ping-provider": "Antwortet eine öffentliche Adresse von der Firewall aus?",
+    "speed-test": "Speedtest gegen die vertraglich vereinbarte Bandbreite.",
+    "isp-hotline": "Störungsseite des Providers prüfen, dann die Business-Hotline mit der Vertragsnummer anrufen.",
+    "status-page": "Statusseite des Anbieters prüfen.",
+    "second-site": "Funktioniert es von einem anderen Standort aus? Dann liegt das Problem lokal.",
+    "tunnel-status": "Tunnelstatus im Firewall-Dashboard: aktiv oder getrennt, über welche Leitung?",
+    "ping-hq": "Antwortet die Firewall der Zentrale durch den Tunnel?",
+    "hq-reachable": "Verlieren andere Praxen ihren Tunnel auch? Dann bei der Zentrale suchen.",
+    "dashboard-device": "Wird das Gerät im Cloud-Dashboard als online angezeigt?",
+    "firmware-version": "Ist die Firmware aktuell? Bekannter Fehler in dieser Version?",
+    "reboot-window": "Wenn nötig, nach Praxisschluss neu starten.",
+    "terminal-selftest": "Verbindungstest am Terminal ausführen.",
+    "print-queue": "Druckwarteschlange am Mac: angehalten oder hängende Aufträge?",
+    "mdm-lastseen": "MDM: Wann hat sich der Mac zuletzt gemeldet?",
+    "phone-registered": "Telefondisplay: an der Telefonanlage angemeldet?",
+    "vendor-contact": "Ist das Gerät selbst defekt: Herstellerservice mit Seriennummer und Fehlercode anrufen.",
+    "vcenter-events": "vCenter: Ereignisse und Alarme des Hosts oder der VM.",
+    "host-console": "Out-of-Band-Konsole des Hosts: Stromzustand, Hardwarefehler?",
+    "vm-console": "VM-Konsole: Startet das System, startet der Dienst?",
+    "mlag-status": "MLAG-Status am verbleibenden Core-Switch: Peer weg, Ports aktiv?",
+    "ha-status": "HA-Status des Firewall-Paars: Welcher Knoten ist aktiv?",
+    "storage-paths": "Multipathing auf den Hosts: Wie viele Pfade sind aktiv?",
+    "array-console": "Konsole des Speichersystems: Controllerzustand und Alarme?",
+    "service-port": "Antwortet der Dienst auf seinem Port?",
+    "service-status": "Dienststatus auf dem Server: Seit wann stehen Fehler im Log?",
+    "cert-date": "Ablaufdatum des Zertifikats.",
+    "browser-warning": "Zeigt der Browser eine Zertifikatswarnung?",
+    "monitoring-cert": "Warum hat die Zertifikatsüberwachung nicht rechtzeitig gewarnt?"
+  },
+  "guide": {
+    "switch-off": {
+      "workaround": "Die wichtigsten Geräte (Empfangs-Mac, Kartenterminal) an den zweiten Switch oder den Ersatz-Switch stecken.",
+      "fix": "Ursache klären: Netzteil, USV oder Defekt. Durch den Ersatz tauschen; das Cloud-Template konfiguriert ihn.",
+      "prevention": "Switch an die USV, ein Ersatz-Switch in der Zentrale und ein Monitoring-Alarm, wenn ein Switch offline geht."
+    },
+    "ap-off": {
+      "workaround": "Laptops wechseln von selbst zum nächsten Access Point; wo der Empfang schwach ist, näher heran oder Kabel nutzen.",
+      "fix": "PoE-Port und Kabel prüfen. Access Point durch den Ersatz tauschen; er übernimmt das Template.",
+      "prevention": "Überlappende Ausleuchtung, damit ein Access Point ausfallen darf, Ersatz auf Lager und ein Offline-Alarm."
+    },
+    "firewall-off": {
+      "workaround": "Nichts verlässt die Praxis: Kartenzahlung offline, wenn das Terminal es erlaubt, sonst bar; lokal weiterarbeiten.",
+      "fix": "Strom und USV prüfen. Ist sie defekt, das vorkonfigurierte Ersatzgerät aus der Zentrale einsetzen.",
+      "prevention": "Firewall an der USV, ein Ersatzgerät in der Zentrale und ein HA-Paar für große Praxen."
+    },
+    "terminal-off": {
+      "workaround": "Das zweite Terminal nutzen, sonst bar oder auf Rechnung.",
+      "fix": "Strom und Kabel prüfen. Ist es defekt, schickt der Zahlungsanbieter Ersatz.",
+      "prevention": "Ein Ersatzterminal pro Region und ein fester Port für jedes Terminal."
+    },
+    "printer-off": {
+      "workaround": "Auf einem anderen Drucker drucken oder das Dokument digital übergeben.",
+      "fix": "Strom, Kabel, Papier und Etiketten prüfen; Druckwarteschlange am Mac leeren.",
+      "prevention": "Überall dieselben Druckermodelle, Ersatzrollen auf Lager, feste Adressen."
+    },
+    "mac-off": {
+      "workaround": "An einem anderen Mac weiterarbeiten: Die Daten liegen in der Cloud und auf dem Fileserver, nicht auf dem Mac.",
+      "fix": "Strom und Kabel prüfen. Ist er defekt, richtet MDM einen Ersatz-Mac in Minuten ein.",
+      "prevention": "Keine lokalen Daten, ein Ersatz-Mac auf Lager, Zero-Touch-Einrichtung."
+    },
+    "phone-off": {
+      "workaround": "Anrufe in der Telefonanlage auf ein anderes Telefon oder ein Handy umleiten.",
+      "fix": "PoE-Port und Kabel prüfen; Telefon tauschen, es richtet sich selbst ein.",
+      "prevention": "Telefone per PoE hinter der USV, Umleitungen vorbereitet."
+    },
+    "medical-off": {
+      "workaround": "Das Gerät in einem anderen Raum oder einer anderen Praxis nutzen; Röntgen verschieben oder überweisen.",
+      "fix": "Strom und Kabel prüfen; Herstellerservice mit Seriennummer und Fehlercode anrufen.",
+      "prevention": "Wartungsvertrag mit Reaktionszeit; Herstellerzugriff nur über den Jump-Host."
+    },
+    "mains-off": {
+      "workaround": "Das Netzwerk läuft eine Weile auf der USV. Arbeit speichern; Zahlungen eventuell bar.",
+      "fix": "Ursache mit Vermieter oder Elektriker klären und die Sicherungen wieder einschalten.",
+      "prevention": "Eine USV passend zum Schrank, überwachter Akku und ein Plan für lange Ausfälle."
+    },
+    "ups-off": {
+      "workaround": "Die Geräte direkt ans Stromnetz hängen (Bypass).",
+      "fix": "Anzeige und Log der USV lesen; Akku oder Gerät tauschen.",
+      "prevention": "Regelmäßige Akkutests und -tausch, USV im Monitoring."
+    },
+    "host-off": {
+      "workaround": "Nichts zu tun: HA startet die virtuellen Server innerhalb von Minuten auf den anderen Hosts neu.",
+      "fix": "Hardware über die Konsole prüfen, Teile tauschen, Host zurückholen und DRS neu verteilen lassen.",
+      "prevention": "Einen Host Reserve halten (N+1), HA regelmäßig testen, Hardware-Supportvertrag."
+    },
+    "core-off": {
+      "workaround": "Nichts zu tun: Jeder Host und jede Firewall hängt an beiden Core-Switches.",
+      "fix": "Strom und Logs prüfen, Switch tauschen, Konfiguration aus dem Backup zurückspielen.",
+      "prevention": "Das Paar behalten, Failover nach Änderungen testen, Konfigurations-Backups automatisieren."
+    },
+    "hqfw-off": {
+      "workaround": "Nichts zu tun: Der zweite Knoten übernimmt die gemeinsame Adresse.",
+      "fix": "Ursache finden, Knoten reparieren oder tauschen und das Paar neu synchronisieren lassen.",
+      "prevention": "HA-Failover zweimal im Jahr testen; getrennte Stromzuführung für beide Knoten."
+    },
+    "storage-off": {
+      "workaround": "Nichts zu tun, solange die andere Hälfte läuft. Bis dahin keine Änderungen.",
+      "fix": "Beim Hersteller einen Fall eröffnen und das Teil tauschen.",
+      "prevention": "Supportvertrag mit schneller Teilelieferung; Pfadüberwachung auf jedem Host."
+    },
+    "isp-out": {
+      "workaround": "Die Backup-Leitung übernimmt automatisch. Dem Team sagen, dass es langsamer ist.",
+      "fix": "Störung mit Vertragsnummer beim Provider melden und das Ticket verfolgen.",
+      "prevention": "Zwei Provider auf verschiedenen Medien, beide Leitungen überwacht, SLA griffbereit."
+    },
+    "vm-off": {
+      "workaround": "Den virtuellen Server im vCenter wieder starten.",
+      "fix": "Logs lesen und herausfinden, warum er stehen blieb: Update, volle Platte oder Absturz.",
+      "prevention": "Den Dienst selbst überwachen, nicht nur per Ping."
+    },
+    "external-out": {
+      "workaround": "Den dokumentierten Notbetrieb nutzen (Papierformular, Barzahlung), bis der Anbieter wieder da ist.",
+      "fix": "Auf unserer Seite gibt es nichts zu reparieren; die Statusseite des Anbieters verfolgen.",
+      "prevention": "Für jeden externen Dienst ein Notbetrieb im Praxishandbuch."
+    },
+    "device-off": {
+      "workaround": "Ein anderes Gerät derselben Art nutzen.",
+      "fix": "Strom und Kabel prüfen; bei Defekt tauschen.",
+      "prevention": "Standardmodelle und Ersatzteile auf Lager."
+    },
+    "slow-device": {
+      "workaround": "Das Gerät nach Praxisschluss neu starten.",
+      "fix": "Firmware und Fehlerzähler prüfen; aktualisieren oder tauschen.",
+      "prevention": "Latenz und Fehler überwachen; Firmware gestaffelt ausrollen."
+    },
+    "tunnels-down": {
+      "workaround": "Alles in der Cloud läuft weiter. Röntgenbilder auf dem Gerät lassen, bis der Tunnel wieder steht.",
+      "fix": "Tunnel im Dashboard prüfen (Schlüssel, Adressen, Firmware) und neu starten.",
+      "prevention": "Alarm auf den Tunnelstatus, ein getestetes Template, keine manuellen Änderungen."
+    },
+    "dhcp-full": {
+      "workaround": "Einem wichtigen Mac vorübergehend eine feste Adresse geben.",
+      "fix": "Finden, was den Pool aufgebraucht hat (unbekannte Geräte?), dann den Pool vergrößern oder die Lease-Zeit verkürzen.",
+      "prevention": "Alarm bei 80 % Auslastung; unbekannte Geräte sind im Team-Netz nicht zugelassen."
+    },
+    "dhcp-guest-full": {
+      "workaround": "Den Gästen sagen, dass das WLAN gerade voll ist; das Team ist nicht betroffen.",
+      "fix": "Die Lease-Zeit im Gäste-Netz verkürzen, zum Beispiel auf eine Stunde.",
+      "prevention": "Kurze Leases und ein Pool, der für ein volles Wartezimmer reicht."
+    },
+    "dns-stopped": {
+      "workaround": "Solange ein Server antwortet, nichts zu tun. Fallen beide aus, den Dienst auf einem neu starten.",
+      "fix": "Logs lesen, Dienst reparieren und die Zonendaten prüfen.",
+      "prevention": "Zwei Server auf verschiedenen Hosts (Anti-Affinity) und DNS-Monitoring je Server."
+    },
+    "cert-expired": {
+      "workaround": "Warnungen an Medizinsystemen nicht wegklicken; sofort ein neues Zertifikat ausstellen.",
+      "fix": "Zertifikat erneuern und auf dem Server einspielen.",
+      "prevention": "Automatische Erneuerung und ein Ablaufalarm 30 und 14 Tage vorher."
+    },
+    "wan-cut": {
+      "workaround": "Die Backup-Leitung übernimmt. Große Uploads vermeiden, bis die Hauptleitung zurück ist.",
+      "fix": "Beim Provider melden und das Kabel im Gebäude prüfen.",
+      "prevention": "LTE-Backup in jeder Praxis und Überwachung beider Leitungen."
+    },
+    "wifi-cut": {
+      "workaround": "Näher an einen Access Point gehen oder ein Kabel nutzen.",
+      "fix": "WLAN-Einstellungen am Gerät prüfen; das WLAN-Profil per MDM erneut verteilen.",
+      "prevention": "WLAN-Profile aus dem MDM und eine Ausleuchtungsmessung in jedem Raum."
+    },
+    "storage-cut": {
+      "workaround": "Nichts zu tun: Der zweite Pfad übernimmt.",
+      "fix": "Kabel oder Transceiver tauschen und den Port prüfen.",
+      "prevention": "Zwei Pfade je Host und Pfadüberwachung."
+    },
+    "lan-cut": {
+      "workaround": "Einen anderen Port oder ein anderes Kabel nutzen.",
+      "fix": "Kabel tauschen; Wanddose und Patchfeld prüfen.",
+      "prevention": "Beschriftete Verkabelung und Ersatz-Patchkabel im Schrank."
+    },
+    "slow-wan": {
+      "workaround": "Große Uploads verschieben; notfalls von Hand auf die Backup-Leitung wechseln.",
+      "fix": "Messen und mit den Messwerten beim Provider melden.",
+      "prevention": "Latenz und Verlust überwachen; ein SLA mit definierter Qualität."
+    },
+    "slow-link": {
+      "workaround": "Einen anderen Port nutzen.",
+      "fix": "Kabel tauschen und Geschwindigkeit und Duplex prüfen.",
+      "prevention": "Fehlerzähler der Ports überwachen."
+    },
+    "tunnel-cut": {
+      "workaround": "Der zweite Tunnel übernimmt, wenn seine Leitung funktioniert.",
+      "fix": "Tunnel im Dashboard prüfen und neu starten.",
+      "prevention": "Zwei Tunnel über zwei Leitungen und ein Alarm auf den Tunnelstatus."
+    }
+  },
+  "scenario": {
+    "monday-switch": "Montag 8:00: Der Switch in Hamburg fällt aus",
+    "digger": "Bauarbeiten trennen die Glasfaser in Hamburg",
+    "offline": "Hamburg: Glasfaser und LTE beide weg",
+    "tunnel": "Hamburg: VPN weg, Internet da",
+    "guest-pool": "Volles Wartezimmer in Berlin: Gäste-WLAN ohne Adressen",
+    "access-point": "Berlin: WLAN in Behandlungsraum 1 weg",
+    "card-terminal": "Hamburg: Kartenterminal tot",
+    "dns-both": "Beide DNS-Server der Zentrale stoppen",
+    "host": "Zentrale: ein ESXi-Host fällt aus",
+    "hq-isp": "Zentrale: Hauptprovider fällt aus",
+    "hq-blackout": "Zentrale: kompletter Stromausfall"
+  },
+  "event": {
+    "powerLost": "{count} Geräte verlieren mit {source} den Strom: {devices}.",
+    "powerLostOne": "{device} verliert mit {source} den Strom.",
+    "onBattery": "{device} schaltet auf Batterie.",
+    "vmRestarted": "HA startet {count} virtuelle Server auf den anderen Hosts neu: {devices}. Kurze Unterbrechung.",
+    "vmDownCapacity": "Im Cluster ist nicht genug Speicher frei: {devices} bleiben aus.",
+    "vmDownStorage": "Kein Host erreicht den Speicher: {devices} stoppen.",
+    "vmDownHost": "Für {devices} ist kein Host mehr übrig.",
+    "wanFailover": "{sites} wechseln auf die Backup-Internetleitung.",
+    "siteOffline": "{sites} verlieren den gesamten Internetzugang.",
+    "vpnFailover": "Der VPN-Tunnel von {sites} baut sich über die Backup-Leitung wieder auf.",
+    "vpnDown": "{sites} verlieren den VPN-Tunnel zur Zentrale.",
+    "roaming": "{devices} wechseln zu einem anderen Access Point.",
+    "serviceDown": "Für {site} funktioniert nicht mehr: {services}.",
+    "serviceDegraded": "Für {site} langsam oder kurz unterbrochen: {services}."
+  },
+  "warning": {
+    "redundancyLost": "Redundanz verloren: {devices} ist ausgefallen, der Partner trägt jetzt alles allein.",
+    "capacityReserveUsed": "Die Cluster-Reserve ist verbraucht ({devices} aus). Ein weiterer Hostausfall wäre nicht mehr abgefangen.",
+    "onBattery": "{device} läuft auf Batterie. Für den Moment planen, in dem sie leer ist.",
+    "serviceRedundancyLost": "{service} hat nur noch einen Server ({devices} aus)."
+  },
+  "outcome": {
+    "healthy": "Alles funktioniert. Wählen Sie ein Szenario oder ein Gerät auf der Karte und legen Sie etwas lahm.",
+    "absorbed": "Niemand merkt etwas: Die Redundanz übernimmt. Eine Sicherheitsreserve ist aber weg.",
+    "degraded": "Alles funktioniert noch, aber langsamer oder nach einer kurzen Unterbrechung.",
+    "outage": "Etwas funktioniert nicht mehr."
+  },
+  "cap": {
+    "managed": "Fernverwaltung",
+    "records": "Patientenakten und Termine",
+    "files": "Gemeinsame Ordner",
+    "print-receipt": "Quittungen drucken",
+    "print-label": "Etiketten drucken",
+    "mac-managed": "Mac-Verwaltung",
+    "view-images": "Röntgenbilder ansehen",
+    "print-document": "Dokumente drucken",
+    "admin-access": "Admin-Zugriff",
+    "pay": "Kartenzahlung",
+    "scan-to-share": "In einen Ordner scannen",
+    "calls": "Telefonieren",
+    "take-xray": "Röntgen",
+    "archive-images": "Bilder ans Archiv senden",
+    "run-analysis": "Laboranalyse",
+    "send-results": "Laborergebnisse senden",
+    "scan": "Ultraschall",
+    "guest-internet": "Gäste-WLAN",
+    "authenticate-users": "Benutzeranmeldung am Fileserver",
+    "forward-results": "Laborergebnisse an die Praxissoftware",
+    "offsite-copy": "Externe Backup-Kopie"
+  },
+  "audience": {
+    "reception": "Empfang",
+    "vets": "Tierärzte und TFA",
+    "backoffice": "Büro",
+    "owners": "Tierhalter",
+    "it": "IT"
+  }
+}

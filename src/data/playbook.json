@@ -1,0 +1,16 @@
+{
+  "illustrative": true,
+  "site": "muc",
+  "liveAfter": "golive",
+  "dhcpPool": { "from": 100, "to": 199 },
+  "phases": [
+    { "id": "survey", "startWeek": -12, "weeks": 1, "people": ["it", "manager", "electrician"], "checklist": ["walk", "cabinet", "power", "outlets", "wifi", "shielding"], "pitfalls": 2, "artefact": { "type": "list", "id": "survey-sheet", "items": 6 } },
+    { "id": "isp", "startWeek": -12, "weeks": 8, "people": ["it", "isp", "manager"], "checklist": ["availability", "order", "static-ip", "lte", "date", "access"], "pitfalls": 2, "artefact": { "type": "list", "id": "isp-call", "items": 8 } },
+    { "id": "hardware", "startWeek": -8, "weeks": 4, "people": ["it", "supplier"], "checklist": ["bom", "channel", "licences", "spares", "leadtime"], "pitfalls": 2, "artefact": { "type": "procurement" } },
+    { "id": "staging", "startWeek": -4, "weeks": 2, "people": ["it"], "checklist": ["template", "firmware", "mdm", "labels", "bench"], "pitfalls": 2, "artefact": { "type": "ip-plan" } },
+    { "id": "install", "startWeek": -2, "weeks": 1, "people": ["it", "electrician", "isp", "vendor"], "checklist": ["cabinet", "patch", "aps", "line", "devices"], "pitfalls": 2, "artefact": { "type": "port-plan" } },
+    { "id": "validation", "startWeek": -1, "weeks": 1, "people": ["it", "manager", "vendor"], "checklist": ["workstations", "payment", "print", "xray", "lab", "failover", "guest", "backup"], "pitfalls": 2, "artefact": { "type": "list", "id": "failover-test", "items": 5 } },
+    { "id": "golive", "startWeek": 0, "weeks": 1, "people": ["it", "manager", "staff"], "checklist": ["onsite", "logins", "alerts", "known", "support"], "pitfalls": 2, "artefact": { "type": "list", "id": "golive-day", "items": 5 } },
+    { "id": "hypercare", "startWeek": 1, "weeks": 1, "people": ["it", "manager"], "checklist": ["daily", "tickets", "fixes", "feedback", "close"], "pitfalls": 2, "artefact": { "type": "list", "id": "lessons", "items": 4 } }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "illustrative": true,
+  "keyRoles": ["clinic-firewall", "access-switch", "card-terminal", "xray-pc"],
+  "certificates": [
+    { "id": "pacs", "service": "pacs", "daysLeft": 74 },
+    { "id": "files", "service": "files", "daysLeft": 14 },
+    { "id": "pms", "service": "pms", "daysLeft": 212 }
+  ],
+  "warnDays": 30,
+  "earlyWarnings": [
+    { "id": "disk", "device": "hq-pacs", "value": 86, "limit": 85 },
+    { "id": "ups", "device": "hh-ups", "value": 31, "limit": 36 },
+    { "id": "cert", "device": "hq-files", "value": 14, "limit": 30 },
+    { "id": "firmware", "device": "ber-sw2", "value": 4, "limit": 6 },
+    { "id": "lte", "device": "ber-lte", "value": 82, "limit": 80 }
+  ],
+  "onCall": {
+    "scenario": "digger",
+    "steps": [
+      { "id": "alert", "time": "07:40" },
+      { "id": "triage", "time": "07:43" },
+      { "id": "runbook", "time": "07:47" },
+      { "id": "communicate", "time": "07:52" },
+      { "id": "resolve", "time": "11:30" },
+      { "id": "review", "time": "+1 d" }
+    ]
+  },
+  "release": {
+    "steps": ["staging", "pilot", "all", "rollback"],
+    "checks": ["compat", "network", "devices", "window", "comms"]
+  }
+}

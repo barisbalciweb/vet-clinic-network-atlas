@@ -1,0 +1,94 @@
+{
+  "app": {
+    "subtitle": "Ağ Atlası",
+    "skip": "İçeriğe geç",
+    "fictional": "Kurgusal örnek ortam: {org}, tüm lokasyonlar, kişiler ve IP adresleri uydurmadır.",
+    "loading": "Yükleniyor…"
+  },
+  "header": {
+    "home": "{org} – haritaya dön",
+    "menu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
+    "modules": "Modüller",
+    "mode": "Görünüm",
+    "simple": "Basit",
+    "technical": "Teknik",
+    "simpleHint": "Klinik ekibi için sade anlatım",
+    "technicalHint": "BT için tüm ayrıntılar: VLAN'lar, adresler, komutlar",
+    "language": "Dil",
+    "toLight": "Açık temaya geç",
+    "toDark": "Koyu temaya geç"
+  },
+  "nav": {
+    "map": "Harita",
+    "simulator": "Arıza simülatörü",
+    "issues": "Sık sorunlar",
+    "opening": "Klinik açılışı",
+    "standards": "Standartlar",
+    "haLab": "HA laboratuvarı",
+    "privacy": "Veri koruma",
+    "monitoring": "İzleme",
+    "about": "Hakkında"
+  },
+  "modules": {
+    "map": {
+      "title": "Ağ haritası",
+      "simple": "Dört lokasyonu ve aralarındaki bağlantıları tek bakışta görün. İçine bakmak için bir lokasyona dokunun.",
+      "technical": "Merkez ve üç klinik, hub-and-spoke IPsec VPN ile bağlı. Her lokasyonda aynı VLAN planı: 10.<lokasyon>.<VLAN>.0/24."
+    },
+    "simulator": {
+      "title": "Arıza simülatörü",
+      "simple": "Bir şeyi kapatın; kimin çalışamadığını ve önce ne yapılması gerektiğini görün.",
+      "technical": "Güç, link ve servis arızaları oluşturun. Motor zincirleme etkiyi, test sırasını ve çözümü verir; yedekliliği de hesaba katar."
+    },
+    "issues": {
+      "title": "Sık karşılaşılan sorunlar",
+      "simple": "Bir klinikte her gün yaşanan sorunlar ve nasıl çözüldükleri.",
+      "technical": "Ticket kataloğu: belirti, olasılığa göre nedenler, sırayla kontroller, çözüm."
+    },
+    "opening": {
+      "title": "Yeni klinik açılışı",
+      "simple": "München kliniğinin BT altyapısı, kira sözleşmesinden açılış gününe kadar nasıl kurulur?",
+      "technical": "Açılış playbook'u: keşif, ISP siparişi, satın alma, merkezde ön hazırlık, kurulum, doğrulama, go-live, hypercare."
+    },
+    "standards": {
+      "title": "Standartlaştırma ve otomasyon",
+      "simple": "Her klinik aynı donanım setini alır. Böylece açılışlar hızlanır, destek kolaylaşır.",
+      "technical": "Standart donanım, değişkenli tek lokasyon şablonu, kademeli firmware dağıtımı, Ansible, macOS zero-touch."
+    },
+    "haLab": {
+      "title": "HA laboratuvarı",
+      "simple": "Merkezdeki sunuculardan biri arızalansa bile sistem nasıl çalışmaya devam eder?",
+      "technical": "3 host'lu vSphere Cluster: HA yeniden başlatma, N+1 ile admission control, vMotion, DRS, anti-affinity."
+    },
+    "privacy": {
+      "title": "Veri koruma (GDPR/DSGVO)",
+      "simple": "Kişisel veriler nerede duruyor ve nasıl korunuyor?",
+      "technical": "Konuma göre veri akışları ve önlemler: klinik, aktarım, merkez, bulut, organizasyon."
+    },
+    "monitoring": {
+      "title": "İzleme ve nöbet",
+      "simple": "Sorunlar, klinik aramak zorunda kalmadan önce nasıl fark edilir?",
+      "technical": "Durum panosu, runbook'lu nöbet örneği, erken uyarılar, yazılım ekibiyle sürüm akışı."
+    }
+  },
+  "about": {
+    "title": "Bu proje hakkında",
+    "whatTitle": "Ne gösteriyor",
+    "what": "Bir veteriner klinik zincirinin BT altyapısı, baştan sona planlanmış halde: ağ, klinik açılışları, sorun giderme, standartlar, yüksek erişilebilirlik, veri koruma ve izleme.",
+    "fictionalTitle": "Kurgusal ortam",
+    "fictional": "{org} gerçekte yoktur. Lokasyonlar, kişiler, hostname'ler ve IP adresleri uydurmadır; panolar simülasyondur. Teslim süreleri, fiyatlar ve saklama süreleri örnek amaçlı yer tutuculardır.",
+    "howTitle": "Nasıl çalışıyor",
+    "how": "Backend, giriş veya dış istek içermeyen statik bir web uygulaması. Tüm içerik, doğrulanmış veri dosyalarından İngilizce, Almanca ve Türkçe olarak gelir.",
+    "stackTitle": "Kullanılan teknolojiler",
+    "repoTitle": "Kaynak kod",
+    "repoLink": "GitHub'daki depo",
+    "modulesTitle": "Modüller",
+    "tryTitle": "Önce bunları deneyin",
+    "try": {
+      "switch": "Bir klinik switch'ini kapatın ve zincirleme etkiyi izleyin.",
+      "host": "Bir sunucu host'unu düşürün ve HA'nın VM'leri yeniden başlatmasını izleyin.",
+      "opening": "München playbook'unu klinik haritada canlıya geçene kadar işaretleyin."
+    }
+  }
+}

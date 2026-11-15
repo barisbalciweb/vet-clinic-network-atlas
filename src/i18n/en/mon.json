@@ -1,0 +1,136 @@
+{
+  "ui": {
+    "boardTitle": "Status board",
+    "boardIntro": "What IT watches, at a glance. It shows the network as the failure simulator sees it right now.",
+    "allGood": "No alerts.",
+    "alerts": "Critical: {bad} · Warnings: {warn}",
+    "openSim": "Open the failure simulator",
+    "col": {
+      "site": "Site",
+      "wan": "Internet",
+      "vpn": "VPN",
+      "wifi": "Wi-Fi",
+      "key": "Key devices"
+    },
+    "wan": {
+      "primary": "Primary line",
+      "backup": "LTE backup",
+      "offline": "Offline"
+    },
+    "vpn": {
+      "primary": "Up",
+      "backup": "Backup path",
+      "down": "Down"
+    },
+    "wifiValue": "{up}/{total} access points",
+    "keyOk": "All running",
+    "keyDown": "{count} down",
+    "keyDegraded": "{count} slow",
+    "hqTitle": "Headquarters",
+    "hosts": "ESXi hosts",
+    "hostsValue": "{up}/{total} running",
+    "vms": "Virtual servers",
+    "vmsValue": "{running}/{total} running",
+    "storage": "Storage controllers",
+    "backup": "Backup",
+    "backupOk": "Last run 02:00, offsite copy done (illustrative)",
+    "backupBad": "Backup or offsite copy failing",
+    "certs": "Certificates",
+    "certDays": "{days} days left",
+    "certExpired": "Expired",
+    "alertsTitle": "Alerts",
+    "health": {
+      "ok": "OK",
+      "warn": "Warning",
+      "bad": "Critical"
+    },
+    "oncallTitle": "On-call example",
+    "oncallIntro": "How a typical morning alarm is handled, from page to post-incident note.",
+    "simulate": "Simulate this incident",
+    "warningsTitle": "Early warnings",
+    "warningsIntro": "Problems that are not outages yet. Fixed in time, they never become one.",
+    "releaseTitle": "Working with software engineering",
+    "releaseIntro": "How a new version of the practice software or a clinic app reaches the clinics.",
+    "checksTitle": "What IT checks before a release reaches the clinics",
+    "illustrative": "Times and values are illustrative."
+  },
+  "alert": {
+    "wan": {
+      "backup": "{site} runs on the LTE backup.",
+      "offline": "{site} has no internet."
+    },
+    "vpn": {
+      "backup": "{site}: tunnel over the backup path.",
+      "down": "{site}: VPN tunnel down."
+    },
+    "wifi": "{site}: {up} of {total} access points up.",
+    "down": "{device} is down.",
+    "hosts": "Only {up} of {total} ESXi hosts running.",
+    "vms": "{count} virtual servers not running.",
+    "restarted": "{count} virtual servers were restarted by HA.",
+    "storage": "{up} of {total} storage controllers running.",
+    "backup": "Backup or offsite copy failed.",
+    "certExpired": "The certificate of {service} has expired.",
+    "certSoon": "The certificate of {service} expires in {days} days."
+  },
+  "warn": {
+    "disk": "{device}: disk {value} % full (threshold {limit} %).",
+    "ups": "{device}: battery runtime {value} min, below the expected {limit} min. The battery is ageing.",
+    "cert": "{device}: certificate expires in {value} days (warning from {limit} days).",
+    "firmware": "{device}: firmware reaches end of support in {value} months.",
+    "lte": "{device}: {value} % of the monthly LTE data volume used."
+  },
+  "oncall": {
+    "alert": {
+      "title": "Alert",
+      "text": "Monitoring: Hamburg's primary line is down, the clinic runs on LTE. On-call is paged."
+    },
+    "triage": {
+      "title": "Triage",
+      "text": "Payments and practice software work over LTE; X-ray uploads are slow. Priority high, not critical."
+    },
+    "runbook": {
+      "title": "Runbook",
+      "text": "Firewall dashboard: WAN1 has no sync. Provider status page shows nothing. Ticket opened with the provider."
+    },
+    "communicate": {
+      "title": "Communication",
+      "text": "Message to the clinic manager: you are on LTE, avoid large uploads, next update at 09:00."
+    },
+    "resolve": {
+      "title": "Resolution",
+      "text": "The provider repairs a damaged fibre in the street. WAN1 is back, the tunnel returns to it."
+    },
+    "review": {
+      "title": "Post-incident note",
+      "text": "Cause: construction work. Prevention: alert on LTE data use, provider escalation contacts in the runbook."
+    }
+  },
+  "release": {
+    "step": {
+      "staging": {
+        "title": "Staging",
+        "text": "The new version runs in a test environment with copies of real configurations."
+      },
+      "pilot": {
+        "title": "Pilot clinic",
+        "text": "One clinic gets it first, with IT ready; the others stay on the old version."
+      },
+      "all": {
+        "title": "All clinics",
+        "text": "After a quiet pilot week it goes out clinic by clinic, outside opening hours."
+      },
+      "rollback": {
+        "title": "Rollback plan",
+        "text": "The previous version stays ready, so a clinic can go back within an hour (illustrative)."
+      }
+    },
+    "check": {
+      "compat": "It runs on the macOS and browser versions the MDM currently installs.",
+      "network": "It needs no new firewall rules, or they are requested and tested in staging.",
+      "devices": "Printers, card terminals and lab interfaces still work with it.",
+      "window": "Release outside opening hours, never on a Monday morning.",
+      "comms": "Clinic managers know what changes and whom to call."
+    }
+  }
+}

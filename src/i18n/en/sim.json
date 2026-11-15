@@ -1,0 +1,45 @@
+{
+  "intro": {
+    "simple": "Break something and watch what happens. Pick a scenario, or open a site and choose a device.",
+    "technical": "Inject faults on devices, links and services. Results know about redundancy and combine across faults."
+  },
+  "scenarios": "Ready-made scenarios",
+  "active": "Active faults",
+  "remove": "Remove: {fault}",
+  "reset": "Reset all",
+  "break": "Break it",
+  "breakLinks": "Its connections",
+  "undo": "Active. Select again to undo",
+  "plannedSite": "This clinic is not live yet, so nothing can break here.",
+  "section": {
+    "now": "What happens now",
+    "who": "Who is affected",
+    "tests": "Test order",
+    "fix": "Fix and prevention",
+    "todo": "What to do now",
+    "warnings": "Safety margins lost"
+  },
+  "stillWorks": "Still works",
+  "nobody": "Nobody is affected.",
+  "workaround": "Workaround",
+  "fix": "Fix",
+  "prevention": "Prevention",
+  "state": {
+    "up": "Working",
+    "down": "Not working",
+    "degraded": "Slow or interrupted"
+  },
+  "faulted": "Broken on purpose",
+  "result": "Result",
+  "showResult": "Show result",
+  "hideResult": "Hide result",
+  "backToResult": "Back to the result",
+  "more": "+{count} more",
+  "times": "{count} × {name}",
+  "linkName": "{kind} {a} – {b}",
+  "banner": "Simulation active: {count} faults.",
+  "bannerOpen": "Open the simulator",
+  "legendDown": "Device not working",
+  "legendDegraded": "Device slow or interrupted",
+  "legendFault": "Broken on purpose"
+}

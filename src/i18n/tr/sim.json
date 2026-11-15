@@ -1,0 +1,45 @@
+{
+  "intro": {
+    "simple": "Bir şeyi bozun ve ne olduğunu izleyin. Bir senaryo seçin ya da bir lokasyonu açıp bir cihaz seçin.",
+    "technical": "Cihazlarda, bağlantılarda ve servislerde arıza oluşturun. Sonuçlar yedekliliği hesaba katar ve birden çok arızayı birleştirir."
+  },
+  "scenarios": "Hazır senaryolar",
+  "active": "Aktif arızalar",
+  "remove": "Kaldır: {fault}",
+  "reset": "Hepsini sıfırla",
+  "break": "Boz",
+  "breakLinks": "Bağlantıları",
+  "undo": "Aktif. Geri almak için tekrar seçin",
+  "plannedSite": "Bu klinik henüz devrede değil, burada bozulacak bir şey yok.",
+  "section": {
+    "now": "Şimdi ne oluyor",
+    "who": "Kimler etkileniyor",
+    "tests": "Test sırası",
+    "fix": "Çözüm ve önleme",
+    "todo": "Şimdi ne yapmalı",
+    "warnings": "Kaybedilen güvenlik payları"
+  },
+  "stillWorks": "Çalışmaya devam ediyor",
+  "nobody": "Kimse etkilenmiyor.",
+  "workaround": "Geçici çözüm",
+  "fix": "Kalıcı çözüm",
+  "prevention": "Önleme",
+  "state": {
+    "up": "Çalışıyor",
+    "down": "Çalışmıyor",
+    "degraded": "Yavaş veya kesintili"
+  },
+  "faulted": "Bilerek bozuldu",
+  "result": "Sonuç",
+  "showResult": "Sonucu göster",
+  "hideResult": "Sonucu gizle",
+  "backToResult": "Sonuca dön",
+  "more": "+{count} tane daha",
+  "times": "{count} × {name}",
+  "linkName": "{kind} {a} – {b}",
+  "banner": "Simülasyon aktif: {count} arıza.",
+  "bannerOpen": "Simülatörü aç",
+  "legendDown": "Cihaz çalışmıyor",
+  "legendDegraded": "Cihaz yavaş veya kesintili",
+  "legendFault": "Bilerek bozuldu"
+}

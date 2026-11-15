@@ -1,0 +1,111 @@
+{
+  "tabs": {
+    "label": "Harita görünümleri",
+    "map": "Harita",
+    "rules": "Ağlar ve kurallar"
+  },
+  "crumb": {
+    "label": "Konum",
+    "all": "Tüm lokasyonlar"
+  },
+  "search": {
+    "label": "Cihaz, oda veya IP ara",
+    "placeholder": "Cihaz, oda veya IP bul…",
+    "noResults": "Sonuç yok. Başka bir ad, oda veya IP deneyin.",
+    "clear": "Aramayı temizle"
+  },
+  "site": {
+    "planned": "Planlandı",
+    "devices": "{count} cihaz",
+    "open": "{site} lokasyonunu aç",
+    "plannedBanner": "Bu klinik planlama aşamasında, henüz devrede değil. Açılış süreci “Klinik açılışı” modülünde."
+  },
+  "portal": {
+    "goto": "{site} lokasyonuna git"
+  },
+  "canvas": {
+    "overview": "Tüm lokasyonların genel görünümü",
+    "site": "{site} ağ haritası",
+    "germany": "Şematik Almanya haritası"
+  },
+  "legend": {
+    "title": "Çizgiler",
+    "lan": "Ağ kablosu",
+    "wifi": "Wi-Fi",
+    "wan": "İnternet hattı",
+    "vpn": "VPN tüneli",
+    "storage": "Storage yolu",
+    "virtual": "Sanal (yazılım)",
+    "backup": "Açık renkli çizgi = yedek yol veya henüz devrede değil",
+    "degraded": "Sarı ve !: kısıtlı veya yedek yol kullanımda",
+    "down": "Kırmızı, kesikli: bağlantı kopuk"
+  },
+  "panel": {
+    "label": "Cihaz ayrıntıları",
+    "close": "Ayrıntıları kapat",
+    "hostname": "Hostname",
+    "site": "Lokasyon",
+    "room": "Yer",
+    "address": "IP adresi",
+    "dhcp": "Otomatik (DHCP), {subnet} ağından",
+    "vlan": "Ağ",
+    "model": "Model",
+    "power": "Güç kaynağı",
+    "battery": "Kendi bataryası",
+    "group": "Yedeklilik",
+    "activePassive": "{peers} ile aktif/pasif çift",
+    "activeActive": "{peers} ile aktif/aktif",
+    "runsOn": "Başladığı host",
+    "needs": "Çalışmak için gerekenler",
+    "provides": "Sağladıkları",
+    "providedBy": "kaynak: {devices}",
+    "dependents": "Buna bağlı olanlar",
+    "noDependents": "Bu cihaza bağlı başka bir şey yok.",
+    "more": "+{count} tane daha",
+    "connections": "Bağlantılar",
+    "port": "port {port}",
+    "primary": "birincil",
+    "backup": "yedek",
+    "note": "Bilmekte fayda var"
+  },
+  "rules": {
+    "intro": {
+      "simple": "Her klinik ayrı ağlara bölünmüştür. Bir cihaz yalnızca işi için gerekene ulaşır.",
+      "technical": "Her lokasyonda aynı VLAN planı, adresler 10.<lokasyon>.<VLAN>.0/24, gateway .1. Kuralları lokasyon firewall'u uygular, default deny."
+    },
+    "vlansTitle": "Ağlar (VLAN'lar)",
+    "matrixTitle": "Kim kime ulaşabilir",
+    "col": {
+      "network": "Ağ",
+      "subnet": "Alt ağ",
+      "dhcp": "DHCP",
+      "internet": "İnternet",
+      "purpose": "Amaç"
+    },
+    "yes": "Evet",
+    "no": "Hayır",
+    "hqOnly": "Yalnızca merkez",
+    "sitePlaceholder": "lokasyon",
+    "internet": {
+      "full": "Evet",
+      "restricted": "Kısıtlı",
+      "none": "Hayır"
+    },
+    "corner": "Kaynak ↓ · Hedef →",
+    "target": {
+      "internet": "İnternet",
+      "hq": "Merkez sunucuları"
+    },
+    "status": {
+      "allowed": "İzinli",
+      "limited": "Kısıtlı",
+      "denied": "Engelli",
+      "same": "Aynı ağ"
+    },
+    "pick": "Arkasındaki kuralı görmek için bir hücre seçin.",
+    "detail": "{from} → {to}",
+    "onlyServices": "Yalnızca:",
+    "defaultDeny": "Buna izin veren kural yok; bu yüzden engelli (default deny).",
+    "sameNote": "Aynı ağ içinde firewall devreye girmez."
+  }
+}

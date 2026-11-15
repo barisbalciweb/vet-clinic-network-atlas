@@ -1,0 +1,136 @@
+{
+  "ui": {
+    "boardTitle": "Statusboard",
+    "boardIntro": "Was die IT im Blick hat, auf einen Blick. Es zeigt das Netz so, wie der Ausfallsimulator es gerade sieht.",
+    "allGood": "Keine Alarme.",
+    "alerts": "Kritisch: {bad} · Warnungen: {warn}",
+    "openSim": "Ausfallsimulator öffnen",
+    "col": {
+      "site": "Standort",
+      "wan": "Internet",
+      "vpn": "VPN",
+      "wifi": "WLAN",
+      "key": "Wichtige Geräte"
+    },
+    "wan": {
+      "primary": "Hauptleitung",
+      "backup": "LTE-Backup",
+      "offline": "Offline"
+    },
+    "vpn": {
+      "primary": "Aktiv",
+      "backup": "Ersatzweg",
+      "down": "Getrennt"
+    },
+    "wifiValue": "{up}/{total} Access Points",
+    "keyOk": "Alle laufen",
+    "keyDown": "{count} ausgefallen",
+    "keyDegraded": "{count} langsam",
+    "hqTitle": "Zentrale",
+    "hosts": "ESXi-Hosts",
+    "hostsValue": "{up}/{total} laufen",
+    "vms": "Virtuelle Server",
+    "vmsValue": "{running}/{total} laufen",
+    "storage": "Speicher-Controller",
+    "backup": "Backup",
+    "backupOk": "Letzter Lauf 02:00, externe Kopie erledigt (beispielhaft)",
+    "backupBad": "Backup oder externe Kopie schlägt fehl",
+    "certs": "Zertifikate",
+    "certDays": "noch {days} Tage",
+    "certExpired": "Abgelaufen",
+    "alertsTitle": "Alarme",
+    "health": {
+      "ok": "OK",
+      "warn": "Warnung",
+      "bad": "Kritisch"
+    },
+    "oncallTitle": "Beispiel aus der Bereitschaft",
+    "oncallIntro": "Wie ein typischer Alarm am Morgen abläuft, vom Anruf bis zur Nachbetrachtung.",
+    "simulate": "Diesen Vorfall simulieren",
+    "warningsTitle": "Frühwarnungen",
+    "warningsIntro": "Probleme, die noch kein Ausfall sind. Rechtzeitig behoben, werden sie nie einer.",
+    "releaseTitle": "Zusammenarbeit mit der Softwareentwicklung",
+    "releaseIntro": "Wie eine neue Version der Praxissoftware oder einer Praxis-App in die Praxen kommt.",
+    "checksTitle": "Was die IT prüft, bevor ein Release die Praxen erreicht",
+    "illustrative": "Zeiten und Werte sind beispielhaft."
+  },
+  "alert": {
+    "wan": {
+      "backup": "{site} läuft über das LTE-Backup.",
+      "offline": "{site} hat kein Internet."
+    },
+    "vpn": {
+      "backup": "{site}: Tunnel über den Ersatzweg.",
+      "down": "{site}: VPN-Tunnel getrennt."
+    },
+    "wifi": "{site}: {up} von {total} Access Points aktiv.",
+    "down": "{device} ist ausgefallen.",
+    "hosts": "Nur {up} von {total} ESXi-Hosts laufen.",
+    "vms": "{count} virtuelle Server laufen nicht.",
+    "restarted": "{count} virtuelle Server wurden von HA neu gestartet.",
+    "storage": "{up} von {total} Speicher-Controllern laufen.",
+    "backup": "Backup oder externe Kopie fehlgeschlagen.",
+    "certExpired": "Das Zertifikat von {service} ist abgelaufen.",
+    "certSoon": "Das Zertifikat von {service} läuft in {days} Tagen ab."
+  },
+  "warn": {
+    "disk": "{device}: Platte zu {value} % voll (Schwelle {limit} %).",
+    "ups": "{device}: Batterielaufzeit {value} min, unter den erwarteten {limit} min. Der Akku altert.",
+    "cert": "{device}: Zertifikat läuft in {value} Tagen ab (Warnung ab {limit} Tagen).",
+    "firmware": "{device}: Firmware erreicht in {value} Monaten das Support-Ende.",
+    "lte": "{device}: {value} % des monatlichen LTE-Datenvolumens verbraucht."
+  },
+  "oncall": {
+    "alert": {
+      "title": "Alarm",
+      "text": "Monitoring: Die Hauptleitung in Hamburg ist weg, die Praxis läuft über LTE. Die Bereitschaft wird alarmiert."
+    },
+    "triage": {
+      "title": "Einschätzung",
+      "text": "Zahlungen und Praxissoftware laufen über LTE; Röntgen-Uploads sind langsam. Priorität hoch, nicht kritisch."
+    },
+    "runbook": {
+      "title": "Runbook",
+      "text": "Firewall-Dashboard: WAN1 ohne Sync. Die Statusseite des Providers zeigt nichts. Ticket beim Provider eröffnet."
+    },
+    "communicate": {
+      "title": "Kommunikation",
+      "text": "Nachricht an die Praxisleitung: Sie laufen über LTE, große Uploads vermeiden, nächstes Update um 09:00."
+    },
+    "resolve": {
+      "title": "Lösung",
+      "text": "Der Provider repariert eine beschädigte Glasfaser auf der Straße. WAN1 ist zurück, der Tunnel wechselt zurück."
+    },
+    "review": {
+      "title": "Nachbetrachtung",
+      "text": "Ursache: Bauarbeiten. Vorbeugung: Alarm auf das LTE-Datenvolumen, Eskalationskontakte des Providers ins Runbook."
+    }
+  },
+  "release": {
+    "step": {
+      "staging": {
+        "title": "Staging",
+        "text": "Die neue Version läuft in einer Testumgebung mit Kopien echter Konfigurationen."
+      },
+      "pilot": {
+        "title": "Pilotpraxis",
+        "text": "Eine Praxis bekommt sie zuerst, die IT steht bereit; die anderen bleiben auf der alten Version."
+      },
+      "all": {
+        "title": "Alle Praxen",
+        "text": "Nach einer ruhigen Pilotwoche geht es Praxis für Praxis weiter, außerhalb der Öffnungszeiten."
+      },
+      "rollback": {
+        "title": "Rückfallplan",
+        "text": "Die vorherige Version bleibt bereit, sodass eine Praxis binnen einer Stunde zurück kann (beispielhaft)."
+      }
+    },
+    "check": {
+      "compat": "Sie läuft auf den macOS- und Browser-Versionen, die das MDM gerade verteilt.",
+      "network": "Sie braucht keine neuen Firewall-Regeln, oder diese sind beantragt und im Staging getestet.",
+      "devices": "Drucker, Kartenterminals und Laborschnittstellen funktionieren weiterhin damit.",
+      "window": "Release außerhalb der Öffnungszeiten, nie am Montagmorgen.",
+      "comms": "Die Praxisleitungen wissen, was sich ändert und wen sie anrufen."
+    }
+  }
+}

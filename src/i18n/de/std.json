@@ -1,0 +1,80 @@
+{
+  "ui": {
+    "kitTitle": "Standard-Hardware-Kit",
+    "kitIntro": "Jede Praxis bekommt dieselben Modelle. Das macht Eröffnungen schnell und den Support einfach.",
+    "colDevice": "Gerät",
+    "colModel": "Modell",
+    "reasonsTitle": "Warum nur ein Modell je Gerät",
+    "templateTitle": "Ein Template, wenige Variablen",
+    "templateIntro": {
+      "simple": "Das Netz jeder Praxis entsteht aus demselben Template. Nur die Standortnummer ändert sich.",
+      "technical": "Die Firewall-Konfiguration wird aus einem Template erzeugt; Standort-ID, Kürzel und Nummer sind die einzigen Variablen."
+    },
+    "variables": "Variablen",
+    "compareA": "Praxis A",
+    "compareB": "Praxis B",
+    "diffSummary": "{count} von {total} Zeilen unterscheiden sich, alle wegen der Standortvariablen.",
+    "differs": "Unterschied",
+    "dashTitle": "Cloud-Firewall-Dashboard",
+    "simulation": "Simulation",
+    "dashIntro": "Eine allgemeine Ansicht einer cloud-verwalteten Firewall-Flotte. Sie zeigt das Netz so, wie der Ausfallsimulator es gerade sieht.",
+    "col": { "site": "Standort", "wan": "Internet", "vpn": "VPN", "clients": "Clients", "firmware": "Firmware" },
+    "wan": { "primary": "Hauptleitung", "backup": "LTE-Backup", "offline": "Offline" },
+    "vpn": { "primary": "Aktiv", "backup": "Aktiv (Backup)", "down": "Getrennt" },
+    "notApplied": "München ist noch nicht im Dashboard.",
+    "apply": "Template auf München anwenden",
+    "applied": "Template angewendet: München ist mit Standortnummer 3 vorbereitet.",
+    "waiting": "Wartet auf Go-live",
+    "firmwareTitle": "Gestaffelter Firmware-Rollout {from} → {to}",
+    "updating": "Aktualisiert…",
+    "start": "Starten: {stage}",
+    "observe": "Pilot läuft stabil. {hours} Stunden beobachten (beispielhaft), bevor die anderen Praxen folgen.",
+    "done": "Alle Praxen laufen mit {version}.",
+    "rollback": "Pilot zurückrollen",
+    "rolledBack": "Pilot auf {version} zurückgerollt.",
+    "ansibleTitle": "Automatisierung mit Ansible",
+    "ansibleIntro": "Ein Playbook verteilt VLANs, SNMP, NTP und Syslog auf jeden Praxis-Switch. Zweimal ausgeführt, ändert sich beim zweiten Mal nichts.",
+    "inventory": "Inventar",
+    "playbook": "Playbook",
+    "run": "Playbook ausführen",
+    "running": "Läuft…",
+    "output": "Ausgabe",
+    "outcome": { "ok": "ok", "changed": "geändert", "failed": "fehlgeschlagen", "unreachable": "nicht erreichbar" },
+    "unreachable": "{host} ist nicht erreichbar: Im Ausfallsimulator ist er aus oder abgeschnitten. Das beheben, dann erneut mit --limit {host} ausführen.",
+    "zeroTitle": "macOS Zero-Touch",
+    "compareTitle": "Praxiseröffnung ohne und mit Standards",
+    "without": "Ohne Standards",
+    "with": "Mit Standards",
+    "illustrative": "Zahlen und Versionen sind beispielhaft."
+  },
+  "kit": {
+    "reason": {
+      "spares": "Ein Ersatzgerät je Modell in der Zentrale ersetzt jedes ausgefallene Gerät in jeder Praxis.",
+      "behaviour": "Bekanntes Verhalten: Ein Fehler oder eine Eigenheit wird einmal gefunden, nicht in jeder Praxis.",
+      "config": "Ein Konfigurations-Template statt eines Sonderaufbaus je Praxis.",
+      "support": "Support, Dokumentation und Schulung sind überall gleich."
+    }
+  },
+  "dash": { "stage": { "pilot": "Pilotpraxis", "rest": "Übrige Praxen" } },
+  "ansible": {
+    "failure": {
+      "auth": {
+        "reason": "{host} fehlgeschlagen: Anmeldung abgelehnt, das lokale Admin-Passwort wurde von Hand geändert.",
+        "fix": "Verwaltete Zugangsdaten aus dem Tresor wiederherstellen, erneut mit --limit {host} ausführen und klären, wer sie außerhalb des Templates geändert hat."
+      }
+    }
+  },
+  "zero": {
+    "order": { "title": "Bestellen", "text": "Über den Business-Kanal gekauft, daher ist die Seriennummer auf die Firma registriert." },
+    "assign": { "title": "Zuweisen", "text": "Die Seriennummer wird automatisch dem MDM zugewiesen." },
+    "unbox": { "title": "Auspacken", "text": "Die Mitarbeiterin schaltet ein und verbindet sich mit WLAN oder Kabel." },
+    "profiles": { "title": "Einrichten", "text": "Das MDM verteilt WLAN, Apps, Festplattenverschlüsselung und Sicherheitseinstellungen." },
+    "login": { "title": "Anmelden", "text": "Sie meldet sich an und arbeitet los. Kein IT-Besuch nötig." }
+  },
+  "compare": {
+    "steps": "Schritte in der Eröffnungs-Checkliste",
+    "hours": "IT-Stunden je Eröffnung",
+    "weeks": "Wochen vom Vertrag bis zum Go-live",
+    "tickets": "Tickets im ersten Monat"
+  }
+}

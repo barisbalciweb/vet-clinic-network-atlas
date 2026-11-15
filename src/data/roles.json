@@ -1,0 +1,95 @@
+{
+  "roles": [
+    { "id": "mains", "icon": "plug", "layer": "infrastructure" },
+    { "id": "ups", "icon": "battery", "layer": "infrastructure", "battery": true },
+    { "id": "clinic-firewall", "icon": "firewall", "layer": "infrastructure", "forwards": true, "capabilities": [{ "id": "managed", "audience": "it", "needs": ["netmgmt"] }] },
+    { "id": "hq-firewall", "icon": "firewall", "layer": "infrastructure", "forwards": true },
+    { "id": "access-switch", "icon": "switch", "layer": "infrastructure", "forwards": true, "capabilities": [{ "id": "managed", "audience": "it", "needs": ["netmgmt"] }] },
+    { "id": "core-switch", "icon": "switch", "layer": "infrastructure", "forwards": true },
+    { "id": "access-point", "icon": "wifi", "layer": "infrastructure", "forwards": true, "capabilities": [{ "id": "managed", "audience": "it", "needs": ["netmgmt"] }] },
+    { "id": "esxi-host", "icon": "server", "layer": "infrastructure", "forwards": true },
+    { "id": "storage-controller", "icon": "storage", "layer": "infrastructure" },
+    { "id": "backup-storage", "icon": "archive", "layer": "infrastructure" },
+
+    {
+      "id": "reception-mac", "icon": "desktop", "layer": "endpoint", "needs": ["dhcp", "dns-local", "gateway"],
+      "capabilities": [
+        { "id": "records", "audience": "reception", "needs": ["pms"] },
+        { "id": "files", "audience": "reception", "needs": ["files", "identity", "dns-internal"] },
+        { "id": "print-receipt", "audience": "reception", "needs": ["role:receipt-printer"] },
+        { "id": "print-label", "audience": "reception", "needs": ["role:label-printer"] },
+        { "id": "mac-managed", "audience": "it", "needs": ["mdm"] }
+      ]
+    },
+    {
+      "id": "treatment-mac", "icon": "laptop", "layer": "endpoint", "needs": ["dhcp", "dns-local", "gateway"],
+      "capabilities": [
+        { "id": "records", "audience": "vets", "needs": ["pms"] },
+        { "id": "view-images", "audience": "vets", "needs": ["pacs", "dns-internal"] },
+        { "id": "mac-managed", "audience": "it", "needs": ["mdm"] }
+      ]
+    },
+    {
+      "id": "office-mac", "icon": "desktop", "layer": "endpoint", "needs": ["dhcp", "dns-local", "gateway"],
+      "capabilities": [
+        { "id": "records", "audience": "backoffice", "needs": ["pms"] },
+        { "id": "files", "audience": "backoffice", "needs": ["files", "identity", "dns-internal"] },
+        { "id": "print-document", "audience": "backoffice", "needs": ["role:document-printer"] },
+        { "id": "mac-managed", "audience": "it", "needs": ["mdm"] }
+      ]
+    },
+    {
+      "id": "admin-mac", "icon": "laptop", "layer": "endpoint", "needs": ["dhcp", "dns-local", "gateway"],
+      "capabilities": [{ "id": "admin-access", "audience": "it", "needs": ["identity", "dns-internal", "role:vm-jump"] }]
+    },
+    { "id": "card-terminal", "icon": "card", "layer": "endpoint", "needs": ["dhcp", "dns-local", "gateway"], "capabilities": [{ "id": "pay", "audience": "reception", "needs": ["payment"] }] },
+    { "id": "receipt-printer", "icon": "receipt", "layer": "endpoint", "needs": ["gateway"] },
+    { "id": "label-printer", "icon": "label", "layer": "endpoint", "needs": ["gateway"] },
+    { "id": "document-printer", "icon": "printer", "layer": "endpoint", "needs": ["gateway"], "capabilities": [{ "id": "scan-to-share", "audience": "backoffice", "needs": ["files"] }] },
+    { "id": "voip-phone", "icon": "phone", "layer": "endpoint", "needs": ["dhcp", "gateway"], "capabilities": [{ "id": "calls", "audience": "reception", "needs": ["voip"] }] },
+    {
+      "id": "xray-pc", "icon": "xray", "layer": "endpoint",
+      "capabilities": [
+        { "id": "take-xray", "audience": "vets", "needs": [] },
+        { "id": "archive-images", "audience": "vets", "needs": ["pacs"] }
+      ]
+    },
+    {
+      "id": "lab-analyzer", "icon": "lab", "layer": "endpoint",
+      "capabilities": [
+        { "id": "run-analysis", "audience": "vets", "needs": [] },
+        { "id": "send-results", "audience": "vets", "needs": ["lab-interface"] }
+      ]
+    },
+    {
+      "id": "ultrasound", "icon": "ultrasound", "layer": "endpoint",
+      "capabilities": [
+        { "id": "scan", "audience": "vets", "needs": [] },
+        { "id": "archive-images", "audience": "vets", "needs": ["pacs"] }
+      ]
+    },
+    { "id": "guest-client", "icon": "smartphone", "layer": "endpoint", "needs": ["dhcp", "dns-local", "gateway"], "capabilities": [{ "id": "guest-internet", "audience": "owners", "needs": ["internet"] }] },
+
+    { "id": "vm-vcenter", "icon": "vm", "layer": "server" },
+    { "id": "vm-identity", "icon": "key", "layer": "server" },
+    { "id": "vm-pacs", "icon": "images", "layer": "server" },
+    { "id": "vm-files", "icon": "folder", "layer": "server", "capabilities": [{ "id": "authenticate-users", "audience": "it", "needs": ["identity"] }] },
+    { "id": "vm-lab", "icon": "lab", "layer": "server", "capabilities": [{ "id": "forward-results", "audience": "vets", "needs": ["pms"] }] },
+    { "id": "vm-jump", "icon": "door", "layer": "server" },
+    { "id": "vm-monitoring", "icon": "activity", "layer": "server" },
+    { "id": "vm-automation", "icon": "terminal", "layer": "server" },
+    { "id": "vm-backup", "icon": "archive", "layer": "server", "capabilities": [{ "id": "offsite-copy", "audience": "it", "needs": ["offsite-backup"] }] },
+
+    { "id": "isp", "icon": "cable", "layer": "external", "forwards": true },
+    { "id": "mobile-network", "icon": "tower", "layer": "external", "forwards": true },
+    { "id": "internet", "icon": "globe", "layer": "external", "forwards": true },
+    { "id": "payment-provider", "icon": "bank", "layer": "external" },
+    { "id": "voip-provider", "icon": "phone", "layer": "external" },
+    { "id": "vendor-support", "icon": "headset", "layer": "external" },
+    { "id": "cloud-lb", "icon": "split", "layer": "external", "forwards": true },
+    { "id": "cloud-app", "icon": "cloud", "layer": "external" },
+    { "id": "saas-mdm", "icon": "cloud", "layer": "external" },
+    { "id": "saas-netmgmt", "icon": "cloud", "layer": "external" },
+    { "id": "cloud-storage", "icon": "archive", "layer": "external" }
+  ]
+}

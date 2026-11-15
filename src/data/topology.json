@@ -1,0 +1,268 @@
+{
+  "meta": { "version": "1.0.0", "updated": "2026-11-14" },
+
+  "vlans": [
+    { "id": 10, "name": "MGMT", "color": "#5b6b7a", "scope": "all", "dhcp": false, "internet": "restricted" },
+    { "id": 20, "name": "STAFF", "color": "#1f7a6e", "scope": "all", "dhcp": true, "internet": "full" },
+    { "id": 30, "name": "MEDICAL", "color": "#7a4fb5", "scope": "all", "dhcp": false, "internet": "none" },
+    { "id": 40, "name": "POS", "color": "#c2542d", "scope": "all", "dhcp": true, "internet": "restricted" },
+    { "id": 50, "name": "PRINTERS", "color": "#2f6fb0", "scope": "all", "dhcp": false, "internet": "none" },
+    { "id": 60, "name": "VOIP", "color": "#a0731a", "scope": "all", "dhcp": true, "internet": "restricted" },
+    { "id": 100, "name": "GUEST", "color": "#b0457f", "scope": "all", "dhcp": true, "internet": "full" },
+    { "id": 70, "name": "SERVERS", "color": "#3d7d3a", "scope": "hq", "dhcp": false, "internet": "restricted" },
+    { "id": 80, "name": "VMOTION", "color": "#6b6b6b", "scope": "hq", "dhcp": false, "internet": "none" },
+    { "id": 90, "name": "STORAGE", "color": "#8a5a2b", "scope": "hq", "dhcp": false, "internet": "none" }
+  ],
+
+  "sites": [
+    { "id": "hq", "number": 0, "code": "HQ", "kind": "hq", "status": "live", "map": { "x": 80, "y": 26 } },
+    { "id": "ber", "number": 1, "code": "BER", "kind": "clinic", "template": "clinic", "variant": "large", "features": ["xray", "lab", "ultrasound"], "status": "live", "map": { "x": 58, "y": 50 } },
+    { "id": "hh", "number": 2, "code": "HH", "kind": "clinic", "template": "clinic", "variant": "medium", "features": ["xray", "lab", "ultrasound"], "status": "live", "map": { "x": 36, "y": 14 } },
+    { "id": "muc", "number": 3, "code": "MUC", "kind": "clinic", "template": "clinic", "variant": "medium", "features": ["xray", "lab", "ultrasound"], "status": "planned", "map": { "x": 58, "y": 100 } },
+    { "id": "ext", "code": "EXT", "kind": "external", "status": "live", "map": { "x": -16, "y": 70 } }
+  ],
+
+  "templates": {
+    "clinic": {
+      "zones": [
+        { "id": "{site}-outside", "kind": "outside", "labelKey": "topology.zone.outside", "row": 0, "cols": 2 },
+        { "id": "{site}-cabinet", "kind": "cabinet", "labelKey": "topology.zone.cabinet", "row": 1, "cols": 5 },
+        { "id": "{site}-reception", "kind": "reception", "labelKey": "topology.zone.reception", "row": 2, "cols": 3 },
+        { "id": "{site}-waiting", "kind": "waiting", "labelKey": "topology.zone.waiting", "row": 2, "cols": 1 },
+        { "id": "{site}-office", "kind": "office", "labelKey": "topology.zone.office", "row": 2, "cols": 2 },
+        { "id": "{site}-tr1", "kind": "treatment", "labelKey": "topology.zone.treatment", "number": 1, "row": 3, "cols": 2 },
+        { "id": "{site}-tr2", "kind": "treatment", "labelKey": "topology.zone.treatment", "number": 2, "row": 3, "cols": 2 },
+        { "id": "{site}-tr3", "kind": "treatment", "labelKey": "topology.zone.treatment", "number": 3, "row": 3, "cols": 2, "when": { "variant": ["large"] } },
+        { "id": "{site}-xray", "kind": "xray", "labelKey": "topology.zone.xray", "row": 3, "cols": 1, "when": { "feature": "xray" } },
+        { "id": "{site}-lab", "kind": "lab", "labelKey": "topology.zone.lab", "row": 3, "cols": 1, "when": { "feature": "lab" } }
+      ],
+      "devices": [
+        { "id": "{site}-isp", "name": "ISP-{code}", "role": "isp", "zone": "{site}-outside" },
+        { "id": "{site}-lte", "name": "LTE-{code}", "role": "mobile-network", "zone": "{site}-outside" },
+
+        { "id": "{site}-mains", "name": "{code}-MAINS", "role": "mains", "zone": "{site}-cabinet" },
+        { "id": "{site}-ups", "name": "{code}-UPS-01", "role": "ups", "zone": "{site}-cabinet", "model": "UPS-1000", "vlan": 10, "ip": "10.{n}.10.5", "power": ["{site}-mains"] },
+        { "id": "{site}-fw", "name": "{code}-FW-01", "role": "clinic-firewall", "zone": "{site}-cabinet", "model": "FW-60C", "vlan": 10, "ip": "10.{n}.10.1", "power": ["{site}-ups"] },
+        { "id": "{site}-sw1", "name": "{code}-SW-01", "role": "access-switch", "zone": "{site}-cabinet", "model": "SW-24P", "vlan": 10, "ip": "10.{n}.10.2", "power": ["{site}-ups"] },
+        { "id": "{site}-sw2", "name": "{code}-SW-02", "role": "access-switch", "zone": "{site}-cabinet", "model": "SW-24P", "vlan": 10, "ip": "10.{n}.10.3", "power": ["{site}-ups"], "when": { "variant": ["large"] } },
+
+        { "id": "{site}-rec-mac1", "name": "{code}-REC-01", "role": "reception-mac", "zone": "{site}-reception", "model": "Mac mini", "vlan": 20, "dhcp": true, "power": ["{site}-mains"] },
+        { "id": "{site}-rec-mac2", "name": "{code}-REC-02", "role": "reception-mac", "zone": "{site}-reception", "model": "Mac mini", "vlan": 20, "dhcp": true, "power": ["{site}-mains"], "when": { "variant": ["large"] } },
+        { "id": "{site}-pos1", "name": "{code}-POS-01", "role": "card-terminal", "zone": "{site}-reception", "model": "CT-200", "vlan": 40, "dhcp": true, "power": ["{site}-mains"] },
+        { "id": "{site}-pos2", "name": "{code}-POS-02", "role": "card-terminal", "zone": "{site}-reception", "model": "CT-200", "vlan": 40, "dhcp": true, "power": ["{site}-mains"], "when": { "variant": ["large"] } },
+        { "id": "{site}-rcpt1", "name": "{code}-RCPT-01", "role": "receipt-printer", "zone": "{site}-reception", "model": "RP-80", "vlan": 50, "ip": "10.{n}.50.21", "power": ["{site}-mains"] },
+        { "id": "{site}-label1", "name": "{code}-LBL-01", "role": "label-printer", "zone": "{site}-reception", "model": "LP-4", "vlan": 50, "ip": "10.{n}.50.22", "power": ["{site}-mains"] },
+        { "id": "{site}-phone1", "name": "{code}-TEL-01", "role": "voip-phone", "zone": "{site}-reception", "model": "IP-PH-2", "vlan": 60, "dhcp": true, "power": ["{site}-sw1"] },
+        { "id": "{site}-ap1", "name": "{code}-AP-01", "role": "access-point", "zone": "{site}-reception", "model": "AP-W6", "vlan": 10, "ip": "10.{n}.10.11", "power": ["{site}-sw1"] },
+
+        { "id": "{site}-guest", "name": "{code}-GUEST", "role": "guest-client", "zone": "{site}-waiting", "vlan": 100, "dhcp": true },
+
+        { "id": "{site}-office-mac", "name": "{code}-OFF-01", "role": "office-mac", "zone": "{site}-office", "model": "Mac mini", "vlan": 20, "dhcp": true, "power": ["{site}-mains"] },
+        { "id": "{site}-mfp", "name": "{code}-MFP-01", "role": "document-printer", "zone": "{site}-office", "model": "MFP-C30", "vlan": 50, "ip": "10.{n}.50.20", "power": ["{site}-mains"] },
+        { "id": "{site}-ap3", "name": "{code}-AP-03", "role": "access-point", "zone": "{site}-office", "model": "AP-W6", "vlan": 10, "ip": "10.{n}.10.13", "power": ["{site}-sw1"] },
+
+        { "id": "{site}-tr1-mac", "name": "{code}-TR1-01", "role": "treatment-mac", "zone": "{site}-tr1", "model": "MacBook Air", "vlan": 20, "dhcp": true },
+        { "id": "{site}-ap2", "name": "{code}-AP-02", "role": "access-point", "zone": "{site}-tr1", "model": "AP-W6", "vlan": 10, "ip": "10.{n}.10.12", "power": ["{site}-sw1"], "when": { "variant": ["medium"] } },
+        { "id": "{site}-ap2", "name": "{code}-AP-02", "role": "access-point", "zone": "{site}-tr1", "model": "AP-W6", "vlan": 10, "ip": "10.{n}.10.12", "power": ["{site}-sw2"], "when": { "variant": ["large"] } },
+        { "id": "{site}-tr2-mac", "name": "{code}-TR2-01", "role": "treatment-mac", "zone": "{site}-tr2", "model": "MacBook Air", "vlan": 20, "dhcp": true },
+        { "id": "{site}-us", "name": "{code}-US-01", "role": "ultrasound", "zone": "{site}-tr2", "model": "US-V7", "vlan": 30, "ip": "10.{n}.30.30", "power": ["{site}-mains"], "when": { "feature": "ultrasound" } },
+        { "id": "{site}-tr3-mac", "name": "{code}-TR3-01", "role": "treatment-mac", "zone": "{site}-tr3", "model": "MacBook Air", "vlan": 20, "dhcp": true, "when": { "variant": ["large"] } },
+        { "id": "{site}-ap4", "name": "{code}-AP-04", "role": "access-point", "zone": "{site}-tr3", "model": "AP-W6", "vlan": 10, "ip": "10.{n}.10.14", "power": ["{site}-sw2"], "when": { "variant": ["large"] } },
+
+        { "id": "{site}-xray-pc", "name": "{code}-XRAY-01", "role": "xray-pc", "zone": "{site}-xray", "model": "DX-ACQ", "vlan": 30, "ip": "10.{n}.30.10", "power": ["{site}-mains"], "when": { "feature": "xray" } },
+        { "id": "{site}-lab1", "name": "{code}-LAB-01", "role": "lab-analyzer", "zone": "{site}-lab", "model": "HA-5", "vlan": 30, "ip": "10.{n}.30.20", "power": ["{site}-mains"], "when": { "feature": "lab" } }
+      ],
+      "links": [
+        { "id": "{site}-wan1", "a": { "device": "{site}-fw", "port": "wan1" }, "b": { "device": "{site}-isp" }, "kind": "wan", "medium": "fiber", "role": "primary", "speed": "500/100 Mbit/s" },
+        { "id": "{site}-wan2", "a": { "device": "{site}-fw", "port": "wan2" }, "b": { "device": "{site}-lte" }, "kind": "wan", "medium": "lte", "role": "backup", "speed": "LTE/5G" },
+        { "id": "{site}-isp-net", "a": { "device": "{site}-isp" }, "b": { "device": "internet" }, "kind": "wan", "medium": "fiber" },
+        { "id": "{site}-lte-net", "a": { "device": "{site}-lte" }, "b": { "device": "internet" }, "kind": "wan", "medium": "lte", "role": "backup" },
+        { "id": "vpn-{site}-1", "a": { "device": "{site}-fw" }, "b": { "device": "hq-fw1" }, "kind": "vpn", "medium": "ipsec", "role": "primary", "via": "{site}-wan1" },
+        { "id": "vpn-{site}-2", "a": { "device": "{site}-fw" }, "b": { "device": "hq-fw1" }, "kind": "vpn", "medium": "ipsec", "role": "backup", "via": "{site}-wan2" },
+
+        { "id": "{site}-fw-sw1", "a": { "device": "{site}-fw", "port": "lan1" }, "b": { "device": "{site}-sw1", "port": "24" }, "kind": "lan", "medium": "copper", "speed": "1 Gbit/s", "vlans": [10, 20, 30, 40, 50, 60, 100] },
+        { "id": "{site}-sw1-sw2", "a": { "device": "{site}-sw1", "port": "23" }, "b": { "device": "{site}-sw2", "port": "24" }, "kind": "lan", "medium": "copper", "speed": "1 Gbit/s", "vlans": [10, 20, 30, 40, 50, 60, 100], "when": { "variant": ["large"] } },
+        { "id": "{site}-ups-sw1", "a": { "device": "{site}-sw1", "port": "22" }, "b": { "device": "{site}-ups" }, "kind": "lan", "medium": "copper" },
+
+        { "id": "{site}-l-rec1", "a": { "device": "{site}-sw1", "port": "1" }, "b": { "device": "{site}-rec-mac1" }, "kind": "lan", "medium": "copper" },
+        { "id": "{site}-l-rec2", "a": { "device": "{site}-sw1", "port": "2" }, "b": { "device": "{site}-rec-mac2" }, "kind": "lan", "medium": "copper", "when": { "variant": ["large"] } },
+        { "id": "{site}-l-pos1", "a": { "device": "{site}-sw1", "port": "3" }, "b": { "device": "{site}-pos1" }, "kind": "lan", "medium": "copper" },
+        { "id": "{site}-l-pos2", "a": { "device": "{site}-sw1", "port": "4" }, "b": { "device": "{site}-pos2" }, "kind": "lan", "medium": "copper", "when": { "variant": ["large"] } },
+        { "id": "{site}-l-rcpt1", "a": { "device": "{site}-sw1", "port": "5" }, "b": { "device": "{site}-rcpt1" }, "kind": "lan", "medium": "copper" },
+        { "id": "{site}-l-label1", "a": { "device": "{site}-sw1", "port": "6" }, "b": { "device": "{site}-label1" }, "kind": "lan", "medium": "copper" },
+        { "id": "{site}-l-phone1", "a": { "device": "{site}-sw1", "port": "7" }, "b": { "device": "{site}-phone1" }, "kind": "lan", "medium": "copper" },
+        { "id": "{site}-l-ap1", "a": { "device": "{site}-sw1", "port": "12" }, "b": { "device": "{site}-ap1" }, "kind": "lan", "medium": "copper" },
+        { "id": "{site}-l-office", "a": { "device": "{site}-sw1", "port": "8" }, "b": { "device": "{site}-office-mac" }, "kind": "lan", "medium": "copper" },
+        { "id": "{site}-l-mfp", "a": { "device": "{site}-sw1", "port": "9" }, "b": { "device": "{site}-mfp" }, "kind": "lan", "medium": "copper" },
+        { "id": "{site}-l-ap3", "a": { "device": "{site}-sw1", "port": "14" }, "b": { "device": "{site}-ap3" }, "kind": "lan", "medium": "copper" },
+
+        { "id": "{site}-l-ap2", "a": { "device": "{site}-sw1", "port": "13" }, "b": { "device": "{site}-ap2" }, "kind": "lan", "medium": "copper", "when": { "variant": ["medium"] } },
+        { "id": "{site}-l-us", "a": { "device": "{site}-sw1", "port": "17" }, "b": { "device": "{site}-us" }, "kind": "lan", "medium": "copper", "when": { "variant": ["medium"], "feature": "ultrasound" } },
+        { "id": "{site}-l-xray", "a": { "device": "{site}-sw1", "port": "18" }, "b": { "device": "{site}-xray-pc" }, "kind": "lan", "medium": "copper", "when": { "variant": ["medium"], "feature": "xray" } },
+        { "id": "{site}-l-lab", "a": { "device": "{site}-sw1", "port": "19" }, "b": { "device": "{site}-lab1" }, "kind": "lan", "medium": "copper", "when": { "variant": ["medium"], "feature": "lab" } },
+
+        { "id": "{site}-l-ap2", "a": { "device": "{site}-sw2", "port": "12" }, "b": { "device": "{site}-ap2" }, "kind": "lan", "medium": "copper", "when": { "variant": ["large"] } },
+        { "id": "{site}-l-ap4", "a": { "device": "{site}-sw2", "port": "13" }, "b": { "device": "{site}-ap4" }, "kind": "lan", "medium": "copper", "when": { "variant": ["large"] } },
+        { "id": "{site}-l-us", "a": { "device": "{site}-sw2", "port": "1" }, "b": { "device": "{site}-us" }, "kind": "lan", "medium": "copper", "when": { "variant": ["large"], "feature": "ultrasound" } },
+        { "id": "{site}-l-xray", "a": { "device": "{site}-sw2", "port": "2" }, "b": { "device": "{site}-xray-pc" }, "kind": "lan", "medium": "copper", "when": { "variant": ["large"], "feature": "xray" } },
+        { "id": "{site}-l-lab", "a": { "device": "{site}-sw2", "port": "3" }, "b": { "device": "{site}-lab1" }, "kind": "lan", "medium": "copper", "when": { "variant": ["large"], "feature": "lab" } },
+
+        { "id": "{site}-w-tr1", "a": { "device": "{site}-ap2" }, "b": { "device": "{site}-tr1-mac" }, "kind": "wifi", "medium": "wireless", "role": "primary" },
+        { "id": "{site}-w-tr1b", "a": { "device": "{site}-ap1" }, "b": { "device": "{site}-tr1-mac" }, "kind": "wifi", "medium": "wireless", "role": "backup" },
+        { "id": "{site}-w-tr2", "a": { "device": "{site}-ap2" }, "b": { "device": "{site}-tr2-mac" }, "kind": "wifi", "medium": "wireless", "role": "primary" },
+        { "id": "{site}-w-tr2b", "a": { "device": "{site}-ap3" }, "b": { "device": "{site}-tr2-mac" }, "kind": "wifi", "medium": "wireless", "role": "backup" },
+        { "id": "{site}-w-tr3", "a": { "device": "{site}-ap4" }, "b": { "device": "{site}-tr3-mac" }, "kind": "wifi", "medium": "wireless", "role": "primary", "when": { "variant": ["large"] } },
+        { "id": "{site}-w-tr3b", "a": { "device": "{site}-ap2" }, "b": { "device": "{site}-tr3-mac" }, "kind": "wifi", "medium": "wireless", "role": "backup", "when": { "variant": ["large"] } },
+        { "id": "{site}-w-guest", "a": { "device": "{site}-ap1" }, "b": { "device": "{site}-guest" }, "kind": "wifi", "medium": "wireless", "role": "primary" },
+        { "id": "{site}-w-guestb", "a": { "device": "{site}-ap3" }, "b": { "device": "{site}-guest" }, "kind": "wifi", "medium": "wireless", "role": "backup" }
+      ]
+    }
+  },
+
+  "zones": [
+    { "id": "hq-outside", "site": "hq", "kind": "outside", "labelKey": "topology.zone.outside", "row": 0, "cols": 2 },
+    { "id": "hq-network", "site": "hq", "kind": "server-room", "labelKey": "topology.zone.hqNetwork", "row": 1, "cols": 4 },
+    { "id": "hq-office", "site": "hq", "kind": "office", "labelKey": "topology.zone.hqOffice", "row": 1, "cols": 1 },
+    { "id": "hq-cluster", "site": "hq", "kind": "cluster", "labelKey": "topology.zone.hqCluster", "row": 2, "cols": 3 },
+    { "id": "hq-vms", "site": "hq", "kind": "virtual", "labelKey": "topology.zone.hqVms", "row": 3, "cols": 5 },
+
+    { "id": "ext-internet", "site": "ext", "kind": "outside", "labelKey": "topology.zone.internet", "row": 0, "cols": 4 },
+    { "id": "ext-cloud", "site": "ext", "kind": "cloud", "labelKey": "topology.zone.cloud", "row": 1, "cols": 5 }
+  ],
+
+  "devices": [
+    { "id": "hq-isp1", "name": "ISP-HQ-1", "role": "isp", "site": "hq", "zone": "hq-outside" },
+    { "id": "hq-isp2", "name": "ISP-HQ-2", "role": "isp", "site": "hq", "zone": "hq-outside", "noteKey": "topology.note.isp2" },
+
+    { "id": "hq-fw1", "name": "HQ-FW-01", "role": "hq-firewall", "site": "hq", "zone": "hq-network", "model": "FW-200F", "vlan": 10, "ip": "10.0.10.2", "power": ["hq-ups-a"], "group": "hq-fw-ha", "groupMode": "active-passive", "noteKey": "topology.note.fwVip" },
+    { "id": "hq-fw2", "name": "HQ-FW-02", "role": "hq-firewall", "site": "hq", "zone": "hq-network", "model": "FW-200F", "vlan": 10, "ip": "10.0.10.3", "power": ["hq-ups-b"], "group": "hq-fw-ha", "groupMode": "active-passive", "noteKey": "topology.note.fwVip" },
+    { "id": "hq-ups-a", "name": "HQ-UPS-A", "role": "ups", "site": "hq", "zone": "hq-network", "model": "UPS-3000", "vlan": 10, "ip": "10.0.10.6", "power": ["hq-mains"] },
+    { "id": "hq-ups-b", "name": "HQ-UPS-B", "role": "ups", "site": "hq", "zone": "hq-network", "model": "UPS-3000", "vlan": 10, "ip": "10.0.10.7", "power": ["hq-mains"] },
+    { "id": "hq-core1", "name": "HQ-CORE-01", "role": "core-switch", "site": "hq", "zone": "hq-network", "model": "CS-48X", "vlan": 10, "ip": "10.0.10.4", "power": ["hq-ups-a"], "group": "hq-core-mlag", "groupMode": "active-active" },
+    { "id": "hq-core2", "name": "HQ-CORE-02", "role": "core-switch", "site": "hq", "zone": "hq-network", "model": "CS-48X", "vlan": 10, "ip": "10.0.10.5", "power": ["hq-ups-b"], "group": "hq-core-mlag", "groupMode": "active-active" },
+    { "id": "hq-mains", "name": "HQ-MAINS", "role": "mains", "site": "hq", "zone": "hq-network" },
+
+    { "id": "hq-sw1", "name": "HQ-SW-01", "role": "access-switch", "site": "hq", "zone": "hq-office", "model": "SW-24P", "vlan": 10, "ip": "10.0.10.8", "power": ["hq-ups-a"] },
+    { "id": "hq-ap1", "name": "HQ-AP-01", "role": "access-point", "site": "hq", "zone": "hq-office", "model": "AP-W6", "vlan": 10, "ip": "10.0.10.11", "power": ["hq-sw1"] },
+    { "id": "hq-admin-mac", "name": "HQ-IT-01", "role": "admin-mac", "site": "hq", "zone": "hq-office", "model": "MacBook Pro", "vlan": 20, "dhcp": true },
+
+    { "id": "hq-esx1", "name": "HQ-ESX-01", "role": "esxi-host", "site": "hq", "zone": "hq-cluster", "model": "SRV-R650", "vlan": 10, "ip": "10.0.10.21", "power": ["hq-ups-a", "hq-ups-b"] },
+    { "id": "hq-esx2", "name": "HQ-ESX-02", "role": "esxi-host", "site": "hq", "zone": "hq-cluster", "model": "SRV-R650", "vlan": 10, "ip": "10.0.10.22", "power": ["hq-ups-a", "hq-ups-b"] },
+    { "id": "hq-esx3", "name": "HQ-ESX-03", "role": "esxi-host", "site": "hq", "zone": "hq-cluster", "model": "SRV-R650", "vlan": 10, "ip": "10.0.10.23", "power": ["hq-ups-a", "hq-ups-b"] },
+    { "id": "hq-ctl-a", "name": "HQ-SAN-A", "role": "storage-controller", "site": "hq", "zone": "hq-cluster", "model": "SA-2400", "vlan": 90, "ip": "10.0.90.11", "power": ["hq-ups-a", "hq-ups-b"], "group": "hq-array", "groupMode": "active-active" },
+    { "id": "hq-ctl-b", "name": "HQ-SAN-B", "role": "storage-controller", "site": "hq", "zone": "hq-cluster", "model": "SA-2400", "vlan": 90, "ip": "10.0.90.12", "power": ["hq-ups-a", "hq-ups-b"], "group": "hq-array", "groupMode": "active-active" },
+    { "id": "hq-repo", "name": "HQ-REPO-01", "role": "backup-storage", "site": "hq", "zone": "hq-cluster", "model": "NAS-8B", "vlan": 70, "ip": "10.0.70.40", "power": ["hq-ups-a", "hq-ups-b"] },
+
+    { "id": "hq-vcenter", "name": "HQ-VC-01", "role": "vm-vcenter", "site": "hq", "zone": "hq-vms", "vlan": 70, "ip": "10.0.70.10", "runsOn": "hq-esx2" },
+    { "id": "hq-dc1", "name": "HQ-DC-01", "role": "vm-identity", "site": "hq", "zone": "hq-vms", "vlan": 70, "ip": "10.0.70.11", "runsOn": "hq-esx1", "group": "hq-identity", "groupMode": "active-active" },
+    { "id": "hq-dc2", "name": "HQ-DC-02", "role": "vm-identity", "site": "hq", "zone": "hq-vms", "vlan": 70, "ip": "10.0.70.12", "runsOn": "hq-esx2", "group": "hq-identity", "groupMode": "active-active" },
+    { "id": "hq-pacs", "name": "HQ-PACS-01", "role": "vm-pacs", "site": "hq", "zone": "hq-vms", "vlan": 70, "ip": "10.0.70.20", "runsOn": "hq-esx1" },
+    { "id": "hq-files", "name": "HQ-FS-01", "role": "vm-files", "site": "hq", "zone": "hq-vms", "vlan": 70, "ip": "10.0.70.21", "runsOn": "hq-esx2" },
+    { "id": "hq-lab", "name": "HQ-LAB-01", "role": "vm-lab", "site": "hq", "zone": "hq-vms", "vlan": 70, "ip": "10.0.70.22", "runsOn": "hq-esx3" },
+    { "id": "hq-jump", "name": "HQ-JUMP-01", "role": "vm-jump", "site": "hq", "zone": "hq-vms", "vlan": 70, "ip": "10.0.70.33", "runsOn": "hq-esx1" },
+    { "id": "hq-mon", "name": "HQ-MON-01", "role": "vm-monitoring", "site": "hq", "zone": "hq-vms", "vlan": 70, "ip": "10.0.70.30", "runsOn": "hq-esx3" },
+    { "id": "hq-mgmt", "name": "HQ-MGMT-01", "role": "vm-automation", "site": "hq", "zone": "hq-vms", "vlan": 70, "ip": "10.0.70.31", "runsOn": "hq-esx2" },
+    { "id": "hq-backup", "name": "HQ-BKP-01", "role": "vm-backup", "site": "hq", "zone": "hq-vms", "vlan": 70, "ip": "10.0.70.32", "runsOn": "hq-esx3" },
+
+    { "id": "internet", "name": "INTERNET", "role": "internet", "site": "ext", "zone": "ext-internet" },
+    { "id": "ext-payment", "name": "PAYMENT-GW", "role": "payment-provider", "site": "ext", "zone": "ext-internet" },
+    { "id": "ext-voip", "name": "CLOUD-PBX", "role": "voip-provider", "site": "ext", "zone": "ext-internet" },
+    { "id": "ext-vendor", "name": "VENDOR-SUPPORT", "role": "vendor-support", "site": "ext", "zone": "ext-internet" },
+    { "id": "cloud-lb", "name": "PMS-LB", "role": "cloud-lb", "site": "ext", "zone": "ext-cloud" },
+    { "id": "cloud-pms", "name": "PMS-APP", "role": "cloud-app", "site": "ext", "zone": "ext-cloud" },
+    { "id": "cloud-mdm", "name": "MDM", "role": "saas-mdm", "site": "ext", "zone": "ext-cloud" },
+    { "id": "cloud-netmgmt", "name": "NET-MGMT", "role": "saas-netmgmt", "site": "ext", "zone": "ext-cloud" },
+    { "id": "cloud-backup", "name": "BKP-OFFSITE", "role": "cloud-storage", "site": "ext", "zone": "ext-cloud" }
+  ],
+
+  "links": [
+    { "id": "hq-wan1a", "a": { "device": "hq-fw1", "port": "wan1" }, "b": { "device": "hq-isp1" }, "kind": "wan", "medium": "fiber", "role": "primary", "speed": "1 Gbit/s" },
+    { "id": "hq-wan1b", "a": { "device": "hq-fw2", "port": "wan1" }, "b": { "device": "hq-isp1" }, "kind": "wan", "medium": "fiber", "role": "primary", "speed": "1 Gbit/s" },
+    { "id": "hq-wan2a", "a": { "device": "hq-fw1", "port": "wan2" }, "b": { "device": "hq-isp2" }, "kind": "wan", "medium": "cable", "role": "backup", "speed": "500 Mbit/s" },
+    { "id": "hq-wan2b", "a": { "device": "hq-fw2", "port": "wan2" }, "b": { "device": "hq-isp2" }, "kind": "wan", "medium": "cable", "role": "backup", "speed": "500 Mbit/s" },
+    { "id": "hq-isp1-net", "a": { "device": "hq-isp1" }, "b": { "device": "internet" }, "kind": "wan", "medium": "fiber" },
+    { "id": "hq-isp2-net", "a": { "device": "hq-isp2" }, "b": { "device": "internet" }, "kind": "wan", "medium": "cable", "role": "backup" },
+
+    { "id": "hq-fw-sync", "a": { "device": "hq-fw1", "port": "ha" }, "b": { "device": "hq-fw2", "port": "ha" }, "kind": "lan", "medium": "copper" },
+    { "id": "hq-fw1-core1", "a": { "device": "hq-fw1", "port": "lan1" }, "b": { "device": "hq-core1" }, "kind": "lan", "medium": "fiber", "speed": "10 Gbit/s" },
+    { "id": "hq-fw1-core2", "a": { "device": "hq-fw1", "port": "lan2" }, "b": { "device": "hq-core2" }, "kind": "lan", "medium": "fiber", "speed": "10 Gbit/s" },
+    { "id": "hq-fw2-core1", "a": { "device": "hq-fw2", "port": "lan1" }, "b": { "device": "hq-core1" }, "kind": "lan", "medium": "fiber", "speed": "10 Gbit/s" },
+    { "id": "hq-fw2-core2", "a": { "device": "hq-fw2", "port": "lan2" }, "b": { "device": "hq-core2" }, "kind": "lan", "medium": "fiber", "speed": "10 Gbit/s" },
+    { "id": "hq-core-peer", "a": { "device": "hq-core1" }, "b": { "device": "hq-core2" }, "kind": "lan", "medium": "fiber", "speed": "2 × 25 Gbit/s" },
+    { "id": "hq-ups-a-net", "a": { "device": "hq-core1" }, "b": { "device": "hq-ups-a" }, "kind": "lan", "medium": "copper" },
+    { "id": "hq-ups-b-net", "a": { "device": "hq-core2" }, "b": { "device": "hq-ups-b" }, "kind": "lan", "medium": "copper" },
+
+    { "id": "hq-sw1-core1", "a": { "device": "hq-sw1" }, "b": { "device": "hq-core1" }, "kind": "lan", "medium": "fiber", "speed": "10 Gbit/s" },
+    { "id": "hq-sw1-core2", "a": { "device": "hq-sw1" }, "b": { "device": "hq-core2" }, "kind": "lan", "medium": "fiber", "speed": "10 Gbit/s" },
+    { "id": "hq-l-ap1", "a": { "device": "hq-sw1" }, "b": { "device": "hq-ap1" }, "kind": "lan", "medium": "copper" },
+    { "id": "hq-w-admin", "a": { "device": "hq-ap1" }, "b": { "device": "hq-admin-mac" }, "kind": "wifi", "medium": "wireless", "role": "primary" },
+
+    { "id": "hq-esx1-core1", "a": { "device": "hq-esx1", "port": "vmnic0" }, "b": { "device": "hq-core1" }, "kind": "lan", "medium": "fiber", "speed": "25 Gbit/s" },
+    { "id": "hq-esx1-core2", "a": { "device": "hq-esx1", "port": "vmnic1" }, "b": { "device": "hq-core2" }, "kind": "lan", "medium": "fiber", "speed": "25 Gbit/s" },
+    { "id": "hq-esx2-core1", "a": { "device": "hq-esx2", "port": "vmnic0" }, "b": { "device": "hq-core1" }, "kind": "lan", "medium": "fiber", "speed": "25 Gbit/s" },
+    { "id": "hq-esx2-core2", "a": { "device": "hq-esx2", "port": "vmnic1" }, "b": { "device": "hq-core2" }, "kind": "lan", "medium": "fiber", "speed": "25 Gbit/s" },
+    { "id": "hq-esx3-core1", "a": { "device": "hq-esx3", "port": "vmnic0" }, "b": { "device": "hq-core1" }, "kind": "lan", "medium": "fiber", "speed": "25 Gbit/s" },
+    { "id": "hq-esx3-core2", "a": { "device": "hq-esx3", "port": "vmnic1" }, "b": { "device": "hq-core2" }, "kind": "lan", "medium": "fiber", "speed": "25 Gbit/s" },
+    { "id": "hq-ctl-a-core1", "a": { "device": "hq-ctl-a" }, "b": { "device": "hq-core1" }, "kind": "storage", "medium": "fiber", "speed": "25 Gbit/s" },
+    { "id": "hq-ctl-a-core2", "a": { "device": "hq-ctl-a" }, "b": { "device": "hq-core2" }, "kind": "storage", "medium": "fiber", "speed": "25 Gbit/s" },
+    { "id": "hq-ctl-b-core1", "a": { "device": "hq-ctl-b" }, "b": { "device": "hq-core1" }, "kind": "storage", "medium": "fiber", "speed": "25 Gbit/s" },
+    { "id": "hq-ctl-b-core2", "a": { "device": "hq-ctl-b" }, "b": { "device": "hq-core2" }, "kind": "storage", "medium": "fiber", "speed": "25 Gbit/s" },
+    { "id": "hq-repo-core1", "a": { "device": "hq-repo" }, "b": { "device": "hq-core1" }, "kind": "lan", "medium": "fiber", "speed": "10 Gbit/s" },
+    { "id": "hq-repo-core2", "a": { "device": "hq-repo" }, "b": { "device": "hq-core2" }, "kind": "lan", "medium": "fiber", "speed": "10 Gbit/s" },
+
+    { "id": "ext-payment-net", "a": { "device": "internet" }, "b": { "device": "ext-payment" }, "kind": "wan", "medium": "fiber" },
+    { "id": "ext-voip-net", "a": { "device": "internet" }, "b": { "device": "ext-voip" }, "kind": "wan", "medium": "fiber" },
+    { "id": "ext-vendor-net", "a": { "device": "internet" }, "b": { "device": "ext-vendor" }, "kind": "wan", "medium": "fiber" },
+    { "id": "ext-lb-net", "a": { "device": "internet" }, "b": { "device": "cloud-lb" }, "kind": "wan", "medium": "fiber" },
+    { "id": "ext-lb-pms", "a": { "device": "cloud-lb" }, "b": { "device": "cloud-pms" }, "kind": "virtual", "medium": "virtual" },
+    { "id": "ext-mdm-net", "a": { "device": "internet" }, "b": { "device": "cloud-mdm" }, "kind": "wan", "medium": "fiber" },
+    { "id": "ext-netmgmt-net", "a": { "device": "internet" }, "b": { "device": "cloud-netmgmt" }, "kind": "wan", "medium": "fiber" },
+    { "id": "ext-backup-net", "a": { "device": "internet" }, "b": { "device": "cloud-backup" }, "kind": "wan", "medium": "fiber" }
+  ],
+
+  "services": [
+    { "id": "dhcp", "scope": "site", "providerRoles": ["clinic-firewall", "hq-firewall"] },
+    { "id": "dns-local", "scope": "site", "providerRoles": ["clinic-firewall", "hq-firewall"], "upstream": ["dns-internal"] },
+    { "id": "gateway", "scope": "site", "providerRoles": ["clinic-firewall", "hq-firewall"] },
+    { "id": "dns-internal", "scope": "global", "providers": ["hq-dc1", "hq-dc2"], "redundancy": "any" },
+    { "id": "identity", "scope": "global", "providers": ["hq-dc1", "hq-dc2"], "redundancy": "any" },
+    { "id": "pacs", "scope": "global", "providers": ["hq-pacs"] },
+    { "id": "lab-interface", "scope": "global", "providers": ["hq-lab"] },
+    { "id": "files", "scope": "global", "providers": ["hq-files"] },
+    { "id": "monitoring", "scope": "global", "providers": ["hq-mon"] },
+    { "id": "backup", "scope": "global", "providers": ["hq-backup"] },
+    { "id": "internet", "scope": "global", "providers": ["internet"] },
+    { "id": "pms", "scope": "global", "providers": ["cloud-lb"] },
+    { "id": "payment", "scope": "global", "providers": ["ext-payment"] },
+    { "id": "voip", "scope": "global", "providers": ["ext-voip"] },
+    { "id": "mdm", "scope": "global", "providers": ["cloud-mdm"] },
+    { "id": "netmgmt", "scope": "global", "providers": ["cloud-netmgmt"] },
+    { "id": "offsite-backup", "scope": "global", "providers": ["cloud-backup"] }
+  ],
+
+  "accessPolicy": {
+    "defaultAction": "deny",
+    "enforcedOnRoles": ["clinic-firewall", "hq-firewall"],
+    "rules": [
+      { "id": "mgmt-cloud", "from": [10], "to": ["internet"], "action": "permit", "serviceKeys": ["topology.svc.cloudMgmt", "topology.svc.ntp"], "descriptionKey": "topology.rule.mgmtCloud" },
+      { "id": "mgmt-hq", "from": [10], "to": ["hq-servers"], "action": "permit", "serviceKeys": ["topology.svc.snmpSyslog"], "descriptionKey": "topology.rule.mgmtHq" },
+
+      { "id": "staff-internet", "from": [20], "to": ["internet"], "action": "permit", "descriptionKey": "topology.rule.staffInternet" },
+      { "id": "staff-print", "from": [20], "to": [50], "action": "permit", "serviceKeys": ["topology.svc.print"], "descriptionKey": "topology.rule.staffPrint" },
+      { "id": "staff-hq", "from": [20], "to": ["hq-servers"], "action": "permit", "serviceKeys": ["topology.svc.smb", "topology.svc.dnsAuth", "topology.svc.pacsViewer"], "descriptionKey": "topology.rule.staffHq" },
+
+      { "id": "medical-hq", "from": [30], "to": ["hq-servers"], "action": "permit", "serviceKeys": ["topology.svc.dicom", "topology.svc.labResults"], "descriptionKey": "topology.rule.medicalHq" },
+      { "id": "medical-no-internet", "from": [30], "to": ["internet"], "action": "deny", "descriptionKey": "topology.rule.medicalNoInternet" },
+
+      { "id": "pos-payment", "from": [40], "to": ["internet"], "action": "permit", "serviceKeys": ["topology.svc.paymentHttps"], "descriptionKey": "topology.rule.posPayment" },
+      { "id": "pos-isolated", "from": [40], "to": ["any"], "action": "deny", "descriptionKey": "topology.rule.posIsolated" },
+
+      { "id": "printers-quiet", "from": [50], "to": ["any"], "action": "deny", "descriptionKey": "topology.rule.printersQuiet" },
+
+      { "id": "voip-provider", "from": [60], "to": ["internet"], "action": "permit", "serviceKeys": ["topology.svc.sip"], "descriptionKey": "topology.rule.voipProvider" },
+
+      { "id": "guest-internet", "from": [100], "to": ["internet"], "action": "permit", "descriptionKey": "topology.rule.guestInternet" },
+      { "id": "guest-isolated", "from": [100], "to": ["any"], "action": "deny", "descriptionKey": "topology.rule.guestIsolated" }
+    ]
+  }
+}

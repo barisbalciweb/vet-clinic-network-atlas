@@ -1,0 +1,77 @@
+{
+  "ui": {
+    "disclaimer": "A technical overview, not legal advice. Retention periods are placeholders to be set with the data protection officer.",
+    "layer": "Data protection layer",
+    "layerOn": "Data protection layer is on. Switch off",
+    "layerOff": "Show where personal data is",
+    "layerBanner": "Data protection layer: highlighted devices store, process or transmit personal data. Select one to see its measures.",
+    "showMap": "Show on the map",
+    "categoriesTitle": "Personal data in the clinics",
+    "measuresTitle": "Measures by location",
+    "example": "Example",
+    "onMap": "On the map",
+    "day1Title": "Privacy on day 1 in a new clinic",
+    "day1Link": "These checks are part of the opening playbook.",
+    "openPlaybook": "Open the opening playbook",
+    "retentionTitle": "Retention periods",
+    "placeholder": "Placeholder: to be set with the data protection officer",
+    "panelTitle": "Data protection here",
+    "incident": "Incident: report to the authority within 72 hours of becoming aware of a breach."
+  },
+  "category": {
+    "owner": "Pet owner data",
+    "staff": "Staff data",
+    "payment": "Payment data"
+  },
+  "location": {
+    "clinic": "In the clinic",
+    "transit": "In transit",
+    "hq": "At headquarters",
+    "cloud": "In the cloud",
+    "organization": "Organisation"
+  },
+  "activity": { "stored": "stored", "processed": "processed", "transmitted": "transmitted" },
+  "measure": {
+    "screen-lock": { "title": "Screen lock and screen position", "example": "Reception screens face away from the waiting room and lock after 5 minutes." },
+    "cabinet": { "title": "Locked network cabinet", "example": "Only the clinic manager and IT have the key; access is noted." },
+    "guest": { "title": "Guest Wi-Fi isolation", "example": "A guest phone reaches the internet only, not the clinic network or other guests." },
+    "vlans": { "title": "VLAN separation", "example": "Medical devices and card terminals sit in their own networks, cut off from the rest." },
+    "encryption": { "title": "Encrypted disks", "example": "FileVault is enforced by the MDM; the recovery key is escrowed there." },
+    "no-local": { "title": "No local patient data", "example": "Records live in the practice software and on the file server, never on the Mac." },
+    "disposal": { "title": "Secure disposal", "example": "Printer and X-ray PC drives are wiped or shredded with a certificate; paper goes into locked bins." },
+    "vpn": { "title": "VPN encryption", "example": "Every byte between clinic and HQ runs through an IPsec tunnel." },
+    "tls": { "title": "TLS to cloud services", "example": "Practice software and payment provider are reached over HTTPS only." },
+    "no-mail": { "title": "No patient data by plain e-mail", "example": "Findings go through the practice software's portal, not as attachments." },
+    "rbac": { "title": "Role-based access", "example": "Reception sees appointments and invoices; only vets open medical images." },
+    "admin-accounts": { "title": "Separate admin accounts", "example": "IT works with a normal account and uses the admin account only on the jump host." },
+    "mfa": { "title": "Multi-factor login", "example": "Admin and remote access need a second factor." },
+    "audit": { "title": "Logging and audit trail", "example": "Logins and admin actions are logged centrally and kept for a set time." },
+    "backups": { "title": "Encrypted, immutable backups", "example": "Nightly backup, encrypted, with an offsite copy that nobody can change." },
+    "patching": { "title": "Patching", "example": "Hosts and servers are updated monthly in a fixed maintenance window." },
+    "iam": { "title": "IAM with least privilege", "example": "Each person and service gets only the cloud roles it needs." },
+    "no-shared": { "title": "No shared credentials", "example": "Every admin has a personal account; shared passwords live only in the vault." },
+    "rotation": { "title": "Key and secret rotation", "example": "API keys and certificates are rotated on a schedule and on staff changes." },
+    "eu": { "title": "Data location in the EU", "example": "Practice software and backups are hosted in EU regions only." },
+    "dpa": { "title": "Data processing agreements", "example": "A signed agreement with every provider that processes personal data." },
+    "ropa": { "title": "Record of processing activities", "example": "Every system with personal data is listed with purpose, data and retention." },
+    "retention": { "title": "Deletion and retention concept", "example": "What is kept how long, and who deletes it when the period ends." },
+    "lifecycle": { "title": "On- and offboarding", "example": "Accounts are created from roles and disabled on the last working day." },
+    "incident": { "title": "Incident process", "example": "Assess, contain, document, and report to the authority within 72 hours." },
+    "vendor": { "title": "Vendor remote support rules", "example": "Device vendors connect only through the jump host, on request and for a limited time." }
+  },
+  "day1": {
+    "cabinet": "Network cabinet locked, key with the clinic manager only.",
+    "screens": "Reception screens turned away from the waiting room, screen lock tested.",
+    "guest": "Guest Wi-Fi isolation tested with a phone.",
+    "macs": "Every Mac encrypted and enrolled, checked in the MDM report.",
+    "rules": "Team briefed: no patient data by e-mail, no USB sticks.",
+    "ropa": "New clinic added to the record of processing activities."
+  },
+  "retention": {
+    "records": "Patient records",
+    "images": "X-ray and ultrasound images",
+    "invoices": "Invoices",
+    "staff": "Staff files",
+    "logs": "Access logs"
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "restartNote": "HA, sıfır kesinti değil, kısa bir kesintiyle yeniden başlatma demektir. Çalışan sunucuları kesintisiz yalnızca vMotion taşır.",
+  "illustrative": "Boyutlar ve süreler örnek amaçlıdır.",
+  "reset": "Laboratuvarı sıfırla",
+  "infra": {
+    "title": "Ağ, storage ve güç",
+    "internet": "İnternet",
+    "firewall": "Firewall çifti",
+    "core": "Core switch'ler",
+    "storage": "Storage sistemi",
+    "paths": "Controller portları",
+    "power": "Güç",
+    "storageNote": "İki controller'lı ortak storage; her host'tan iki yolla erişilir. Alternatif: üç host üzerinde vSAN (FTT=1). Bir host arızasını atlatır, ama host dönene kadar kopyalarını yeniden oluşturamaz."
+  },
+  "status": {
+    "ok": "Çalışıyor",
+    "failed": "Arızalı",
+    "maintenance": "Bakımda",
+    "isolated": "Yalıtılmış",
+    "no-network": "Ağ yok",
+    "no-storage": "Storage yok"
+  },
+  "toggle": {
+    "fail": "{name} arızalansın",
+    "restore": "{name} geri gelsin"
+  },
+  "host": {
+    "fail": "Host arızalansın",
+    "restore": "Geri getir",
+    "maintenance": "Bakım modu",
+    "exitMaintenance": "Bakımı bitir",
+    "isolate": "Yönetim ağını kaybet",
+    "reconnect": "Yeniden bağla",
+    "memory": "Bellek",
+    "memoryValue": "{used} / {total} GB",
+    "paths": "Storage yolları",
+    "pathsValue": "{total} yoldan {count}",
+    "uplinks": "Uplink'ler",
+    "uplink": "{port} → {core}",
+    "empty": "Bu host'ta VM yok."
+  },
+  "vm": {
+    "priority": "Yeniden başlatma önceliği {n}",
+    "gb": "{gb} GB",
+    "down": "Kapalı, HA yeniden başlatıyor",
+    "migrating": "vMotion",
+    "restarted": "Bir kesintiden sonra yeniden başlatıldı"
+  },
+  "off": {
+    "title": "Çalışmıyor",
+    "reason": "Hiçbir host'ta {gb} GB boş yer yok"
+  },
+  "load": {
+    "title": "Cluster yükü ve admission control",
+    "label": "VM'lerin kullandığı bellek",
+    "value": "{total} GB'ın %{pct}'i",
+    "limit": "N+1 sınırı %{pct}",
+    "ok": "N+1 korunuyor: herhangi bir host arızalanabilir.",
+    "over": "N+1 sınırının üstünde: bir host arızasından sonra her VM yeniden başlayamaz.",
+    "ac": "Gerçek ortamda admission control, %{pct} üzerinde yeni VM başlatılmasına izin vermezdi. Etkisini görebilmeniz için burada kapalı.",
+    "ifFails": "Şimdi bir host arızalanırsa",
+    "allRestart": "{host}: tüm VM'ler yeniden başlar.",
+    "lost": "{host}: {vms} yeniden başlayamaz."
+  },
+  "drs": {
+    "title": "DRS (yük dengeleme)",
+    "balanced": "Host'lar dengeli. Öneri yok.",
+    "recommend": "Bellek kullanımı {pct} puan farklı. DRS'in önerisi:",
+    "move": "{vm}: {from} → {to}",
+    "apply": "vMotion ile uygula",
+    "noVcenter": "vCenter çalışmıyor: DRS ve vMotion duruyor. HA yeniden başlatmaları onsuz da çalışır."
+  },
+  "rule": {
+    "title": "Anti-affinity",
+    "ok": "{a} ve {b} farklı host'larda çalışıyor.",
+    "violated": "{a} ve {b} aynı host'ta. Tek host kaldı ve HA, ayırmak yerine çalıştırmayı tercih eder.",
+    "not-running": "{a} veya {b} çalışmıyor."
+  },
+  "isolation": {
+    "title": "Host yalıtımı",
+    "text": "Bir host yönetim ağını kaybeder ama çalışmaya devam eder. Ortak storage üzerinden (datastore heartbeat) diğerleri onun hayatta olduğunu görür.",
+    "response": "Yalıtım tepkisi",
+    "keep": "VM'ler çalışmaya devam etsin",
+    "poweroff": "Kapat, başka yerde başlat"
+  },
+  "log": {
+    "title": "Ne oluyor",
+    "empty": "Henüz bir şey olmadı. Bir host'u veya bileşeni arızalandırın.",
+    "time": "+{sec} sn",
+    "componentFailed": "{name} arızalanıyor.",
+    "componentRestored": "{name} geri geldi.",
+    "hostFailed": "{host} arızalanıyor. Üzerindeki VM'ler duruyor.",
+    "hostNoNetwork": "{host} iki uplink'ini de kaybediyor. Üzerindeki VM'ler duruyor.",
+    "hostNoStorage": "{host} tüm storage yollarını kaybediyor. Üzerindeki VM'ler duruyor.",
+    "detect": "HA arızayı fark ediyor.",
+    "restarted": "{vm}, {host} üzerinde yeniden başlatıldı.",
+    "noCapacity": "{vm} yeniden başlayamıyor: hiçbir host'ta {gb} GB boş yer yok.",
+    "maintenance": "{host} bakım moduna giriyor.",
+    "maintenanceDone": "{host} boşaldı, bakım yapılabilir.",
+    "migrated": "{vm}, vMotion ile kesintisiz olarak {host} üzerine taşındı.",
+    "stuck": "{vm}, {host} üzerinde kalıyor: vMotion için vCenter ve başka bir yerde boş bellek gerekir.",
+    "exitMaintenance": "{host} bakım modundan çıkıyor. DRS VM taşıyana kadar boş kalıyor.",
+    "restored": "{host} geri geldi. DRS VM taşıyana kadar boş kalıyor.",
+    "isolated": "{host} yönetim ağını kaybediyor.",
+    "isolatedKeep": "VM'leri çalışmaya devam ediyor: storage heartbeat host'un hayatta olduğunu gösteriyor.",
+    "reconnected": "{host} yeniden erişilebilir.",
+    "drs": "DRS, vMotion ile {count} taşıma yapıyor.",
+    "responseChanged": "Yalıtım tepkisi değiştirildi.",
+    "noImpact": "Hiçbir VM etkilenmiyor."
+  },
+  "effects": {
+    "title": "Lokasyonlara etkisi",
+    "hqWan": {
+      "primary": "Merkez interneti: ana sağlayıcı",
+      "backup": "Merkez interneti: ikinci sağlayıcı (failover)",
+      "offline": "Merkez interneti: kesik"
+    },
+    "tunnel": {
+      "up": "{site}: VPN tüneli açık",
+      "backup": "{site}: tünel yedek yol üzerinden yeniden kuruldu",
+      "down": "{site}: VPN tüneli kopuk"
+    }
+  },
+  "warnings": {
+    "title": "Kaybedilen güvenlik payları",
+    "none": "Tüm yedeklilik yerinde."
+  },
+  "warn": {
+    "uplink": "{host}: tek uplink kaldı.",
+    "paths": "{host}: {total} storage yolundan {count} tanesi kaldı.",
+    "maintenance": "{host} bakımda: bakım sürdüğü sürece N+1 yedeği kullanımda.",
+    "antiAffinity": "İkinci bir host dönene kadar anti-affinity kuralı bozuk."
+  },
+  "spof": {
+    "title": "Tek hata noktası (SPOF) kontrolü",
+    "col": {
+      "component": "Bileşen",
+      "how": "Nasıl yedekli",
+      "fails": "Arızalanırsa"
+    },
+    "try": "Dene",
+    "internet": {
+      "component": "İnternet erişimi",
+      "how": "Farklı ortamlarda iki sağlayıcı; firewall kendiliğinden geçiş yapar.",
+      "fails": "Kısa bir kesinti, sonra ikinci hat her şeyi taşır; kliniklerin tünelleri yeniden kurulur."
+    },
+    "firewall": {
+      "component": "Firewall",
+      "how": "Ortak adresli aktif/pasif çift.",
+      "fails": "İkinci düğüm saniyeler içinde devralır; tüneller yeniden kurulur."
+    },
+    "core": {
+      "component": "Core switching",
+      "how": "İki switch (MLAG); her host ve firewall ikisine de bağlı.",
+      "fails": "Kesinti yok; değiştirilene kadar bant genişliği yarıya iner."
+    },
+    "uplinks": {
+      "component": "Host uplink'leri",
+      "how": "Her host'ta iki uplink, her core switch'e bir tane.",
+      "fails": "Kesinti yok; trafik kalan uplink'e geçer."
+    },
+    "hosts": {
+      "component": "Sunucu donanımı",
+      "how": "Üç host, bir host'luk kapasite yedekte (N+1), HA açık.",
+      "fails": "VM'ler diğer host'larda yeniden başlar: birkaç dakikalık kesinti."
+    },
+    "storage-ctl": {
+      "component": "Storage controller'ları",
+      "how": "İki controller, her host'tan ikisine de yol var.",
+      "fails": "Kesinti yok; diğer controller yolları devralır."
+    },
+    "power": {
+      "component": "Güç",
+      "how": "İki UPS; sunucularda her birine bağlı iki güç kaynağı.",
+      "fails": "Sunucular çalışmaya devam eder; tek beslemeli cihazlar eşlerine devreder."
+    },
+    "identity": {
+      "component": "Oturum açma ve DNS",
+      "how": "İki sunucu, asla aynı host'ta değil (anti-affinity).",
+      "fails": "Kesinti yok; tek sunucu yanıt verir."
+    },
+    "vcenter": {
+      "component": "vCenter",
+      "how": "Tek bir VM; HA onu da diğerleri gibi yeniden başlatır.",
+      "fails": "Çalışan VM'ler ve HA devam eder; DRS, vMotion ve değişiklikler durur."
+    },
+    "array": {
+      "component": "Storage kasası",
+      "how": "Tek kasa, içi yedekli; gecelik yedek ve dış kopya.",
+      "fails": "Kalan tek hata noktası: yedekten geri yükleme. Bu ölçekte kabul edilen bir risk."
+    },
+    "room": {
+      "component": "Sunucu odası",
+      "how": "Tek lokasyon; değiştirilemez bir dış yedek kopyası.",
+      "fails": "Felaket durumu: dış kopyadan yeniden kurulum. İkinci bir lokasyon bu riski ortadan kaldırırdı."
+    }
+  },
+  "before": {
+    "title": "Önce: her servis için bir sunucu",
+    "text": "Her servis kendi fiziksel kutusunda. Bir kutu arızalanırsa, donanım onarılana kadar o servis yoktur.",
+    "fail": "{service} sunucusu arızalansın",
+    "down": "Onarılana kadar kapalı",
+    "up": "Çalışıyor",
+    "now": "Cluster'da aynı arıza birkaç dakikalık bir yeniden başlatmadır."
+  }
+}

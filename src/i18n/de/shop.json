@@ -1,0 +1,139 @@
+{
+  "ui": {
+    "title": "Beschaffungssimulation (IT-Beschaffung)",
+    "intro": "Das Kit für München wie in einem internen Shop bestellen und verfolgen, bis die Geräte online sind.",
+    "play": "Automatisch abspielen",
+    "pause": "Pause",
+    "restart": "Neu beginnen",
+    "steps": "Schritte",
+    "step": {
+      "size": "Größe",
+      "shop": "Shop",
+      "checks": "Prüfung",
+      "delivery": "Lieferung",
+      "result": "Ergebnis"
+    },
+    "next": "Weiter",
+    "back": "Zurück",
+    "area": "Fläche (m²)",
+    "fill": "Standard-Kit in den Warenkorb",
+    "cart": "Warenkorb: {count} Stück",
+    "lead": "{days} Tage",
+    "stock": "Lager Zentrale: {n}",
+    "noStock": "Nicht im Lager der Zentrale",
+    "nonStandard": "Nicht Standard",
+    "remove": "Weniger: {item}",
+    "add": "Mehr: {item}",
+    "orderWeek": "Bestellen in Woche",
+    "order": "Bestellung auslösen",
+    "fix": "Beheben",
+    "allGood": "Alle Prüfungen bestanden.",
+    "attention": "{count} Prüfungen brauchen Aufmerksamkeit. Bestellen ist trotzdem möglich.",
+    "illustrative": "Lieferzeiten, Lagerbestand und Liefertage sind beispielhaft.",
+    "nextStep": "Nächster Schritt",
+    "skip": "Zum Ende springen",
+    "day": "Tag {n}",
+    "parcel": "Paket unterwegs von der Zentrale nach München",
+    "devicesTitle": "Geräte in München",
+    "installed": "Installiert",
+    "online": "Online und abgenommen",
+    "inventoryTitle": "Inventar München",
+    "col": {
+      "device": "Gerät",
+      "model": "Modell",
+      "serial": "Seriennummer",
+      "asset": "Inventarnummer",
+      "room": "Raum",
+      "vlan": "VLAN",
+      "ip": "IP",
+      "warranty": "Garantie"
+    },
+    "dhcp": "DHCP",
+    "spare": "Ersatz in der Zentrale",
+    "extra": "Zusätzlich",
+    "months": "{n} Monate",
+    "onTime": "Alles ist rechtzeitig zur Installation vor Ort.",
+    "lateAfter": "{item} ist {days} Tage nach dem Go-live bereit.",
+    "lateBefore": "{item} ist {days} Tage zu spät für die Installation bereit.",
+    "workaroundStock": "Ausweg: jetzt aus dem Lager der Zentrale nehmen und den Ersatz nachbestellen.",
+    "workaroundNone": "Ausweg: später installieren oder den Go-live verschieben.",
+    "ticked": "Die Hardware-Phase ist im Zeitplan abgehakt.",
+    "timelineLate": "Verspätete Lieferung: {item}, {days} Tage nach der geplanten Installation.",
+    "below": "Die Simulation unten bestimmt die Größe, füllt den Warenkorb, prüft die Bestellung und verfolgt die Lieferung."
+  },
+  "category": {
+    "network": "Netzwerk und Strom",
+    "workstations": "Arbeitsplätze",
+    "reception": "Empfang und Telefone",
+    "licences": "Lizenzen und Abos"
+  },
+  "item": {
+    "lic-net": "Cloud-Netzwerklizenz (3 Jahre)",
+    "lic-mdm": "MDM-Lizenz (1 Jahr)",
+    "consumer-router": "WLAN-Router für zu Hause",
+    "switch-other": "Switch eines anderen Herstellers",
+    "mac-retail": "MacBook aus dem Einzelhandel"
+  },
+  "warn": {
+    "consumer-router": "Keine VLANs, kein VPN-Template, kein Ersatz: ein Sonderaufbau, den nur diese Praxis hat.",
+    "switch-other": "Andere Firmware und Konfiguration, kein Ersatz im Regal, weniger PoE-Leistung.",
+    "mac-retail": "Nicht für die automatische Registrierung gemeldet: muss von Hand eingerichtet werden."
+  },
+  "check": {
+    "coverage": {
+      "title": "Vollständiges Kit",
+      "ok": "Der Warenkorb deckt das ganze Kit ab.",
+      "bad": "Fehlt im Kit: {items}."
+    },
+    "ports": {
+      "title": "Switch-Ports",
+      "ok": "{used} von {total} Switch-Ports belegt.",
+      "bad": "{used} Ports nötig, nur {total} vorhanden."
+    },
+    "poe": {
+      "title": "PoE-Budget",
+      "ok": "PoE {used} W von {budget} W.",
+      "bad": "PoE {used} W nötig, nur {budget} W vorhanden."
+    },
+    "ups": {
+      "title": "USV-Größe",
+      "ok": "Die USV trägt {load} W von {capacity} W.",
+      "bad": "Der Schrank zieht {load} W, die USV trägt nur {capacity} W."
+    },
+    "licences": {
+      "title": "Lizenzen und Abos",
+      "ok": "Lizenzen für {net} Netzwerkgeräte und {mdm} Macs.",
+      "bad": "Lizenzen fehlen: nötig für {net} Netzwerkgeräte und {mdm} Macs."
+    },
+    "mdm": {
+      "title": "Bezugsweg der Macs",
+      "ok": "Jeder Mac kommt über den Business-Kanal und registriert sich selbst.",
+      "bad": "{count} Macs aus dem Einzelhandel registrieren sich nicht selbst."
+    },
+    "spares": {
+      "title": "Ersatzteile",
+      "ok": "Ersatz enthalten: {items}.",
+      "bad": "Kein Ersatz für: {items}."
+    },
+    "leadtime": {
+      "title": "Lieferzeiten",
+      "ok": "Längste Lieferzeit {days} Tage: alles rechtzeitig vor Ort.",
+      "bad": "Zu spät für die Installation: {items} (bis zu {days} Tage)."
+    },
+    "standard": {
+      "title": "Standardmodelle",
+      "ok": "Nur Standardmodelle.",
+      "bad": "Nicht Standard: {items}."
+    }
+  },
+  "step": {
+    "ordered": "Bestellung ausgelöst",
+    "hq": "In der Zentrale angeliefert",
+    "tagged": "Inventarnummern und Einträge im Inventar",
+    "staged": "Vorkonfiguriert: Firmware, Template, Macs registriert",
+    "packed": "Je Raum beschriftet und verpackt",
+    "shipped": "Nach München verschickt",
+    "racked": "Eingebaut und verkabelt",
+    "online": "Geräte online und abgenommen"
+  }
+}

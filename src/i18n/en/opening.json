@@ -1,0 +1,272 @@
+{
+  "ui": {
+    "status": {
+      "planned": "München: planned",
+      "live": "München: live"
+    },
+    "statusText": {
+      "planned": "München goes live on the map once every step up to go-live is ticked.",
+      "live": "Every step up to go-live is done. München is live on the map and in the failure simulator."
+    },
+    "progress": "{done} of {total} steps",
+    "showMap": "Show München on the map",
+    "reset": "Reset playbook",
+    "timeline": "Timeline",
+    "weekMinus": "T−{n}",
+    "weekZero": "Go-live",
+    "weekPlus": "+{n}",
+    "weeksAxis": "Weeks before and after go-live",
+    "duration": "{from} to {to}, {n} weeks",
+    "durationOne": "{from}, 1 week",
+    "people": "Who is involved",
+    "checklist": "Checklist",
+    "pitfalls": "Typical pitfalls",
+    "example": "Example",
+    "complete": "Tick all",
+    "completed": "Phase complete",
+    "open": "Open: {phase}",
+    "illustrative": "Durations and lead times are illustrative placeholders."
+  },
+  "people": {
+    "it": "IT",
+    "manager": "Clinic manager",
+    "electrician": "Electrician",
+    "isp": "Internet provider",
+    "supplier": "Supplier",
+    "vendor": "Medical device vendor",
+    "staff": "Clinic team"
+  },
+  "phase": {
+    "survey": {
+      "title": "Site survey",
+      "goal": "Know the building before anything is ordered.",
+      "check": {
+        "walk": "Walk through every room with the clinic manager.",
+        "cabinet": "Choose the cabinet room: lockable, ventilated, not the X-ray room.",
+        "power": "Plan a separate power circuit for the cabinet.",
+        "outlets": "Count network outlets per room and plan the cable routes.",
+        "wifi": "Measure Wi-Fi coverage in every room.",
+        "shielding": "Note the X-ray room shielding and its effect on Wi-Fi."
+      },
+      "pitfall": {
+        "1": "The best cabinet spot is promised for storage later.",
+        "2": "Lead shielding is only noticed when the Wi-Fi is weak."
+      }
+    },
+    "isp": {
+      "title": "Internet order",
+      "goal": "The line has the longest lead time, so it is ordered first.",
+      "check": {
+        "availability": "Check availability at the exact address.",
+        "order": "Order a business line with an SLA.",
+        "static-ip": "Request a static IP address.",
+        "lte": "Order the LTE/5G backup SIM.",
+        "date": "Agree the installation date.",
+        "access": "Arrange building access for the technician."
+      },
+      "pitfall": {
+        "1": "The address is available, the building connection is not.",
+        "2": "The technician arrives and nobody has a key."
+      }
+    },
+    "hardware": {
+      "title": "Hardware order",
+      "goal": "Order the standard kit, sized for this clinic.",
+      "check": {
+        "bom": "Generate the bill of materials from the size of the clinic.",
+        "channel": "Order Macs through the channel that enables automatic MDM enrolment.",
+        "licences": "Include firewall, switch and MDM licences.",
+        "spares": "Order spares: one access point, one card terminal.",
+        "leadtime": "Check the longest lead time against the opening date."
+      },
+      "pitfall": {
+        "1": "A cheaper non-standard switch: no spare on the shelf, a separate config.",
+        "2": "Macs from a retail shop that do not enrol by themselves."
+      }
+    },
+    "staging": {
+      "title": "Pre-staging at HQ",
+      "goal": "Everything is configured and tested on the bench before it travels.",
+      "check": {
+        "template": "Apply the site template with site number 3 in the cloud dashboard.",
+        "firmware": "Update firmware to the approved version.",
+        "mdm": "Assign the Macs in the MDM and test the enrolment.",
+        "labels": "Label every device with its room and port.",
+        "bench": "Power the whole kit on the bench and test the VPN."
+      },
+      "pitfall": {
+        "1": "Firmware gets updated on site during opening week.",
+        "2": "Unlabelled boxes: nobody knows which access point goes where."
+      }
+    },
+    "install": {
+      "title": "Installation on site",
+      "goal": "Cabinet, cabling and devices in place, the line handed over.",
+      "check": {
+        "cabinet": "Mount the cabinet with UPS, firewall and switch.",
+        "patch": "Patch every port according to the port plan.",
+        "aps": "Mount the access points where the survey says.",
+        "line": "Take over the internet line and test it.",
+        "devices": "Place and connect the devices in every room."
+      },
+      "pitfall": {
+        "1": "Electrician and ISP technician booked for the same morning.",
+        "2": "Patch cables without labels."
+      }
+    },
+    "validation": {
+      "title": "Validation",
+      "goal": "Test every function before the first patient arrives.",
+      "check": {
+        "workstations": "Every Mac logs in and opens the practice software.",
+        "payment": "Test payment on every card terminal.",
+        "print": "Test print on every printer.",
+        "xray": "An X-ray test image reaches the archive.",
+        "lab": "A lab test result arrives in the practice software.",
+        "failover": "VPN failover test: pull the primary line, the tunnel comes back over LTE.",
+        "guest": "Guest Wi-Fi isolation test: a guest phone reaches nothing inside.",
+        "backup": "Backup and monitoring are active for the site."
+      },
+      "pitfall": {
+        "1": "Only testing that devices are on, not that they work end to end.",
+        "2": "No failover test, so the first real outage becomes the test."
+      }
+    },
+    "golive": {
+      "title": "Go-live",
+      "goal": "The first day with patients, with IT on site.",
+      "check": {
+        "onsite": "IT is on site from opening time.",
+        "logins": "Every employee has logged in once.",
+        "alerts": "Monitoring alerts for the site go to on-call.",
+        "known": "A list of known small issues is with the clinic manager.",
+        "support": "Hand over to everyday support."
+      },
+      "pitfall": {
+        "1": "Go-live on the same day as a new practice software version.",
+        "2": "Nobody knows whom to call."
+      }
+    },
+    "hypercare": {
+      "title": "Hypercare week",
+      "goal": "Fix teething problems fast and improve the template.",
+      "check": {
+        "daily": "Daily check-in with the clinic manager.",
+        "tickets": "Review every ticket from the new clinic.",
+        "fixes": "Fix the teething problems.",
+        "feedback": "Write the lessons learned into the template.",
+        "close": "Close the project."
+      },
+      "pitfall": {
+        "1": "Fixes are made only in München, not in the template.",
+        "2": "Hypercare ends without a handover."
+      }
+    }
+  },
+  "artefact": {
+    "survey-sheet": {
+      "title": "Site survey sheet (example entries)",
+      "item": {
+        "1": "Cabinet: storage room, ground floor, lockable, ventilated.",
+        "2": "Power: separate 16 A circuit planned for the cabinet.",
+        "3": "Outlets: reception 6, each treatment room 2, office 3, X-ray 2, lab 2.",
+        "4": "Cable route: ceiling void in the corridor, at most 45 m to the furthest room.",
+        "5": "Wi-Fi: weak in treatment room 3 (−74 dBm), extra access point needed.",
+        "6": "X-ray room: lead-lined walls, own wired outlet, no Wi-Fi expected inside."
+      }
+    },
+    "isp-call": {
+      "title": "Questions for the ISP call",
+      "item": {
+        "1": "Is fibre or cable available at exactly this address?",
+        "2": "Which business tariff, with which bandwidth?",
+        "3": "Is a static IP address included?",
+        "4": "SLA: repair time and support hours?",
+        "5": "Who supplies the router or modem, and can it run in bridge mode?",
+        "6": "Installation date and time window?",
+        "7": "Does the technician need building access, and who lets them in?",
+        "8": "Who signs the order, and who receives the invoice?"
+      }
+    },
+    "failover-test": {
+      "title": "Failover test protocol",
+      "item": {
+        "1": "Start a continuous ping to HQ (ping 10.0.10.1) and a test payment.",
+        "2": "Pull the fibre cable at the firewall.",
+        "3": "Expected: LTE takes over and the tunnel is back within about a minute (illustrative).",
+        "4": "Payment and practice software keep working; note anything that did not.",
+        "5": "Plug the fibre back in and check that the firewall returns to it."
+      }
+    },
+    "golive-day": {
+      "title": "Go-live day plan",
+      "item": {
+        "1": "07:00 IT on site, every device on, dashboard green.",
+        "2": "07:30 Short briefing with the team: whom to call, what to report.",
+        "3": "08:00 First patients; IT at reception for the first hour.",
+        "4": "12:00 Go through tickets and open questions.",
+        "5": "18:00 Short review with the clinic manager."
+      }
+    },
+    "lessons": {
+      "title": "Lessons learned (example)",
+      "item": {
+        "1": "Treatment room 3 needed its own access point: added to the survey sheet.",
+        "2": "Label printer driver missing in the MDM profile: fixed in the template.",
+        "3": "The line came two weeks late: order 12 weeks ahead, not 8.",
+        "4": "The team asked for a one-page login and Wi-Fi guide: added to onboarding."
+      }
+    }
+  },
+  "bom": {
+    "title": "Bill of materials from the standard kit",
+    "rooms": "Treatment rooms",
+    "desks": "Reception desks",
+    "xray": "X-ray",
+    "lab": "In-house lab",
+    "less": "Fewer: {what}",
+    "more": "More: {what}",
+    "item": "Item",
+    "qty": "Qty",
+    "rule": "Rule",
+    "ports": "{count} wired ports",
+    "switches": "{count} switches",
+    "poe": "PoE {used} W of {budget} W",
+    "vendor": "From the device vendor; IT provides port and VLAN 30.",
+    "example": "Example: 4 treatment rooms and 1 desk give 3 access points, 6 Macs and 2 card terminals."
+  },
+  "rule": {
+    "fixed": "{n} base",
+    "perRoom": "{n} per treatment room",
+    "perDesk": "{n} per desk",
+    "perFeature": "{n} with {feature}",
+    "perPorts": "1 per {n} wired ports",
+    "minPerArea": "at least 1 per {n} m²",
+    "per": "1 per unit of: {items}"
+  },
+  "plan": {
+    "ipTitle": "IP and VLAN plan for München",
+    "vlan": "VLAN",
+    "subnet": "Subnet",
+    "gateway": "Gateway",
+    "dhcp": "DHCP pool",
+    "static": "Fixed addresses only",
+    "staticTitle": "Fixed addresses",
+    "device": "Device",
+    "address": "Address",
+    "portTitle": "Port plan of the München switch",
+    "switch": "Switch",
+    "port": "Port",
+    "poe": "PoE",
+    "trunk": "Trunk",
+    "yes": "Yes",
+    "no": "–"
+  },
+  "sku": {
+    "cabinet": "Network cabinet, lockable"
+  },
+  "nowLive": {
+    "simple": "Open since go-live, built exactly like the other clinics.",
+    "technical": "Live from the same template. Subnets 10.3.x.0/24."
+  }
+}

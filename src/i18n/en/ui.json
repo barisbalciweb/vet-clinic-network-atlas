@@ -1,0 +1,94 @@
+{
+  "app": {
+    "subtitle": "Network Atlas",
+    "skip": "Skip to content",
+    "fictional": "Fictional example environment: {org}, all sites, people and IP addresses are invented.",
+    "loading": "Loading…"
+  },
+  "header": {
+    "home": "{org} – back to the map",
+    "menu": "Open menu",
+    "closeMenu": "Close menu",
+    "modules": "Modules",
+    "mode": "View mode",
+    "simple": "Simple",
+    "technical": "Technical",
+    "simpleHint": "Plain language for clinic staff",
+    "technicalHint": "Full detail for IT: VLANs, addresses, commands",
+    "language": "Language",
+    "toLight": "Switch to light theme",
+    "toDark": "Switch to dark theme"
+  },
+  "nav": {
+    "map": "Map",
+    "simulator": "Failure simulator",
+    "issues": "Common issues",
+    "opening": "Clinic opening",
+    "standards": "Standards",
+    "haLab": "HA lab",
+    "privacy": "Data protection",
+    "monitoring": "Monitoring",
+    "about": "About"
+  },
+  "modules": {
+    "map": {
+      "title": "Network map",
+      "simple": "See all four sites and how they are connected. Tap a site to look inside.",
+      "technical": "HQ and three clinics in a hub-and-spoke IPsec VPN. One VLAN plan for every site: 10.<site>.<vlan>.0/24."
+    },
+    "simulator": {
+      "title": "Failure simulator",
+      "simple": "Switch something off and see who can no longer work, and what to do first.",
+      "technical": "Inject power, link and service faults. The engine returns the chain reaction, test order and fix, and it knows about redundancy."
+    },
+    "issues": {
+      "title": "Common issues",
+      "simple": "The everyday problems in a clinic and how they get solved.",
+      "technical": "Ticket catalogue: symptom, likely causes by probability, checks in order, solution."
+    },
+    "opening": {
+      "title": "New clinic opening",
+      "simple": "How the München clinic gets its IT, from signed lease to opening day.",
+      "technical": "Opening playbook: site survey, ISP order, procurement, pre-staging at HQ, installation, validation, go-live, hypercare."
+    },
+    "standards": {
+      "title": "Standardization and automation",
+      "simple": "Every clinic gets the same kit. That makes openings fast and support easy.",
+      "technical": "Standard hardware, one site template with variables, staged firmware rollout, Ansible, macOS zero-touch."
+    },
+    "haLab": {
+      "title": "HA lab",
+      "simple": "How the central servers keep running when one of them fails.",
+      "technical": "vSphere cluster with 3 hosts: HA restart, admission control with N+1, vMotion, DRS, anti-affinity."
+    },
+    "privacy": {
+      "title": "Data protection (GDPR)",
+      "simple": "Where personal data lives and how it is protected.",
+      "technical": "Data flows and measures per location: clinic, transit, HQ, cloud, organization."
+    },
+    "monitoring": {
+      "title": "Monitoring and on-call",
+      "simple": "How problems are noticed early, before the clinic has to call.",
+      "technical": "Status board, on-call example with runbook, early warnings, release flow with software engineering."
+    }
+  },
+  "about": {
+    "title": "About this project",
+    "whatTitle": "What it shows",
+    "what": "The IT of a veterinary clinic chain, planned end to end: network, clinic openings, troubleshooting, standards, high availability, data protection and monitoring.",
+    "fictionalTitle": "Fictional environment",
+    "fictional": "{org} does not exist. Sites, people, hostnames and IP addresses are invented, and dashboards are simulations. Lead times, prices and retention periods are illustrative placeholders.",
+    "howTitle": "How it works",
+    "how": "A static web app without backend, login or external requests. All content comes from validated data files in English, German and Turkish.",
+    "stackTitle": "Built with",
+    "repoTitle": "Source code",
+    "repoLink": "Repository on GitHub",
+    "modulesTitle": "The modules",
+    "tryTitle": "Try this first",
+    "try": {
+      "switch": "Switch off a clinic switch and follow the chain reaction.",
+      "host": "Let a server host fail and watch HA restart its VMs.",
+      "opening": "Tick off the München playbook until the clinic goes live on the map."
+    }
+  }
+}

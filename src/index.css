@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+/* Dark theme is enabled with <html class="dark"> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Theme tokens. Components only use the semantic names (bg-canvas, text-ink, border-line, ...),
+ * so light and dark are designed here, once, and not with "dark:" classes all over the code.
+ * Green / amber / red are reserved for status and never used as decoration.
+ */
+:root {
+  color-scheme: light;
+  --c-canvas: #faf6ef; /* warm off-white page */
+  --c-surface: #ffffff; /* cards, header */
+  --c-raised: #f3eee5; /* insets, segmented controls */
+  --c-line: #e6dfd3;
+  --c-ink: #23302e;
+  --c-muted: #5f6b68;
+  --c-primary: #1f7a6e; /* soft teal */
+  --c-primary-strong: #17635a;
+  --c-on-primary: #ffffff;
+  --c-primary-soft: #dcefea;
+  --c-accent: #e8935a; /* apricot, highlights only */
+  --c-accent-soft: #fbe9da;
+  --c-accent-ink: #94481a;
+  --c-ok: #2e7d32;
+  --c-ok-soft: #e3f1e4;
+  --c-warn: #a15c00;
+  --c-warn-soft: #fbeed3;
+  --c-bad: #c0392b;
+  --c-bad-soft: #fadeda;
+  /* Link lines on the map (kind is also shown by the line pattern) */
+  --link-lan: #7b8794;
+  --link-wifi: #2f6fb0;
+  --link-wan: #b5651d;
+  --link-vpn: #1f7a6e;
+  --link-storage: #8a5a2b;
+  --link-virtual: #8a94a0;
+}
+
+.dark {
+  color-scheme: dark;
+  --c-canvas: #141b1a;
+  --c-surface: #1c2524;
+  --c-raised: #253130;
+  --c-line: #34423f;
+  --c-ink: #e9efec;
+  --c-muted: #a3b0ac;
+  --c-primary: #5cc4b3;
+  --c-primary-strong: #7bd3c4;
+  --c-on-primary: #0e1d1b;
+  --c-primary-soft: #1f3d38;
+  --c-accent: #f0a873;
+  --c-accent-soft: #40291a;
+  --c-accent-ink: #f5be94;
+  --c-ok: #6fcf7a;
+  --c-ok-soft: #1c3520;
+  --c-warn: #f0b44c;
+  --c-warn-soft: #3b2d12;
+  --c-bad: #f0857a;
+  --c-bad-soft: #40201c;
+  --link-lan: #8b98a5;
+  --link-wifi: #6fb1ee;
+  --link-wan: #f0a873;
+  --link-vpn: #5cc4b3;
+  --link-storage: #d3a06a;
+  --link-virtual: #75828e;
+}
+
+@theme inline {
+  --color-canvas: var(--c-canvas);
+  --color-surface: var(--c-surface);
+  --color-raised: var(--c-raised);
+  --color-line: var(--c-line);
+  --color-ink: var(--c-ink);
+  --color-muted: var(--c-muted);
+  --color-primary: var(--c-primary);
+  --color-primary-strong: var(--c-primary-strong);
+  --color-on-primary: var(--c-on-primary);
+  --color-primary-soft: var(--c-primary-soft);
+  --color-accent: var(--c-accent);
+  --color-accent-soft: var(--c-accent-soft);
+  --color-accent-ink: var(--c-accent-ink);
+  --color-ok: var(--c-ok);
+  --color-ok-soft: var(--c-ok-soft);
+  --color-warn: var(--c-warn);
+  --color-warn-soft: var(--c-warn-soft);
+  --color-bad: var(--c-bad);
+  --color-bad-soft: var(--c-bad-soft);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--c-canvas);
+  color: var(--c-ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tailwind 4 gives buttons the default arrow; everything clickable shows the hand */
+button:not(:disabled),
+[role='button'],
+summary,
+select,
+label:has(> input[type='checkbox']),
+input[type='checkbox'],
+input[type='range'] {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- React Flow customizations ---------- */
+
+.react-flow {
+  --xy-background-color: var(--c-canvas);
+  --xy-background-pattern-color: var(--c-line);
+  --xy-controls-button-background-color: var(--c-surface);
+  --xy-controls-button-background-color-hover: var(--c-raised);
+  --xy-controls-button-color: var(--c-ink);
+  --xy-controls-button-border-color: var(--c-line);
+  --xy-attribution-background-color: transparent;
+}
+
+/* Links attach to the centre of a node; the handles are invisible */
+.react-flow .center-handle {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  width: 1px;
+  height: 1px;
+  min-width: 0;
+  min-height: 0;
+  border: 0;
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Room boxes and the map backdrop must not swallow clicks or drags */
+.react-flow__node-zone,
+.react-flow__node-backdrop {
+  pointer-events: none !important;
+}
+
+.react-flow__node {
+  cursor: default;
+}
+
+/* React Flow switches pointer events off for nodes when no node handler is passed to it.
+   Our clickable nodes are buttons with their own handlers, so they must receive the pointer. */
+.react-flow__node-device,
+.react-flow__node-site,
+.react-flow__node-portal {
+  pointer-events: all !important;
+}
+
+/* Simulator on phones: the zoom controls sit above the bottom sheet */
+@media (max-width: 767px) {
+  .with-sheet .react-flow__controls {
+    margin-bottom: 76px;
+  }
+}
+
+/* Touch targets */
+.react-flow__controls-button {
+  width: 44px;
+  height: 44px;
+}

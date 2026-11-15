@@ -1,0 +1,138 @@
+{
+  "vlan": {
+    "10": {
+      "label": "Management",
+      "purpose": "Firewall, switches, access points and UPS. Only IT gets in here."
+    },
+    "20": {
+      "label": "Staff",
+      "purpose": "The Macs of the clinic team."
+    },
+    "30": {
+      "label": "Medical devices",
+      "purpose": "X-ray, lab and ultrasound. No internet, only the image archive and the lab server."
+    },
+    "40": {
+      "label": "Card payment",
+      "purpose": "Card terminals. Only the payment provider, isolated from everything else."
+    },
+    "50": {
+      "label": "Printers",
+      "purpose": "Printers and scanners. They answer print jobs and start nothing themselves."
+    },
+    "60": {
+      "label": "Telephones",
+      "purpose": "IP phones, prioritised so calls stay clear."
+    },
+    "70": {
+      "label": "Servers",
+      "purpose": "The virtual servers at headquarters."
+    },
+    "80": {
+      "label": "vMotion",
+      "purpose": "Moves running virtual servers between hosts. Not routed."
+    },
+    "90": {
+      "label": "Storage",
+      "purpose": "Traffic between hosts and the shared storage. Not routed."
+    },
+    "100": {
+      "label": "Guest Wi-Fi",
+      "purpose": "Pet owners in the waiting room. Internet only."
+    }
+  },
+  "service": {
+    "dhcp": "Address assignment (DHCP)",
+    "dns-local": "Name resolution (DNS)",
+    "gateway": "Gateway (way out of its network)",
+    "dns-internal": "Internal DNS zone",
+    "identity": "Login service (directory)",
+    "pacs": "Image archive (PACS)",
+    "lab-interface": "Lab result transfer",
+    "files": "File shares",
+    "monitoring": "Monitoring",
+    "backup": "Backup",
+    "internet": "Internet access",
+    "pms": "Practice management app",
+    "payment": "Card payment service",
+    "voip": "Telephone service",
+    "mdm": "Mac management (MDM)",
+    "netmgmt": "Network management",
+    "offsite-backup": "Offsite backup copy"
+  },
+  "site": {
+    "hq": {
+      "label": "Berlin HQ",
+      "simple": "Head office with the server room. All clinics connect to it.",
+      "technical": "VPN hub. vSphere cluster with 3 hosts, firewall HA pair, two ISPs. Subnets 10.0.x.0/24."
+    },
+    "ber": {
+      "label": "Clinic Berlin",
+      "simple": "Large clinic with X-ray, lab and ultrasound.",
+      "technical": "Large variant of the standard kit: 2 switches, 4 access points. Subnets 10.1.x.0/24."
+    },
+    "hh": {
+      "label": "Clinic Hamburg",
+      "simple": "Medium-sized clinic, built exactly like the others.",
+      "technical": "Medium variant of the standard kit: 1 switch, 3 access points. Subnets 10.2.x.0/24."
+    },
+    "muc": {
+      "label": "Clinic München",
+      "simple": "Opening in progress. The IT is planned but not yet live.",
+      "technical": "Planned from the same template. Subnets 10.3.x.0/24 are reserved."
+    },
+    "ext": {
+      "label": "Internet & cloud",
+      "simple": "Everything outside our buildings: internet, practice software, payment service.",
+      "technical": "Public internet, the cloud-hosted practice management app behind a load balancer, and SaaS services."
+    }
+  },
+  "zone": {
+    "outside": "Outside lines",
+    "cabinet": "Network cabinet (locked)",
+    "reception": "Reception",
+    "waiting": "Waiting room",
+    "office": "Back office",
+    "treatment": "Treatment room {n}",
+    "xray": "X-ray room",
+    "lab": "Lab",
+    "hqNetwork": "Server room: network and power",
+    "hqOffice": "IT office",
+    "hqCluster": "Server room: cluster and storage",
+    "hqVms": "Virtual servers (run on the cluster)",
+    "internet": "Internet",
+    "cloud": "Cloud services"
+  },
+  "note": {
+    "isp2": "Second provider on a different medium (cable instead of fibre), so one digger cannot cut both.",
+    "fwVip": "The pair shares the virtual address 10.0.10.1; clinics and servers only ever talk to that one."
+  },
+  "svc": {
+    "cloudMgmt": "HTTPS to network management",
+    "ntp": "NTP",
+    "snmpSyslog": "SNMP and syslog to monitoring",
+    "print": "Printing (IPP)",
+    "smb": "File shares (SMB)",
+    "dnsAuth": "DNS and login",
+    "pacsViewer": "Image viewer (HTTPS)",
+    "dicom": "DICOM to the PACS",
+    "labResults": "Results to the lab server",
+    "paymentHttps": "HTTPS to the payment provider",
+    "sip": "SIP-TLS and SRTP to the telephone system"
+  },
+  "rule": {
+    "mgmtCloud": "Network devices report to their cloud management and fetch the time. Nothing else.",
+    "mgmtHq": "Network devices send status and logs to monitoring at HQ.",
+    "staffInternet": "Staff Macs may use the internet, including the practice software in the cloud.",
+    "staffPrint": "Staff Macs may print.",
+    "staffHq": "Staff Macs reach file shares, login and the image viewer at HQ through the VPN.",
+    "medicalHq": "Medical devices may only deliver images and lab results to HQ.",
+    "medicalNoInternet": "Medical devices never reach the internet. Vendor support comes in through the jump host only.",
+    "posPayment": "Card terminals may only talk to the payment provider.",
+    "posIsolated": "Card terminals are cut off from every other network.",
+    "printersQuiet": "Printers never start a connection themselves.",
+    "voipProvider": "Phones may only reach the telephone system.",
+    "guestInternet": "Guests get internet.",
+    "guestIsolated": "Guests reach nothing inside the clinic, and not each other."
+  }
+}

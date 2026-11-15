@@ -1,0 +1,334 @@
+{
+  "action": {
+    "power-off": {
+      "label": "Kapat",
+      "done": "{device} kapatılıyor."
+    },
+    "slow-device": {
+      "label": "Yavaşlat (aşırı yük veya arıza)",
+      "done": "{device} yavaşlıyor ve paket kaybediyor."
+    },
+    "tunnels-down": {
+      "label": "VPN tünellerini durdur",
+      "done": "{site} VPN tünelleri düşüyor; internet çalışmaya devam ediyor."
+    },
+    "dhcp-staff-full": {
+      "label": "Ekip ağının adres havuzunu tüket",
+      "done": "{site} ekip ağının DHCP havuzu doldu."
+    },
+    "dhcp-guest-full": {
+      "label": "Misafir Wi-Fi adres havuzunu tüket",
+      "done": "{site} misafir Wi-Fi'ının DHCP havuzu doldu."
+    },
+    "dns-stopped": {
+      "label": "DNS servisini durdur",
+      "done": "{device} üzerindeki DNS servisi duruyor."
+    },
+    "cert-expired": {
+      "label": "Sertifikanın süresini doldur",
+      "done": "{service} sertifikasının süresi doluyor."
+    },
+    "cut-link": {
+      "label": "Kes",
+      "done": "{link} kesiliyor."
+    },
+    "slow-link": {
+      "label": "Yavaşlat",
+      "done": "{link} yavaşlıyor ve paket kaybediyor."
+    },
+    "tunnel-cut": {
+      "label": "Tüneli düşür",
+      "done": "{link} düşüyor."
+    }
+  },
+  "layer": {
+    "power": "Güç",
+    "link": "Kablo / Wi-Fi",
+    "ip": "IP adresi",
+    "dns": "DNS",
+    "gateway": "Gateway",
+    "wan": "İnternet hattı",
+    "vpn": "VPN",
+    "service": "Servis"
+  },
+  "test": {
+    "power-led": "Güç LED'i yanıyor mu? Fişi ve uzatma kablosunu kontrol edin.",
+    "ups-status": "UPS ekranı: akü modu, aşırı yük veya alarm var mı?",
+    "mains-room": "Odadaki ışıklar ve diğer prizler çalışıyor mu?",
+    "breaker": "Sigorta kutusu: bir sigorta attı mı?",
+    "bypass": "UPS'in kendisi arızalıysa: bypass'a alın veya cihazları doğrudan prize takın.",
+    "poe-port": "Switch portu hâlâ PoE gücü veriyor mu?",
+    "link-led": "Kablonun iki ucunda da link LED'i yanıyor mu?",
+    "cable-swap": "Patch kabloyu değiştirin veya başka bir port deneyin.",
+    "port-status": "Port switch'te açık ve doğru VLAN'da mı?",
+    "port-errors": "Porttaki hata sayaçları artıyor mu (CRC, drop)?",
+    "ap-led": "Erişim noktası LED'i: yanıyor, yanıp sönüyor veya kapalı mı?",
+    "wifi-client": "Cihaz hangi erişim noktasına bağlı, sinyal ne kadar güçlü?",
+    "modem-led": "Modem veya fiber kutusu: senkron LED'i yanıyor mu?",
+    "ip-address": "Cihazın kendi ağından bir adresi var mı, 169.254.x.x değil mi?",
+    "dhcp-leases": "Firewall panosu: havuzda kaç adres kaldı?",
+    "rogue-devices": "Lease listesinde bilinmeyen cihaz var mı, örneğin özel bir router?",
+    "dns-internal": "Birinci dahili DNS sunucusu yanıt veriyor mu?",
+    "dns-second": "İkinci dahili DNS sunucusu yanıt veriyor mu?",
+    "ping-gw": "Gateway yanıt veriyor mu?",
+    "ping-device": "Cihaz ping'e yanıt veriyor mu?",
+    "ping-loss": "50 ping'de paket kaybı veya yüksek gecikme var mı?",
+    "wan-status": "Firewall panosu: hangi internet hattı aktif?",
+    "ping-provider": "Firewall'dan genel bir adres yanıt veriyor mu?",
+    "speed-test": "Sözleşmedeki bant genişliğine karşı hız testi.",
+    "isp-hotline": "Sağlayıcının arıza sayfasına bakın, sonra sözleşme numarasıyla kurumsal destek hattını arayın.",
+    "status-page": "Sağlayıcının durum sayfasını kontrol edin.",
+    "second-site": "Başka bir lokasyondan çalışıyor mu? O zaman sorun yereldir.",
+    "tunnel-status": "Firewall panosunda tünel durumu: açık mı kapalı mı, hangi hat üzerinden?",
+    "ping-hq": "Merkez firewall'u tünel üzerinden yanıt veriyor mu?",
+    "hq-reachable": "Diğer kliniklerin tüneli de düştü mü? O zaman merkeze bakın.",
+    "dashboard-device": "Cihaz bulut panosunda çevrimiçi görünüyor mu?",
+    "firmware-version": "Firmware güncel mi? Bu sürümde bilinen bir hata var mı?",
+    "reboot-window": "Gerekirse mesai sonrasında yeniden başlatın.",
+    "terminal-selftest": "Terminalde bağlantı testini çalıştırın.",
+    "print-queue": "Mac'teki yazdırma kuyruğu: durdurulmuş veya takılı iş var mı?",
+    "mdm-lastseen": "MDM: Mac en son ne zaman bağlandı?",
+    "phone-registered": "Telefon ekranı: santrale kayıtlı mı?",
+    "vendor-contact": "Cihazın kendisi arızalıysa: seri numarası ve hata koduyla üretici servisini arayın.",
+    "vcenter-events": "vCenter: host veya VM'in olayları ve alarmları.",
+    "host-console": "Host'un out-of-band konsolu: güç durumu, donanım hatası?",
+    "vm-console": "VM konsolu: sistem açılıyor mu, servis başlıyor mu?",
+    "mlag-status": "Kalan core switch'te MLAG durumu: eş düşmüş mü, portlar açık mı?",
+    "ha-status": "Firewall çiftinin HA durumu: hangi düğüm aktif?",
+    "storage-paths": "Host'larda multipathing: kaç yol aktif?",
+    "array-console": "Storage konsolu: controller durumu ve alarmlar?",
+    "service-port": "Servis kendi portunda yanıt veriyor mu?",
+    "service-status": "Sunucudaki servis durumu: logda hatalar ne zamandan beri var?",
+    "cert-date": "Sertifikanın son geçerlilik tarihi.",
+    "browser-warning": "Tarayıcı sertifika uyarısı gösteriyor mu?",
+    "monitoring-cert": "Sertifika izlemesi neden zamanında uyarmadı?"
+  },
+  "guide": {
+    "switch-off": {
+      "workaround": "En önemli cihazları (resepsiyon Mac'i, kart terminali) ikinci switch'e veya yedek switch'e takın.",
+      "fix": "Nedenini bulun: güç kaynağı, UPS veya arıza. Yedekle değiştirin; bulut şablonu onu yapılandırır.",
+      "prevention": "Switch UPS'e bağlı olsun, merkezde yedek switch dursun, switch çevrimdışı olunca izleme alarm versin."
+    },
+    "ap-off": {
+      "workaround": "Dizüstüler kendiliğinden bir sonraki erişim noktasına geçer; çekimin zayıf olduğu yerde yaklaşın veya kablo kullanın.",
+      "fix": "PoE portunu ve kabloyu kontrol edin. Erişim noktasını yedekle değiştirin; şablonu kendisi alır.",
+      "prevention": "Bir erişim noktası düşebilsin diye örtüşen kapsama, depoda yedek ve çevrimdışı alarmı."
+    },
+    "firewall-off": {
+      "workaround": "Klinikten dışarı hiçbir şey çıkmaz: terminal izin veriyorsa kartla çevrimdışı ödeme, yoksa nakit; yerel çalışmaya devam edin.",
+      "fix": "Gücü ve UPS'i kontrol edin. Arızalıysa merkezdeki önceden yapılandırılmış yedeği takın.",
+      "prevention": "Firewall UPS'te, merkezde yedek cihaz, büyük kliniklerde HA çifti."
+    },
+    "terminal-off": {
+      "workaround": "İkinci terminali kullanın; yoksa nakit veya faturayla ödeme.",
+      "fix": "Gücü ve kabloyu kontrol edin. Arızalıysa ödeme sağlayıcı yenisini gönderir.",
+      "prevention": "Bölge başına bir yedek terminal ve her terminal için sabit bir port."
+    },
+    "printer-off": {
+      "workaround": "Başka bir yazıcıdan yazdırın veya belgeyi dijital olarak verin.",
+      "fix": "Gücü, kabloyu, kâğıdı ve etiketleri kontrol edin; Mac'teki yazdırma kuyruğunu temizleyin.",
+      "prevention": "Her yerde aynı yazıcı modelleri, depoda yedek rulolar, sabit adresler."
+    },
+    "mac-off": {
+      "workaround": "Başka bir Mac'te çalışın: veriler Mac'te değil, bulutta ve dosya sunucusunda.",
+      "fix": "Gücü ve kabloyu kontrol edin. Arızalıysa MDM yedek Mac'i dakikalar içinde kurar.",
+      "prevention": "Yerel veri yok, depoda yedek Mac, zero-touch kurulum."
+    },
+    "phone-off": {
+      "workaround": "Santralde aramaları başka bir telefona veya cep telefonuna yönlendirin.",
+      "fix": "PoE portunu ve kabloyu kontrol edin; telefonu değiştirin, kendini kurar.",
+      "prevention": "Telefonlar UPS arkasında PoE ile beslensin, yönlendirmeler hazır olsun."
+    },
+    "medical-off": {
+      "workaround": "Cihazı başka bir odada veya klinikte kullanın; röntgeni erteleyin veya sevk edin.",
+      "fix": "Gücü ve kabloyu kontrol edin; seri numarası ve hata koduyla üretici servisini arayın.",
+      "prevention": "Yanıt süreli bakım sözleşmesi; üretici erişimi yalnızca jump host üzerinden."
+    },
+    "mains-off": {
+      "workaround": "Ağ bir süre UPS'le çalışır. Çalışmaları kaydedin; ödemeler nakit olabilir.",
+      "fix": "Nedeni bina sahibi veya elektrikçiyle bulun, sigortaları kaldırın.",
+      "prevention": "Kabine uygun boyutta UPS, izlenen akü ve uzun kesintiler için bir plan."
+    },
+    "ups-off": {
+      "workaround": "Cihazları doğrudan şebekeye bağlayın (bypass).",
+      "fix": "UPS ekranını ve logunu okuyun; aküyü veya cihazı değiştirin.",
+      "prevention": "Düzenli akü testi ve değişimi, UPS izlemede."
+    },
+    "host-off": {
+      "workaround": "Yapılacak bir şey yok: HA sanal sunucuları dakikalar içinde diğer host'larda yeniden başlatır.",
+      "fix": "Donanımı konsoldan kontrol edin, parçaları değiştirin, host'u geri getirin ve DRS'in dağıtmasına izin verin.",
+      "prevention": "Bir host'luk yedek kapasite (N+1), düzenli HA testi, donanım destek sözleşmesi."
+    },
+    "core-off": {
+      "workaround": "Yapılacak bir şey yok: her host ve firewall iki core switch'e de bağlı.",
+      "fix": "Gücü ve logları kontrol edin, switch'i değiştirin, konfigürasyonu yedekten geri yükleyin.",
+      "prevention": "Çifti koruyun, değişikliklerden sonra failover'ı test edin, konfigürasyon yedeğini otomatikleştirin."
+    },
+    "hqfw-off": {
+      "workaround": "Yapılacak bir şey yok: ikinci düğüm ortak adresi devralır.",
+      "fix": "Nedeni bulun, düğümü onarın veya değiştirin, çiftin yeniden senkronize olmasını sağlayın.",
+      "prevention": "HA failover'ını yılda iki kez test edin; iki düğüm için ayrı güç beslemesi."
+    },
+    "storage-off": {
+      "workaround": "Diğer yarı çalıştığı sürece yapılacak bir şey yok. O zamana kadar değişiklik yapmayın.",
+      "fix": "Üreticide kayıt açın ve parçayı değiştirin.",
+      "prevention": "Hızlı parça teslimli destek sözleşmesi; her host'ta yol izleme."
+    },
+    "isp-out": {
+      "workaround": "Yedek hat otomatik devralır. Ekibe işlerin yavaşladığını söyleyin.",
+      "fix": "Arızayı sözleşme numarasıyla sağlayıcıya bildirin ve kaydı takip edin.",
+      "prevention": "Farklı ortamlarda iki sağlayıcı, iki hat da izlemede, SLA belgesi elinizin altında."
+    },
+    "vm-off": {
+      "workaround": "Sanal sunucuyu vCenter'dan yeniden başlatın.",
+      "fix": "Logları okuyun ve neden durduğunu bulun: güncelleme, dolu disk veya çökme.",
+      "prevention": "Yalnızca ping değil, servisin kendisini izleyin."
+    },
+    "external-out": {
+      "workaround": "Sağlayıcı dönene kadar belgelenmiş acil durum yöntemini kullanın (kâğıt form, nakit).",
+      "fix": "Bizim tarafımızda onarılacak bir şey yok; sağlayıcının durum sayfasını izleyin.",
+      "prevention": "Klinik el kitabında her dış servis için bir acil durum yöntemi."
+    },
+    "device-off": {
+      "workaround": "Aynı türden başka bir cihaz kullanın.",
+      "fix": "Gücü ve kabloyu kontrol edin; arızalıysa değiştirin.",
+      "prevention": "Standart modeller ve depoda yedek parça."
+    },
+    "slow-device": {
+      "workaround": "Cihazı mesai sonrasında yeniden başlatın.",
+      "fix": "Firmware'i ve hata sayaçlarını kontrol edin; güncelleyin veya değiştirin.",
+      "prevention": "Gecikmeyi ve hataları izleyin; firmware'i kademeli dağıtın."
+    },
+    "tunnels-down": {
+      "workaround": "Buluttaki her şey çalışmaya devam eder. Tünel dönene kadar röntgen görüntülerini cihazda tutun.",
+      "fix": "Panoda tüneli kontrol edin (anahtarlar, adresler, firmware) ve yeniden başlatın.",
+      "prevention": "Tünel durumu için alarm, test edilmiş şablon, elle değişiklik yok."
+    },
+    "dhcp-full": {
+      "workaround": "Önemli bir Mac'e geçici olarak sabit adres verin.",
+      "fix": "Havuzu neyin tükettiğini bulun (bilinmeyen cihazlar?), sonra havuzu büyütün veya lease süresini kısaltın.",
+      "prevention": "Havuz %80 dolunca alarm; ekip ağına bilinmeyen cihaz alınmaz."
+    },
+    "dhcp-guest-full": {
+      "workaround": "Misafirlere Wi-Fi'ın şu an dolu olduğunu söyleyin; ekip etkilenmez.",
+      "fix": "Misafir ağında lease süresini kısaltın, örneğin bir saate.",
+      "prevention": "Kısa lease'ler ve dolu bir bekleme salonuna yetecek büyüklükte havuz."
+    },
+    "dns-stopped": {
+      "workaround": "Bir sunucu yanıt verdiği sürece yapılacak bir şey yok. İkisi de düşerse birinde servisi yeniden başlatın.",
+      "fix": "Logları okuyun, servisi onarın ve zone verilerini kontrol edin.",
+      "prevention": "Farklı host'larda iki sunucu (anti-affinity) ve sunucu başına DNS izlemesi."
+    },
+    "cert-expired": {
+      "workaround": "Tıbbi sistemlerde uyarıları geçiştirmeyin; hemen yeni sertifika çıkarın.",
+      "fix": "Sertifikayı yenileyin ve sunucuya yükleyin.",
+      "prevention": "Otomatik yenileme ve 30 ile 14 gün önceden süre alarmı."
+    },
+    "wan-cut": {
+      "workaround": "Yedek hat devralır. Ana hat dönene kadar büyük yüklemelerden kaçının.",
+      "fix": "Sağlayıcıya bildirin ve binadaki kabloyu kontrol edin.",
+      "prevention": "Her klinikte LTE yedeği ve iki hattın da izlenmesi."
+    },
+    "wifi-cut": {
+      "workaround": "Bir erişim noktasına yaklaşın veya kablo kullanın.",
+      "fix": "Cihazın Wi-Fi ayarlarını kontrol edin; Wi-Fi profilini MDM ile yeniden gönderin.",
+      "prevention": "MDM'den Wi-Fi profilleri ve her odada kapsama ölçümü."
+    },
+    "storage-cut": {
+      "workaround": "Yapılacak bir şey yok: ikinci yol devralır.",
+      "fix": "Kabloyu veya transceiver'ı değiştirin ve portu kontrol edin.",
+      "prevention": "Host başına iki yol ve yol izleme."
+    },
+    "lan-cut": {
+      "workaround": "Başka bir port veya başka bir kablo kullanın.",
+      "fix": "Kabloyu değiştirin; duvar prizini ve patch paneli kontrol edin.",
+      "prevention": "Etiketli kablolama ve kabinde yedek patch kablolar."
+    },
+    "slow-wan": {
+      "workaround": "Büyük yüklemeleri erteleyin; gerekirse elle yedek hatta geçin.",
+      "fix": "Ölçün ve ölçümlerle birlikte sağlayıcıya bildirin.",
+      "prevention": "Gecikmeyi ve kaybı izleyin; kalitesi tanımlı bir SLA."
+    },
+    "slow-link": {
+      "workaround": "Başka bir port kullanın.",
+      "fix": "Kabloyu değiştirin, hız ve duplex ayarlarını kontrol edin.",
+      "prevention": "Portların hata sayaçlarını izleyin."
+    },
+    "tunnel-cut": {
+      "workaround": "Hattı çalışıyorsa ikinci tünel devralır.",
+      "fix": "Panoda tüneli kontrol edin ve yeniden başlatın.",
+      "prevention": "İki hat üzerinden iki tünel ve tünel durumu için alarm."
+    }
+  },
+  "scenario": {
+    "monday-switch": "Pazartesi 8:00: Hamburg'daki switch bozuluyor",
+    "digger": "İnşaat çalışması Hamburg'un fiberini kesiyor",
+    "offline": "Hamburg: fiber ve LTE ikisi de gitti",
+    "tunnel": "Hamburg: VPN yok, internet var",
+    "guest-pool": "Berlin'de dolu bekleme salonu: misafir Wi-Fi'da adres kalmadı",
+    "access-point": "Berlin: 1 numaralı muayene odasında Wi-Fi yok",
+    "card-terminal": "Hamburg: kart terminali bozuk",
+    "dns-both": "Merkezdeki iki DNS sunucusu da duruyor",
+    "host": "Merkez: bir ESXi host arızalanıyor",
+    "hq-isp": "Merkez: ana internet sağlayıcısı gitti",
+    "hq-blackout": "Merkez: tam elektrik kesintisi"
+  },
+  "event": {
+    "powerLost": "{source} ile birlikte {count} cihazın elektriği kesiliyor: {devices}.",
+    "powerLostOne": "{source} ile birlikte {device} elektriksiz kalıyor.",
+    "onBattery": "{device} aküye geçiyor.",
+    "vmRestarted": "HA, {count} sanal sunucuyu diğer host'larda yeniden başlatıyor: {devices}. Kısa kesinti.",
+    "vmDownCapacity": "Cluster'da yeterli bellek kalmadı: {devices} kapalı kalıyor.",
+    "vmDownStorage": "Hiçbir host storage'a ulaşamıyor: {devices} duruyor.",
+    "vmDownHost": "{devices} için çalışacak host kalmadı.",
+    "wanFailover": "{sites} yedek internet hattına geçiyor.",
+    "siteOffline": "{sites} tüm internet erişimini kaybediyor.",
+    "vpnFailover": "{sites} VPN tüneli yedek hat üzerinden yeniden kuruluyor.",
+    "vpnDown": "{sites} merkeze giden VPN tünelini kaybediyor.",
+    "roaming": "{devices} başka bir erişim noktasına geçiyor.",
+    "serviceDown": "{site} için artık çalışmayanlar: {services}.",
+    "serviceDegraded": "{site} için yavaş veya kısa süre kesintili olanlar: {services}."
+  },
+  "warning": {
+    "redundancyLost": "Yedeklilik kayboldu: {devices} devre dışı, eşi artık her şeyi tek başına taşıyor.",
+    "capacityReserveUsed": "Cluster yedeği kullanıldı ({devices} kapalı). Bir host daha düşerse karşılanamaz.",
+    "onBattery": "{device} akü ile çalışıyor. Akünün biteceği ana göre plan yapın.",
+    "serviceRedundancyLost": "{service} için tek sunucu kaldı ({devices} devre dışı)."
+  },
+  "outcome": {
+    "healthy": "Her şey çalışıyor. Bir senaryo seçin ya da haritada bir cihaz seçip bir şeyi bozun.",
+    "absorbed": "Kimse fark etmiyor: yedeklilik devreye giriyor. Ama bir güvenlik payı gitti.",
+    "degraded": "Her şey hâlâ çalışıyor, ama daha yavaş veya kısa bir kesintiden sonra.",
+    "outage": "Bir şey çalışmayı durdurdu."
+  },
+  "cap": {
+    "managed": "Uzaktan yönetim",
+    "records": "Hasta dosyaları ve randevular",
+    "files": "Ortak klasörler",
+    "print-receipt": "Fiş yazdırma",
+    "print-label": "Etiket yazdırma",
+    "mac-managed": "Mac yönetimi",
+    "view-images": "Röntgen görüntülerini görme",
+    "print-document": "Belge yazdırma",
+    "admin-access": "Yönetici erişimi",
+    "pay": "Kartla ödeme",
+    "scan-to-share": "Klasöre tarama",
+    "calls": "Telefon görüşmeleri",
+    "take-xray": "Röntgen çekme",
+    "archive-images": "Görüntüleri arşive gönderme",
+    "run-analysis": "Laboratuvar analizi",
+    "send-results": "Laboratuvar sonuçlarını gönderme",
+    "scan": "Ultrason",
+    "guest-internet": "Misafir Wi-Fi",
+    "authenticate-users": "Dosya sunucusunda kullanıcı girişi",
+    "forward-results": "Sonuçları klinik yazılımına aktarma",
+    "offsite-copy": "Dış yedek kopyası"
+  },
+  "audience": {
+    "reception": "Resepsiyon",
+    "vets": "Hekimler ve teknisyenler",
+    "backoffice": "Ofis",
+    "owners": "Hayvan sahipleri",
+    "it": "BT"
+  }
+}

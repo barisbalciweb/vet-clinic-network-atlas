@@ -1,0 +1,94 @@
+{
+  "app": {
+    "subtitle": "Netzwerk-Atlas",
+    "skip": "Zum Inhalt springen",
+    "fictional": "Fiktive Beispielumgebung: {org}, alle Standorte, Personen und IP-Adressen sind erfunden.",
+    "loading": "Wird geladen…"
+  },
+  "header": {
+    "home": "{org} – zurück zur Karte",
+    "menu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "modules": "Module",
+    "mode": "Ansicht",
+    "simple": "Einfach",
+    "technical": "Technisch",
+    "simpleHint": "Klartext für das Praxisteam",
+    "technicalHint": "Alle Details für die IT: VLANs, Adressen, Befehle",
+    "language": "Sprache",
+    "toLight": "Zum hellen Design wechseln",
+    "toDark": "Zum dunklen Design wechseln"
+  },
+  "nav": {
+    "map": "Karte",
+    "simulator": "Ausfallsimulator",
+    "issues": "Häufige Probleme",
+    "opening": "Praxiseröffnung",
+    "standards": "Standards",
+    "haLab": "HA-Labor",
+    "privacy": "Datenschutz",
+    "monitoring": "Monitoring",
+    "about": "Über"
+  },
+  "modules": {
+    "map": {
+      "title": "Netzwerkkarte",
+      "simple": "Alle vier Standorte und ihre Verbindungen auf einen Blick. Tippen Sie auf einen Standort, um hineinzuschauen.",
+      "technical": "Zentrale und drei Praxen im Hub-and-Spoke-IPsec-VPN. Ein VLAN-Plan für alle Standorte: 10.<Standort>.<VLAN>.0/24."
+    },
+    "simulator": {
+      "title": "Ausfallsimulator",
+      "simple": "Schalten Sie etwas aus und sehen Sie, wer nicht mehr arbeiten kann und was zuerst zu tun ist.",
+      "technical": "Strom-, Link- und Dienstausfälle auslösen. Die Engine liefert Kettenreaktion, Prüfreihenfolge und Lösung und berücksichtigt Redundanz."
+    },
+    "issues": {
+      "title": "Häufige Probleme",
+      "simple": "Die typischen Alltagsprobleme in einer Praxis und wie sie gelöst werden.",
+      "technical": "Ticketkatalog: Symptom, Ursachen nach Wahrscheinlichkeit, Prüfschritte in Reihenfolge, Lösung."
+    },
+    "opening": {
+      "title": "Neue Praxis eröffnen",
+      "simple": "So bekommt die Praxis München ihre IT, vom unterschriebenen Mietvertrag bis zum Eröffnungstag.",
+      "technical": "Eröffnungs-Playbook: Begehung, ISP-Bestellung, Beschaffung, Vorkonfiguration in der Zentrale, Installation, Abnahme, Go-live, Hypercare."
+    },
+    "standards": {
+      "title": "Standardisierung und Automatisierung",
+      "simple": "Jede Praxis bekommt die gleiche Ausstattung. Das macht Eröffnungen schnell und den Support einfach.",
+      "technical": "Standard-Hardware, ein Standort-Template mit Variablen, gestaffelter Firmware-Rollout, Ansible, macOS Zero-Touch."
+    },
+    "haLab": {
+      "title": "HA-Labor",
+      "simple": "So laufen die zentralen Server weiter, wenn einer davon ausfällt.",
+      "technical": "vSphere-Cluster mit 3 Hosts: HA-Neustart, Admission Control mit N+1, vMotion, DRS, Anti-Affinity."
+    },
+    "privacy": {
+      "title": "Datenschutz (DSGVO)",
+      "simple": "Wo personenbezogene Daten liegen und wie sie geschützt sind.",
+      "technical": "Datenflüsse und Maßnahmen je Ort: Praxis, Übertragung, Zentrale, Cloud, Organisation."
+    },
+    "monitoring": {
+      "title": "Monitoring und Bereitschaft",
+      "simple": "So fallen Probleme früh auf, bevor die Praxis anrufen muss.",
+      "technical": "Statusboard, Bereitschaftsbeispiel mit Runbook, Frühwarnungen, Release-Ablauf mit der Softwareentwicklung."
+    }
+  },
+  "about": {
+    "title": "Über dieses Projekt",
+    "whatTitle": "Was es zeigt",
+    "what": "Die IT einer Tierarztpraxis-Kette, durchgängig geplant: Netzwerk, Praxiseröffnungen, Fehlersuche, Standards, Hochverfügbarkeit, Datenschutz und Monitoring.",
+    "fictionalTitle": "Fiktive Umgebung",
+    "fictional": "{org} gibt es nicht. Standorte, Personen, Hostnamen und IP-Adressen sind erfunden, Dashboards sind Simulationen. Lieferzeiten, Preise und Aufbewahrungsfristen sind beispielhafte Platzhalter.",
+    "howTitle": "So funktioniert es",
+    "how": "Eine statische Web-App ohne Backend, Login oder externe Anfragen. Alle Inhalte stammen aus validierten Datendateien auf Englisch, Deutsch und Türkisch.",
+    "stackTitle": "Gebaut mit",
+    "repoTitle": "Quellcode",
+    "repoLink": "Repository auf GitHub",
+    "modulesTitle": "Die Module",
+    "tryTitle": "Zum Einstieg",
+    "try": {
+      "switch": "Einen Praxis-Switch ausschalten und der Kettenreaktion folgen.",
+      "host": "Einen Server-Host ausfallen lassen und zusehen, wie HA die VMs neu startet.",
+      "opening": "Das München-Playbook abhaken, bis die Praxis auf der Karte live geht."
+    }
+  }
+}

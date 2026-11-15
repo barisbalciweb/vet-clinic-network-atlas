@@ -1,0 +1,138 @@
+{
+  "vlan": {
+    "10": {
+      "label": "Yönetim",
+      "purpose": "Firewall, switch'ler, erişim noktaları ve UPS. Buraya yalnızca BT girer."
+    },
+    "20": {
+      "label": "Ekip",
+      "purpose": "Klinik ekibinin Mac'leri."
+    },
+    "30": {
+      "label": "Tıbbi cihazlar",
+      "purpose": "Röntgen, laboratuvar ve ultrason. İnternet yok; yalnızca görüntü arşivi ve laboratuvar sunucusu."
+    },
+    "40": {
+      "label": "Kartlı ödeme",
+      "purpose": "Kart terminalleri. Yalnızca ödeme sağlayıcı; diğer her şeyden yalıtılmış."
+    },
+    "50": {
+      "label": "Yazıcılar",
+      "purpose": "Yazıcılar ve tarayıcılar. Yazdırma işlerine yanıt verir, kendileri bağlantı başlatmaz."
+    },
+    "60": {
+      "label": "Telefonlar",
+      "purpose": "IP telefonlar; görüşmeler net kalsın diye önceliklendirilir."
+    },
+    "70": {
+      "label": "Sunucular",
+      "purpose": "Merkezdeki sanal sunucular."
+    },
+    "80": {
+      "label": "vMotion",
+      "purpose": "Çalışan sanal sunucuları host'lar arasında taşır. Yönlendirilmez."
+    },
+    "90": {
+      "label": "Storage",
+      "purpose": "Host'lar ile ortak storage arasındaki trafik. Yönlendirilmez."
+    },
+    "100": {
+      "label": "Misafir Wi-Fi",
+      "purpose": "Bekleme salonundaki hayvan sahipleri. Yalnızca internet."
+    }
+  },
+  "service": {
+    "dhcp": "Adres dağıtımı (DHCP)",
+    "dns-local": "Ad çözümleme (DNS)",
+    "gateway": "Gateway (kendi ağından çıkış)",
+    "dns-internal": "Dahili DNS bölgesi",
+    "identity": "Oturum açma hizmeti (dizin)",
+    "pacs": "Görüntü arşivi (PACS)",
+    "lab-interface": "Laboratuvar sonucu aktarımı",
+    "files": "Dosya paylaşımları",
+    "monitoring": "İzleme",
+    "backup": "Yedekleme",
+    "internet": "İnternet erişimi",
+    "pms": "Klinik yönetim uygulaması",
+    "payment": "Kartlı ödeme hizmeti",
+    "voip": "Telefon hizmeti",
+    "mdm": "Mac yönetimi (MDM)",
+    "netmgmt": "Ağ yönetimi",
+    "offsite-backup": "Dış yedek kopyası"
+  },
+  "site": {
+    "hq": {
+      "label": "Berlin Merkez",
+      "simple": "Sunucu odasının bulunduğu merkez ofis. Tüm klinikler buraya bağlanır.",
+      "technical": "VPN hub'ı. 3 host'lu vSphere Cluster, firewall HA çifti, iki ISP. Alt ağlar 10.0.x.0/24."
+    },
+    "ber": {
+      "label": "Berlin Kliniği",
+      "simple": "Röntgen, laboratuvar ve ultrasonu olan büyük klinik.",
+      "technical": "Standart setin büyük varyantı: 2 switch, 4 erişim noktası. Alt ağlar 10.1.x.0/24."
+    },
+    "hh": {
+      "label": "Hamburg Kliniği",
+      "simple": "Orta büyüklükte klinik; diğerleriyle birebir aynı kurulmuş.",
+      "technical": "Standart setin orta varyantı: 1 switch, 3 erişim noktası. Alt ağlar 10.2.x.0/24."
+    },
+    "muc": {
+      "label": "München Kliniği",
+      "simple": "Açılış süreci devam ediyor. BT altyapısı planlandı, henüz devrede değil.",
+      "technical": "Aynı şablondan planlandı. 10.3.x.0/24 alt ağları ayrıldı."
+    },
+    "ext": {
+      "label": "İnternet ve bulut",
+      "simple": "Binalarımızın dışındaki her şey: internet, klinik yazılımı, ödeme hizmeti.",
+      "technical": "Genel internet, load balancer arkasında bulutta çalışan klinik yönetim uygulaması ve SaaS hizmetleri."
+    }
+  },
+  "zone": {
+    "outside": "Dış hatlar",
+    "cabinet": "Ağ kabini (kilitli)",
+    "reception": "Resepsiyon",
+    "waiting": "Bekleme salonu",
+    "office": "Ofis",
+    "treatment": "Muayene odası {n}",
+    "xray": "Röntgen odası",
+    "lab": "Laboratuvar",
+    "hqNetwork": "Sunucu odası: ağ ve güç",
+    "hqOffice": "BT ofisi",
+    "hqCluster": "Sunucu odası: cluster ve storage",
+    "hqVms": "Sanal sunucular (cluster üzerinde çalışır)",
+    "internet": "İnternet",
+    "cloud": "Bulut hizmetleri"
+  },
+  "note": {
+    "isp2": "Farklı ortamdan ikinci sağlayıcı (fiber yerine kablo); böylece tek bir kazı iki hattı birden kesemez.",
+    "fwVip": "Çift, 10.0.10.1 sanal adresini paylaşır; klinikler ve sunucular her zaman yalnızca bu adresle konuşur."
+  },
+  "svc": {
+    "cloudMgmt": "Ağ yönetimine HTTPS",
+    "ntp": "NTP",
+    "snmpSyslog": "İzlemeye SNMP ve syslog",
+    "print": "Yazdırma (IPP)",
+    "smb": "Dosya paylaşımları (SMB)",
+    "dnsAuth": "DNS ve oturum açma",
+    "pacsViewer": "Görüntüleyici (HTTPS)",
+    "dicom": "PACS'e DICOM",
+    "labResults": "Laboratuvar sunucusuna sonuçlar",
+    "paymentHttps": "Ödeme sağlayıcıya HTTPS",
+    "sip": "Santrale SIP-TLS ve SRTP"
+  },
+  "rule": {
+    "mgmtCloud": "Ağ cihazları bulut yönetimine bağlanır ve saati alır. Başka hiçbir şey yapamaz.",
+    "mgmtHq": "Ağ cihazları durum ve logları merkezdeki izlemeye gönderir.",
+    "staffInternet": "Ekip Mac'leri interneti kullanabilir; buluttaki klinik yazılımı da buna dahildir.",
+    "staffPrint": "Ekip Mac'leri yazdırabilir.",
+    "staffHq": "Ekip Mac'leri VPN üzerinden merkezdeki dosya paylaşımlarına, oturum açmaya ve görüntüleyiciye ulaşır.",
+    "medicalHq": "Tıbbi cihazlar merkeze yalnızca görüntü ve laboratuvar sonucu gönderebilir.",
+    "medicalNoInternet": "Tıbbi cihazlar internete asla çıkmaz. Üretici desteği yalnızca jump host üzerinden içeri gelir.",
+    "posPayment": "Kart terminalleri yalnızca ödeme sağlayıcıyla konuşabilir.",
+    "posIsolated": "Kart terminalleri diğer tüm ağlardan ayrıdır.",
+    "printersQuiet": "Yazıcılar kendiliğinden bağlantı başlatmaz.",
+    "voipProvider": "Telefonlar yalnızca santrale ulaşabilir.",
+    "guestInternet": "Misafirler internete çıkar.",
+    "guestIsolated": "Misafirler klinik içinde hiçbir şeye, birbirlerine de ulaşamaz."
+  }
+}

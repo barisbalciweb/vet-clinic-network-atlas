@@ -1,0 +1,80 @@
+{
+  "ui": {
+    "kitTitle": "Standard hardware kit",
+    "kitIntro": "Every clinic gets the same models. That is what makes openings fast and support easy.",
+    "colDevice": "Device",
+    "colModel": "Model",
+    "reasonsTitle": "Why only one model each",
+    "templateTitle": "One template, a few variables",
+    "templateIntro": {
+      "simple": "Every clinic's network is created from the same template. Only the site number changes.",
+      "technical": "The firewall configuration is rendered from one template; site id, code and number are the only variables."
+    },
+    "variables": "Variables",
+    "compareA": "Clinic A",
+    "compareB": "Clinic B",
+    "diffSummary": "{count} of {total} lines differ, all because of the site variables.",
+    "differs": "Differs",
+    "dashTitle": "Cloud firewall dashboard",
+    "simulation": "Simulation",
+    "dashIntro": "A generic view of a cloud-managed firewall fleet. It shows the network as the failure simulator sees it right now.",
+    "col": { "site": "Site", "wan": "Internet", "vpn": "VPN", "clients": "Clients", "firmware": "Firmware" },
+    "wan": { "primary": "Primary line", "backup": "LTE backup", "offline": "Offline" },
+    "vpn": { "primary": "Up", "backup": "Up (backup)", "down": "Down" },
+    "notApplied": "München is not in the dashboard yet.",
+    "apply": "Apply template to München",
+    "applied": "Template applied: München is staged with site number 3.",
+    "waiting": "Waiting for go-live",
+    "firmwareTitle": "Staged firmware rollout {from} → {to}",
+    "updating": "Updating…",
+    "start": "Start: {stage}",
+    "observe": "Pilot healthy. Observe for {hours} hours (illustrative) before the other clinics.",
+    "done": "Every clinic runs {version}.",
+    "rollback": "Roll back pilot",
+    "rolledBack": "Pilot rolled back to {version}.",
+    "ansibleTitle": "Automation with Ansible",
+    "ansibleIntro": "One playbook pushes VLANs, SNMP, NTP and syslog to every clinic switch. Run it twice and nothing changes the second time.",
+    "inventory": "Inventory",
+    "playbook": "Playbook",
+    "run": "Run playbook",
+    "running": "Running…",
+    "output": "Output",
+    "outcome": { "ok": "ok", "changed": "changed", "failed": "failed", "unreachable": "unreachable" },
+    "unreachable": "{host} is unreachable: it is off or cut off in the failure simulator. Fix that, then run again with --limit {host}.",
+    "zeroTitle": "macOS zero-touch",
+    "compareTitle": "Opening a clinic without and with standards",
+    "without": "Without standards",
+    "with": "With standards",
+    "illustrative": "Numbers and versions are illustrative."
+  },
+  "kit": {
+    "reason": {
+      "spares": "One spare per model at HQ replaces any failed device in any clinic.",
+      "behaviour": "Known behaviour: a bug or a quirk is found once, not in every clinic.",
+      "config": "One configuration template instead of a special setup per clinic.",
+      "support": "Support, documentation and training are the same everywhere."
+    }
+  },
+  "dash": { "stage": { "pilot": "Pilot clinic", "rest": "Remaining clinics" } },
+  "ansible": {
+    "failure": {
+      "auth": {
+        "reason": "{host} failed: authentication failed, the local admin password was changed by hand.",
+        "fix": "Restore the managed credential from the vault, run again with --limit {host}, and find out who changed it outside the template."
+      }
+    }
+  },
+  "zero": {
+    "order": { "title": "Order", "text": "Bought through the business channel, so the serial number is registered to the company." },
+    "assign": { "title": "Assign", "text": "The serial number is assigned to the MDM automatically." },
+    "unbox": { "title": "Unbox", "text": "The employee switches it on and joins the Wi-Fi or a cable." },
+    "profiles": { "title": "Configure", "text": "The MDM pushes Wi-Fi, apps, disk encryption and security settings." },
+    "login": { "title": "Log in", "text": "The employee logs in and starts working. No IT visit needed." }
+  },
+  "compare": {
+    "steps": "Steps in the opening checklist",
+    "hours": "IT hours per opening",
+    "weeks": "Weeks from contract to go-live",
+    "tickets": "Tickets in the first month"
+  }
+}

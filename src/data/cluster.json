@@ -1,0 +1,38 @@
+{
+  "illustrative": true,
+  "hosts": [
+    { "id": "hq-esx1", "cpuCores": 32, "ramGb": 128 },
+    { "id": "hq-esx2", "cpuCores": 32, "ramGb": 128 },
+    { "id": "hq-esx3", "cpuCores": 32, "ramGb": 128 }
+  ],
+  "vms": [
+    { "id": "hq-dc1", "vcpu": 2, "ramGb": 8, "restartPriority": 1 },
+    { "id": "hq-dc2", "vcpu": 2, "ramGb": 8, "restartPriority": 1 },
+    { "id": "hq-pacs", "vcpu": 8, "ramGb": 48, "restartPriority": 2 },
+    { "id": "hq-files", "vcpu": 4, "ramGb": 32, "restartPriority": 2 },
+    { "id": "hq-lab", "vcpu": 2, "ramGb": 16, "restartPriority": 2 },
+    { "id": "hq-vcenter", "vcpu": 4, "ramGb": 24, "restartPriority": 3 },
+    { "id": "hq-backup", "vcpu": 4, "ramGb": 32, "restartPriority": 3 },
+    { "id": "hq-mon", "vcpu": 2, "ramGb": 16, "restartPriority": 4 },
+    { "id": "hq-mgmt", "vcpu": 2, "ramGb": 8, "restartPriority": 4 },
+    { "id": "hq-jump", "vcpu": 2, "ramGb": 8, "restartPriority": 4 }
+  ],
+  "rules": [{ "type": "anti-affinity", "vms": ["hq-dc1", "hq-dc2"] }],
+  "storage": { "type": "shared-array", "controllers": ["hq-ctl-a", "hq-ctl-b"] },
+  "ha": { "detectionSec": 15, "waveGapSec": 30, "bootSec": 60, "vmotionSec": 20 },
+  "drs": { "thresholdPct": 15 },
+  "spof": [
+    { "id": "internet", "try": { "kind": "device", "id": "hq-isp1" } },
+    { "id": "firewall", "try": { "kind": "device", "id": "hq-fw1" } },
+    { "id": "core", "try": { "kind": "device", "id": "hq-core1" } },
+    { "id": "uplinks", "try": { "kind": "link", "id": "hq-esx1-core1" } },
+    { "id": "hosts", "try": { "kind": "device", "id": "hq-esx1" } },
+    { "id": "storage-ctl", "try": { "kind": "device", "id": "hq-ctl-a" } },
+    { "id": "power", "try": { "kind": "device", "id": "hq-ups-a" } },
+    { "id": "identity" },
+    { "id": "vcenter" },
+    { "id": "array" },
+    { "id": "room" }
+  ],
+  "before": ["identity", "pacs", "files", "lab-interface", "backup", "monitoring"]
+}
