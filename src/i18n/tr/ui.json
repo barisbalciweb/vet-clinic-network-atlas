@@ -3,7 +3,8 @@
     "subtitle": "Ağ Atlası",
     "skip": "İçeriğe geç",
     "fictional": "Kurgusal örnek ortam: {org}, tüm lokasyonlar, kişiler ve IP adresleri uydurmadır.",
-    "loading": "Yükleniyor…"
+    "loading": "Yükleniyor…",
+    "credit": "Geliştiren: {author}"
   },
   "header": {
     "home": "{org} – haritaya dön",
@@ -89,6 +90,7 @@
       "switch": "Bir klinik switch'ini kapatın ve zincirleme etkiyi izleyin.",
       "host": "Bir sunucu host'unu düşürün ve HA'nın VM'leri yeniden başlatmasını izleyin.",
       "opening": "München playbook'unu klinik haritada canlıya geçene kadar işaretleyin."
-    }
+    },
+    "creditTitle": "Emeği geçen"
   }
 }

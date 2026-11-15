@@ -1,7 +1,7 @@
 /** "About this project": what the app demonstrates, that everything is fictional, the stack, the repo. */
 import type { ReactNode } from 'react';
 import { ArrowRight, ExternalLink } from 'lucide-react';
-import { REPO_URL, TECH_STACK } from '../../config';
+import { AUTHOR_NAME, REPO_URL, TECH_STACK } from '../../config';
 import { useT } from '../../i18n/I18nContext';
 import { usePrefs } from '../../context/PrefsContext';
 import { hrefFor } from '../../hooks/useHashRoute';
@@ -70,6 +70,7 @@ export function AboutPage() {
             ))}
           </ul>
         </Card>
+        <Card title={t('ui.about.creditTitle')}>{t('ui.app.credit', { author: AUTHOR_NAME })}</Card>
         <Card title={t('ui.about.repoTitle')}>
           <a
             href={REPO_URL}

@@ -3,7 +3,8 @@
     "subtitle": "Network Atlas",
     "skip": "Skip to content",
     "fictional": "Fictional example environment: {org}, all sites, people and IP addresses are invented.",
-    "loading": "Loading…"
+    "loading": "Loading…",
+    "credit": "Built by {author}"
   },
   "header": {
     "home": "{org} – back to the map",
@@ -89,6 +90,7 @@
       "switch": "Switch off a clinic switch and follow the chain reaction.",
       "host": "Let a server host fail and watch HA restart its VMs.",
       "opening": "Tick off the München playbook until the clinic goes live on the map."
-    }
+    },
+    "creditTitle": "Credits"
   }
 }

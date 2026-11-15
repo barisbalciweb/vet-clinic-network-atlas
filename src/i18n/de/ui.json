@@ -3,7 +3,8 @@
     "subtitle": "Netzwerk-Atlas",
     "skip": "Zum Inhalt springen",
     "fictional": "Fiktive Beispielumgebung: {org}, alle Standorte, Personen und IP-Adressen sind erfunden.",
-    "loading": "Wird geladen…"
+    "loading": "Wird geladen…",
+    "credit": "Erstellt von {author}"
   },
   "header": {
     "home": "{org} – zurück zur Karte",
@@ -89,6 +90,7 @@
       "switch": "Einen Praxis-Switch ausschalten und der Kettenreaktion folgen.",
       "host": "Einen Server-Host ausfallen lassen und zusehen, wie HA die VMs neu startet.",
       "opening": "Das München-Playbook abhaken, bis die Praxis auf der Karte live geht."
-    }
+    },
+    "creditTitle": "Credits"
   }
 }

@@ -4,6 +4,9 @@
  */
 export const ORG_NAME = 'Pfotenwerk Tierärzte';
 
+/** Author of the project (credits in the footer and on the About page). */
+export const AUTHOR_NAME = 'Baris Balci';
+
 /** Adjust when the repository gets its final name. */
 export const REPO_URL = 'https://github.com/barisbalciweb/vet-clinic-network-atlas';
 

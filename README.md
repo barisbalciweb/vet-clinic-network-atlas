@@ -2,6 +2,8 @@
 
 **English** · [Deutsch](README.de.md)
 
+**[Live demo](https://barisbalciweb.github.io/vet-clinic-network-atlas/)**
+
 An interactive atlas of the IT of **Pfotenwerk Tierärzte**, a fictional veterinary clinic chain with a head office in
 Berlin and clinics in Berlin, Hamburg and München. It shows how the network is built, what happens when parts of it
 fail, and how IT runs day to day: troubleshooting, opening a new clinic, standards, high availability, data
@@ -83,3 +85,7 @@ docs/          SCHEMA.md (data formats), REUSE.md (origin of the code)
 
 Changing the network or adding a fault scenario usually means editing JSON only. The formats are described in
 [docs/SCHEMA.md](docs/SCHEMA.md).
+
+## Credits
+
+Built by **Baris Balci** ([@barisbalciweb](https://github.com/barisbalciweb)).
