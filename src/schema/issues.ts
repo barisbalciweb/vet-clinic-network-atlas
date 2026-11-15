@@ -3,7 +3,7 @@
  *
  * The data holds structure only; texts are found by convention:
  *   issues.category.<category>
- *   issues.item.<id>.symptom | .solution | .causes.<1..n> | .checks.<1..n>
+ *   issues.item.<id>.symptom | .solution | .causes.<1..n> | .checks.<1..n> | .warning (if `warning`)
  * `causes` and `checks` in the data are the number of entries, so the validator can demand
  * every one of them in every language.
  */
@@ -20,6 +20,10 @@ export const issueSchema = z
     category: id,
     /** incident: something is broken · request: a planned task (on- and offboarding) */
     kind: z.enum(['incident', 'request']),
+    /** Stops the clinic from earning money or puts data at risk: shown with a badge */
+    critical: z.boolean().optional(),
+    /** Has a "watch out" text: the mistake that makes things worse */
+    warning: z.boolean().optional(),
     causes: z.number().int().min(1).max(3),
     checks: z.number().int().min(1).max(4),
     /** "Show on map": the site to open and the roles to highlight */
@@ -41,6 +45,7 @@ export function issueKeys(item: IssueItem): string[] {
     `${base}.solution`,
     ...Array.from({ length: item.causes }, (_, i) => `${base}.causes.${i + 1}`),
     ...Array.from({ length: item.checks }, (_, i) => `${base}.checks.${i + 1}`),
+    ...(item.warning ? [`${base}.warning`] : []),
   ];
 }
 

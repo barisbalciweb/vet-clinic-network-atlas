@@ -5,7 +5,7 @@
  * Requests (on- and offboarding) show pitfalls and steps instead of causes and checks.
  */
 import { useMemo, useState } from 'react';
-import { MapPinned, Search, X, Zap } from 'lucide-react';
+import { AlertTriangle, MapPinned, Search, Siren, X, Zap } from 'lucide-react';
 import { ISSUES } from '../../data';
 import { usePrefs } from '../../context/PrefsContext';
 import { useI18n } from '../../i18n/I18nContext';
@@ -29,6 +29,12 @@ function IssueCard({ item }: { item: IssueItem }) {
       <div className="flex flex-wrap items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide">
         <span className="rounded-full bg-primary-soft px-2 py-0.5 text-primary-strong">{td(`issues.category.${item.category}`)}</span>
         <span className={cn('rounded-full px-2 py-0.5', request ? 'bg-accent-soft text-accent-ink' : 'bg-raised text-muted')}>{t(`issues.ui.kind.${item.kind}`)}</span>
+        {item.critical && (
+          <span className="inline-flex items-center gap-1 rounded-full bg-bad-soft px-2 py-0.5 text-bad">
+            <Siren className="h-3 w-3" aria-hidden="true" />
+            {t('issues.ui.critical')}
+          </span>
+        )}
       </div>
       <h2 className="mt-2 text-base font-semibold leading-snug text-ink">{td(`${base}.symptom`)}</h2>
 
@@ -52,6 +58,16 @@ function IssueCard({ item }: { item: IssueItem }) {
 
       <h3 className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted">{t('issues.ui.solution')}</h3>
       <p className="mt-1 text-sm leading-relaxed text-ink">{td(`${base}.solution`)}</p>
+
+      {item.warning && (
+        <div className="mt-3 flex gap-2 rounded-xl border border-warn/60 bg-warn-soft p-3 text-sm text-ink">
+          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-warn" aria-hidden="true" />
+          <p>
+            <strong className="font-semibold">{t('issues.ui.warning')}: </strong>
+            {td(`${base}.warning`)}
+          </p>
+        </div>
+      )}
 
       <div className="mt-auto flex flex-wrap gap-2 pt-4">
         <a

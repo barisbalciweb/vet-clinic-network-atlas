@@ -234,7 +234,7 @@ export function MapPage({ route, simulator = false }: { route: Route; simulator?
         </div>
       ) : (
         <MapUiContext.Provider value={ui}>
-          <div className={cn('relative flex min-h-0 flex-1', simulator && 'with-sheet')}>
+          <div data-tour="map" className={cn('relative flex min-h-0 flex-1', simulator && 'with-sheet')}>
             <div className="relative min-h-0 min-w-0 flex-1">
               {/* key: a new site is a new canvas, fitted to the screen */}
               <MapCanvas

@@ -4,7 +4,7 @@
  * Phones get two rows: logo + menu button, then the three switches.
  */
 import { useEffect, useState } from 'react';
-import { Info, Menu, Moon, Sun, X } from 'lucide-react';
+import { CircleHelp, Info, Menu, Moon, Sun, X } from 'lucide-react';
 import { ORG_NAME } from '../../config';
 import { usePrefs, type ViewMode } from '../../context/PrefsContext';
 import { useI18n } from '../../i18n/I18nContext';
@@ -14,11 +14,13 @@ import { ABOUT_PATH, MODULES, moduleForPath } from '../../modules/registry';
 import { Segmented } from '../common/Segmented';
 import { PawMark } from '../common/PawMark';
 import { cn } from '../../utils/cn';
+import { useTour } from '../tour/Tour';
 
 export function Header({ path }: { path: string }) {
   const { t, lang, setLang } = useI18n();
   const { theme, toggleTheme, mode, setMode } = usePrefs();
   const [menuOpen, setMenuOpen] = useState(false);
+  const tour = useTour();
 
   // Navigating closes the menu; so does Esc
   useEffect(() => setMenuOpen(false), [path]);
@@ -49,18 +51,32 @@ export function Header({ path }: { path: string }) {
           </span>
         </a>
 
+        <div className="order-2 ml-auto flex items-center sm:order-3 sm:ml-0">
         <button
           type="button"
+          onClick={tour.start}
+          data-tour="help"
+          aria-label={t('ui.header.tour')}
+          title={t('ui.header.tour')}
+          className="flex h-11 w-11 items-center justify-center rounded-xl text-ink hover:bg-raised"
+        >
+          <CircleHelp className="h-5 w-5" aria-hidden="true" />
+        </button>
+        <button
+          type="button"
+          data-tour="nav"
           onClick={() => setMenuOpen((o) => !o)}
           aria-expanded={menuOpen}
           aria-controls="module-menu"
           aria-label={menuOpen ? t('ui.header.closeMenu') : t('ui.header.menu')}
-          className="order-2 ml-auto flex h-11 w-11 items-center justify-center rounded-xl text-ink hover:bg-raised sm:order-3 sm:ml-0 lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-xl text-ink hover:bg-raised lg:hidden"
         >
           {menuOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
         </button>
+        </div>
 
         <div className="order-3 flex w-full items-center justify-between gap-2 sm:order-2 sm:ml-auto sm:w-auto sm:justify-end">
+          <span data-tour="mode" className="rounded-xl">
           <Segmented<ViewMode>
             label={t('ui.header.mode')}
             value={mode}
@@ -70,7 +86,8 @@ export function Header({ path }: { path: string }) {
               { value: 'technical', label: t('ui.header.technical'), title: t('ui.header.technicalHint') },
             ]}
           />
-          <div className="flex items-center gap-2">
+          </span>
+          <div data-tour="lang" className="flex items-center gap-2">
             <Segmented<Lang>
               label={t('ui.header.language')}
               value={lang}
@@ -91,7 +108,7 @@ export function Header({ path }: { path: string }) {
       </div>
 
       {/* Wide screens: tab row */}
-      <nav aria-label={t('ui.header.modules')} className="mx-auto hidden max-w-7xl px-4 lg:block">
+      <nav data-tour="nav" aria-label={t('ui.header.modules')} className="mx-auto hidden max-w-7xl px-4 lg:block">
         <ul className="flex gap-1">
           {items.map((it) => {
             const current = isCurrent(it.path);

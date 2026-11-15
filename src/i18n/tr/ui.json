@@ -18,7 +18,8 @@
     "technicalHint": "BT için tüm ayrıntılar: VLAN'lar, adresler, komutlar",
     "language": "Dil",
     "toLight": "Açık temaya geç",
-    "toDark": "Koyu temaya geç"
+    "toDark": "Koyu temaya geç",
+    "tour": "Turu başlat"
   },
   "nav": {
     "map": "Harita",
@@ -92,5 +93,37 @@
       "opening": "München playbook'unu klinik haritada canlıya geçene kadar işaretleyin."
     },
     "creditTitle": "Emeği geçen"
+  },
+  "tour": {
+    "progress": "{n} / {total}",
+    "start": "Bana göster",
+    "skip": "Turu atla",
+    "next": "İleri",
+    "back": "Geri",
+    "done": "Bitti",
+    "welcome": {
+      "title": "Ağ Atlası’na hoş geldiniz",
+      "text": "{org} adlı kurgusal bir veteriner kliniği zincirinin BT’si: ağ, arızalar, sorun giderme, açılışlar ve daha fazlası. Kısa bir tur her şeyin yerini gösterir."
+    },
+    "mode": {
+      "title": "Basit veya teknik",
+      "text": "Basit görünüm klinik çalışanları için anlatır. Teknik görünüm hostname, VLAN ve BT’nin ihtiyaç duyduğu ayrıntıları ekler. Her sayfada ikisi de var."
+    },
+    "lang": {
+      "title": "Dil ve tema",
+      "text": "İngilizce, Almanca veya Türkçe; açık veya koyu. Seçiminiz hatırlanır."
+    },
+    "nav": {
+      "title": "Sekiz modül",
+      "text": "Harita, arıza simülatörü, sık sorunlar, klinik açılışı, standartlar, HA laboratuvarı, veri koruma ve izleme."
+    },
+    "map": {
+      "title": "Haritadan başlayın",
+      "text": "İçine bakmak için bir lokasyona, ayrıntılar için bir cihaza tıklayın. Sürükleyerek kaydırın, kaydırma veya iki parmakla yakınlaştırın."
+    },
+    "help": {
+      "title": "Yardım hep burada",
+      "text": "Bu düğme turu yeniden başlatır. Hakkında sayfasında denemek için iyi başlangıçlar var."
+    }
   }
 }

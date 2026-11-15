@@ -20,7 +20,9 @@ describe('issues.json', () => {
       expect(ids).toContain(topic);
     }
     expect(ids.length).toBeGreaterThanOrEqual(15);
-    expect(ids.length).toBeLessThanOrEqual(20);
+    expect(ids.length).toBeLessThanOrEqual(30);
+    // Card payment is where a clinic loses money first
+    expect(ISSUES.issues.filter((i) => i.category === 'payment').length).toBeGreaterThanOrEqual(6);
   });
 
   it('rejects an unknown role and a fault that does not fit', () => {

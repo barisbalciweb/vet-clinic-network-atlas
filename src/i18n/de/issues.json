@@ -14,9 +14,14 @@
     "solution": "Lösung",
     "showOnMap": "Auf der Karte zeigen",
     "simulate": "Simulieren",
-    "kind": { "incident": "Störung", "request": "Anfrage" },
+    "kind": {
+      "incident": "Störung",
+      "request": "Anfrage"
+    },
     "banner": "Hervorgehoben für: {symptom}",
-    "clearHighlight": "Hervorhebung aufheben"
+    "clearHighlight": "Hervorhebung aufheben",
+    "critical": "Geschäftskritisch",
+    "warning": "Achtung"
   },
   "category": {
     "printing": "Drucken und Scannen",
@@ -30,111 +35,389 @@
   "item": {
     "label-printer": {
       "symptom": "„Der Etikettendrucker druckt nichts.“",
-      "causes": { "1": "Etikettenrolle leer oder falsch eingelegt.", "2": "Druckauftrag hängt in der Warteschlange am Mac.", "3": "Drucker aus oder Kabel gezogen." },
-      "checks": { "1": "Anzeige oder LED: Fehler, Papier leer?", "2": "Druckwarteschlange am Mac: angehalten oder hängender Auftrag? (lpstat -p)", "3": "Antwortet der Drucker auf einen Ping? (ping 10.2.50.22)", "4": "Testetikett direkt am Drucker drucken." },
+      "causes": {
+        "1": "Etikettenrolle leer oder falsch eingelegt.",
+        "2": "Druckauftrag hängt in der Warteschlange am Mac.",
+        "3": "Drucker aus oder Kabel gezogen."
+      },
+      "checks": {
+        "1": "Anzeige oder LED: Fehler, Papier leer?",
+        "2": "Druckwarteschlange am Mac: angehalten oder hängender Auftrag? (lpstat -p)",
+        "3": "Antwortet der Drucker auf einen Ping? (ping 10.2.50.22)",
+        "4": "Testetikett direkt am Drucker drucken."
+      },
       "solution": "Rolle neu einlegen und kalibrieren, Warteschlange leeren, Drucker fortsetzen. Hilft das nicht, den Ersatzdrucker nehmen: gleiches Modell, gleiche Einstellungen."
     },
     "scan-folder": {
       "symptom": "„Scans kommen nicht mehr im gemeinsamen Ordner an.“",
-      "causes": { "1": "Passwort des Scan-Kontos geändert oder abgelaufen.", "2": "Fileserver nicht erreichbar (VPN oder Server weg).", "3": "Berechtigungen am Ordner geändert." },
-      "checks": { "1": "Fehlermeldung im Druckerdisplay.", "2": "Öffnet sich der Ordner an einem Mac in derselben Praxis?", "3": "Scan-Konto im Verzeichnis: gesperrt oder abgelaufen?", "4": "Berechtigungen des Zielordners." },
+      "causes": {
+        "1": "Passwort des Scan-Kontos geändert oder abgelaufen.",
+        "2": "Fileserver nicht erreichbar (VPN oder Server weg).",
+        "3": "Berechtigungen am Ordner geändert."
+      },
+      "checks": {
+        "1": "Fehlermeldung im Druckerdisplay.",
+        "2": "Öffnet sich der Ordner an einem Mac in derselben Praxis?",
+        "3": "Scan-Konto im Verzeichnis: gesperrt oder abgelaufen?",
+        "4": "Berechtigungen des Zielordners."
+      },
       "solution": "Dem Scan-Konto ein langes, nicht ablaufendes Passwort aus dem Passwortmanager geben und einen Testscan senden."
     },
     "card-terminal": {
       "symptom": "„Das Kartenterminal meldet ‚keine Verbindung‘.“",
-      "causes": { "1": "Netzwerkkabel lose oder Switch-Port aus.", "2": "Internetleitung weg: Das Terminal spricht nur mit dem Zahlungsanbieter.", "3": "Terminal braucht einen Neustart oder ein Update." },
-      "checks": { "1": "Link-LED am Terminal und am Switch-Port.", "2": "Verbindungstest am Terminal.", "3": "Kommen andere Geräte der Praxis ins Internet?", "4": "Firewall-Dashboard: Hat das Terminal eine Adresse im VLAN 40?" },
-      "solution": "Kabel neu stecken und Terminal neu starten. Ist die Leitung weg, übernimmt LTE; bis dahin zweites Terminal oder bar."
+      "causes": {
+        "1": "Netzwerkkabel lose oder Switch-Port aus.",
+        "2": "Internetleitung weg: Das Terminal spricht nur mit dem Zahlungsanbieter.",
+        "3": "Terminal braucht einen Neustart oder ein Update."
+      },
+      "checks": {
+        "1": "Link-LED am Terminal und am Switch-Port.",
+        "2": "Verbindungstest am Terminal.",
+        "3": "Kommen andere Geräte der Praxis ins Internet?",
+        "4": "Firewall-Dashboard: Hat das Terminal eine Adresse im VLAN 40?"
+      },
+      "solution": "Kabel neu stecken und Terminal neu starten. Ist die Leitung weg, übernimmt LTE; bis dahin zweites Terminal oder bar.",
+      "warning": "Das Terminal nicht in eine andere Dose stecken: Nur Ports im VLAN 40 erreichen den Zahlungsanbieter."
     },
     "wifi-treatment": {
       "symptom": "„Das WLAN in Behandlungsraum 2 bricht ständig ab.“",
-      "causes": { "1": "Access Point überlastet oder defekt.", "2": "Schwache Ausleuchtung: Abschirmung des Röntgenraums oder dicke Wände.", "3": "Der Mac hält an einem entfernten Access Point fest, statt zu wechseln." },
-      "checks": { "1": "Mit welchem Access Point ist der Mac verbunden, wie stark ist das Signal?", "2": "Cloud-Dashboard: Clients und Fehler an diesem Access Point.", "3": "Im ganzen Raum oder nur in einer Ecke?", "4": "Gleiches Problem an einem zweiten Gerät?" },
+      "causes": {
+        "1": "Access Point überlastet oder defekt.",
+        "2": "Schwache Ausleuchtung: Abschirmung des Röntgenraums oder dicke Wände.",
+        "3": "Der Mac hält an einem entfernten Access Point fest, statt zu wechseln."
+      },
+      "checks": {
+        "1": "Mit welchem Access Point ist der Mac verbunden, wie stark ist das Signal?",
+        "2": "Cloud-Dashboard: Clients und Fehler an diesem Access Point.",
+        "3": "Im ganzen Raum oder nur in einer Ecke?",
+        "4": "Gleiches Problem an einem zweiten Gerät?"
+      },
       "solution": "Access Point neu starten oder tauschen. Bei einem Funkloch messen und einen Access Point ergänzen oder versetzen, statt die Sendeleistung hochzudrehen."
     },
     "file-share": {
       "symptom": "„Mein Mac öffnet den gemeinsamen Ordner nicht.“",
-      "causes": { "1": "VPN-Tunnel zur Zentrale getrennt.", "2": "Fileserver gestoppt oder überlastet.", "3": "Gespeicherte Anmeldung ungültig (Passwort geändert)." },
-      "checks": { "1": "Kommen Kolleginnen in derselben Praxis hinein?", "2": "Tunnelstatus im Firewall-Dashboard.", "3": "Antwortet der Fileserver? (nc -vz 10.0.70.21 445)", "4": "Freigabe trennen und mit dem aktuellen Passwort neu verbinden." },
+      "causes": {
+        "1": "VPN-Tunnel zur Zentrale getrennt.",
+        "2": "Fileserver gestoppt oder überlastet.",
+        "3": "Gespeicherte Anmeldung ungültig (Passwort geändert)."
+      },
+      "checks": {
+        "1": "Kommen Kolleginnen in derselben Praxis hinein?",
+        "2": "Tunnelstatus im Firewall-Dashboard.",
+        "3": "Antwortet der Fileserver? (nc -vz 10.0.70.21 445)",
+        "4": "Freigabe trennen und mit dem aktuellen Passwort neu verbinden."
+      },
       "solution": "Mit dem aktuellen Passwort neu verbinden. Ist die ganze Praxis betroffen, zuerst Tunnel oder Server reparieren."
     },
     "xray-archive": {
       "symptom": "„Die Röntgenbilder kommen nicht im Archiv an.“",
-      "causes": { "1": "Bildarchiv (PACS) gestoppt oder Platte voll.", "2": "VPN-Tunnel weg: Die Bilder warten am Röntgen-PC.", "3": "Falsches Ziel in der Röntgensoftware nach einem Update." },
-      "checks": { "1": "Sendewarteschlange am Röntgen-PC: Bilder wartend?", "2": "DICOM-Echo vom Röntgen-PC zum Archiv.", "3": "Tunnelstatus im Firewall-Dashboard.", "4": "Archivserver: Dienst aktiv, Platz frei?" },
+      "causes": {
+        "1": "Bildarchiv (PACS) gestoppt oder Platte voll.",
+        "2": "VPN-Tunnel weg: Die Bilder warten am Röntgen-PC.",
+        "3": "Falsches Ziel in der Röntgensoftware nach einem Update."
+      },
+      "checks": {
+        "1": "Sendewarteschlange am Röntgen-PC: Bilder wartend?",
+        "2": "DICOM-Echo vom Röntgen-PC zum Archiv.",
+        "3": "Tunnelstatus im Firewall-Dashboard.",
+        "4": "Archivserver: Dienst aktiv, Platz frei?"
+      },
       "solution": "Ursache beheben, dann die wartenden Bilder erneut senden. Bilder am Röntgen-PC nie löschen, bevor das Archiv sie bestätigt hat."
     },
     "lab-results": {
       "symptom": "„Die Laborergebnisse erscheinen nicht in der Patientenakte.“",
-      "causes": { "1": "Labor-Schnittstellenserver gestoppt.", "2": "Analysegerät sendet an eine alte Adresse.", "3": "Patientennummer am Gerät anders eingegeben." },
-      "checks": { "1": "Log des Analysegeräts: Wurde das Ergebnis gesendet?", "2": "Schnittstellenserver: aktiv, letzte Nachricht wann?", "3": "Stimmt die Patientennummer mit der Praxissoftware überein?", "4": "Importfehler in der Praxissoftware?" },
+      "causes": {
+        "1": "Labor-Schnittstellenserver gestoppt.",
+        "2": "Analysegerät sendet an eine alte Adresse.",
+        "3": "Patientennummer am Gerät anders eingegeben."
+      },
+      "checks": {
+        "1": "Log des Analysegeräts: Wurde das Ergebnis gesendet?",
+        "2": "Schnittstellenserver: aktiv, letzte Nachricht wann?",
+        "3": "Stimmt die Patientennummer mit der Praxissoftware überein?",
+        "4": "Importfehler in der Praxissoftware?"
+      },
       "solution": "Schnittstelle neu starten oder Adresse korrigieren, dann am Gerät erneut senden. Abweichende Patientennummern von Hand korrigieren."
     },
     "vpn-down": {
       "symptom": "„Nichts aus der Zentrale funktioniert: Ordner, Röntgenbilder.“",
-      "causes": { "1": "VPN-Tunnel getrennt (Schlüssel, Adresse oder Firmware).", "2": "Internetleitung weg.", "3": "Problem in der Zentrale: Andere Praxen sind auch betroffen." },
-      "checks": { "1": "Funktioniert das Internet (Praxissoftware, Webseiten)?", "2": "Tunnelstatus im Firewall-Dashboard.", "3": "Haben andere Praxen dasselbe Problem?", "4": "Antwortet die Zentrale? (ping 10.0.10.1)" },
+      "causes": {
+        "1": "VPN-Tunnel getrennt (Schlüssel, Adresse oder Firmware).",
+        "2": "Internetleitung weg.",
+        "3": "Problem in der Zentrale: Andere Praxen sind auch betroffen."
+      },
+      "checks": {
+        "1": "Funktioniert das Internet (Praxissoftware, Webseiten)?",
+        "2": "Tunnelstatus im Firewall-Dashboard.",
+        "3": "Haben andere Praxen dasselbe Problem?",
+        "4": "Antwortet die Zentrale? (ping 10.0.10.1)"
+      },
       "solution": "Tunnel im Dashboard neu starten. Kartenzahlung und Praxissoftware funktionieren in der Zwischenzeit weiter."
     },
     "internet-slow": {
       "symptom": "„Das Internet ist heute so langsam.“",
-      "causes": { "1": "Leitung gestört, oder die Praxis läuft auf dem LTE-Backup.", "2": "Ein großer Upload oder ein Update füllt die Leitung.", "3": "Störung beim Provider." },
-      "checks": { "1": "Firewall-Dashboard: Welche Leitung ist aktiv, wie ausgelastet?", "2": "Top Talker: Welches Gerät belegt die Bandbreite?", "3": "Speedtest gegen den Vertrag.", "4": "Störungsseite des Providers." },
+      "causes": {
+        "1": "Leitung gestört, oder die Praxis läuft auf dem LTE-Backup.",
+        "2": "Ein großer Upload oder ein Update füllt die Leitung.",
+        "3": "Störung beim Provider."
+      },
+      "checks": {
+        "1": "Firewall-Dashboard: Welche Leitung ist aktiv, wie ausgelastet?",
+        "2": "Top Talker: Welches Gerät belegt die Bandbreite?",
+        "3": "Speedtest gegen den Vertrag.",
+        "4": "Störungsseite des Providers."
+      },
       "solution": "Den großen Transfer stoppen oder verschieben. Ist die Leitung selbst schlecht, mit Messwerten melden; Updates laufen nach Praxisschluss."
     },
     "voip-quality": {
       "symptom": "„Anrufer klingen abgehackt, Gespräche brechen ab.“",
-      "causes": { "1": "Internetleitung ausgelastet, Sprache nicht priorisiert.", "2": "Defektes Kabel oder Switch-Port am Telefon.", "3": "Störung beim Telefonanbieter." },
-      "checks": { "1": "Ein Telefon oder alle?", "2": "Auslastung der Leitung während des Gesprächs.", "3": "Fehlerzähler am Switch-Port des Telefons.", "4": "Statusseite des Anbieters." },
+      "causes": {
+        "1": "Internetleitung ausgelastet, Sprache nicht priorisiert.",
+        "2": "Defektes Kabel oder Switch-Port am Telefon.",
+        "3": "Störung beim Telefonanbieter."
+      },
+      "checks": {
+        "1": "Ein Telefon oder alle?",
+        "2": "Auslastung der Leitung während des Gesprächs.",
+        "3": "Fehlerzähler am Switch-Port des Telefons.",
+        "4": "Statusseite des Anbieters."
+      },
       "solution": "Sicherstellen, dass VLAN 60 an Firewall und Switch priorisiert ist. Ist nur ein Telefon betroffen, Kabel oder Port tauschen."
     },
     "guest-wifi": {
       "symptom": "„Tierhalter kommen nicht ins Gäste-WLAN.“",
-      "causes": { "1": "Adresspool voll, weil die Leases lang sind.", "2": "Gästepasswort geändert, Aushang aber nicht.", "3": "Access Point im Wartezimmer aus." },
-      "checks": { "1": "Bekommt ein Handy eine Adresse, nicht 169.254.x.x?", "2": "Firewall-Dashboard: freie Adressen im Gästepool.", "3": "Ist der Access Point im Wartezimmer online?" },
+      "causes": {
+        "1": "Adresspool voll, weil die Leases lang sind.",
+        "2": "Gästepasswort geändert, Aushang aber nicht.",
+        "3": "Access Point im Wartezimmer aus."
+      },
+      "checks": {
+        "1": "Bekommt ein Handy eine Adresse, nicht 169.254.x.x?",
+        "2": "Firewall-Dashboard: freie Adressen im Gästepool.",
+        "3": "Ist der Access Point im Wartezimmer online?"
+      },
       "solution": "Lease-Zeit verkürzen (zum Beispiel eine Stunde) und den Pool bei Bedarf vergrößern. Das Team-WLAN ist getrennt und nicht betroffen."
     },
     "locked-out": {
       "symptom": "„Ich bin gesperrt und komme nicht mehr rein.“",
-      "causes": { "1": "Zu viele Fehlversuche, oft ein altes Passwort auf dem Handy.", "2": "Passwort abgelaufen.", "3": "Konto versehentlich deaktiviert." },
-      "checks": { "1": "Anrufer verifizieren: über eine bekannte Nummer zurückrufen.", "2": "Verzeichnis: gesperrt, abgelaufen oder deaktiviert?", "3": "Welches Gerät probiert ständig das alte Passwort?" },
+      "causes": {
+        "1": "Zu viele Fehlversuche, oft ein altes Passwort auf dem Handy.",
+        "2": "Passwort abgelaufen.",
+        "3": "Konto versehentlich deaktiviert."
+      },
+      "checks": {
+        "1": "Anrufer verifizieren: über eine bekannte Nummer zurückrufen.",
+        "2": "Verzeichnis: gesperrt, abgelaufen oder deaktiviert?",
+        "3": "Welches Gerät probiert ständig das alte Passwort?"
+      },
       "solution": "Entsperren oder ein temporäres Passwort setzen, das bei der nächsten Anmeldung geändert werden muss, und das alte vom Handy entfernen. Passwörter nie per E-Mail."
     },
     "onboarding": {
       "symptom": "„Am Montag fängt eine neue Kollegin an.“",
-      "causes": { "1": "Anfrage kommt zu spät oder ohne Rolle.", "2": "Kein Mac im MDM zugewiesen.", "3": "Rechte von einer Kollegin kopiert statt aus der Rolle." },
-      "checks": { "1": "Rolle bei der Praxisleitung erfragen: Empfang, Tierarzt oder Büro.", "2": "Konto aus der Rollenvorlage anlegen, mit MFA.", "3": "Mac im MDM zuweisen; er richtet sich beim ersten Start selbst ein.", "4": "Benutzer in der Praxissoftware mit den Rechten der Rolle anlegen." },
+      "causes": {
+        "1": "Anfrage kommt zu spät oder ohne Rolle.",
+        "2": "Kein Mac im MDM zugewiesen.",
+        "3": "Rechte von einer Kollegin kopiert statt aus der Rolle."
+      },
+      "checks": {
+        "1": "Rolle bei der Praxisleitung erfragen: Empfang, Tierarzt oder Büro.",
+        "2": "Konto aus der Rollenvorlage anlegen, mit MFA.",
+        "3": "Mac im MDM zuweisen; er richtet sich beim ersten Start selbst ein.",
+        "4": "Benutzer in der Praxissoftware mit den Rechten der Rolle anlegen."
+      },
       "solution": "Alles steht vor dem ersten Tag, dazu ein einseitiges Startblatt: Anmeldung, MFA, WLAN, wen man anruft."
     },
     "offboarding": {
       "symptom": "„Ein Kollege hört am Freitag auf.“",
-      "causes": { "1": "Konten bleiben nach dem letzten Tag aktiv.", "2": "Gemeinsame Passwörter, die er kannte, werden nicht geändert.", "3": "Geräte werden nicht zurückgegeben oder nicht gelöscht." },
-      "checks": { "1": "Konto am Ende des letzten Arbeitstags deaktivieren.", "2": "Zugänge zu Praxissoftware, Telefonanlage und Gruppen entfernen.", "3": "Gemeinsame Passwörter ändern, die er kannte.", "4": "Mac einsammeln und über das MDM löschen." },
+      "causes": {
+        "1": "Konten bleiben nach dem letzten Tag aktiv.",
+        "2": "Gemeinsame Passwörter, die er kannte, werden nicht geändert.",
+        "3": "Geräte werden nicht zurückgegeben oder nicht gelöscht."
+      },
+      "checks": {
+        "1": "Konto am Ende des letzten Arbeitstags deaktivieren.",
+        "2": "Zugänge zu Praxissoftware, Telefonanlage und Gruppen entfernen.",
+        "3": "Gemeinsame Passwörter ändern, die er kannte.",
+        "4": "Mac einsammeln und über das MDM löschen."
+      },
       "solution": "Die Offboarding-Checkliste am selben Tag abarbeiten. Postfach und Dateien für die Aufbewahrungsfrist behalten, dann löschen."
     },
     "update-broke": {
       "symptom": "„Seit dem Update heute Nacht startet ein Programm nicht mehr.“",
-      "causes": { "1": "Die App ist noch nicht mit dem neuen macOS kompatibel.", "2": "Update nur halb installiert.", "3": "Berechtigungen durch das Update zurückgesetzt." },
-      "checks": { "1": "Ein Mac oder alle mit demselben Update?", "2": "MDM: welche Version, wann installiert?", "3": "Versionshinweise und Hersteller-Support der App.", "4": "Datenschutz-Berechtigungen in den Systemeinstellungen." },
+      "causes": {
+        "1": "Die App ist noch nicht mit dem neuen macOS kompatibel.",
+        "2": "Update nur halb installiert.",
+        "3": "Berechtigungen durch das Update zurückgesetzt."
+      },
+      "checks": {
+        "1": "Ein Mac oder alle mit demselben Update?",
+        "2": "MDM: welche Version, wann installiert?",
+        "3": "Versionshinweise und Hersteller-Support der App.",
+        "4": "Datenschutz-Berechtigungen in den Systemeinstellungen."
+      },
       "solution": "Update im MDM pausieren, im Browser oder an einem anderen Mac weiterarbeiten, die korrigierte App-Version einspielen. Nächstes Mal: erst die Pilotgruppe."
     },
     "disk-full": {
       "symptom": "„Mein Mac meldet, die Festplatte ist fast voll.“",
-      "causes": { "1": "Große Downloads oder Bilder lokal gespeichert.", "2": "Alte Caches und Installer.", "3": "Ein Sync-Ordner hält alles offline vor." },
-      "checks": { "1": "Systemeinstellungen, Speicher: Was belegt den Platz?", "2": "Ordner Downloads und Schreibtisch.", "3": "MDM: Speicherbericht aller Macs." },
+      "causes": {
+        "1": "Große Downloads oder Bilder lokal gespeichert.",
+        "2": "Alte Caches und Installer.",
+        "3": "Ein Sync-Ordner hält alles offline vor."
+      },
+      "checks": {
+        "1": "Systemeinstellungen, Speicher: Was belegt den Platz?",
+        "2": "Ordner Downloads und Schreibtisch.",
+        "3": "MDM: Speicherbericht aller Macs."
+      },
       "solution": "Dateien in den gemeinsamen Ordner verschieben, Downloads und Papierkorb leeren, Offline-Sync begrenzen. Patientendaten gehören ohnehin nicht auf den Mac."
     },
     "cert-expired": {
       "symptom": "„Der Browser warnt ‚Verbindung nicht privat‘, wenn ich Röntgenbilder öffne.“",
-      "causes": { "1": "Das Serverzertifikat ist abgelaufen.", "2": "Datum und Uhrzeit am Mac stimmen nicht.", "3": "Einem neuen Mac fehlt das interne Stammzertifikat." },
-      "checks": { "1": "Zertifikatsdetails: Ablaufdatum und Aussteller.", "2": "Datum und Uhrzeit am Mac.", "3": "Gleiche Warnung an anderen Macs?" },
+      "causes": {
+        "1": "Das Serverzertifikat ist abgelaufen.",
+        "2": "Datum und Uhrzeit am Mac stimmen nicht.",
+        "3": "Einem neuen Mac fehlt das interne Stammzertifikat."
+      },
+      "checks": {
+        "1": "Zertifikatsdetails: Ablaufdatum und Aussteller.",
+        "2": "Datum und Uhrzeit am Mac.",
+        "3": "Gleiche Warnung an anderen Macs?"
+      },
       "solution": "Zertifikat auf dem Server erneuern; die Warnung nicht wegklicken. Ist nur ein Mac betroffen, das Stammzertifikat per MDM verteilen."
     },
     "mdm-not-enrolled": {
       "symptom": "„Der neue Mac bekommt seine Apps und das WLAN nicht.“",
-      "causes": { "1": "Mac nicht über den Kanal gekauft, der ihn für die automatische Registrierung meldet.", "2": "Noch nicht dem MDM-Server zugewiesen.", "3": "Ohne Internet eingerichtet, daher wurde die Fernverwaltung übersprungen." },
-      "checks": { "1": "Hat der Einrichtungsassistent den Bildschirm zur Fernverwaltung gezeigt?", "2": "Steht die Seriennummer im Business-Geräteportal?", "3": "MDM: Ist das Gerät gelistet und einem Profil zugewiesen?" },
+      "causes": {
+        "1": "Mac nicht über den Kanal gekauft, der ihn für die automatische Registrierung meldet.",
+        "2": "Noch nicht dem MDM-Server zugewiesen.",
+        "3": "Ohne Internet eingerichtet, daher wurde die Fernverwaltung übersprungen."
+      },
+      "checks": {
+        "1": "Hat der Einrichtungsassistent den Bildschirm zur Fernverwaltung gezeigt?",
+        "2": "Steht die Seriennummer im Business-Geräteportal?",
+        "3": "MDM: Ist das Gerät gelistet und einem Profil zugewiesen?"
+      },
       "solution": "Seriennummer dem MDM zuweisen, Mac löschen und mit Internet neu einrichten. Künftige Macs über den freigegebenen Kanal kaufen."
+    },
+    "double-charge": {
+      "symptom": "„Die Kundin sagt, die Karte wurde zweimal belastet.“",
+      "causes": {
+        "1": "Das Terminal wartete zu lange auf Antwort, die Zahlung wurde neu gestartet.",
+        "2": "Die erste Zahlung ging durch, aber der Beleg wurde nicht gedruckt.",
+        "3": "Beide Terminals wurden für dieselbe Rechnung benutzt."
+      },
+      "checks": {
+        "1": "Terminal-Journal drucken: Gibt es zwei genehmigte Zahlungen?",
+        "2": "Betrag, Uhrzeit und die letzten Kartenziffern vergleichen.",
+        "3": "Lief der Kassenschnitt schon?",
+        "4": "Langsames Internet zu der Zeit? Firewall-Dashboard prüfen."
+      },
+      "solution": "Die doppelte Zahlung am selben Terminal vor dem Kassenschnitt stornieren. Danach per Überweisung erstatten und auf der Rechnung vermerken.",
+      "warning": "Nie eine Zahlung neu starten, solange die erste kein klares Ergebnis hat. Zuerst das Journal prüfen."
+    },
+    "card-brand-declined": {
+      "symptom": "„girocard geht, aber Kreditkarten werden abgelehnt.“",
+      "causes": {
+        "1": "Die Kartenmarke ist im Händlervertrag oder am Terminal nicht freigeschaltet.",
+        "2": "Der Anbieter hat eine Störung bei einem Kartennetz.",
+        "3": "Ein Problem dieser einen Karte: Limit oder Sperre der Bank."
+      },
+      "checks": {
+        "1": "Scheitert jede Karte dieser Marke oder nur eine?",
+        "2": "Den Fehlercode am Terminal notieren.",
+        "3": "Statusseite des Anbieters prüfen.",
+        "4": "Gab es kürzlich ein Terminal-Update oder eine Vertragsänderung?"
+      },
+      "solution": "Nur eine Karte: Die Kundin wendet sich an ihre Bank. Eine ganze Marke: den Anbieter mit Terminal-ID (TID) und Fehlercode anrufen."
+    },
+    "payment-offline": {
+      "symptom": "„Internet weg, LTE auch. Keine Kartenzahlung.“",
+      "causes": {
+        "1": "Hauptleitung und LTE-Backup sind gleichzeitig ausgefallen.",
+        "2": "Die LTE-SIM hat kein Datenvolumen mehr oder ist nicht aktiv.",
+        "3": "Die Firewall selbst ist aus, also wird keine Leitung genutzt."
+      },
+      "checks": {
+        "1": "Firewall-Dashboard: Status von WAN1 und WAN2.",
+        "2": "Zeigt der LTE-Router Empfang und eine aktive SIM?",
+        "3": "Nur diese Praxis? Bei den anderen Standorten nachfragen."
+      },
+      "solution": "Das Terminal braucht eine Verbindung, um Zahlungen zu genehmigen. Bar kassieren oder auf Rechnung, und die Leitungen mit dem Provider klären.",
+      "warning": "Nie Kartennummern oder PINs als Notlösung aufschreiben. Das verstößt gegen die Regeln für Kartenzahlung."
+    },
+    "payment-blocked": {
+      "symptom": "„Seit der Firewall-Änderung meldet das Terminal ‚Host nicht erreichbar‘.“",
+      "causes": {
+        "1": "Die Zahlungsregel für VLAN 40 wurde geändert oder überschrieben.",
+        "2": "Der Anbieter nutzt neue Adressen, die Regel erlaubt nur alte IPs.",
+        "3": "TLS-Inspection entschlüsselt jetzt den Zahlungsverkehr und bricht ihn."
+      },
+      "checks": {
+        "1": "Firewall-Log: blockierte Verbindungen aus VLAN 40?",
+        "2": "Regel mit dem Standort-Template vergleichen.",
+        "3": "Ist VLAN 40 von der TLS-Inspection ausgenommen?"
+      },
+      "solution": "Regel aus dem Template wiederherstellen und den Anbieter über seine dokumentierten Hostnamen erlauben. VLAN 40 aus der TLS-Inspection heraushalten.",
+      "warning": "Jede Firewall-Änderung in einer Praxis endet mit einer Testzahlung, bevor das Team nach Hause geht."
+    },
+    "end-of-day": {
+      "symptom": "„Das Terminal verlangt einen Kassenschnitt und hält Zahlungen an.“",
+      "causes": {
+        "1": "Der Kassenschnitt lief gestern nicht.",
+        "2": "Der Kassenschnitt startete, brach aber ab: Verbindung weg.",
+        "3": "Der automatische Kassenschnitt liegt zu einer Zeit, in der das Terminal aus ist."
+      },
+      "checks": {
+        "1": "Terminal-Menü: Datum des letzten erfolgreichen Kassenschnitts.",
+        "2": "Ist das Terminal gerade online?",
+        "3": "Welche Uhrzeit ist eingestellt?"
+      },
+      "solution": "Kassenschnitt von Hand starten und den Beleg aufheben. Den automatischen Kassenschnitt auf eine Zeit legen, in der das Terminal an ist."
+    },
+    "terminal-swap": {
+      "symptom": "„Das Kartenterminal ist defekt. Ein Ersatzgerät ist da.“",
+      "causes": {
+        "1": "Das neue Terminal steckt in einem Port, der nicht im VLAN 40 ist.",
+        "2": "Das Terminal wurde beim Anbieter nicht eingerichtet, Karten werden abgelehnt.",
+        "3": "Die Testzahlung wird nicht storniert und bleibt auf der Abrechnung."
+      },
+      "checks": {
+        "1": "In denselben Switch-Port wie das alte stecken (VLAN 40).",
+        "2": "Einrichtung nach Anleitung des Anbieters; Terminal-ID notieren.",
+        "3": "Kleine Testzahlung machen und stornieren.",
+        "4": "Das alte Terminal so zurückschicken, wie der Anbieter es verlangt."
+      },
+      "solution": "Tauschen, einrichten, Testzahlung, stornieren. Die neue Terminal-ID im Inventar eintragen."
+    },
+    "no-ip": {
+      "symptom": "„Der neue Laptop hat kein Netz, die alten gehen.“",
+      "causes": {
+        "1": "Der Adresspool des Mitarbeiternetzes ist voll.",
+        "2": "Geräte mit privaten (zufälligen) MAC-Adressen belegen viele Leases.",
+        "3": "Der Laptop ist im falschen WLAN, zum Beispiel im Gästenetz."
+      },
+      "checks": {
+        "1": "Zeigt der Mac eine Adresse 169.254.x.x?",
+        "2": "Firewall: DHCP-Leases im VLAN 20, wie viele sind frei?",
+        "3": "In welchem WLAN ist der Laptop?"
+      },
+      "solution": "Alte Leases entfernen und die Lease-Zeit verkürzen; bei Bedarf den Pool vergrößern. Private Handys gehören ins Gäste-WLAN."
+    },
+    "phishing": {
+      "symptom": "„Ich habe mein Passwort auf einer Seite aus einer E-Mail eingegeben.“",
+      "causes": {
+        "1": "Eine E-Mail mit Link zu einem „geteilten Dokument“ oder einem Paket.",
+        "2": "Eine echt wirkende Anmeldeseite auf einer anderen Domain.",
+        "3": "Eine MFA-Anfrage bestätigt, ohne sich selbst anzumelden."
+      },
+      "checks": {
+        "1": "Passwort zurücksetzen und sofort alle Sitzungen abmelden.",
+        "2": "Anmeldeprotokoll: Logins von unbekannten Orten?",
+        "3": "Postfach: neue Weiterleitungen oder Regeln?",
+        "4": "Das Team warnen, Absender und Link sperren."
+      },
+      "solution": "Für die schnelle Meldung danken; das begrenzt den Schaden. Wurden personenbezogene Daten abgerufen, kann die 72-Stunden-Meldepflicht gelten.",
+      "warning": "Die E-Mail nicht löschen, bevor die IT sie gesehen hat. Sie zeigt, wohin der Link führte."
     }
   }
 }

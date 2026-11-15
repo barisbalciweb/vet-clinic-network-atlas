@@ -24,7 +24,7 @@ Jede Ansicht gibt es auf Englisch, Deutsch und Türkisch, im hellen und dunklen 
 |---|---|---|
 | A | Netzwerkkarte | Deutschlandübersicht, dann jeder Standort bis zum Raum und Gerät. VLAN-Plan und Firewall-Regeln. |
 | B | Ausfallsimulator | Geräte ausschalten, Leitungen kappen, Dienste stoppen. Die Engine kennt die Redundanz und erklärt, wer betroffen ist, was zu prüfen ist und wie man es behebt. |
-| C | Häufige Probleme | 18 typische Praxis-Tickets mit wahrscheinlichen Ursachen, Prüfschritten in Reihenfolge und Lösung. |
+| C | Häufige Probleme | 26 typische Praxis-Tickets mit wahrscheinlichen Ursachen, Prüfschritten in Reihenfolge und Lösung; Kartenzahlung ausführlich, mit den Fehlern, die es schlimmer machen. |
 | D | Neue Praxis eröffnen | Playbook für München von der Begehung bis zur Hypercare, mit Beschaffungssimulation. Abgehakt, geht die Praxis auf der Karte live. |
 | E | Standardisierung | Ein Hardware-Kit, ein Standort-Template, gestaffelter Firmware-Rollout und Ansible. |
 | F | HA-Labor | Ein vSphere-Cluster mit drei Hosts: HA-Neustart, N+1-Admission-Control, Wartungsmodus, vMotion. |

@@ -14,9 +14,14 @@
     "solution": "Solution",
     "showOnMap": "Show on map",
     "simulate": "Simulate",
-    "kind": { "incident": "Incident", "request": "Request" },
+    "kind": {
+      "incident": "Incident",
+      "request": "Request"
+    },
     "banner": "Highlighted for: {symptom}",
-    "clearHighlight": "Clear highlight"
+    "clearHighlight": "Clear highlight",
+    "critical": "Business-critical",
+    "warning": "Watch out"
   },
   "category": {
     "printing": "Printing and scanning",
@@ -30,111 +35,389 @@
   "item": {
     "label-printer": {
       "symptom": "“The label printer prints nothing.”",
-      "causes": { "1": "Label roll empty or not seated correctly.", "2": "Print job stuck in the queue on the Mac.", "3": "Printer off or its cable unplugged." },
-      "checks": { "1": "Display or LED: error or paper out?", "2": "Print queue on the Mac: paused or stuck job? (lpstat -p)", "3": "Does the printer answer a ping? (ping 10.2.50.22)", "4": "Print a test label from the printer itself." },
+      "causes": {
+        "1": "Label roll empty or not seated correctly.",
+        "2": "Print job stuck in the queue on the Mac.",
+        "3": "Printer off or its cable unplugged."
+      },
+      "checks": {
+        "1": "Display or LED: error or paper out?",
+        "2": "Print queue on the Mac: paused or stuck job? (lpstat -p)",
+        "3": "Does the printer answer a ping? (ping 10.2.50.22)",
+        "4": "Print a test label from the printer itself."
+      },
       "solution": "Reload and calibrate the roll, clear the queue, resume the printer. If it still fails, use the spare: same model, same settings."
     },
     "scan-folder": {
       "symptom": "“Scans no longer arrive in the shared folder.”",
-      "causes": { "1": "Password of the scan account changed or expired.", "2": "File server not reachable (VPN or server down).", "3": "Permissions on the folder changed." },
-      "checks": { "1": "Error message on the printer display.", "2": "Does the shared folder open on a Mac in the same clinic?", "3": "Scan account in the directory: locked or expired?", "4": "Permissions of the target folder." },
+      "causes": {
+        "1": "Password of the scan account changed or expired.",
+        "2": "File server not reachable (VPN or server down).",
+        "3": "Permissions on the folder changed."
+      },
+      "checks": {
+        "1": "Error message on the printer display.",
+        "2": "Does the shared folder open on a Mac in the same clinic?",
+        "3": "Scan account in the directory: locked or expired?",
+        "4": "Permissions of the target folder."
+      },
       "solution": "Give the scan account a long password that does not expire, stored in the password manager, then send a test scan."
     },
     "card-terminal": {
       "symptom": "“The card terminal says ‘no connection’.”",
-      "causes": { "1": "Network cable loose or switch port down.", "2": "Internet line down: the terminal only talks to the payment provider.", "3": "Terminal needs a restart or an update." },
-      "checks": { "1": "Link LED at the terminal and at the switch port.", "2": "Connection test on the terminal.", "3": "Do other devices in the clinic reach the internet?", "4": "Firewall dashboard: does the terminal have an address in VLAN 40?" },
-      "solution": "Reseat the cable and restart the terminal. If the line is down, LTE takes over; until then use the second terminal or cash."
+      "causes": {
+        "1": "Network cable loose or switch port down.",
+        "2": "Internet line down: the terminal only talks to the payment provider.",
+        "3": "Terminal needs a restart or an update."
+      },
+      "checks": {
+        "1": "Link LED at the terminal and at the switch port.",
+        "2": "Connection test on the terminal.",
+        "3": "Do other devices in the clinic reach the internet?",
+        "4": "Firewall dashboard: does the terminal have an address in VLAN 40?"
+      },
+      "solution": "Reseat the cable and restart the terminal. If the line is down, LTE takes over; until then use the second terminal or cash.",
+      "warning": "Do not plug the terminal into another socket: only VLAN 40 ports reach the payment provider."
     },
     "wifi-treatment": {
       "symptom": "“The Wi-Fi in treatment room 2 keeps dropping.”",
-      "causes": { "1": "Access point overloaded or faulty.", "2": "Weak coverage: X-ray room shielding or thick walls.", "3": "The Mac holds on to a distant access point instead of roaming." },
-      "checks": { "1": "Which access point is the Mac on, and how strong is the signal?", "2": "Cloud dashboard: clients and errors on that access point.", "3": "Everywhere in the room, or only in one corner?", "4": "Same problem on a second device?" },
+      "causes": {
+        "1": "Access point overloaded or faulty.",
+        "2": "Weak coverage: X-ray room shielding or thick walls.",
+        "3": "The Mac holds on to a distant access point instead of roaming."
+      },
+      "checks": {
+        "1": "Which access point is the Mac on, and how strong is the signal?",
+        "2": "Cloud dashboard: clients and errors on that access point.",
+        "3": "Everywhere in the room, or only in one corner?",
+        "4": "Same problem on a second device?"
+      },
       "solution": "Restart or replace the access point. For a coverage hole, measure and add or move an access point instead of turning up the power."
     },
     "file-share": {
       "symptom": "“My Mac can't open the shared folder.”",
-      "causes": { "1": "VPN tunnel to headquarters down.", "2": "File server stopped or overloaded.", "3": "Saved login no longer valid (password changed)." },
-      "checks": { "1": "Can colleagues in the same clinic open it?", "2": "Tunnel status in the firewall dashboard.", "3": "Does the file server answer? (nc -vz 10.0.70.21 445)", "4": "Disconnect the share and connect again with the current password." },
+      "causes": {
+        "1": "VPN tunnel to headquarters down.",
+        "2": "File server stopped or overloaded.",
+        "3": "Saved login no longer valid (password changed)."
+      },
+      "checks": {
+        "1": "Can colleagues in the same clinic open it?",
+        "2": "Tunnel status in the firewall dashboard.",
+        "3": "Does the file server answer? (nc -vz 10.0.70.21 445)",
+        "4": "Disconnect the share and connect again with the current password."
+      },
       "solution": "Reconnect with the current password. If the whole clinic is affected, fix the tunnel or the server first."
     },
     "xray-archive": {
       "symptom": "“The X-ray images don't show up in the archive.”",
-      "causes": { "1": "Image archive (PACS) stopped or its disk is full.", "2": "VPN tunnel down: images wait on the X-ray PC.", "3": "Wrong destination in the X-ray software after an update." },
-      "checks": { "1": "Send queue on the X-ray PC: images waiting?", "2": "DICOM echo from the X-ray PC to the archive.", "3": "Tunnel status in the firewall dashboard.", "4": "Archive server: service running, disk space left?" },
+      "causes": {
+        "1": "Image archive (PACS) stopped or its disk is full.",
+        "2": "VPN tunnel down: images wait on the X-ray PC.",
+        "3": "Wrong destination in the X-ray software after an update."
+      },
+      "checks": {
+        "1": "Send queue on the X-ray PC: images waiting?",
+        "2": "DICOM echo from the X-ray PC to the archive.",
+        "3": "Tunnel status in the firewall dashboard.",
+        "4": "Archive server: service running, disk space left?"
+      },
       "solution": "Fix the cause, then resend the waiting images. Never delete images on the X-ray PC before the archive has confirmed them."
     },
     "lab-results": {
       "symptom": "“The lab results don't appear in the patient file.”",
-      "causes": { "1": "Lab interface server stopped.", "2": "Analyzer sends to an old address.", "3": "Patient number typed differently on the analyzer." },
-      "checks": { "1": "Analyzer log: was the result sent?", "2": "Lab interface server: running, last message received?", "3": "Does the patient number match the practice software?", "4": "Import errors in the practice software?" },
+      "causes": {
+        "1": "Lab interface server stopped.",
+        "2": "Analyzer sends to an old address.",
+        "3": "Patient number typed differently on the analyzer."
+      },
+      "checks": {
+        "1": "Analyzer log: was the result sent?",
+        "2": "Lab interface server: running, last message received?",
+        "3": "Does the patient number match the practice software?",
+        "4": "Import errors in the practice software?"
+      },
       "solution": "Restart the interface or correct the address, then resend from the analyzer. Fix mismatched patient numbers by hand."
     },
     "vpn-down": {
       "symptom": "“Nothing from headquarters works: shared folders, X-ray images.”",
-      "causes": { "1": "VPN tunnel down (key, address or firmware).", "2": "Internet line down.", "3": "Problem at headquarters: other clinics are affected too." },
-      "checks": { "1": "Does the internet work (practice software, websites)?", "2": "Tunnel status in the firewall dashboard.", "3": "Do other clinics have the same problem?", "4": "Does headquarters answer? (ping 10.0.10.1)" },
+      "causes": {
+        "1": "VPN tunnel down (key, address or firmware).",
+        "2": "Internet line down.",
+        "3": "Problem at headquarters: other clinics are affected too."
+      },
+      "checks": {
+        "1": "Does the internet work (practice software, websites)?",
+        "2": "Tunnel status in the firewall dashboard.",
+        "3": "Do other clinics have the same problem?",
+        "4": "Does headquarters answer? (ping 10.0.10.1)"
+      },
       "solution": "Restart the tunnel from the dashboard. Card payments and the practice software keep working in the meantime."
     },
     "internet-slow": {
       "symptom": "“The internet is so slow today.”",
-      "causes": { "1": "Line degraded, or the clinic runs on the LTE backup.", "2": "A large upload or update fills the line.", "3": "Problem at the provider." },
-      "checks": { "1": "Firewall dashboard: which line is active, how busy is it?", "2": "Top talkers: which device uses the bandwidth?", "3": "Speed test against the contract.", "4": "Provider's outage page." },
+      "causes": {
+        "1": "Line degraded, or the clinic runs on the LTE backup.",
+        "2": "A large upload or update fills the line.",
+        "3": "Problem at the provider."
+      },
+      "checks": {
+        "1": "Firewall dashboard: which line is active, how busy is it?",
+        "2": "Top talkers: which device uses the bandwidth?",
+        "3": "Speed test against the contract.",
+        "4": "Provider's outage page."
+      },
       "solution": "Stop or reschedule the large transfer. If the line itself is bad, report it with measurements; updates run after opening hours."
     },
     "voip-quality": {
       "symptom": "“Callers sound choppy, and calls drop.”",
-      "causes": { "1": "Internet line busy and voice not prioritised.", "2": "Faulty cable or switch port at the phone.", "3": "Problem at the telephone provider." },
-      "checks": { "1": "One phone or all phones?", "2": "Line usage during the call.", "3": "Error counters on the phone's switch port.", "4": "Provider's status page." },
+      "causes": {
+        "1": "Internet line busy and voice not prioritised.",
+        "2": "Faulty cable or switch port at the phone.",
+        "3": "Problem at the telephone provider."
+      },
+      "checks": {
+        "1": "One phone or all phones?",
+        "2": "Line usage during the call.",
+        "3": "Error counters on the phone's switch port.",
+        "4": "Provider's status page."
+      },
       "solution": "Make sure VLAN 60 is prioritised on the firewall and switch. If only one phone is affected, replace its cable or port."
     },
     "guest-wifi": {
       "symptom": "“Pet owners can't get onto the guest Wi-Fi.”",
-      "causes": { "1": "Address pool full because leases are long.", "2": "Guest password changed but the sign was not.", "3": "Access point in the waiting room is off." },
-      "checks": { "1": "Does a phone get an address, not 169.254.x.x?", "2": "Firewall dashboard: free addresses in the guest pool.", "3": "Is the waiting room access point online?" },
+      "causes": {
+        "1": "Address pool full because leases are long.",
+        "2": "Guest password changed but the sign was not.",
+        "3": "Access point in the waiting room is off."
+      },
+      "checks": {
+        "1": "Does a phone get an address, not 169.254.x.x?",
+        "2": "Firewall dashboard: free addresses in the guest pool.",
+        "3": "Is the waiting room access point online?"
+      },
       "solution": "Shorten the lease time (for example one hour) and enlarge the pool if needed. The staff Wi-Fi is separate and not affected."
     },
     "locked-out": {
       "symptom": "“I'm locked out and can't log in.”",
-      "causes": { "1": "Too many wrong attempts, often an old password saved on a phone.", "2": "Password expired.", "3": "Account disabled by mistake." },
-      "checks": { "1": "Verify who is calling: call back on a known number.", "2": "Directory: locked, expired or disabled?", "3": "Which device keeps trying the old password?" },
+      "causes": {
+        "1": "Too many wrong attempts, often an old password saved on a phone.",
+        "2": "Password expired.",
+        "3": "Account disabled by mistake."
+      },
+      "checks": {
+        "1": "Verify who is calling: call back on a known number.",
+        "2": "Directory: locked, expired or disabled?",
+        "3": "Which device keeps trying the old password?"
+      },
       "solution": "Unlock, or set a temporary password that must be changed at the next login, and remove the old one from the phone. Never send passwords by e-mail."
     },
     "onboarding": {
       "symptom": "“A new colleague starts on Monday.”",
-      "causes": { "1": "Request comes too late or without a role.", "2": "No Mac assigned in the MDM.", "3": "Rights copied from a colleague instead of from the role." },
-      "checks": { "1": "Get the role from the clinic manager: reception, vet or back office.", "2": "Create the account from the role template, with MFA.", "3": "Assign a Mac in the MDM; it sets itself up on first start.", "4": "Create the user in the practice software with the role's rights." },
+      "causes": {
+        "1": "Request comes too late or without a role.",
+        "2": "No Mac assigned in the MDM.",
+        "3": "Rights copied from a colleague instead of from the role."
+      },
+      "checks": {
+        "1": "Get the role from the clinic manager: reception, vet or back office.",
+        "2": "Create the account from the role template, with MFA.",
+        "3": "Assign a Mac in the MDM; it sets itself up on first start.",
+        "4": "Create the user in the practice software with the role's rights."
+      },
       "solution": "Everything is ready before day one, plus a one-page start sheet: login, MFA, Wi-Fi, who to call."
     },
     "offboarding": {
       "symptom": "“A colleague leaves on Friday.”",
-      "causes": { "1": "Accounts stay active after the last day.", "2": "Shared passwords the person knew are not changed.", "3": "Devices are not returned or not wiped." },
-      "checks": { "1": "Disable the account at the end of the last working day.", "2": "Remove access to practice software, telephone system and groups.", "3": "Change shared passwords the person knew.", "4": "Collect the Mac and wipe it from the MDM." },
+      "causes": {
+        "1": "Accounts stay active after the last day.",
+        "2": "Shared passwords the person knew are not changed.",
+        "3": "Devices are not returned or not wiped."
+      },
+      "checks": {
+        "1": "Disable the account at the end of the last working day.",
+        "2": "Remove access to practice software, telephone system and groups.",
+        "3": "Change shared passwords the person knew.",
+        "4": "Collect the Mac and wipe it from the MDM."
+      },
       "solution": "Work through the offboarding checklist on the same day. Keep mailbox and files for the retention period, then delete them."
     },
     "update-broke": {
       "symptom": "“Since last night's update, a program won't start.”",
-      "causes": { "1": "The app is not yet compatible with the new macOS.", "2": "Update installed only half-way.", "3": "Permissions reset by the update." },
-      "checks": { "1": "One Mac, or all Macs with the same update?", "2": "MDM: which version, installed when?", "3": "Release notes and vendor support of the app.", "4": "Privacy permissions in System Settings." },
+      "causes": {
+        "1": "The app is not yet compatible with the new macOS.",
+        "2": "Update installed only half-way.",
+        "3": "Permissions reset by the update."
+      },
+      "checks": {
+        "1": "One Mac, or all Macs with the same update?",
+        "2": "MDM: which version, installed when?",
+        "3": "Release notes and vendor support of the app.",
+        "4": "Privacy permissions in System Settings."
+      },
       "solution": "Pause the update in the MDM, work in the browser or on another Mac, install the fixed app version. Next time: pilot group first."
     },
     "disk-full": {
       "symptom": "“My Mac says the disk is almost full.”",
-      "causes": { "1": "Large downloads or images saved locally.", "2": "Old caches and installers.", "3": "A sync folder keeps everything offline." },
-      "checks": { "1": "System Settings, Storage: what uses the space?", "2": "Downloads and Desktop folders.", "3": "MDM: disk usage report of all Macs." },
+      "causes": {
+        "1": "Large downloads or images saved locally.",
+        "2": "Old caches and installers.",
+        "3": "A sync folder keeps everything offline."
+      },
+      "checks": {
+        "1": "System Settings, Storage: what uses the space?",
+        "2": "Downloads and Desktop folders.",
+        "3": "MDM: disk usage report of all Macs."
+      },
       "solution": "Move files to the shared folder, empty Downloads and Trash, limit offline sync. Patient data does not belong on the Mac anyway."
     },
     "cert-expired": {
       "symptom": "“The browser warns ‘connection not private’ when I open X-ray images.”",
-      "causes": { "1": "The server certificate has expired.", "2": "Date and time on the Mac are wrong.", "3": "A new Mac lacks the internal root certificate." },
-      "checks": { "1": "Certificate details: expiry date and issuer.", "2": "Date and time on the Mac.", "3": "Same warning on other Macs?" },
+      "causes": {
+        "1": "The server certificate has expired.",
+        "2": "Date and time on the Mac are wrong.",
+        "3": "A new Mac lacks the internal root certificate."
+      },
+      "checks": {
+        "1": "Certificate details: expiry date and issuer.",
+        "2": "Date and time on the Mac.",
+        "3": "Same warning on other Macs?"
+      },
       "solution": "Renew the certificate on the server; do not click through the warning. If only one Mac is affected, push the root certificate via MDM."
     },
     "mdm-not-enrolled": {
       "symptom": "“The new Mac doesn't get its apps or Wi-Fi.”",
-      "causes": { "1": "Mac not bought through the channel that registers it for automatic enrolment.", "2": "Not yet assigned to the MDM server.", "3": "Set up without internet, so the remote management step was skipped." },
-      "checks": { "1": "Did the setup assistant show the remote management screen?", "2": "Is the serial number in the business device portal?", "3": "MDM: is the device listed and assigned to a profile?" },
+      "causes": {
+        "1": "Mac not bought through the channel that registers it for automatic enrolment.",
+        "2": "Not yet assigned to the MDM server.",
+        "3": "Set up without internet, so the remote management step was skipped."
+      },
+      "checks": {
+        "1": "Did the setup assistant show the remote management screen?",
+        "2": "Is the serial number in the business device portal?",
+        "3": "MDM: is the device listed and assigned to a profile?"
+      },
       "solution": "Assign the serial number to the MDM, erase the Mac and set it up again with internet. Buy future Macs through the approved channel."
+    },
+    "double-charge": {
+      "symptom": "“The customer says the card was charged twice.”",
+      "causes": {
+        "1": "The terminal waited too long for an answer, and the payment was started again.",
+        "2": "The first payment went through, but the receipt did not print.",
+        "3": "Both terminals were used for the same invoice."
+      },
+      "checks": {
+        "1": "Print the terminal journal: are there two approved payments?",
+        "2": "Compare amount, time and the last digits of the card.",
+        "3": "Has the daily closing already run?",
+        "4": "Slow internet at that time? Check the firewall dashboard."
+      },
+      "solution": "Cancel the duplicate on the same terminal before the daily closing. After the closing, refund it by bank transfer and note it on the invoice.",
+      "warning": "Never start a payment again while the first one has no clear result. Check the journal first."
+    },
+    "card-brand-declined": {
+      "symptom": "“girocard works, but credit cards are declined.”",
+      "causes": {
+        "1": "That card brand is not active in the merchant contract or on the terminal.",
+        "2": "The provider has an outage for one card network.",
+        "3": "A problem with this one card: limit or block by the bank."
+      },
+      "checks": {
+        "1": "Does it fail for every card of that brand, or for just one?",
+        "2": "Note the error code the terminal shows.",
+        "3": "Check the provider status page.",
+        "4": "Did a terminal update or a contract change happen recently?"
+      },
+      "solution": "Only one card fails: the customer contacts their bank. A whole brand fails: call the provider with the terminal ID (TID) and the error code."
+    },
+    "payment-offline": {
+      "symptom": "“The internet is down and LTE too. No card payments.”",
+      "causes": {
+        "1": "Primary line and LTE backup are down at the same time.",
+        "2": "The LTE SIM is out of data or not active.",
+        "3": "The firewall itself is down, so no line is used."
+      },
+      "checks": {
+        "1": "Firewall dashboard: status of WAN1 and WAN2.",
+        "2": "Does the LTE router show signal and an active SIM?",
+        "3": "Is it just this clinic? Ask the other sites."
+      },
+      "solution": "The terminal needs a connection to approve a payment. Take cash or issue an invoice, and fix the lines with the provider.",
+      "warning": "Never write down card numbers or PINs as a workaround. That breaks the card payment rules."
+    },
+    "payment-blocked": {
+      "symptom": "“Since the firewall change the terminal says ‘host unreachable’.”",
+      "causes": {
+        "1": "The payment rule for VLAN 40 was changed or overwritten.",
+        "2": "The provider uses new addresses, but the rule allows old IPs only.",
+        "3": "TLS inspection now decrypts the payment traffic and breaks it."
+      },
+      "checks": {
+        "1": "Firewall log: blocked connections from VLAN 40?",
+        "2": "Compare the rule with the site template.",
+        "3": "Is VLAN 40 excluded from TLS inspection?"
+      },
+      "solution": "Restore the rule from the template and allow the provider by its documented host names. Keep VLAN 40 out of TLS inspection.",
+      "warning": "Every firewall change at a clinic ends with a test payment, before staff go home."
+    },
+    "end-of-day": {
+      "symptom": "“The terminal asks for a daily closing and holds payments.”",
+      "causes": {
+        "1": "The daily closing was not run yesterday.",
+        "2": "The closing started but did not finish: connection lost.",
+        "3": "The automatic closing is set to a time when the terminal is off."
+      },
+      "checks": {
+        "1": "Terminal menu: date of the last successful closing.",
+        "2": "Is the terminal online right now?",
+        "3": "Which closing time is set?"
+      },
+      "solution": "Run the closing by hand and keep the closing receipt. Set the automatic closing to a time when the terminal is on."
+    },
+    "terminal-swap": {
+      "symptom": "“The card terminal is broken. A replacement has arrived.”",
+      "causes": {
+        "1": "The new terminal is plugged into a port that is not in VLAN 40.",
+        "2": "The terminal was not set up with the provider, so cards are declined.",
+        "3": "The test payment is not cancelled and stays on the statement."
+      },
+      "checks": {
+        "1": "Plug it into the same switch port as the old one (VLAN 40).",
+        "2": "Run the setup the provider describes; note the terminal ID.",
+        "3": "Make a small test payment and cancel it.",
+        "4": "Send the old terminal back as the provider asks."
+      },
+      "solution": "Swap, set up, test payment, cancel. Note the new terminal ID in the inventory."
+    },
+    "no-ip": {
+      "symptom": "“The new laptop has no network, the old ones work.”",
+      "causes": {
+        "1": "The address pool of the staff network is full.",
+        "2": "Devices with private (random) MAC addresses use up many leases.",
+        "3": "The laptop is in the wrong Wi-Fi, for example the guest network."
+      },
+      "checks": {
+        "1": "Does the Mac show a 169.254.x.x address?",
+        "2": "Firewall: DHCP leases in VLAN 20, how many are free?",
+        "3": "Which Wi-Fi is the laptop in?"
+      },
+      "solution": "Remove old leases and shorten the lease time; enlarge the pool if needed. Private phones belong in the guest Wi-Fi."
+    },
+    "phishing": {
+      "symptom": "“I entered my password on a page from an e-mail.”",
+      "causes": {
+        "1": "An e-mail with a “shared document” or parcel link.",
+        "2": "A login page that looks real, on a different domain.",
+        "3": "An MFA prompt approved without logging in yourself."
+      },
+      "checks": {
+        "1": "Reset the password and sign out all sessions at once.",
+        "2": "Sign-in log: logins from unknown places?",
+        "3": "Mailbox: new forwarding or inbox rules?",
+        "4": "Warn the team and block the sender and the link."
+      },
+      "solution": "Thank the person for reporting fast; that limits the damage. If personal data was accessed, the 72-hour reporting rule may apply.",
+      "warning": "Do not delete the e-mail before IT has seen it. It shows where the link led."
     }
   }
 }

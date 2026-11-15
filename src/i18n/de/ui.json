@@ -18,7 +18,8 @@
     "technicalHint": "Alle Details für die IT: VLANs, Adressen, Befehle",
     "language": "Sprache",
     "toLight": "Zum hellen Design wechseln",
-    "toDark": "Zum dunklen Design wechseln"
+    "toDark": "Zum dunklen Design wechseln",
+    "tour": "Tour starten"
   },
   "nav": {
     "map": "Karte",
@@ -92,5 +93,37 @@
       "opening": "Das München-Playbook abhaken, bis die Praxis auf der Karte live geht."
     },
     "creditTitle": "Credits"
+  },
+  "tour": {
+    "progress": "{n} / {total}",
+    "start": "Zeig mir alles",
+    "skip": "Tour überspringen",
+    "next": "Weiter",
+    "back": "Zurück",
+    "done": "Fertig",
+    "welcome": {
+      "title": "Willkommen im Netzwerk-Atlas",
+      "text": "Die IT von {org}, einer fiktiven Tierarztpraxis-Kette: Netz, Ausfälle, Fehlersuche, Eröffnungen und mehr. Eine kurze Tour zeigt, wo alles ist."
+    },
+    "mode": {
+      "title": "Einfach oder technisch",
+      "text": "Einfach erklärt es für das Praxisteam. Technisch zeigt Hostnamen, VLANs und die Details für die IT. Jede Seite kann beides."
+    },
+    "lang": {
+      "title": "Sprache und Design",
+      "text": "Englisch, Deutsch oder Türkisch, hell oder dunkel. Die Auswahl bleibt gespeichert."
+    },
+    "nav": {
+      "title": "Acht Module",
+      "text": "Karte, Ausfallsimulator, häufige Probleme, Praxiseröffnung, Standards, HA-Labor, Datenschutz und Monitoring."
+    },
+    "map": {
+      "title": "Los geht es auf der Karte",
+      "text": "Einen Standort anklicken, um hineinzusehen, dann ein Gerät für Details. Ziehen verschiebt, Scrollen oder Zwei-Finger-Zoom zoomt."
+    },
+    "help": {
+      "title": "Hilfe ist immer hier",
+      "text": "Dieser Knopf startet die Tour erneut. Auf der Über-Seite stehen gute erste Schritte."
+    }
   }
 }

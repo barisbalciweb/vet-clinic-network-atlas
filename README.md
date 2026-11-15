@@ -24,7 +24,7 @@ for clinic staff and managers, **Technical** for IT.
 |---|---|---|
 | A | Network map | Germany overview, then every site down to the room and device. VLAN plan and firewall rules. |
 | B | Failure simulator | Switch off devices, cut lines, stop services. The engine knows about redundancy and explains who is affected, what to test and how to fix it. |
-| C | Common issues | 18 typical clinic tickets with likely causes, checks in order and the solution. |
+| C | Common issues | 26 typical clinic tickets with likely causes, checks in order and the solution; card payment in depth, with the mistakes that make things worse. |
 | D | New clinic opening | Playbook for München from site survey to hypercare, with a procurement simulation. Tick it off and the clinic goes live on the map. |
 | E | Standardization | One hardware kit, one site template, a staged firmware rollout and Ansible. |
 | F | HA lab | A three-host vSphere cluster: HA restarts, N+1 admission control, maintenance mode, vMotion. |

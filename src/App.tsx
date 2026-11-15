@@ -13,6 +13,7 @@ import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { ABOUT_PATH, moduleForPath } from './modules/registry';
 import { PageFallback } from './components/layout/PageFallback';
+import { TourProvider } from './components/tour/Tour';
 
 // Every page is its own chunk: the map (React Flow) is only loaded where it is needed
 const page = <M, K extends keyof M>(load: () => Promise<M>, name: K) => lazy(async () => ({ default: (await load())[name] as ComponentType<M[K] extends ComponentType<infer P> ? P : never> }));
@@ -31,7 +32,9 @@ export default function App() {
       <PrefsProvider>
         <OpeningProvider>
           <SimProvider>
-            <Shell />
+            <TourProvider>
+              <Shell />
+            </TourProvider>
           </SimProvider>
         </OpeningProvider>
       </PrefsProvider>

@@ -14,9 +14,14 @@
     "solution": "Çözüm",
     "showOnMap": "Haritada göster",
     "simulate": "Simüle et",
-    "kind": { "incident": "Arıza", "request": "Talep" },
+    "kind": {
+      "incident": "Arıza",
+      "request": "Talep"
+    },
     "banner": "Vurgulanan: {symptom}",
-    "clearHighlight": "Vurgulamayı kaldır"
+    "clearHighlight": "Vurgulamayı kaldır",
+    "critical": "İş açısından kritik",
+    "warning": "Dikkat"
   },
   "category": {
     "printing": "Yazdırma ve tarama",
@@ -30,111 +35,389 @@
   "item": {
     "label-printer": {
       "symptom": "“Etiket yazıcısı hiçbir şey basmıyor.”",
-      "causes": { "1": "Etiket rulosu bitmiş veya yanlış takılmış.", "2": "Yazdırma işi Mac'teki kuyrukta takılmış.", "3": "Yazıcı kapalı veya kablosu çıkmış." },
-      "checks": { "1": "Ekran veya LED: hata, kâğıt bitti mi?", "2": "Mac'teki kuyruk: duraklatılmış veya takılı iş? (lpstat -p)", "3": "Yazıcı ping'e yanıt veriyor mu? (ping 10.2.50.22)", "4": "Yazıcının kendisinden test etiketi basın." },
+      "causes": {
+        "1": "Etiket rulosu bitmiş veya yanlış takılmış.",
+        "2": "Yazdırma işi Mac'teki kuyrukta takılmış.",
+        "3": "Yazıcı kapalı veya kablosu çıkmış."
+      },
+      "checks": {
+        "1": "Ekran veya LED: hata, kâğıt bitti mi?",
+        "2": "Mac'teki kuyruk: duraklatılmış veya takılı iş? (lpstat -p)",
+        "3": "Yazıcı ping'e yanıt veriyor mu? (ping 10.2.50.22)",
+        "4": "Yazıcının kendisinden test etiketi basın."
+      },
       "solution": "Ruloyu yeniden takıp kalibre edin, kuyruğu temizleyin, yazıcıyı devam ettirin. Olmazsa yedek yazıcıyı kullanın: aynı model, aynı ayarlar."
     },
     "scan-folder": {
       "symptom": "“Taramalar artık ortak klasöre gelmiyor.”",
-      "causes": { "1": "Tarama hesabının parolası değişmiş veya süresi dolmuş.", "2": "Dosya sunucusuna erişilemiyor (VPN veya sunucu kapalı).", "3": "Klasör izinleri değişmiş." },
-      "checks": { "1": "Yazıcı ekranındaki hata mesajı.", "2": "Ortak klasör aynı klinikteki bir Mac'te açılıyor mu?", "3": "Dizinde tarama hesabı: kilitli mi, süresi dolmuş mu?", "4": "Hedef klasörün izinleri." },
+      "causes": {
+        "1": "Tarama hesabının parolası değişmiş veya süresi dolmuş.",
+        "2": "Dosya sunucusuna erişilemiyor (VPN veya sunucu kapalı).",
+        "3": "Klasör izinleri değişmiş."
+      },
+      "checks": {
+        "1": "Yazıcı ekranındaki hata mesajı.",
+        "2": "Ortak klasör aynı klinikteki bir Mac'te açılıyor mu?",
+        "3": "Dizinde tarama hesabı: kilitli mi, süresi dolmuş mu?",
+        "4": "Hedef klasörün izinleri."
+      },
       "solution": "Tarama hesabına parola yöneticisinde saklanan uzun ve süresi dolmayan bir parola verin, sonra test taraması gönderin."
     },
     "card-terminal": {
       "symptom": "“Kart terminali ‘bağlantı yok’ diyor.”",
-      "causes": { "1": "Ağ kablosu gevşek veya switch portu kapalı.", "2": "İnternet hattı kesik: terminal yalnızca ödeme sağlayıcıyla konuşur.", "3": "Terminalin yeniden başlatılması veya güncellenmesi gerekiyor." },
-      "checks": { "1": "Terminalde ve switch portunda link LED'i.", "2": "Terminalde bağlantı testi.", "3": "Klinikteki diğer cihazlar internete çıkıyor mu?", "4": "Firewall panosu: terminalin VLAN 40'ta adresi var mı?" },
-      "solution": "Kabloyu yeniden takın ve terminali yeniden başlatın. Hat kesikse LTE devralır; o zamana kadar ikinci terminal veya nakit."
+      "causes": {
+        "1": "Ağ kablosu gevşek veya switch portu kapalı.",
+        "2": "İnternet hattı kesik: terminal yalnızca ödeme sağlayıcıyla konuşur.",
+        "3": "Terminalin yeniden başlatılması veya güncellenmesi gerekiyor."
+      },
+      "checks": {
+        "1": "Terminalde ve switch portunda link LED'i.",
+        "2": "Terminalde bağlantı testi.",
+        "3": "Klinikteki diğer cihazlar internete çıkıyor mu?",
+        "4": "Firewall panosu: terminalin VLAN 40'ta adresi var mı?"
+      },
+      "solution": "Kabloyu yeniden takın ve terminali yeniden başlatın. Hat kesikse LTE devralır; o zamana kadar ikinci terminal veya nakit.",
+      "warning": "Terminali başka bir prize takmayın: ödeme sağlayıcısına yalnızca VLAN 40 portları ulaşır."
     },
     "wifi-treatment": {
       "symptom": "“2 numaralı muayene odasında Wi-Fi sürekli kopuyor.”",
-      "causes": { "1": "Erişim noktası aşırı yüklü veya arızalı.", "2": "Zayıf kapsama: röntgen odasının kurşun kaplaması veya kalın duvarlar.", "3": "Mac, geçiş yapmak yerine uzaktaki bir erişim noktasına takılı kalıyor." },
-      "checks": { "1": "Mac hangi erişim noktasına bağlı, sinyal ne kadar güçlü?", "2": "Bulut panosu: o erişim noktasındaki istemciler ve hatalar.", "3": "Odanın her yerinde mi, yalnızca bir köşede mi?", "4": "İkinci bir cihazda da aynı sorun var mı?" },
+      "causes": {
+        "1": "Erişim noktası aşırı yüklü veya arızalı.",
+        "2": "Zayıf kapsama: röntgen odasının kurşun kaplaması veya kalın duvarlar.",
+        "3": "Mac, geçiş yapmak yerine uzaktaki bir erişim noktasına takılı kalıyor."
+      },
+      "checks": {
+        "1": "Mac hangi erişim noktasına bağlı, sinyal ne kadar güçlü?",
+        "2": "Bulut panosu: o erişim noktasındaki istemciler ve hatalar.",
+        "3": "Odanın her yerinde mi, yalnızca bir köşede mi?",
+        "4": "İkinci bir cihazda da aynı sorun var mı?"
+      },
       "solution": "Erişim noktasını yeniden başlatın veya değiştirin. Kapsama boşluğunda gücü artırmak yerine ölçüm yapıp erişim noktası ekleyin veya yerini değiştirin."
     },
     "file-share": {
       "symptom": "“Mac'im ortak klasörü açamıyor.”",
-      "causes": { "1": "Merkeze giden VPN tüneli kopuk.", "2": "Dosya sunucusu durmuş veya aşırı yüklü.", "3": "Kayıtlı oturum geçersiz (parola değişmiş)." },
-      "checks": { "1": "Aynı klinikteki iş arkadaşları açabiliyor mu?", "2": "Firewall panosunda tünel durumu.", "3": "Dosya sunucusu yanıt veriyor mu? (nc -vz 10.0.70.21 445)", "4": "Paylaşımı kesip güncel parolayla yeniden bağlanın." },
+      "causes": {
+        "1": "Merkeze giden VPN tüneli kopuk.",
+        "2": "Dosya sunucusu durmuş veya aşırı yüklü.",
+        "3": "Kayıtlı oturum geçersiz (parola değişmiş)."
+      },
+      "checks": {
+        "1": "Aynı klinikteki iş arkadaşları açabiliyor mu?",
+        "2": "Firewall panosunda tünel durumu.",
+        "3": "Dosya sunucusu yanıt veriyor mu? (nc -vz 10.0.70.21 445)",
+        "4": "Paylaşımı kesip güncel parolayla yeniden bağlanın."
+      },
       "solution": "Güncel parolayla yeniden bağlanın. Tüm klinik etkileniyorsa önce tüneli veya sunucuyu onarın."
     },
     "xray-archive": {
       "symptom": "“Röntgen görüntüleri arşivde görünmüyor.”",
-      "causes": { "1": "Görüntü arşivi (PACS) durmuş veya diski dolmuş.", "2": "VPN tüneli kopuk: görüntüler röntgen PC'sinde bekliyor.", "3": "Bir güncellemeden sonra röntgen yazılımında hedef yanlış." },
-      "checks": { "1": "Röntgen PC'sindeki gönderim kuyruğu: bekleyen görüntü var mı?", "2": "Röntgen PC'sinden arşive DICOM echo.", "3": "Firewall panosunda tünel durumu.", "4": "Arşiv sunucusu: servis çalışıyor mu, disk alanı var mı?" },
+      "causes": {
+        "1": "Görüntü arşivi (PACS) durmuş veya diski dolmuş.",
+        "2": "VPN tüneli kopuk: görüntüler röntgen PC'sinde bekliyor.",
+        "3": "Bir güncellemeden sonra röntgen yazılımında hedef yanlış."
+      },
+      "checks": {
+        "1": "Röntgen PC'sindeki gönderim kuyruğu: bekleyen görüntü var mı?",
+        "2": "Röntgen PC'sinden arşive DICOM echo.",
+        "3": "Firewall panosunda tünel durumu.",
+        "4": "Arşiv sunucusu: servis çalışıyor mu, disk alanı var mı?"
+      },
       "solution": "Nedeni giderin, sonra bekleyen görüntüleri yeniden gönderin. Arşiv onaylamadan röntgen PC'sindeki görüntüleri asla silmeyin."
     },
     "lab-results": {
       "symptom": "“Laboratuvar sonuçları hasta dosyasında görünmüyor.”",
-      "causes": { "1": "Laboratuvar arayüz sunucusu durmuş.", "2": "Analiz cihazı eski bir adrese gönderiyor.", "3": "Hasta numarası cihazda farklı girilmiş." },
-      "checks": { "1": "Analiz cihazının logu: sonuç gönderildi mi?", "2": "Arayüz sunucusu: çalışıyor mu, son mesaj ne zaman?", "3": "Hasta numarası klinik yazılımıyla eşleşiyor mu?", "4": "Klinik yazılımında içe aktarma hatası var mı?" },
+      "causes": {
+        "1": "Laboratuvar arayüz sunucusu durmuş.",
+        "2": "Analiz cihazı eski bir adrese gönderiyor.",
+        "3": "Hasta numarası cihazda farklı girilmiş."
+      },
+      "checks": {
+        "1": "Analiz cihazının logu: sonuç gönderildi mi?",
+        "2": "Arayüz sunucusu: çalışıyor mu, son mesaj ne zaman?",
+        "3": "Hasta numarası klinik yazılımıyla eşleşiyor mu?",
+        "4": "Klinik yazılımında içe aktarma hatası var mı?"
+      },
       "solution": "Arayüzü yeniden başlatın veya adresi düzeltin, sonra cihazdan yeniden gönderin. Eşleşmeyen hasta numaralarını elle düzeltin."
     },
     "vpn-down": {
       "symptom": "“Merkezden hiçbir şey çalışmıyor: klasörler, röntgen görüntüleri.”",
-      "causes": { "1": "VPN tüneli kopuk (anahtar, adres veya firmware).", "2": "İnternet hattı kesik.", "3": "Sorun merkezde: diğer klinikler de etkileniyor." },
-      "checks": { "1": "İnternet çalışıyor mu (klinik yazılımı, web siteleri)?", "2": "Firewall panosunda tünel durumu.", "3": "Diğer kliniklerde de aynı sorun var mı?", "4": "Merkez yanıt veriyor mu? (ping 10.0.10.1)" },
+      "causes": {
+        "1": "VPN tüneli kopuk (anahtar, adres veya firmware).",
+        "2": "İnternet hattı kesik.",
+        "3": "Sorun merkezde: diğer klinikler de etkileniyor."
+      },
+      "checks": {
+        "1": "İnternet çalışıyor mu (klinik yazılımı, web siteleri)?",
+        "2": "Firewall panosunda tünel durumu.",
+        "3": "Diğer kliniklerde de aynı sorun var mı?",
+        "4": "Merkez yanıt veriyor mu? (ping 10.0.10.1)"
+      },
       "solution": "Tüneli panodan yeniden başlatın. Bu sırada kartla ödeme ve klinik yazılımı çalışmaya devam eder."
     },
     "internet-slow": {
       "symptom": "“İnternet bugün çok yavaş.”",
-      "causes": { "1": "Hat bozulmuş veya klinik LTE yedeğinde çalışıyor.", "2": "Büyük bir yükleme veya güncelleme hattı dolduruyor.", "3": "Sağlayıcıda sorun var." },
-      "checks": { "1": "Firewall panosu: hangi hat aktif, ne kadar dolu?", "2": "En çok trafik yapanlar: bant genişliğini hangi cihaz kullanıyor?", "3": "Sözleşmeye göre hız testi.", "4": "Sağlayıcının arıza sayfası." },
+      "causes": {
+        "1": "Hat bozulmuş veya klinik LTE yedeğinde çalışıyor.",
+        "2": "Büyük bir yükleme veya güncelleme hattı dolduruyor.",
+        "3": "Sağlayıcıda sorun var."
+      },
+      "checks": {
+        "1": "Firewall panosu: hangi hat aktif, ne kadar dolu?",
+        "2": "En çok trafik yapanlar: bant genişliğini hangi cihaz kullanıyor?",
+        "3": "Sözleşmeye göre hız testi.",
+        "4": "Sağlayıcının arıza sayfası."
+      },
       "solution": "Büyük aktarımı durdurun veya erteleyin. Hattın kendisi kötüyse ölçümlerle bildirin; güncellemeler mesai sonrasında çalışır."
     },
     "voip-quality": {
       "symptom": "“Arayanların sesi kesik kesik geliyor, görüşmeler kopuyor.”",
-      "causes": { "1": "İnternet hattı dolu ve ses trafiğine öncelik verilmiyor.", "2": "Telefonun kablosu veya switch portu arızalı.", "3": "Telefon sağlayıcısında sorun var." },
-      "checks": { "1": "Tek bir telefon mu, hepsi mi?", "2": "Görüşme sırasında hat kullanımı.", "3": "Telefonun switch portundaki hata sayaçları.", "4": "Sağlayıcının durum sayfası." },
+      "causes": {
+        "1": "İnternet hattı dolu ve ses trafiğine öncelik verilmiyor.",
+        "2": "Telefonun kablosu veya switch portu arızalı.",
+        "3": "Telefon sağlayıcısında sorun var."
+      },
+      "checks": {
+        "1": "Tek bir telefon mu, hepsi mi?",
+        "2": "Görüşme sırasında hat kullanımı.",
+        "3": "Telefonun switch portundaki hata sayaçları.",
+        "4": "Sağlayıcının durum sayfası."
+      },
       "solution": "VLAN 60'a firewall ve switch'te öncelik verildiğinden emin olun. Yalnızca bir telefon etkileniyorsa kablosunu veya portunu değiştirin."
     },
     "guest-wifi": {
       "symptom": "“Hayvan sahipleri misafir Wi-Fi'a bağlanamıyor.”",
-      "causes": { "1": "Lease'ler uzun olduğu için adres havuzu dolu.", "2": "Misafir parolası değişmiş ama duyuru güncellenmemiş.", "3": "Bekleme salonundaki erişim noktası kapalı." },
-      "checks": { "1": "Telefon 169.254.x.x değil, gerçek bir adres alıyor mu?", "2": "Firewall panosu: misafir havuzundaki boş adresler.", "3": "Bekleme salonundaki erişim noktası çevrimiçi mi?" },
+      "causes": {
+        "1": "Lease'ler uzun olduğu için adres havuzu dolu.",
+        "2": "Misafir parolası değişmiş ama duyuru güncellenmemiş.",
+        "3": "Bekleme salonundaki erişim noktası kapalı."
+      },
+      "checks": {
+        "1": "Telefon 169.254.x.x değil, gerçek bir adres alıyor mu?",
+        "2": "Firewall panosu: misafir havuzundaki boş adresler.",
+        "3": "Bekleme salonundaki erişim noktası çevrimiçi mi?"
+      },
       "solution": "Lease süresini kısaltın (örneğin bir saat) ve gerekirse havuzu büyütün. Ekip Wi-Fi'ı ayrıdır, etkilenmez."
     },
     "locked-out": {
       "symptom": "“Hesabım kilitlendi, giriş yapamıyorum.”",
-      "causes": { "1": "Çok fazla hatalı deneme; genelde telefonda kayıtlı eski parola.", "2": "Parolanın süresi dolmuş.", "3": "Hesap yanlışlıkla devre dışı bırakılmış." },
-      "checks": { "1": "Arayanı doğrulayın: bilinen bir numaradan geri arayın.", "2": "Dizin: kilitli mi, süresi dolmuş mu, devre dışı mı?", "3": "Eski parolayı sürekli deneyen cihaz hangisi?" },
+      "causes": {
+        "1": "Çok fazla hatalı deneme; genelde telefonda kayıtlı eski parola.",
+        "2": "Parolanın süresi dolmuş.",
+        "3": "Hesap yanlışlıkla devre dışı bırakılmış."
+      },
+      "checks": {
+        "1": "Arayanı doğrulayın: bilinen bir numaradan geri arayın.",
+        "2": "Dizin: kilitli mi, süresi dolmuş mu, devre dışı mı?",
+        "3": "Eski parolayı sürekli deneyen cihaz hangisi?"
+      },
       "solution": "Kilidi açın veya ilk girişte değiştirilmesi gereken geçici bir parola verin, eski parolayı telefondan silin. Parolaları asla e-postayla göndermeyin."
     },
     "onboarding": {
       "symptom": "“Pazartesi yeni bir çalışma arkadaşımız başlıyor.”",
-      "causes": { "1": "Talep geç geliyor veya rol belirtilmemiş.", "2": "MDM'de Mac atanmamış.", "3": "Yetkiler rolden değil, bir iş arkadaşından kopyalanmış." },
-      "checks": { "1": "Klinik yöneticisinden rolü öğrenin: resepsiyon, hekim veya ofis.", "2": "Hesabı rol şablonundan, MFA ile oluşturun.", "3": "MDM'de bir Mac atayın; ilk açılışta kendini kurar.", "4": "Klinik yazılımında rolün yetkileriyle kullanıcı açın." },
+      "causes": {
+        "1": "Talep geç geliyor veya rol belirtilmemiş.",
+        "2": "MDM'de Mac atanmamış.",
+        "3": "Yetkiler rolden değil, bir iş arkadaşından kopyalanmış."
+      },
+      "checks": {
+        "1": "Klinik yöneticisinden rolü öğrenin: resepsiyon, hekim veya ofis.",
+        "2": "Hesabı rol şablonundan, MFA ile oluşturun.",
+        "3": "MDM'de bir Mac atayın; ilk açılışta kendini kurar.",
+        "4": "Klinik yazılımında rolün yetkileriyle kullanıcı açın."
+      },
       "solution": "İlk günden önce her şey hazır olur; yanında tek sayfalık bir başlangıç notu: giriş, MFA, Wi-Fi, kimi aramalı."
     },
     "offboarding": {
       "symptom": "“Bir çalışma arkadaşımız cuma günü ayrılıyor.”",
-      "causes": { "1": "Hesaplar son günden sonra da açık kalıyor.", "2": "Kişinin bildiği ortak parolalar değiştirilmiyor.", "3": "Cihazlar geri alınmıyor veya silinmiyor." },
-      "checks": { "1": "Son iş gününün sonunda hesabı devre dışı bırakın.", "2": "Klinik yazılımı, santral ve gruplardaki erişimleri kaldırın.", "3": "Kişinin bildiği ortak parolaları değiştirin.", "4": "Mac'i teslim alın ve MDM üzerinden silin." },
+      "causes": {
+        "1": "Hesaplar son günden sonra da açık kalıyor.",
+        "2": "Kişinin bildiği ortak parolalar değiştirilmiyor.",
+        "3": "Cihazlar geri alınmıyor veya silinmiyor."
+      },
+      "checks": {
+        "1": "Son iş gününün sonunda hesabı devre dışı bırakın.",
+        "2": "Klinik yazılımı, santral ve gruplardaki erişimleri kaldırın.",
+        "3": "Kişinin bildiği ortak parolaları değiştirin.",
+        "4": "Mac'i teslim alın ve MDM üzerinden silin."
+      },
       "solution": "İşten ayrılma kontrol listesini aynı gün tamamlayın. Posta kutusunu ve dosyaları saklama süresi boyunca tutun, sonra silin."
     },
     "update-broke": {
       "symptom": "“Dün geceki güncellemeden beri bir program açılmıyor.”",
-      "causes": { "1": "Uygulama yeni macOS ile henüz uyumlu değil.", "2": "Güncelleme yarım kalmış.", "3": "Güncelleme izinleri sıfırlamış." },
-      "checks": { "1": "Tek bir Mac mi, aynı güncellemeyi alan hepsi mi?", "2": "MDM: hangi sürüm, ne zaman kuruldu?", "3": "Uygulamanın sürüm notları ve üretici desteği.", "4": "Sistem Ayarları'nda gizlilik izinleri." },
+      "causes": {
+        "1": "Uygulama yeni macOS ile henüz uyumlu değil.",
+        "2": "Güncelleme yarım kalmış.",
+        "3": "Güncelleme izinleri sıfırlamış."
+      },
+      "checks": {
+        "1": "Tek bir Mac mi, aynı güncellemeyi alan hepsi mi?",
+        "2": "MDM: hangi sürüm, ne zaman kuruldu?",
+        "3": "Uygulamanın sürüm notları ve üretici desteği.",
+        "4": "Sistem Ayarları'nda gizlilik izinleri."
+      },
       "solution": "MDM'de güncellemeyi durdurun, tarayıcıda veya başka bir Mac'te çalışın, düzeltilmiş uygulama sürümünü kurun. Bir dahaki sefere: önce pilot grup."
     },
     "disk-full": {
       "symptom": "“Mac'im diskin neredeyse dolu olduğunu söylüyor.”",
-      "causes": { "1": "Büyük indirmeler veya görüntüler yerelde kaydedilmiş.", "2": "Eski önbellekler ve kurulum dosyaları.", "3": "Bir senkron klasörü her şeyi çevrimdışı tutuyor." },
-      "checks": { "1": "Sistem Ayarları, Depolama: yeri ne kaplıyor?", "2": "İndirilenler ve Masaüstü klasörleri.", "3": "MDM: tüm Mac'lerin disk kullanım raporu." },
+      "causes": {
+        "1": "Büyük indirmeler veya görüntüler yerelde kaydedilmiş.",
+        "2": "Eski önbellekler ve kurulum dosyaları.",
+        "3": "Bir senkron klasörü her şeyi çevrimdışı tutuyor."
+      },
+      "checks": {
+        "1": "Sistem Ayarları, Depolama: yeri ne kaplıyor?",
+        "2": "İndirilenler ve Masaüstü klasörleri.",
+        "3": "MDM: tüm Mac'lerin disk kullanım raporu."
+      },
       "solution": "Dosyaları ortak klasöre taşıyın, İndirilenler'i ve Çöp Sepeti'ni boşaltın, çevrimdışı senkronu sınırlayın. Hasta verisi zaten Mac'te durmamalı."
     },
     "cert-expired": {
       "symptom": "“Röntgen görüntülerini açarken tarayıcı ‘bağlantı gizli değil’ uyarısı veriyor.”",
-      "causes": { "1": "Sunucu sertifikasının süresi dolmuş.", "2": "Mac'te tarih ve saat yanlış.", "3": "Yeni bir Mac'te dahili kök sertifika eksik." },
-      "checks": { "1": "Sertifika ayrıntıları: son geçerlilik tarihi ve veren.", "2": "Mac'te tarih ve saat.", "3": "Diğer Mac'lerde de aynı uyarı var mı?" },
+      "causes": {
+        "1": "Sunucu sertifikasının süresi dolmuş.",
+        "2": "Mac'te tarih ve saat yanlış.",
+        "3": "Yeni bir Mac'te dahili kök sertifika eksik."
+      },
+      "checks": {
+        "1": "Sertifika ayrıntıları: son geçerlilik tarihi ve veren.",
+        "2": "Mac'te tarih ve saat.",
+        "3": "Diğer Mac'lerde de aynı uyarı var mı?"
+      },
       "solution": "Sunucudaki sertifikayı yenileyin; uyarıyı geçiştirmeyin. Yalnızca bir Mac etkileniyorsa kök sertifikayı MDM ile gönderin."
     },
     "mdm-not-enrolled": {
       "symptom": "“Yeni Mac uygulamalarını ve Wi-Fi ayarlarını almıyor.”",
-      "causes": { "1": "Mac, otomatik kayıt için onu bildiren kanaldan alınmamış.", "2": "Henüz MDM sunucusuna atanmamış.", "3": "İnternetsiz kurulmuş, bu yüzden uzaktan yönetim adımı atlanmış." },
-      "checks": { "1": "Kurulum yardımcısı uzaktan yönetim ekranını gösterdi mi?", "2": "Seri numarası kurumsal cihaz portalında var mı?", "3": "MDM: cihaz listede mi, bir profile atanmış mı?" },
+      "causes": {
+        "1": "Mac, otomatik kayıt için onu bildiren kanaldan alınmamış.",
+        "2": "Henüz MDM sunucusuna atanmamış.",
+        "3": "İnternetsiz kurulmuş, bu yüzden uzaktan yönetim adımı atlanmış."
+      },
+      "checks": {
+        "1": "Kurulum yardımcısı uzaktan yönetim ekranını gösterdi mi?",
+        "2": "Seri numarası kurumsal cihaz portalında var mı?",
+        "3": "MDM: cihaz listede mi, bir profile atanmış mı?"
+      },
       "solution": "Seri numarasını MDM'e atayın, Mac'i silip internetle yeniden kurun. Gelecekteki Mac'leri onaylı kanaldan alın."
+    },
+    "double-charge": {
+      "symptom": "“Müşteri karttan iki kez çekildiğini söylüyor.”",
+      "causes": {
+        "1": "Terminal yanıtı çok uzun bekledi ve ödeme yeniden başlatıldı.",
+        "2": "İlk ödeme geçti ama fiş yazdırılmadı.",
+        "3": "Aynı fatura için iki terminal de kullanıldı."
+      },
+      "checks": {
+        "1": "Terminal günlüğünü yazdırın: onaylanmış iki ödeme var mı?",
+        "2": "Tutarı, saati ve kartın son hanelerini karşılaştırın.",
+        "3": "Gün sonu kapanışı yapıldı mı?",
+        "4": "O sırada internet yavaş mıydı? Firewall panosuna bakın."
+      },
+      "solution": "Çift ödemeyi gün sonu kapanışından önce aynı terminalde iptal edin. Kapanıştan sonra havale ile iade edin ve faturaya not düşün.",
+      "warning": "İlk ödemenin sonucu net değilken ödemeyi asla yeniden başlatmayın. Önce günlüğe bakın."
+    },
+    "card-brand-declined": {
+      "symptom": "“girocard çalışıyor ama kredi kartları reddediliyor.”",
+      "causes": {
+        "1": "Bu kart markası üye işyeri sözleşmesinde veya terminalde açık değil.",
+        "2": "Sağlayıcının bir kart ağında arızası var.",
+        "3": "Sadece bu kartla ilgili bir sorun: bankanın limiti veya blokesi."
+      },
+      "checks": {
+        "1": "Bu markanın her kartı mı başarısız, yoksa sadece biri mi?",
+        "2": "Terminalin gösterdiği hata kodunu not edin.",
+        "3": "Sağlayıcının durum sayfasına bakın.",
+        "4": "Yakın zamanda terminal güncellemesi veya sözleşme değişikliği oldu mu?"
+      },
+      "solution": "Tek kart başarısızsa müşteri bankasıyla görüşür. Bütün bir marka başarısızsa terminal ID (TID) ve hata koduyla sağlayıcıyı arayın."
+    },
+    "payment-offline": {
+      "symptom": "“İnternet yok, LTE de yok. Kartla ödeme alınamıyor.”",
+      "causes": {
+        "1": "Ana hat ve LTE yedeği aynı anda kesik.",
+        "2": "LTE SIM’in veri kotası bitti veya SIM aktif değil.",
+        "3": "Firewall’un kendisi kapalı, bu yüzden hiçbir hat kullanılmıyor."
+      },
+      "checks": {
+        "1": "Firewall panosu: WAN1 ve WAN2’nin durumu.",
+        "2": "LTE router’da sinyal ve aktif SIM görünüyor mu?",
+        "3": "Sadece bu klinik mi? Diğer lokasyonlara sorun."
+      },
+      "solution": "Terminalin ödemeyi onaylamak için bağlantıya ihtiyacı var. Nakit alın veya fatura kesin; hatları sağlayıcıyla çözün.",
+      "warning": "Geçici çözüm olarak asla kart numarası veya PIN not etmeyin. Bu, kartlı ödeme kurallarını ihlal eder."
+    },
+    "payment-blocked": {
+      "symptom": "“Firewall değişikliğinden beri terminal ‘host’a ulaşılamıyor’ diyor.”",
+      "causes": {
+        "1": "VLAN 40 için ödeme kuralı değişti veya üzerine yazıldı.",
+        "2": "Sağlayıcı yeni adresler kullanıyor ama kural yalnızca eski IP’lere izin veriyor.",
+        "3": "TLS inspection artık ödeme trafiğini çözüyor ve bozuyor."
+      },
+      "checks": {
+        "1": "Firewall logu: VLAN 40’tan engellenen bağlantı var mı?",
+        "2": "Kuralı lokasyon şablonuyla karşılaştırın.",
+        "3": "VLAN 40, TLS inspection’ın dışında mı?"
+      },
+      "solution": "Kuralı şablondan geri yükleyin ve sağlayıcıya belgelenmiş host adlarıyla izin verin. VLAN 40’ı TLS inspection’ın dışında tutun.",
+      "warning": "Bir klinikteki her firewall değişikliği, ekip eve gitmeden önce bir test ödemesiyle biter."
+    },
+    "end-of-day": {
+      "symptom": "“Terminal gün sonu kapanışı istiyor ve ödemeleri bekletiyor.”",
+      "causes": {
+        "1": "Dün gün sonu kapanışı yapılmadı.",
+        "2": "Kapanış başladı ama bitmedi: bağlantı koptu.",
+        "3": "Otomatik kapanış, terminalin kapalı olduğu bir saate ayarlı."
+      },
+      "checks": {
+        "1": "Terminal menüsü: son başarılı kapanışın tarihi.",
+        "2": "Terminal şu anda çevrimiçi mi?",
+        "3": "Hangi kapanış saati ayarlı?"
+      },
+      "solution": "Kapanışı elle başlatın ve kapanış fişini saklayın. Otomatik kapanışı terminalin açık olduğu bir saate alın."
+    },
+    "terminal-swap": {
+      "symptom": "“Kart terminali bozuk. Yedek cihaz geldi.”",
+      "causes": {
+        "1": "Yeni terminal VLAN 40’ta olmayan bir porta takıldı.",
+        "2": "Terminal sağlayıcıda kurulmadı, kartlar reddediliyor.",
+        "3": "Test ödemesi iptal edilmedi ve hesap dökümünde kalıyor."
+      },
+      "checks": {
+        "1": "Eskisiyle aynı switch portuna takın (VLAN 40).",
+        "2": "Sağlayıcının anlattığı kurulumu yapın; terminal ID’yi not edin.",
+        "3": "Küçük bir test ödemesi yapın ve iptal edin.",
+        "4": "Eski terminali sağlayıcının istediği şekilde geri gönderin."
+      },
+      "solution": "Değiştir, kur, test ödemesi yap, iptal et. Yeni terminal ID’yi envantere girin."
+    },
+    "no-ip": {
+      "symptom": "“Yeni laptop ağa bağlanmıyor, eskiler çalışıyor.”",
+      "causes": {
+        "1": "Personel ağının adres havuzu dolu.",
+        "2": "Özel (rastgele) MAC adresli cihazlar çok sayıda lease tüketiyor.",
+        "3": "Laptop yanlış Wi-Fi’da, örneğin misafir ağında."
+      },
+      "checks": {
+        "1": "Mac 169.254.x.x adresi mi gösteriyor?",
+        "2": "Firewall: VLAN 20’deki DHCP lease’leri, kaç tane boş?",
+        "3": "Laptop hangi Wi-Fi’da?"
+      },
+      "solution": "Eski lease’leri silin ve lease süresini kısaltın; gerekirse havuzu büyütün. Kişisel telefonlar misafir Wi-Fi’ına aittir."
+    },
+    "phishing": {
+      "symptom": "“Bir e-postadaki sayfaya şifremi girdim.”",
+      "causes": {
+        "1": "“Paylaşılan belge” veya kargo linki içeren bir e-posta.",
+        "2": "Gerçek gibi görünen, başka bir alan adında bir giriş sayfası.",
+        "3": "Kendisi giriş yapmadan onaylanan bir MFA isteği."
+      },
+      "checks": {
+        "1": "Şifreyi sıfırlayın ve tüm oturumları hemen kapatın.",
+        "2": "Giriş kaydı: bilinmeyen yerlerden giriş var mı?",
+        "3": "Posta kutusu: yeni yönlendirme veya kural var mı?",
+        "4": "Ekibi uyarın; göndereni ve linki engelleyin."
+      },
+      "solution": "Hızlı bildirim için teşekkür edin; bu, hasarı sınırlar. Kişisel verilere erişildiyse 72 saatlik bildirim yükümlülüğü geçerli olabilir.",
+      "warning": "BT görmeden e-postayı silmeyin. Linkin nereye gittiğini gösterir."
     }
   }
 }

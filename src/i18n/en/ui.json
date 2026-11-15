@@ -18,7 +18,8 @@
     "technicalHint": "Full detail for IT: VLANs, addresses, commands",
     "language": "Language",
     "toLight": "Switch to light theme",
-    "toDark": "Switch to dark theme"
+    "toDark": "Switch to dark theme",
+    "tour": "Start the tour"
   },
   "nav": {
     "map": "Map",
@@ -92,5 +93,37 @@
       "opening": "Tick off the München playbook until the clinic goes live on the map."
     },
     "creditTitle": "Credits"
+  },
+  "tour": {
+    "progress": "{n} / {total}",
+    "start": "Show me around",
+    "skip": "Skip tour",
+    "next": "Next",
+    "back": "Back",
+    "done": "Done",
+    "welcome": {
+      "title": "Welcome to the Network Atlas",
+      "text": "The IT of {org}, a fictional vet clinic chain: network, failures, troubleshooting, openings and more. A short tour shows where everything is."
+    },
+    "mode": {
+      "title": "Simple or technical",
+      "text": "Simple explains things for clinic staff. Technical adds hostnames, VLANs and the details IT needs. Every page has both."
+    },
+    "lang": {
+      "title": "Language and theme",
+      "text": "English, German or Turkish, light or dark. Your choice is remembered."
+    },
+    "nav": {
+      "title": "Eight modules",
+      "text": "Map, failure simulator, common issues, clinic opening, standards, HA lab, data protection and monitoring."
+    },
+    "map": {
+      "title": "Start on the map",
+      "text": "Click a site to look inside, then a device for its details. Drag to move, scroll or pinch to zoom."
+    },
+    "help": {
+      "title": "Help is always here",
+      "text": "This button starts the tour again. The About page lists good first things to try."
+    }
   }
 }

@@ -644,3 +644,13 @@ no sentences: translation keys plus ids, resolved to names by the UI in the curr
   and HQ (hosts, VMs including HA restarts, storage controllers, backup with its offsite copy, certificates; an
   active `cert-expired` fault expires the certificate). In a healthy network the only alert is the certificate
   that expires in 14 days, on purpose.
+
+## 23. More tickets and the first-visit tour (after Phase 10)
+
+- **`issues.json`** has 26 tickets. Two optional flags: `critical` (the clinic cannot take money or data is at
+  risk; shown as a badge) and `warning` (adds the text `issues.item.<id>.warning`: the mistake that makes it
+  worse, such as retrying a payment without checking the journal). Card payment has seven tickets: connection,
+  double charge, one card brand declined, both lines down, firewall change, daily closing, terminal swap.
+- **Tour** (`src/components/tour/Tour.tsx`): six steps on the first visit, stored as `atlas:tourDone`. Steps
+  point at elements with `data-tour="<id>"`; the first visible one wins (tab row on desktop, menu button on a
+  phone). The "?" button in the header starts it again. Texts: `ui.tour.*`.
