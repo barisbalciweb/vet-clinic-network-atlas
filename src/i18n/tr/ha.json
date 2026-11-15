@@ -106,7 +106,9 @@
     "reconnected": "{host} yeniden erişilebilir.",
     "drs": "DRS, vMotion ile {count} taşıma yapıyor.",
     "responseChanged": "Yalıtım tepkisi değiştirildi.",
-    "noImpact": "Hiçbir VM etkilenmiyor."
+    "noImpact": "Hiçbir VM etkilenmiyor.",
+    "toneBad": "Sorun",
+    "toneOk": "Düzeldi"
   },
   "effects": {
     "title": "Lokasyonlara etkisi",
@@ -202,5 +204,6 @@
     "down": "Onarılana kadar kapalı",
     "up": "Çalışıyor",
     "now": "Cluster'da aynı arıza birkaç dakikalık bir yeniden başlatmadır."
-  }
+  },
+  "vmKey": "Mor kutular sanal sunuculardır (VM). Etraflarındaki host’lar fiziksel makinelerdir."
 }

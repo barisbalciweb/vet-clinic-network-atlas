@@ -29,6 +29,9 @@
   --c-warn-soft: #fbeed3;
   --c-bad: #c0392b;
   --c-bad-soft: #fadeda;
+  --c-virtual: #6a4cc2; /* virtual layer: VMs */
+  --c-virtual-soft: #ece6fb;
+  --c-virtual-ink: #4a2f9a;
   /* Link lines on the map (kind is also shown by the line pattern) */
   --link-lan: #7b8794;
   --link-wifi: #2f6fb0;
@@ -59,6 +62,9 @@
   --c-warn-soft: #3b2d12;
   --c-bad: #f0857a;
   --c-bad-soft: #40201c;
+  --c-virtual: #a58ff0;
+  --c-virtual-soft: #2a2343;
+  --c-virtual-ink: #cbbcff;
   --link-lan: #8b98a5;
   --link-wifi: #6fb1ee;
   --link-wan: #f0a873;
@@ -87,6 +93,9 @@
   --color-warn-soft: var(--c-warn-soft);
   --color-bad: var(--c-bad);
   --color-bad-soft: var(--c-bad-soft);
+  --color-virtual: var(--c-virtual);
+  --color-virtual-soft: var(--c-virtual-soft);
+  --color-virtual-ink: var(--c-virtual-ink);
 }
 
 html,

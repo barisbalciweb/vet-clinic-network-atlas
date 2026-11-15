@@ -106,7 +106,9 @@
     "reconnected": "{host} is reachable again.",
     "drs": "DRS applies {count} moves with vMotion.",
     "responseChanged": "Isolation response changed.",
-    "noImpact": "No VM is affected."
+    "noImpact": "No VM is affected.",
+    "toneBad": "Problem",
+    "toneOk": "Recovered"
   },
   "effects": {
     "title": "Effect on the sites",
@@ -202,5 +204,6 @@
     "down": "Down until repaired",
     "up": "Running",
     "now": "In the cluster, the same failure is a restart of a few minutes."
-  }
+  },
+  "vmKey": "Violet tiles are virtual servers (VMs). The hosts around them are the physical machines."
 }

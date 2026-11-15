@@ -21,7 +21,10 @@
     "banner": "Vurgulanan: {symptom}",
     "clearHighlight": "Vurgulamayı kaldır",
     "critical": "İş açısından kritik",
-    "warning": "Dikkat"
+    "warning": "Dikkat",
+    "more": "Sebepler ve kontroller",
+    "moreRequest": "Tuzaklar ve adımlar",
+    "causesShort": "Olası sebepler"
   },
   "category": {
     "printing": "Yazdırma ve tarama",

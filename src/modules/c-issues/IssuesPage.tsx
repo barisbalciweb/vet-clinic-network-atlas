@@ -12,6 +12,7 @@ import { useI18n } from '../../i18n/I18nContext';
 import { hrefFor } from '../../hooks/useHashRoute';
 import { issueKeys, type IssueItem } from '../../schema/issues';
 import { cn } from '../../utils/cn';
+import { Collapsible } from '../../components/common/Collapsible';
 
 const fold = (s: string) => s.toLocaleLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 
@@ -38,7 +39,21 @@ function IssueCard({ item }: { item: IssueItem }) {
       </div>
       <h2 className="mt-2 text-base font-semibold leading-snug text-ink">{td(`${base}.symptom`)}</h2>
 
-      <h3 className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted">{request ? t('issues.ui.pitfalls') : t('issues.ui.causes')}</h3>
+      <h3 className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted">{t('issues.ui.solution')}</h3>
+      <p className="mt-1 text-sm leading-relaxed text-ink">{td(`${base}.solution`)}</p>
+
+      {item.warning && (
+        <div className="mt-3 flex gap-2 rounded-xl border border-warn/60 bg-warn-soft p-3 text-sm text-ink">
+          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-warn" aria-hidden="true" />
+          <p>
+            <strong className="font-semibold">{t('issues.ui.warning')}: </strong>
+            {td(`${base}.warning`)}
+          </p>
+        </div>
+      )}
+
+      <Collapsible className="mt-3" summary={request ? t('issues.ui.moreRequest') : showChecks ? t('issues.ui.more') : t('issues.ui.causesShort')}>
+      <h3 className="mt-1 text-xs font-semibold uppercase tracking-wide text-muted">{request ? t('issues.ui.pitfalls') : t('issues.ui.causes')}</h3>
       <ol className="mt-1 list-decimal space-y-0.5 pl-5 text-sm text-ink">
         {list('causes', item.causes).map((c) => (
           <li key={c}>{c}</li>
@@ -56,18 +71,7 @@ function IssueCard({ item }: { item: IssueItem }) {
         </>
       )}
 
-      <h3 className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted">{t('issues.ui.solution')}</h3>
-      <p className="mt-1 text-sm leading-relaxed text-ink">{td(`${base}.solution`)}</p>
-
-      {item.warning && (
-        <div className="mt-3 flex gap-2 rounded-xl border border-warn/60 bg-warn-soft p-3 text-sm text-ink">
-          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-warn" aria-hidden="true" />
-          <p>
-            <strong className="font-semibold">{t('issues.ui.warning')}: </strong>
-            {td(`${base}.warning`)}
-          </p>
-        </div>
-      )}
+      </Collapsible>
 
       <div className="mt-auto flex flex-wrap gap-2 pt-4">
         <a

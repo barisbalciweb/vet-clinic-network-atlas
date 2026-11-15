@@ -29,7 +29,7 @@
     "germany": "Schematische Deutschlandkarte"
   },
   "legend": {
-    "title": "Linien",
+    "title": "Legende",
     "lan": "Netzwerkkabel",
     "wifi": "WLAN",
     "wan": "Internetleitung",
@@ -38,7 +38,8 @@
     "virtual": "Virtuell (Software)",
     "backup": "Hellere Linie = Backup-Weg oder noch nicht in Betrieb",
     "degraded": "Gelb mit !: eingeschränkt oder Ersatzweg aktiv",
-    "down": "Rot, gestrichelt: Verbindung unterbrochen"
+    "down": "Rot, gestrichelt: Verbindung unterbrochen",
+    "vm": "Violett = virtueller Server (VM), läuft auf den ESXi-Hosts"
   },
   "panel": {
     "label": "Gerätedetails",

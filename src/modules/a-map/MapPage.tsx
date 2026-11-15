@@ -79,7 +79,9 @@ export function MapPage({ route, simulator = false }: { route: Route; simulator?
 
   const legend = useMemo(() => {
     const kinds = new Set(layout.edges.map((e) => INDEX.links.get(e.id)?.kind));
-    return { kinds: KIND_ORDER.filter((k) => kinds.has(k)), states: new Set(linkStates.values()) };
+    // Does this canvas show virtual servers? Then the legend explains their colour
+    const virtual = layout.nodes.some((n) => n.type === 'device' && INDEX.roles.get(INDEX.devices.get((n.data as { deviceId: string }).deviceId)?.role ?? '')?.layer === 'server');
+    return { kinds: KIND_ORDER.filter((k) => kinds.has(k)), states: new Set(linkStates.values()), virtual };
   }, [layout, linkStates]);
 
   const selectDevice = useCallback(
@@ -250,7 +252,7 @@ export function MapPage({ route, simulator = false }: { route: Route; simulator?
                   {t('map.site.plannedBanner')}
                 </p>
               )}
-              <Legend kinds={legend.kinds} states={legend.states} deviceStates={sim.active.length > 0} raised={simulator} />
+              <Legend kinds={legend.kinds} states={legend.states} virtual={legend.virtual} deviceStates={sim.active.length > 0} raised={simulator} />
               {!simulator && selected && (
                 <SidePanel label={t('map.panel.label')} closeLabel={t('map.panel.close')} onClose={clearSelection}>
                   <DeviceDetails key={selected.id} device={selected} onSelect={selectDevice}>

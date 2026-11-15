@@ -65,7 +65,7 @@ const STATE_RING: Record<Quality, string> = { up: '', degraded: 'border-warn rin
 const LAYER_TONE: Record<string, string> = {
   infrastructure: 'bg-primary-soft text-primary-strong',
   endpoint: 'bg-raised text-ink',
-  server: 'bg-accent-soft text-accent-ink',
+  server: 'bg-virtual-soft text-virtual-ink',
   external: 'bg-raised text-muted',
 };
 
@@ -97,7 +97,7 @@ export const DeviceNode = memo(function DeviceNode({ data }: NodeProps<DeviceFlo
         onClick={() => selectDevice(device.id)}
         className={cn(
           'relative flex h-full w-full items-center gap-2.5 rounded-xl border bg-surface px-2.5 text-left shadow-sm transition-shadow hover:shadow-md',
-          selected ? 'border-primary ring-2 ring-primary' : lit ? 'border-accent ring-2 ring-accent' : sim ? STATE_RING[sim.state] || 'border-line' : 'border-line',
+          selected ? 'border-primary ring-2 ring-primary' : lit ? 'border-accent ring-2 ring-accent' : (sim && STATE_RING[sim.state]) || (role?.layer === 'server' ? 'border-virtual/60 bg-virtual-soft/40' : 'border-line'),
           planned && 'border-dashed opacity-70',
           faded && 'opacity-40',
         )}

@@ -18,10 +18,18 @@ import { Segmented } from '../../components/common/Segmented';
 import { siteLabel } from '../../components/map/labels';
 import { useCatalogNames } from '../d-opening/artefacts';
 import { cn } from '../../utils/cn';
+import { Collapsible } from '../../components/common/Collapsible';
 
 const CLINICS = TOPOLOGY.sites.filter((s) => s.kind === 'clinic').map((s) => s.id);
 
-function Card({ title, children, badge }: { title: string; children: ReactNode; badge?: ReactNode }) {
+/** `collapsible`: closed until opened, for topics not needed at first glance */
+function Card({ title, children, badge, collapsible }: { title: string; children: ReactNode; badge?: ReactNode; collapsible?: boolean }) {
+  if (collapsible)
+    return (
+      <Collapsible variant="card" summary={title}>
+        {children}
+      </Collapsible>
+    );
   return (
     <section className="rounded-2xl border border-line bg-surface p-4">
       <div className="flex flex-wrap items-center gap-2">
@@ -100,7 +108,7 @@ function TemplateCard() {
   );
 
   return (
-    <Card title={t('std.ui.templateTitle')}>
+    <Card title={t('std.ui.templateTitle')} collapsible>
       <p className="text-sm text-muted">{t(`std.ui.templateIntro.${mode}`)}</p>
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <span className="text-xs font-semibold uppercase tracking-wide text-muted">{t('std.ui.variables')}</span>
@@ -302,7 +310,7 @@ function AnsibleCard() {
   }, [running, shown, output.length, reducedMotion]);
 
   return (
-    <Card title={t('std.ui.ansibleTitle')}>
+    <Card title={t('std.ui.ansibleTitle')} collapsible>
       <p className="text-sm text-muted">{t('std.ui.ansibleIntro')}</p>
       {mode === 'technical' && (
         <div className="mt-3">
@@ -371,7 +379,7 @@ function AnsibleCard() {
 function ZeroTouchCard() {
   const { t, td } = useI18n();
   return (
-    <Card title={t('std.ui.zeroTitle')}>
+    <Card title={t('std.ui.zeroTitle')} collapsible>
       <ol className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
         {STANDARDS.zeroTouch.map((s, i) => (
           <li key={s} className="relative rounded-xl border border-line bg-raised/50 p-3">
@@ -391,7 +399,7 @@ function ZeroTouchCard() {
 function CompareCard() {
   const { t, td } = useI18n();
   return (
-    <Card title={t('std.ui.compareTitle')}>
+    <Card title={t('std.ui.compareTitle')} collapsible>
       <div className="mb-2 flex flex-wrap gap-4 text-xs text-muted">
         <span className="inline-flex items-center gap-1.5">
           <span className="h-3 w-5 rounded bg-muted/50" aria-hidden="true" />

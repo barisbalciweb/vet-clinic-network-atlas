@@ -88,4 +88,4 @@ Changing the network or adding a fault scenario usually means editing JSON only.
 
 ## Credits
 
-Built by **Baris Balci** ([@barisbalciweb](https://github.com/barisbalciweb)).
+Built by **Barış Balcı** ([@barisbalciweb](https://github.com/barisbalciweb)).

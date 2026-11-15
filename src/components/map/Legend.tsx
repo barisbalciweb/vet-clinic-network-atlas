@@ -14,11 +14,13 @@ interface Props {
   states: ReadonlySet<LinkState>;
   /** Explain the device badges (only while something is broken) */
   deviceStates?: boolean;
+  /** The canvas shows virtual servers: explain their colour */
+  virtual?: boolean;
   /** Leave room for the simulator's bottom sheet on phones */
   raised?: boolean;
 }
 
-export function Legend({ kinds, states, deviceStates = false, raised = false }: Props) {
+export function Legend({ kinds, states, virtual = false, deviceStates = false, raised = false }: Props) {
   const t = useT();
   const isMobile = useIsMobile();
   if (kinds.length === 0) return null;
@@ -38,6 +40,12 @@ export function Legend({ kinds, states, deviceStates = false, raised = false }: 
           );
         })}
         {(states.has('standby') || states.has('planned')) && <li className="text-muted">{t('map.legend.backup')}</li>}
+        {virtual && (
+          <li className="flex items-center gap-2 border-t border-line pt-2">
+            <span className="ml-2 mr-2 h-4 w-5 shrink-0 rounded border border-virtual/60 bg-virtual-soft" aria-hidden="true" />
+            {t('map.legend.vm')}
+          </li>
+        )}
 
 
         {states.has('degraded') && (

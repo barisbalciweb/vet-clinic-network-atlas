@@ -11,6 +11,7 @@ import type { HostStatus } from '../../engine/haLab';
 import { roleLabel } from '../../components/map/labels';
 import { cn } from '../../utils/cn';
 import type { HaLab, LogParams } from './useHaLab';
+import { Collapsible } from '../../components/common/Collapsible';
 
 export function useLabNames() {
   const { td, lang } = useI18n();
@@ -37,7 +38,15 @@ export function useLabNames() {
   return { dev, vm, component, list, params };
 }
 
-export function Card({ title, children, className, aside }: { title: string; children: ReactNode; className?: string; aside?: ReactNode }) {
+/** `collapsible`: a deeper topic, closed until opened (keeps the page simple at first glance) */
+export function Card({ title, children, className, aside, collapsible }: { title: string; children: ReactNode; className?: string; aside?: ReactNode; collapsible?: boolean }) {
+  if (collapsible)
+    return (
+      <Collapsible variant="card" className={cn('self-start', className)} summary={<span className="text-sm font-semibold">{title}</span>}>
+        {aside && <div className="mb-2">{aside}</div>}
+        {children}
+      </Collapsible>
+    );
   return (
     <section className={cn('rounded-2xl border border-line bg-surface p-4', className)}>
       <div className="flex items-center justify-between gap-2">
@@ -106,7 +115,7 @@ function VmTile({ lab, vm, from }: { lab: HaLab; vm: string; from?: 'down' | 'mi
     <li
       className={cn(
         'relative rounded-lg border px-2 py-1.5 text-xs transition-colors',
-        from === 'down' ? 'border-bad bg-bad-soft' : from === 'migrating' ? 'border-warn bg-warn-soft' : 'border-line bg-raised/60',
+        from === 'down' ? 'border-bad bg-bad-soft' : from === 'migrating' ? 'border-warn bg-warn-soft' : 'border-virtual/50 bg-virtual-soft',
       )}
     >
       <div className="flex items-center gap-1.5">

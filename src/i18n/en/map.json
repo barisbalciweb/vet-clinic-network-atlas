@@ -29,7 +29,7 @@
     "germany": "Schematic map of Germany"
   },
   "legend": {
-    "title": "Lines",
+    "title": "Legend",
     "lan": "Network cable",
     "wifi": "Wi-Fi",
     "wan": "Internet line",
@@ -38,7 +38,8 @@
     "virtual": "Virtual (software)",
     "backup": "Lighter line = backup path or not live yet",
     "degraded": "Amber with !: degraded or failover path in use",
-    "down": "Red, dashed: link down"
+    "down": "Red, dashed: link down",
+    "vm": "Violet = virtual server (VM), runs on the ESXi hosts"
   },
   "panel": {
     "label": "Device details",

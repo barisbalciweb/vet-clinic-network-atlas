@@ -7,7 +7,7 @@
  * failure table and the "before" picture (one server per service).
  */
 import { useRef, useState } from 'react';
-import { AlertTriangle, CheckCircle2, Info, RotateCcw, Server, ShieldAlert, XCircle } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, Circle, Info, RotateCcw, Server, ShieldAlert, XCircle } from 'lucide-react';
 import { CLUSTER, INDEX } from '../../data';
 import { usePrefs } from '../../context/PrefsContext';
 import { useI18n } from '../../i18n/I18nContext';
@@ -60,6 +60,29 @@ function Infrastructure({ lab }: { lab: HaLab }) {
   );
 }
 
+/** Tone of a log line: something broke (red), something recovered (green), or neither */
+const LOG_TONE: Record<string, 'bad' | 'ok'> = {
+  'ha.log.componentFailed': 'bad',
+  'ha.log.hostFailed': 'bad',
+  'ha.log.hostNoNetwork': 'bad',
+  'ha.log.hostNoStorage': 'bad',
+  'ha.log.noCapacity': 'bad',
+  'ha.log.stuck': 'bad',
+  'ha.log.isolated': 'bad',
+  'ha.log.componentRestored': 'ok',
+  'ha.log.restored': 'ok',
+  'ha.log.restarted': 'ok',
+  'ha.log.reconnected': 'ok',
+  'ha.log.migrated': 'ok',
+  'ha.log.maintenanceDone': 'ok',
+  'ha.log.isolatedKeep': 'ok',
+  'ha.log.noImpact': 'ok',
+};
+const TONE_STYLE = {
+  bad: { icon: XCircle, text: 'text-bad', srKey: 'ha.log.toneBad' },
+  ok: { icon: CheckCircle2, text: 'text-ok', srKey: 'ha.log.toneOk' },
+} as const;
+
 function LogPanel({ lab }: { lab: HaLab }) {
   const { t, td } = useI18n();
   const { params } = useLabNames();
@@ -70,15 +93,28 @@ function LogPanel({ lab }: { lab: HaLab }) {
         {lab.log.map((g, gi) => (
           <ol key={g.id} className={cn('space-y-1 border-l-2 pl-3 text-sm', gi === 0 ? 'border-primary' : 'border-line opacity-70')}>
             {g.lines.map((l, i) => (
-              <li key={i} className="flex gap-2">
-                <span className="w-12 shrink-0 text-right font-mono text-xs leading-5 text-muted">{t('ha.log.time', { sec: l.at })}</span>
-                <span className={cn('min-w-0 text-ink', i === 0 && 'font-medium')}>{td(l.key, params(l.params) as Record<string, string | number>)}</span>
-              </li>
+              <LogItem key={i} at={l.at} tone={LOG_TONE[l.key]} first={i === 0} text={td(l.key, params(l.params) as Record<string, string | number>)} />
             ))}
           </ol>
         ))}
       </div>
     </Card>
+  );
+}
+
+function LogItem({ at, tone, first, text }: { at: number; tone?: 'bad' | 'ok'; first: boolean; text: string }) {
+  const { t } = useI18n();
+  const style = tone ? TONE_STYLE[tone] : null;
+  const Icon = style?.icon ?? Circle;
+  return (
+    <li className="flex gap-2">
+      <span className="w-12 shrink-0 text-right font-mono text-xs leading-5 text-muted">{t('ha.log.time', { sec: at })}</span>
+      <Icon className={style ? cn('mt-0.5 h-4 w-4 shrink-0', style.text) : 'mx-[3px] mt-1.5 h-2.5 w-2.5 shrink-0 text-muted'} aria-hidden="true" />
+      <span className={cn('min-w-0', style ? style.text : 'text-ink', first && 'font-medium')}>
+        {style && <span className="sr-only">{t(style.srKey)}: </span>}
+        {text}
+      </span>
+    </li>
   );
 }
 
@@ -160,7 +196,7 @@ function LoadPanel({ lab }: { lab: HaLab }) {
   const a = admission(lab.cluster);
   const impact = failureImpact(lab.cluster, lab.runtime, lab.health);
   return (
-    <Card title={t('ha.load.title')}>
+    <Card title={t('ha.load.title')} collapsible>
       <label htmlFor="ha-load" className="flex justify-between text-sm text-ink">
         <span>{t('ha.load.label')}</span>
         <span className="font-semibold">{t('ha.load.value', { pct: Math.round(a.usedPct), total: a.capacityGb })}</span>
@@ -205,7 +241,7 @@ function DrsPanel({ lab }: { lab: HaLab }) {
   const spread = Math.round(imbalance(lab.cluster, lab.runtime, usable));
   const busy = Object.keys(lab.display).length > 0;
   return (
-    <Card title={t('ha.drs.title')}>
+    <Card title={t('ha.drs.title')} collapsible>
       {!lab.vcenterUp ? (
         <p className="flex items-start gap-2 text-sm text-ink">
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-warn" aria-hidden="true" />
@@ -243,7 +279,7 @@ function RulesAndIsolation({ lab }: { lab: HaLab }) {
   const { vm } = useLabNames();
   return (
     <>
-      <Card title={t('ha.rule.title')}>
+      <Card title={t('ha.rule.title')} collapsible>
         <ul className="space-y-1.5 text-sm text-ink">
           {ruleStatus(lab.cluster, lab.runtime).map((r) => (
             <li key={r.vms.join()} className="flex items-start gap-2">
@@ -253,7 +289,7 @@ function RulesAndIsolation({ lab }: { lab: HaLab }) {
           ))}
         </ul>
       </Card>
-      <Card title={t('ha.isolation.title')}>
+      <Card title={t('ha.isolation.title')} collapsible>
         <p className="text-sm leading-relaxed text-ink">{t('ha.isolation.text')}</p>
         <div className="mt-3">
           <Segmented<IsolationResponse>
@@ -275,7 +311,7 @@ function RulesAndIsolation({ lab }: { lab: HaLab }) {
 function SpofTable({ onTry }: { onTry: (id: string) => void }) {
   const { t, td } = useI18n();
   return (
-    <Card title={t('ha.spof.title')}>
+    <Card title={t('ha.spof.title')} collapsible>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[640px] text-left text-sm">
           <thead className="text-xs uppercase tracking-wide text-muted">
@@ -312,7 +348,7 @@ function BeforePicture() {
   const { t, td } = useI18n();
   const [down, setDown] = useState<ReadonlySet<string>>(new Set());
   return (
-    <Card title={t('ha.before.title')}>
+    <Card title={t('ha.before.title')} collapsible>
       <p className="text-sm leading-relaxed text-ink">{t('ha.before.text')}</p>
       <ul className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
         {CLUSTER.before.map((s) => {
@@ -388,6 +424,10 @@ export function HaLabPage() {
                 <HostCard key={h.id} lab={lab} host={h.id} />
               ))}
             </div>
+            <p className="flex items-center gap-2 text-xs text-muted">
+              <span className="h-3.5 w-5 shrink-0 rounded border border-virtual/50 bg-virtual-soft" aria-hidden="true" />
+              {t('ha.vmKey')}
+            </p>
             <OffTray lab={lab} />
           </div>
           <div className="space-y-4">
@@ -397,7 +437,7 @@ export function HaLabPage() {
         </div>
       </div>
 
-      <div className="mt-4 grid gap-4 md:grid-cols-2">
+      <div className="mt-4 grid items-start gap-4 md:grid-cols-2">
         <LoadPanel lab={lab} />
         <DrsPanel lab={lab} />
         <RulesAndIsolation lab={lab} />

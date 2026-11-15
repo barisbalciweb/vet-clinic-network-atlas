@@ -88,4 +88,4 @@ Wer das Netz ändern oder ein Ausfallszenario ergänzen will, bearbeitet meist n
 
 ## Credits
 
-Erstellt von **Baris Balci** ([@barisbalciweb](https://github.com/barisbalciweb)).
+Erstellt von **Barış Balcı** ([@barisbalciweb](https://github.com/barisbalciweb)).

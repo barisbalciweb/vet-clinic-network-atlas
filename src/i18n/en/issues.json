@@ -21,7 +21,10 @@
     "banner": "Highlighted for: {symptom}",
     "clearHighlight": "Clear highlight",
     "critical": "Business-critical",
-    "warning": "Watch out"
+    "warning": "Watch out",
+    "more": "Causes and checks",
+    "moreRequest": "Pitfalls and steps",
+    "causesShort": "Likely causes"
   },
   "category": {
     "printing": "Printing and scanning",

@@ -11,6 +11,7 @@ import { useI18n } from '../../i18n/I18nContext';
 import { hrefFor } from '../../hooks/useHashRoute';
 import type { Measure } from '../../schema/compliance';
 import { cn } from '../../utils/cn';
+import { Collapsible } from '../../components/common/Collapsible';
 
 export const CATEGORY_ICON: Record<string, LucideIcon> = { owner: PawPrint, staff: Users, payment: CreditCard };
 
@@ -98,10 +99,19 @@ export function PrivacyPage() {
       </section>
 
       <h2 className="mt-6 text-base font-semibold text-ink">{t('privacy.ui.measuresTitle')}</h2>
-      <div className="mt-3 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-3 grid items-start gap-4 md:grid-cols-2 xl:grid-cols-3">
         {PRIVACY.locations.map((loc) => (
-          <section key={loc} className="rounded-2xl border border-line bg-surface p-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-primary-strong">{td(`privacy.location.${loc}`)}</h3>
+          <Collapsible
+            key={loc}
+            variant="card"
+            className="self-start"
+            summary={
+              <span className="flex items-center justify-between gap-2 text-sm uppercase tracking-wide text-primary-strong">
+                {td(`privacy.location.${loc}`)}
+                <span className="rounded-full bg-raised px-2 text-xs normal-case tracking-normal text-muted">{PRIVACY.measures.filter((m) => m.location === loc).length}</span>
+              </span>
+            }
+          >
             {loc === 'organization' && (
               <p className="mt-2 flex items-start gap-2 rounded-xl bg-bad-soft p-2.5 text-sm font-medium text-ink">
                 <Siren className="mt-0.5 h-4 w-4 shrink-0 text-bad" aria-hidden="true" />
@@ -115,12 +125,11 @@ export function PrivacyPage() {
                   <MeasureItem key={m.id} m={m} />
                 ))}
             </ul>
-          </section>
+          </Collapsible>
         ))}
 
-        <section className="rounded-2xl border border-line bg-surface p-4">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-primary-strong">{t('privacy.ui.day1Title')}</h3>
-          <ul className="mt-2 space-y-0.5">
+        <Collapsible variant="card" className="self-start" summary={<span className="text-sm uppercase tracking-wide text-primary-strong">{t('privacy.ui.day1Title')}</span>}>
+          <ul className="space-y-0.5">
             {PRIVACY.day1.map((d) => {
               const checked = done.has(d);
               return (
@@ -148,11 +157,10 @@ export function PrivacyPage() {
           <a href={hrefFor('opening')} className="inline-flex min-h-11 items-center text-sm font-medium text-primary-strong underline-offset-2 hover:underline">
             {t('privacy.ui.openPlaybook')}
           </a>
-        </section>
+        </Collapsible>
 
-        <section className="rounded-2xl border border-line bg-surface p-4">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-primary-strong">{t('privacy.ui.retentionTitle')}</h3>
-          <dl className="mt-2 divide-y divide-line text-sm">
+        <Collapsible variant="card" className="self-start" summary={<span className="text-sm uppercase tracking-wide text-primary-strong">{t('privacy.ui.retentionTitle')}</span>}>
+          <dl className="divide-y divide-line text-sm">
             {PRIVACY.retention.map((r) => (
               <div key={r} className="flex flex-wrap justify-between gap-x-3 py-2">
                 <dt className="text-ink">{td(`privacy.retention.${r}`)}</dt>
@@ -160,7 +168,7 @@ export function PrivacyPage() {
               </div>
             ))}
           </dl>
-        </section>
+        </Collapsible>
       </div>
     </div>
   );

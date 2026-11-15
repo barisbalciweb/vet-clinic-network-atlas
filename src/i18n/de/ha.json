@@ -106,7 +106,9 @@
     "reconnected": "{host} ist wieder erreichbar.",
     "drs": "DRS setzt {count} Verschiebungen mit vMotion um.",
     "responseChanged": "Reaktion auf Isolation geändert.",
-    "noImpact": "Keine VM ist betroffen."
+    "noImpact": "Keine VM ist betroffen.",
+    "toneBad": "Problem",
+    "toneOk": "Behoben"
   },
   "effects": {
     "title": "Auswirkung auf die Standorte",
@@ -202,5 +204,6 @@
     "down": "Aus bis zur Reparatur",
     "up": "Läuft",
     "now": "Im Cluster ist derselbe Ausfall ein Neustart von wenigen Minuten."
-  }
+  },
+  "vmKey": "Violette Kacheln sind virtuelle Server (VMs). Die Hosts drumherum sind die physischen Maschinen."
 }

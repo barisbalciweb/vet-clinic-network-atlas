@@ -14,6 +14,7 @@ import { statusBoard, type Health } from '../../schema/compliance';
 import { serviceLabel, siteLabel } from '../../components/map/labels';
 import { cn } from '../../utils/cn';
 import { useSimText } from '../b-simulator/useSimText';
+import { Collapsible } from '../../components/common/Collapsible';
 
 const HEALTH: Record<Health, { icon: LucideIcon; tone: string }> = {
   ok: { icon: CheckCircle2, tone: 'text-ok' },
@@ -206,8 +207,8 @@ export function MonitoringPage() {
               </li>
             ))}
           </ol>
-          <h3 className="mt-4 text-sm font-semibold text-ink">{t('mon.ui.checksTitle')}</h3>
-          <ul className="mt-2 space-y-1.5 text-sm text-ink">
+          <Collapsible className="mt-4" summary={t('mon.ui.checksTitle')}>
+          <ul className="space-y-1.5 text-sm text-ink">
             {MONITORING.release.checks.map((c) => (
               <li key={c} className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary-strong" aria-hidden="true" />
@@ -215,6 +216,7 @@ export function MonitoringPage() {
               </li>
             ))}
           </ul>
+          </Collapsible>
         </Card>
         <p className="text-xs text-muted">{t('mon.ui.illustrative')}</p>
       </div>

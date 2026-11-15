@@ -21,7 +21,10 @@
     "banner": "Hervorgehoben für: {symptom}",
     "clearHighlight": "Hervorhebung aufheben",
     "critical": "Geschäftskritisch",
-    "warning": "Achtung"
+    "warning": "Achtung",
+    "more": "Ursachen und Prüfschritte",
+    "moreRequest": "Stolperfallen und Schritte",
+    "causesShort": "Mögliche Ursachen"
   },
   "category": {
     "printing": "Drucken und Scannen",

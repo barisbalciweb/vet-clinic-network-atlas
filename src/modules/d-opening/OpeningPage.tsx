@@ -17,6 +17,7 @@ import { cn } from '../../utils/cn';
 import { Artefact, useCatalogNames } from './artefacts';
 import { ProcurementWizard } from './ProcurementWizard';
 import { CATALOG } from '../../data';
+import { Collapsible } from '../../components/common/Collapsible';
 
 const FIRST = Math.min(...PLAYBOOK.phases.map((p) => p.startWeek));
 const LAST = Math.max(...PLAYBOOK.phases.map((p) => p.startWeek + p.weeks - 1));
@@ -139,18 +140,18 @@ function PhaseDetail({ phase }: { phase: Phase }) {
           })}
         </ul>
 
-        <h3 className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted">{t('opening.ui.pitfalls')}</h3>
-        <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-ink">
+        <Collapsible className="mt-4" summary={t('opening.ui.pitfalls')}>
+        <ul className="list-disc space-y-1 pl-5 text-sm text-ink">
           {Array.from({ length: phase.pitfalls }, (_, i) => (
             <li key={i}>{td(`${base}.pitfall.${i + 1}`)}</li>
           ))}
         </ul>
+        </Collapsible>
       </section>
 
-      <div>
-        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">{t('opening.ui.example')}</h3>
+      <Collapsible variant="card" summary={t('opening.ui.example')}>
         <Artefact phase={phase} />
-      </div>
+      </Collapsible>
     </div>
   );
 }

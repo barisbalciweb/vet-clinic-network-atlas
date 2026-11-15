@@ -29,7 +29,7 @@
     "germany": "Şematik Almanya haritası"
   },
   "legend": {
-    "title": "Çizgiler",
+    "title": "Açıklama",
     "lan": "Ağ kablosu",
     "wifi": "Wi-Fi",
     "wan": "İnternet hattı",
@@ -38,7 +38,8 @@
     "virtual": "Sanal (yazılım)",
     "backup": "Açık renkli çizgi = yedek yol veya henüz devrede değil",
     "degraded": "Sarı ve !: kısıtlı veya yedek yol kullanımda",
-    "down": "Kırmızı, kesikli: bağlantı kopuk"
+    "down": "Kırmızı, kesikli: bağlantı kopuk",
+    "vm": "Mor = sanal sunucu (VM), ESXi host’larında çalışır"
   },
   "panel": {
     "label": "Cihaz ayrıntıları",
